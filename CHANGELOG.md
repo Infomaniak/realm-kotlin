@@ -1,3 +1,11 @@
+## 3.1.0
+
+* updated to work with Kotlin 2.1.0
+* Coroutines tested with 1.10.1
+* Gradle version 8.12
+* Android Gradle Plugin version 8.7.3
+* Minimum Android SDK: 21
+* R8 version 8.7.18
 
 ## 3.0.0 (2024-10-03)
 
