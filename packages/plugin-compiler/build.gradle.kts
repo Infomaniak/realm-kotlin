@@ -40,8 +40,8 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-reflect:${Versions.kotlin}")
     testImplementation("dev.zacsweers.kctfork:core:${Versions.kotlinCompileTesting}")
     // Have to be mentioned explicitly as it is not an api dependency of library
-    implementation(project(":cinterop"))
-    testImplementation(project(":library-base"))
+    implementation(project(":packages:cinterop"))
+    testImplementation(project(":packages:library-base"))
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {

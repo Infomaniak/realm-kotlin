@@ -35,7 +35,7 @@ The repository can be built on Windows, although only for the JVM and Android ta
 
 ### Linux support
 
-This repository does currently not support building on Linux from the source code. 
+This repository can now be built in the same way as on the Mac. 
 
 
 ### Building and running tests
@@ -45,15 +45,13 @@ be developed and tested as a single project. For details on publishing and runni
 Maven artifacts see the [Running tests against Maven artifacts](#running-tests-against-maven-artifacts)-section.
 
 The tests are triggered from the IDE or by triggering the specific test tasks across the various
-platforms with:
+platforms with (in the root directory):
 ```sh
-cd packages
-./gradlew :test-base:jvmTest :test-base:connectedAndroidTest :test-base:macosTest :test-base:iosTest
+./gradlew :packages:test-base:jvmTest :packages:test-base:connectedAndroidTest :packages:test-base:macosTest :packages:test-base:iosTest
 
 ```
 You can also the test across all modules on the various platforms with
 ```sh
-cd packages
 ./gradlew jvmTest connectedAndroidTest macosTest iosTest
 ```
 But this will also trigger tests in the SDK modules.
@@ -87,7 +85,6 @@ repository in a local folder using the default local and test against these usin
 commands:
 
 ```sh
-cd packages
 ./gradlew publishAllPublicationsToTestRepository
 ./gradlew -PincludeSdkModules=false jvmTest connectedAndroidTest macosTest iosTest 
 ```
