@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-rootProject.name = "realm-kotlin-root"
+rootProject.name = "krdb"
 
 pluginManagement {
     repositories {
@@ -30,6 +30,9 @@ pluginManagement {
 //            }
             if (requested.id.id == "kotlinx-atomicfu") {
                 useModule("org.jetbrains.kotlinx:atomicfu-gradle-plugin:0.27.0")
+            }
+            if (requested.id.id == "org.gradle.kotlin.kotlin-dsl") {
+                useVersion("2.1.0")
             }
         }
     }

@@ -6,7 +6,7 @@ apply(plugin = "kotlin")
 
 dependencies {
     jmh(project(":shared"))
-    jmh("io.realm.kotlin:library-base:${Realm.version}")
+    jmh("io.github.xilinjia.krdb:library-base:${Realm.version}")
     jmh("org.openjdk.jmh:jmh-core:${Versions.jmh}")
     jmh("org.openjdk.jmh:jmh-generator-annprocess:${Versions.jmh}")
 }

@@ -18,7 +18,7 @@
 
 package io.realm.example.kmmsample
 
-import io.realm.kotlin.types.RealmObject
+import io.github.xilinjia.krdb.types.RealmObject
 
 class Expression : RealmObject {
     var expressionString: String = ""

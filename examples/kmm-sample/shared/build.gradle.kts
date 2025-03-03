@@ -23,7 +23,7 @@ plugins {
     id("com.android.library")
     // Apply Realm specific linting plugin to get common Realm linting tasks
     id("realm-lint")
-    id("io.realm.kotlin")
+    id("io.github.xilinjia.krdb")
 }
 
 configurations.all {
@@ -49,7 +49,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 // TODO AUTO-SETUP
-                implementation("io.realm.kotlin:library-base:${Realm.version}")
+                implementation("io.github.xilinjia.krdb:library-base:${Realm.version}")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0-native-mt")
             }
         }

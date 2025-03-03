@@ -17,9 +17,9 @@
 
 package io.realm.test.singleplatform
 
-import io.realm.kotlin.Realm
-import io.realm.kotlin.RealmConfiguration
-import io.realm.kotlin.ext.query
+import io.github.xilinjia.krdb.Realm
+import io.github.xilinjia.krdb.RealmConfiguration
+import io.github.xilinjia.krdb.ext.query
 import io.realm.test.singleplatform.model.TestClass
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.fail

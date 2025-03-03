@@ -18,7 +18,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("io.realm.kotlin")
+    id("io.github.xilinjia.krdb")
 }
 
 android {
@@ -45,7 +45,7 @@ android {
 dependencies {
     implementation("androidx.appcompat:appcompat:1.5.1")
     implementation("androidx.multidex:multidex:2.0.1")
-    implementation("io.realm.kotlin:library-base:${rootProject.extra["realmVersion"]}")
+    implementation("io.github.xilinjia.krdb:library-base:${rootProject.extra["realmVersion"]}")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")

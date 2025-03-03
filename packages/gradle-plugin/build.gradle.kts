@@ -63,7 +63,7 @@ gradlePlugin {
             displayName = "Realm Kotlin Plugin"
             description = "Gradle plugin for the Realm Kotlin SDK, supporting Android and Multiplatform. " +
                 "Realm is a mobile database: Build better apps faster."
-            implementationClass = "io.realm.kotlin.gradle.RealmPlugin"
+            implementationClass = "io.github.xilinjia.krdb.gradle.RealmPlugin"
         }
         isAutomatedPublishing = createMarkerArtifact()
     }
@@ -115,12 +115,12 @@ val versionConstants: Task = tasks.create("versionConstants") {
     val coreVersion = coreDependencies["VERSION"]
 
     doLast {
-        val versionFile = file("$outputDir/io/realm/kotlin/gradle/version.kt")
+        val versionFile = file("$outputDir/io/github/xilinjia/krdb/gradle/version.kt")
         versionFile.parentFile.mkdirs()
         versionFile.writeText(
             """
             // Generated file. Do not edit!
-            package io.realm.kotlin.gradle
+            package io.github.xilinjia.krdb.gradle
             internal const val PLUGIN_VERSION = "${project.version}"
             internal const val CORE_VERSION = "${coreVersion}"
             """.trimIndent()

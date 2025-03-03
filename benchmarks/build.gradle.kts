@@ -15,7 +15,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("io.realm.kotlin:gradle-plugin:${Realm.version}")
+        classpath("io.github.xilinjia.krdb:gradle-plugin:${Realm.version}")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}")
         classpath("com.android.tools.build:gradle:${Versions.Android.buildTools}")
         classpath("androidx.benchmark:benchmark-gradle-plugin:${Versions.androidxBenchmarkPlugin}")

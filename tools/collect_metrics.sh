@@ -14,10 +14,10 @@
 # 8. .klib size of cinterop-ios<platform>, i.e. arm64, x64 and simulatorArm64
 # 9. Unzip cinterop-jvm and measure all platforms under /jni
 #
-# Note, it is possible for multiple versions of e.g. a SNAPSHOT release to reside in the same 
+# Note, it is possible for multiple versions of e.g. a SNAPSHOT release to reside in the same
 # directory on disk. This script assumes that only one release exists for each folder. This
 # should be the case on CI where the branches this script is running on will completely clean
-# builds. 
+# builds.
 #
 set -e
 
@@ -41,7 +41,7 @@ fi
 STARTING_DIR=`pwd`
 HERE=$(dirname `realpath "$0"`)
 REALM_KOTLIN_PATH="$HERE/.."
-PACKAGE_DIR="$REALM_KOTLIN_PATH/packages/build/m2-buildrepo/io/realm/kotlin"
+PACKAGE_DIR="$REALM_KOTLIN_PATH/packages/build/m2-buildrepo/io/github/xilinjia/krdb"
 VERSION="$1"
 OUTPUT_FILE="$2"
 
@@ -74,7 +74,7 @@ calculate_klib_size() {
   RETURN_KLIB_SIZE=$TOTAL_FILE_SIZE
 }
 
-RETURN_METHOD_COUNT=0 # Read this for final method count of calling `calculate_aar_metadata` 
+RETURN_METHOD_COUNT=0 # Read this for final method count of calling `calculate_aar_metadata`
 RETURN_AAR_SIZE=0 # Read this for final aar size of calling `calculate_aar_metdata`
 calculate_aar_metadata() {
   cd $1
@@ -92,7 +92,7 @@ calculate_jvm_native_size() {
   if [ -e "$FILE" ]
   then
     RETURN_NATIVE_SIZE=`wc -c $FILE | awk '{printf $1}'`
-  else 
+  else
     RETURN_NATIVE_SIZE=0
   fi
 }
@@ -178,7 +178,7 @@ echo "{
                 \"methodCount\": $CINTEROP_ANDROID_METHOD_COUNT,
                 \"x86\": $ANDROID_X86_SIZE,
                 \"x86_64\": $ANDROID_X86_64_SIZE,
-                \"arm64-v8a\": $ANDROID_ARM64_V8A_SIZE, 
+                \"arm64-v8a\": $ANDROID_ARM64_V8A_SIZE,
                 \"armeabi-v7a\": $ANDROID_ARMEABI_V7A_SIZE
             },
             \"library\": {
@@ -192,7 +192,7 @@ echo "{
                 \"methodCount\": $CINTEROP_ANDROID_METHOD_COUNT,
                 \"x86\": $ANDROID_X86_SIZE,
                 \"x86_64\": $ANDROID_X86_64_SIZE,
-                \"arm64-v8a\": $ANDROID_ARM64_V8A_SIZE, 
+                \"arm64-v8a\": $ANDROID_ARM64_V8A_SIZE,
                 \"armeabi-v7a\": $ANDROID_ARMEABI_V7A_SIZE
             },
             \"library\": {

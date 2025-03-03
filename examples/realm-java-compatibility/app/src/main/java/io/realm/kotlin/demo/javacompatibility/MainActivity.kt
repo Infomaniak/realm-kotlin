@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package io.realm.kotlin.demo.javacompatibility
+package io.github.xilinjia.krdb.demo.javacompatibility
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import io.realm.kotlin.demo.javacompatibility.data.java.JavaRepository
+import io.github.xilinjia.krdb.demo.javacompatibility.data.java.JavaRepository
 
 class MainActivity : AppCompatActivity() {
 

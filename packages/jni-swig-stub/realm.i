@@ -26,7 +26,7 @@ using namespace realm::jni_util;
 // Manual additions to java module class
 %pragma(java) modulecode=%{
     // Trigger loading of shared library when the swig wrapper is loaded
-    // This is only done on JVM. On Android, the native code is manually 
+    // This is only done on JVM. On Android, the native code is manually
     // loaded using the RealmInitializer class.
     static {
         // using https://developer.android.com/reference/java/lang/System#getProperties()
@@ -34,7 +34,7 @@ using namespace realm::jni_util;
             // otherwise locate, using reflection, the dependency SoLoader and call load
             // (calling SoLoader directly will create a circular dependency with `jvmMain`)
             try {
-                Class<?> classToLoad = Class.forName("io.realm.kotlin.jvm.SoLoader");
+                Class<?> classToLoad = Class.forName("io.github.xilinjia.krdb.jvm.SoLoader");
                 @SuppressWarnings("deprecation")
                 Object instance = classToLoad.newInstance();
                 java.lang.reflect.Method loadMethod = classToLoad.getDeclaredMethod("load");

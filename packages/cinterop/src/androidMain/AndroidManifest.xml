@@ -25,7 +25,7 @@
             android:authorities="${applicationId}.androidx-startup"
             android:exported="false">
             <meta-data
-                android:name="io.realm.kotlin.internal.RealmInitializer"
+                android:name="io.github.xilinjia.krdb.internal.RealmInitializer"
                 android:value="androidx.startup" />
         </provider>
     </application>
