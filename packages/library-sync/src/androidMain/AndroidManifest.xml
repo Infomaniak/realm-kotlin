@@ -28,7 +28,7 @@
             android:authorities="${applicationId}.androidx-startup"
             android:exported="false">
             <meta-data
-                android:name="io.realm.kotlin.mongodb.internal.RealmSyncInitializer"
+                android:name="io.github.xilinjia.krdb.mongodb.internal.RealmSyncInitializer"
                 android:value="androidx.startup" />
         </provider>
     </application>

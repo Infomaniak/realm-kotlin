@@ -16,11 +16,11 @@
 
 package io.realm.example.kmmsample.androidApp
 
-import io.realm.kotlin.Realm
-import io.realm.kotlin.RealmConfiguration
-import io.realm.kotlin.ext.query
-import io.realm.kotlin.types.RealmObject
-import io.realm.kotlin.types.annotations.PersistedName
+import io.github.xilinjia.krdb.Realm
+import io.github.xilinjia.krdb.RealmConfiguration
+import io.github.xilinjia.krdb.ext.query
+import io.github.xilinjia.krdb.types.RealmObject
+import io.github.xilinjia.krdb.types.annotations.PersistedName
 
 // Smoke testing that we can access fields using `@PersistedName` after obfuscation
 

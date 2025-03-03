@@ -54,7 +54,7 @@ realmPublish {
         name = "Compiler Plugin"
         description = "Compiler plugin for JVM based platforms for Realm Kotlin. This artifact is not " +
             "supposed to be consumed directly, but through " +
-            "'io.realm.kotlin:gradle-plugin:${Realm.version}' instead."
+            "'io.github.xilinjia.krdb:gradle-plugin:${Realm.version}' instead."
     }
 }
 

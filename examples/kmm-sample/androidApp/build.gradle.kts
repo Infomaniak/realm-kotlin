@@ -20,7 +20,7 @@ plugins {
     id("com.android.application")
     kotlin("android")
     id("realm-lint")
-    id("io.realm.kotlin")
+    id("io.github.xilinjia.krdb")
 }
 
 dependencies {
@@ -30,7 +30,7 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
     // TODO AUTO-SETUP
-    implementation("io.realm.kotlin:library-base:${Realm.version}")
+    implementation("io.github.xilinjia.krdb:library-base:${Realm.version}")
     testImplementation(kotlin("test-junit"))
     testImplementation("junit:junit:4.12")
 }

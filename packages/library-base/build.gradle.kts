@@ -111,7 +111,7 @@ kotlin {
     }
 
     // Require that all methods in the API have visibility modifiers and return types.
-    // Anything inside `io.realm.kotlin.internal.*` is considered internal regardless of their
+    // Anything inside `io.github.xilinjia.krdb.internal.*` is considered internal regardless of their
     // visibility modifier and will be stripped from Dokka, but will unfortunately still
     // leak into auto-complete in the IDE.
     explicitApi = org.jetbrains.kotlin.gradle.dsl.ExplicitApiMode.Strict
@@ -120,7 +120,7 @@ kotlin {
 // Using a custom name module for internal methods to avoid default name mangling in Kotlin compiler which uses the module
 // name and build type variant as a suffix, this default behaviour can cause mismatch at runtime https://github.com/realm/realm-kotlin/issues/621
 tasks.withType<KotlinCompile>().configureEach {
-    compilerOptions.moduleName.set("io.realm.kotlin.library")
+    compilerOptions.moduleName.set("io.github.xilinjia.krdb.library")
 }
 
 tasks.withType<KotlinCompilationTask<*>>().configureEach {
@@ -137,7 +137,7 @@ tasks.withType<KotlinNativeCompile>().configureEach {
 
 // Android configuration
 android {
-    namespace = "io.realm.kotlin"
+    namespace = "io.github.xilinjia.krdb"
     compileSdk = Versions.Android.compileSdkVersion
     buildToolsVersion = Versions.Android.buildToolsVersion
 
@@ -169,7 +169,7 @@ android {
         sourceCompatibility = Versions.sourceCompatibilityVersion
         targetCompatibility = Versions.targetCompatibilityVersion
     }
-    // Skip BuildConfig generation as it overlaps with io.realm.kotlin.BuildConfig from realm-java
+    // Skip BuildConfig generation as it overlaps with io.github.xilinjia.krdb.BuildConfig from realm-java
     buildFeatures {
         buildConfig = false
     }
@@ -186,7 +186,7 @@ realmPublish {
         name = "Library"
         description = "Library code for Realm Kotlin. This artifact is not " +
             "supposed to be consumed directly, but through " +
-            "'io.realm.kotlin:gradle-plugin:${Realm.version}' instead."
+            "'io.github.xilinjia.krdb:gradle-plugin:${Realm.version}' instead."
     }
 }
 
@@ -210,10 +210,10 @@ tasks.withType<org.jetbrains.dokka.gradle.DokkaTaskPartial>().configureEach {
                 "overview.md",
                 // TODO We could actually include package descriptions in top level overview file
                 //  with:
-                //    # package io.realm.kotlin
+                //    # package io.github.xilinjia.krdb
                 //  Maybe worth a consideration
-                "src/commonMain/kotlin/io/realm/kotlin/info.md",
-                "src/commonMain/kotlin/io/realm/kotlin/log/info.md"
+                "src/commonMain/kotlin/io/github/xilinjia/krdb/info.md",
+                "src/commonMain/kotlin/io/github/xilinjia/krdb/log/info.md"
             )
             sourceRoot("../runtime-api/src/commonMain/kotlin")
         }

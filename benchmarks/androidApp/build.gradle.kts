@@ -5,8 +5,8 @@ plugins {
 }
 
 android {
-    namespace = "io.realm.kotlin.benchmarks.android"
-    testNamespace = "io.realm.kotlin.benchmarks.android.test"
+    namespace = "io.github.xilinjia.krdb.benchmarks.android"
+    testNamespace = "io.github.xilinjia.krdb.benchmarks.android.test"
     compileSdk = Versions.Android.compileSdkVersion
 
     compileOptions {
@@ -47,7 +47,7 @@ android {
 }
 
 dependencies {
-    androidTestImplementation("io.realm.kotlin:library-sync:${Realm.version}")
+    androidTestImplementation("io.github.xilinjia.krdb:library-sync:${Realm.version}")
     androidTestImplementation("androidx.test:runner:${Versions.androidxTest}")
     androidTestImplementation("androidx.test.ext:junit:${Versions.androidxJunit}")
     androidTestImplementation("junit:junit:${Versions.junit}")

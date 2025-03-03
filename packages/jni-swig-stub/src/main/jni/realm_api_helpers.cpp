@@ -147,9 +147,9 @@ schema_changed_callback(void* userdata, const realm_schema_t* new_schema) {
 bool migration_callback(void *userdata, realm_t *old_realm, realm_t *new_realm,
                         const realm_schema_t *schema) {
     auto env = get_env(true);
-    static JavaClass java_callback_class(env, "io/realm/kotlin/internal/interop/MigrationCallback");
+    static JavaClass java_callback_class(env, "io/github/xilinjia/krdb/internal/interop/MigrationCallback");
     static JavaMethod java_callback_method(env, java_callback_class, "migrate",
-                                           "(Lio/realm/kotlin/internal/interop/NativePointer;Lio/realm/kotlin/internal/interop/NativePointer;Lio/realm/kotlin/internal/interop/NativePointer;)V");
+                                           "(Lio/github/xilinjia/krdb/internal/interop/NativePointer;Lio/github/xilinjia/krdb/internal/interop/NativePointer;Lio/github/xilinjia/krdb/internal/interop/NativePointer;)V");
     // These realm/schema pointers are only valid for the duration of the
     // migration so don't let ownership follow the NativePointer-objects
     env->PushLocalFrame(3);
@@ -296,7 +296,7 @@ class CustomJVMScheduler {
 public:
     CustomJVMScheduler(jobject dispatchScheduler) : m_id(std::this_thread::get_id()) {
         JNIEnv *jenv = get_env();
-        jclass jvm_scheduler_class = jenv->FindClass("io/realm/kotlin/internal/interop/JVMScheduler");
+        jclass jvm_scheduler_class = jenv->FindClass("io/github/xilinjia/krdb/internal/interop/JVMScheduler");
         m_notify_method = jenv->GetMethodID(jvm_scheduler_class, "notifyCore", "(J)V");
         m_cancel_method = jenv->GetMethodID(jvm_scheduler_class, "cancel", "()V");
         m_jvm_dispatch_scheduler = jenv->NewGlobalRef(dispatchScheduler);
@@ -342,7 +342,7 @@ private:
 // Note: using jlong here will create a linker issue
 // Undefined symbols for architecture x86_64:
 //  "invoke_core_notify_callback(long long, long long)", referenced from:
-//      _Java_io.realm.kotlin.internal_interop_realmcJNI_invoke_1core_1notify_1callback in realmc.cpp.o
+//      _Java_io.github.xilinjia.krdb.internal_interop_realmcJNI_invoke_1core_1notify_1callback in realmc.cpp.o
 //ld: symbol(s) not found for architecture x86_64
 //
 // I suspect this could be related to the fact that jni.h defines jlong differently between Android (typedef int64_t)
@@ -376,7 +376,7 @@ jobject convert_to_jvm_app_error(JNIEnv* env, const realm_app_error_t* error) {
     static JavaMethod app_error_constructor(env,
                                                 JavaClassGlobalDef::app_error(),
                                                 "newInstance",
-                                                "(IIILjava/lang/String;Ljava/lang/String;)Lio/realm/kotlin/internal/interop/sync/AppError;",
+                                                "(IIILjava/lang/String;Ljava/lang/String;)Lio/github/xilinjia/krdb/internal/interop/sync/AppError;",
                                                 true);
     env->PushLocalFrame(3);
     jint category = static_cast<jint>(error->categories);
@@ -400,7 +400,7 @@ jobject core_connection_state(JNIEnv* env, realm_sync_connection_state_e state) 
     static JavaMethod connection_state_constructor(env,
                                             JavaClassGlobalDef::connection_state(),
                                             "of",
-                                            "(I)Lio/realm/kotlin/internal/interop/sync/CoreConnectionState;",
+                                            "(I)Lio/github/xilinjia/krdb/internal/interop/sync/CoreConnectionState;",
                                             true);
     env->PushLocalFrame(1);
     auto result = env->CallStaticObjectMethod(JavaClassGlobalDef::connection_state(), connection_state_constructor, jint(state));
@@ -411,7 +411,7 @@ jobject core_connection_state(JNIEnv* env, realm_sync_connection_state_e state) 
 void app_complete_void_callback(void *userdata, const realm_app_error_t *error) {
     auto env = get_env(true);
     static JavaMethod java_notify_onerror(env, JavaClassGlobalDef::app_callback(), "onError",
-                                          "(Lio/realm/kotlin/internal/interop/sync/AppError;)V");
+                                          "(Lio/github/xilinjia/krdb/internal/interop/sync/AppError;)V");
     static JavaMethod java_notify_onsuccess(env, JavaClassGlobalDef::app_callback(), "onSuccess",
                                             "(Ljava/lang/Object;)V");
     static JavaClass unit_class(env, "kotlin/Unit");
@@ -436,11 +436,11 @@ void app_complete_void_callback(void *userdata, const realm_app_error_t *error) 
 void app_complete_result_callback(void* userdata, void* result, const realm_app_error_t* error) {
     auto env = get_env(true);
     static JavaMethod java_notify_onerror(env, JavaClassGlobalDef::app_callback(), "onError",
-                                          "(Lio/realm/kotlin/internal/interop/sync/AppError;)V");
+                                          "(Lio/github/xilinjia/krdb/internal/interop/sync/AppError;)V");
     static JavaMethod java_notify_onsuccess(env, JavaClassGlobalDef::app_callback(), "onSuccess",
                                             "(Ljava/lang/Object;)V");
 
-    static JavaClass native_pointer_class(env, "io/realm/kotlin/internal/interop/LongPointerWrapper");
+    static JavaClass native_pointer_class(env, "io/github/xilinjia/krdb/internal/interop/LongPointerWrapper");
     static JavaMethod native_pointer_constructor(env, native_pointer_class, "<init>", "(JZ)V");
 
     env->PushLocalFrame(1);
@@ -463,7 +463,7 @@ void app_complete_result_callback(void* userdata, void* result, const realm_app_
 }
 
 jobject create_api_key_wrapper(JNIEnv* env, const realm_app_user_apikey_t* key_data) {
-    static JavaClass api_key_wrapper_class(env, "io/realm/kotlin/internal/interop/sync/ApiKeyWrapper");
+    static JavaClass api_key_wrapper_class(env, "io/github/xilinjia/krdb/internal/interop/sync/ApiKeyWrapper");
     static JavaMethod api_key_wrapper_constructor(env, api_key_wrapper_class, "<init>", "([BLjava/lang/String;Ljava/lang/String;Z)V");
     auto id_size = sizeof(key_data->id.bytes);
     jbyteArray id = env->NewByteArray(id_size);
@@ -484,7 +484,7 @@ jobject create_api_key_wrapper(JNIEnv* env, const realm_app_user_apikey_t* key_d
 void app_apikey_callback(realm_userdata_t userdata, realm_app_user_apikey_t* apikey, const realm_app_error_t* error) {
     auto env = get_env(true);
     static JavaMethod java_notify_onerror(env, JavaClassGlobalDef::app_callback(), "onError",
-                                          "(Lio/realm/kotlin/internal/interop/sync/AppError;)V");
+                                          "(Lio/github/xilinjia/krdb/internal/interop/sync/AppError;)V");
     static JavaMethod java_notify_onsuccess(env, JavaClassGlobalDef::app_callback(), "onSuccess",
                                             "(Ljava/lang/Object;)V");
     env->PushLocalFrame(1);
@@ -507,7 +507,7 @@ void app_string_callback(realm_userdata_t userdata, const char *serialized_ejson
             JavaClassGlobalDef::app_callback(),
             "onError",
 
-            "(Lio/realm/kotlin/internal/interop/sync/AppError;)V"
+            "(Lio/github/xilinjia/krdb/internal/interop/sync/AppError;)V"
     );
     static JavaMethod java_notify_onsuccess(
             env,
@@ -530,10 +530,10 @@ void app_string_callback(realm_userdata_t userdata, const char *serialized_ejson
 
 void app_apikey_list_callback(realm_userdata_t userdata, realm_app_user_apikey_t* keys, size_t count, realm_app_error_t* error) {
     auto env = get_env(true);
-    static JavaClass api_key_wrapper_class(env, "io/realm/kotlin/internal/interop/sync/ApiKeyWrapper");
+    static JavaClass api_key_wrapper_class(env, "io/github/xilinjia/krdb/internal/interop/sync/ApiKeyWrapper");
 
     static JavaMethod java_notify_onerror(env, JavaClassGlobalDef::app_callback(), "onError",
-                                          "(Lio/realm/kotlin/internal/interop/sync/AppError;)V");
+                                          "(Lio/github/xilinjia/krdb/internal/interop/sync/AppError;)V");
     static JavaMethod java_notify_onsuccess(env, JavaClassGlobalDef::app_callback(), "onSuccess",
                                             "(Ljava/lang/Object;)V");
 
@@ -562,7 +562,7 @@ void app_apikey_list_callback(realm_userdata_t userdata, realm_app_user_apikey_t
 
 bool realm_should_compact_callback(void* userdata, uint64_t total_bytes, uint64_t used_bytes) {
     auto env = get_env(true);
-    static JavaClass java_should_compact_class(env, "io/realm/kotlin/internal/interop/CompactOnLaunchCallback");
+    static JavaClass java_should_compact_class(env, "io/github/xilinjia/krdb/internal/interop/CompactOnLaunchCallback");
     static JavaMethod java_should_compact_method(env, java_should_compact_class, "invoke", "(JJ)Z");
 
     jobject callback = static_cast<jobject>(userdata);
@@ -572,7 +572,7 @@ bool realm_should_compact_callback(void* userdata, uint64_t total_bytes, uint64_
 
 bool realm_data_initialization_callback(void* userdata, realm_t*) {
     auto env = get_env(true);
-    static JavaClass java_data_init_class(env, "io/realm/kotlin/internal/interop/DataInitializationCallback");
+    static JavaClass java_data_init_class(env, "io/github/xilinjia/krdb/internal/interop/DataInitializationCallback");
     static JavaMethod java_data_init_method(env, java_data_init_class, "invoke", "()V");
 
     jobject callback = static_cast<jobject>(userdata);
@@ -584,7 +584,7 @@ static void send_request_via_jvm_transport(JNIEnv *jenv, jobject network_transpo
     static JavaMethod m_send_request_method(jenv,
                                             JavaClassGlobalDef::network_transport_class(),
                                             "sendRequest",
-                                            "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljava/lang/String;Lio/realm/kotlin/internal/interop/sync/ResponseCallback;)V");
+                                            "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljava/lang/String;Lio/github/xilinjia/krdb/internal/interop/sync/ResponseCallback;)V");
 
     // Prepare request fields to be consumable by JVM
     std::string method;
@@ -719,7 +719,7 @@ static void network_request_lambda_function(void* userdata,
         jclass response_callback_class = JavaClassGlobalDef::app_response_callback();
         static jmethodID response_callback_constructor = jenv->GetMethodID(response_callback_class,
                                                                            "<init>",
-                                                                           "(Lio/realm/kotlin/internal/interop/sync/NetworkTransport;J)V");
+                                                                           "(Lio/github/xilinjia/krdb/internal/interop/sync/NetworkTransport;J)V");
         push_local_frame(jenv, 1);
         jobject response_callback = jenv->NewObject(response_callback_class,
                                                     response_callback_constructor,
@@ -767,7 +767,7 @@ static void websocket_post_func(realm_userdata_t userdata,
     jobject lambda_callback_pointer_wrapper = wrap_pointer(jenv,reinterpret_cast<jlong>(lambda));
 
     static JavaMethod post_method(jenv, JavaClassGlobalDef::sync_websocket_transport(), "post",
-                                                     "(Lio/realm/kotlin/internal/interop/NativePointer;)V");
+                                                     "(Lio/github/xilinjia/krdb/internal/interop/NativePointer;)V");
     jobject websocket_transport = static_cast<jobject>(userdata);
     jenv->CallVoidMethod(websocket_transport, post_method, lambda_callback_pointer_wrapper);
     jni_check_exception(jenv);
@@ -795,7 +795,7 @@ static realm_sync_socket_timer_t websocket_create_timer_func(
     jobject lambda_callback_pointer_wrapper = wrap_pointer(jenv,reinterpret_cast<jlong>(lambda));
 
     static JavaMethod create_timer_method (jenv, JavaClassGlobalDef::sync_websocket_transport(), "createTimer",
-                                                     "(JLio/realm/kotlin/internal/interop/NativePointer;)Lio/realm/kotlin/internal/interop/sync/CancellableTimer;");
+                                                     "(JLio/github/xilinjia/krdb/internal/interop/NativePointer;)Lio/github/xilinjia/krdb/internal/interop/sync/CancellableTimer;");
     jobject websocket_transport = static_cast<jobject>(userdata);
     jobject cancellable_timer = jenv->CallObjectMethod(websocket_transport, create_timer_method, jlong(delay_ms), lambda_callback_pointer_wrapper);
     jni_check_exception(jenv);
@@ -810,7 +810,7 @@ static void websocket_cancel_timer_func(realm_userdata_t userdata,
         auto jenv = get_env(false);
         jobject cancellable_timer = static_cast<jobject>(timer_userdata);
 
-        static JavaClass cancellable_timer_class(jenv, "io/realm/kotlin/internal/interop/sync/CancellableTimer");
+        static JavaClass cancellable_timer_class(jenv, "io/github/xilinjia/krdb/internal/interop/sync/CancellableTimer");
         static JavaMethod cancel_method(jenv, cancellable_timer_class, "cancel", "()V");
         jenv->CallVoidMethod(cancellable_timer, cancel_method);
         jni_check_exception(jenv);
@@ -827,13 +827,13 @@ static realm_sync_socket_websocket_t websocket_connect_func(
 
     jobject observer_pointer = wrap_pointer(jenv,reinterpret_cast<jlong>(realm_websocket_observer));
 
-    static JavaClass websocket_observer_class(jenv, "io/realm/kotlin/internal/interop/sync/WebSocketObserver");
+    static JavaClass websocket_observer_class(jenv, "io/github/xilinjia/krdb/internal/interop/sync/WebSocketObserver");
     static JavaMethod websocket_observer_constructor(jenv, websocket_observer_class, "<init>",
-                                                                         "(Lio/realm/kotlin/internal/interop/NativePointer;)V");
+                                                                         "(Lio/github/xilinjia/krdb/internal/interop/NativePointer;)V");
     jobject websocket_observer = jenv->NewObject(websocket_observer_class, websocket_observer_constructor, observer_pointer);
 
     static JavaMethod connect_method(jenv, JavaClassGlobalDef::sync_websocket_transport(), "connect",
-                                                        "(Lio/realm/kotlin/internal/interop/sync/WebSocketObserver;Ljava/lang/String;Ljava/lang/String;JZJLjava/lang/String;)Lio/realm/kotlin/internal/interop/sync/WebSocketClient;");
+                                                        "(Lio/github/xilinjia/krdb/internal/interop/sync/WebSocketObserver;Ljava/lang/String;Ljava/lang/String;JZJLjava/lang/String;)Lio/github/xilinjia/krdb/internal/interop/sync/WebSocketClient;");
     jobject websocket_transport = static_cast<jobject>(userdata);
 
     std::ostringstream supported_protocol;
@@ -873,7 +873,7 @@ static void websocket_async_write_func(realm_userdata_t userdata,
     jobject lambda_callback_pointer_wrapper = wrap_pointer(jenv,reinterpret_cast<jlong>(lambda));
 
     static jmethodID write_method = jenv->GetMethodID(JavaClassGlobalDef::sync_websocket_transport(), "write",
-                                                      "(Lio/realm/kotlin/internal/interop/sync/WebSocketClient;[BJLio/realm/kotlin/internal/interop/NativePointer;)V");
+                                                      "(Lio/github/xilinjia/krdb/internal/interop/sync/WebSocketClient;[BJLio/github/xilinjia/krdb/internal/interop/NativePointer;)V");
     jobject websocket_transport = static_cast<jobject>(userdata);
 
     jbyteArray byteArray = jenv->NewByteArray(size);
@@ -1015,7 +1015,7 @@ jobject convert_to_jvm_sync_error(JNIEnv* jenv, const realm_sync_error_t& error)
     static JavaMethod sync_error_constructor(jenv,
                                              JavaClassGlobalDef::sync_error(),
                                              "<init>",
-    "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZ[Lio/realm/kotlin/internal/interop/sync/CoreCompensatingWriteInfo;Ljava/lang/Throwable;)V");
+    "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZ[Lio/github/xilinjia/krdb/internal/interop/sync/CoreCompensatingWriteInfo;Ljava/lang/Throwable;)V");
 
     jint category = static_cast<jint>(error.status.categories);
     jint value = static_cast<jint>(error.status.error);
@@ -1122,7 +1122,7 @@ void sync_set_error_handler(realm_sync_config_t* sync_config, jobject error_hand
                                             static JavaMethod sync_error_method(jenv,
                                                                                 JavaClassGlobalDef::sync_error_callback(),
                                                                                 "onSyncError",
-                                                                                "(Lio/realm/kotlin/internal/interop/NativePointer;Lio/realm/kotlin/internal/interop/sync/SyncError;)V");
+                                                                                "(Lio/github/xilinjia/krdb/internal/interop/NativePointer;Lio/github/xilinjia/krdb/internal/interop/sync/SyncError;)V");
 
                                             push_local_frame(jenv, 2);
 
@@ -1206,7 +1206,7 @@ before_client_reset(void* userdata, realm_t* before_realm) {
     static JavaMethod java_before_callback_function(env,
                                                     JavaClassGlobalDef::sync_before_client_reset(),
                                                     "onBeforeReset",
-                                                    "(Lio/realm/kotlin/internal/interop/NativePointer;)V");
+                                                    "(Lio/github/xilinjia/krdb/internal/interop/NativePointer;)V");
     env->PushLocalFrame(1);
     jobject before_pointer = wrap_pointer(env, reinterpret_cast<jlong>(before_realm), false);
     env->CallVoidMethod(static_cast<jobject>(userdata), java_before_callback_function, before_pointer);
@@ -1222,7 +1222,7 @@ after_client_reset(void* userdata, realm_t* before_realm,
     static JavaMethod java_after_callback_function(env,
                                                    JavaClassGlobalDef::sync_after_client_reset(),
                                                    "onAfterReset",
-                                                   "(Lio/realm/kotlin/internal/interop/NativePointer;Lio/realm/kotlin/internal/interop/NativePointer;Z)V");
+                                                   "(Lio/github/xilinjia/krdb/internal/interop/NativePointer;Lio/github/xilinjia/krdb/internal/interop/NativePointer;Z)V");
     env->PushLocalFrame(2);
     jobject before_pointer = wrap_pointer(env, reinterpret_cast<jlong>(before_realm), false);
     // Reuse the scheduler from the beforeRealm, otherwise Core will attempt to recreate a new one,
@@ -1277,7 +1277,7 @@ void
 realm_sync_session_connection_state_change_callback(void *userdata, realm_sync_connection_state_e old_state, realm_sync_connection_state_e new_state) {
     auto env = get_env(true);
 
-    static JavaMethod java_callback_method(env, JavaClassGlobalDef::connection_state_change_callback(), "onChange", "(Lio/realm/kotlin/internal/interop/sync/CoreConnectionState;Lio/realm/kotlin/internal/interop/sync/CoreConnectionState;)V");
+    static JavaMethod java_callback_method(env, JavaClassGlobalDef::connection_state_change_callback(), "onChange", "(Lio/github/xilinjia/krdb/internal/interop/sync/CoreConnectionState;Lio/github/xilinjia/krdb/internal/interop/sync/CoreConnectionState;)V");
 
     jobject jold_state = core_connection_state(env, old_state);
     jobject jnew_state = core_connection_state(env, new_state);

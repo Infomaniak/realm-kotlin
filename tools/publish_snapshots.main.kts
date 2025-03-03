@@ -113,14 +113,14 @@ settingsFile.writeText("""
 debug("Upload artifacts for $version using $localMavenRepo")
 
 // Iterate through a local Maven repository and find all Realm Kotlin packages that neeeds to be uploaded.
-val packages: List<String> = File(localMavenRepo, "io/realm/kotlin").listFiles()
+val packages: List<String> = File(localMavenRepo, "io/github/xilinjia/krdb").listFiles()
     .filter { file -> !file.isHidden && file.isDirectory }
     .map { file -> file.name }
 
 debug("Found the following packages:\n${packages.joinToString(separator = "\n") { " - $it" }}")
 packages.forEach { packageName ->
     debug("Process package: $packageName")
-    val versionDirectory = File(localMavenRepo, "io/realm/kotlin/$packageName/$version")
+    val versionDirectory = File(localMavenRepo, "io/github/xilinjia/krdb/$packageName/$version")
     if (!versionDirectory.exists()) {
         throw IllegalStateException("$versionDirectory does not exists.")
     }

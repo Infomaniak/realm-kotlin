@@ -307,7 +307,7 @@ tasks.withType<KotlinNativeCompile>().configureEach {
 }
 
 android {
-    namespace = "io.realm.kotlin.internal.interop"
+    namespace = "io.github.xilinjia.krdb.internal.interop"
     compileSdk = Versions.Android.compileSdkVersion
     buildToolsVersion = Versions.Android.buildToolsVersion
     ndkVersion = Versions.Android.ndkVersion
@@ -792,7 +792,7 @@ realmPublish {
         description =
             "Wrapper for interacting with Realm Kotlin native code. This artifact is not " +
             "supposed to be consumed directly, but through " +
-            "'io.realm.kotlin:gradle-plugin:${Realm.version}' instead."
+            "'io.github.xilinjia.krdb:gradle-plugin:${Realm.version}' instead."
     }
 }
 
@@ -804,12 +804,12 @@ val generateSdkVersionConstant: Task = tasks.create("generateSdkVersionConstant"
     outputs.dir(outputDir)
 
     doLast {
-        val versionFile = file("$outputDir/io/realm/kotlin/internal/Version.kt")
+        val versionFile = file("$outputDir/io/github/xilinjia/krdb/internal/Version.kt")
         versionFile.parentFile.mkdirs()
         versionFile.writeText(
             """
             // Generated file. Do not edit!
-            package io.realm.kotlin.internal
+            package io.github.xilinjia.krdb.internal
             public const val SDK_VERSION: String = "${project.version}"
             """.trimIndent()
         )

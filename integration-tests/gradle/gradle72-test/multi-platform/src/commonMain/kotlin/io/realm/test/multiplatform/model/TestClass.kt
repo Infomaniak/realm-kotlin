@@ -17,8 +17,8 @@
 
 package io.realm.test.multiplatform.model
 
-import io.realm.kotlin.types.RealmObject
-import io.realm.kotlin.types.annotations.PrimaryKey
+import io.github.xilinjia.krdb.types.RealmObject
+import io.github.xilinjia.krdb.types.annotations.PrimaryKey
 
 class TestClass : RealmObject {
     @PrimaryKey

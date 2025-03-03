@@ -2,12 +2,12 @@
 -dontoptimize
 -dontshrink
 
-# io.realm.kotlin.test.mongodb.shared.FlexibleSyncConfigurationTests.toString_nonEmpty,
+# io.github.xilinjia.krdb.test.mongodb.shared.FlexibleSyncConfigurationTests.toString_nonEmpty,
 # SyncConfigTests.unsupportedSchemaTypesThrowException_flexibleSync and
 # SyncConfigTests.unsupportedSchemaTypesThrowException_partitionBasedSync verifies exception
 # messages with explicit class names in them
--keep class io.realm.kotlin.mongodb.internal.SyncConfigurationImpl
--keep class io.realm.kotlin.dynamic.DynamicRealmObject
+-keep class io.github.xilinjia.krdb.mongodb.internal.SyncConfigurationImpl
+-keep class io.github.xilinjia.krdb.dynamic.DynamicRealmObject
 
 ## Serialization related rules
 -keepclasseswithmembers class **.*$Companion {
@@ -23,9 +23,9 @@
 }
 
 ## Required to make asserted messages in FunctionTests and BsonEncoder work
--keep class io.realm.kotlin.types.MutableRealmInt
--keep class io.realm.kotlin.types.RealmUUID
--keep class io.realm.kotlin.types.RealmList
+-keep class io.github.xilinjia.krdb.types.MutableRealmInt
+-keep class io.github.xilinjia.krdb.types.RealmUUID
+-keep class io.github.xilinjia.krdb.types.RealmList
 -keep class org.mongodb.kbson.* {
     *;
 }

@@ -28,8 +28,8 @@ gradlePlugin {
             implementationClass = "org.realm.kotlin.RealmPublishPlugin"
         }
 //        create("realm-compiler") { // Plugin name (used internally)
-//            id = "io.realm.kotlin.plugin-compiler" // Plugin ID (used to apply)
-//            implementationClass = "io.realm.kotlin.compiler.Registrar"
+//            id = "io.github.xilinjia.krdb.plugin-compiler" // Plugin ID (used to apply)
+//            implementationClass = "io.github.xilinjia.krdb.compiler.Registrar"
 //        }
     }
 }

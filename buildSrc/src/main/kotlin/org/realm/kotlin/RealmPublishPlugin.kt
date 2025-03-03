@@ -143,7 +143,7 @@ class RealmPublishPlugin : Plugin<Project> {
             // The nexus publisher plugin can only be applied to top-level projects.
             // See https://github.com/gradle-nexus/publish-plugin/issues/81
             extensions.getByType<NexusPublishExtension>().apply {
-                this.packageGroup.set("io.realm.kotlin")
+                this.packageGroup.set("io.github.xilinjia.krdb")
                 this.repositories {
                     sonatype {
                         this.stagingProfileId.set(sonatypeStagingProfileId)

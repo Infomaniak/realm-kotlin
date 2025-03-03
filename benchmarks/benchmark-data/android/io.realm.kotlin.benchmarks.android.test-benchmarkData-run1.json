@@ -19,7 +19,7 @@
         {
             "name": "EMULATOR_managedReadString",
             "params": {},
-            "className": "io.realm.kotlin.benchmarks.android.AccessorTests",
+            "className": "io.github.xilinjia.krdb.benchmarks.android.AccessorTests",
             "totalRunTimeNs": 13833126094,
             "metrics": {
                 "timeNs": {
@@ -100,7 +100,7 @@
         {
             "name": "EMULATOR_unManagedReadDouble",
             "params": {},
-            "className": "io.realm.kotlin.benchmarks.android.AccessorTests",
+            "className": "io.github.xilinjia.krdb.benchmarks.android.AccessorTests",
             "totalRunTimeNs": 2186662568,
             "metrics": {
                 "timeNs": {
@@ -181,7 +181,7 @@
         {
             "name": "EMULATOR_unManagedReadList",
             "params": {},
-            "className": "io.realm.kotlin.benchmarks.android.AccessorTests",
+            "className": "io.github.xilinjia.krdb.benchmarks.android.AccessorTests",
             "totalRunTimeNs": 1020803969,
             "metrics": {
                 "timeNs": {
@@ -262,7 +262,7 @@
         {
             "name": "EMULATOR_unManagedReadLong",
             "params": {},
-            "className": "io.realm.kotlin.benchmarks.android.AccessorTests",
+            "className": "io.github.xilinjia.krdb.benchmarks.android.AccessorTests",
             "totalRunTimeNs": 884966356,
             "metrics": {
                 "timeNs": {
@@ -343,7 +343,7 @@
         {
             "name": "EMULATOR_unManagedReadObject",
             "params": {},
-            "className": "io.realm.kotlin.benchmarks.android.AccessorTests",
+            "className": "io.github.xilinjia.krdb.benchmarks.android.AccessorTests",
             "totalRunTimeNs": 884093363,
             "metrics": {
                 "timeNs": {
@@ -424,7 +424,7 @@
         {
             "name": "EMULATOR_unManagedReadString",
             "params": {},
-            "className": "io.realm.kotlin.benchmarks.android.AccessorTests",
+            "className": "io.github.xilinjia.krdb.benchmarks.android.AccessorTests",
             "totalRunTimeNs": 814103819,
             "metrics": {
                 "timeNs": {
@@ -505,7 +505,7 @@
         {
             "name": "EMULATOR_unManagedReadBoolean",
             "params": {},
-            "className": "io.realm.kotlin.benchmarks.android.AccessorTests",
+            "className": "io.github.xilinjia.krdb.benchmarks.android.AccessorTests",
             "totalRunTimeNs": 804132375,
             "metrics": {
                 "timeNs": {
@@ -586,7 +586,7 @@
         {
             "name": "EMULATOR_managedReadList",
             "params": {},
-            "className": "io.realm.kotlin.benchmarks.android.AccessorTests",
+            "className": "io.github.xilinjia.krdb.benchmarks.android.AccessorTests",
             "totalRunTimeNs": 9861839380,
             "metrics": {
                 "timeNs": {
@@ -667,7 +667,7 @@
         {
             "name": "EMULATOR_managedReadLong",
             "params": {},
-            "className": "io.realm.kotlin.benchmarks.android.AccessorTests",
+            "className": "io.github.xilinjia.krdb.benchmarks.android.AccessorTests",
             "totalRunTimeNs": 12002708738,
             "metrics": {
                 "timeNs": {
@@ -748,7 +748,7 @@
         {
             "name": "EMULATOR_managedReadDouble",
             "params": {},
-            "className": "io.realm.kotlin.benchmarks.android.AccessorTests",
+            "className": "io.github.xilinjia.krdb.benchmarks.android.AccessorTests",
             "totalRunTimeNs": 14632735462,
             "metrics": {
                 "timeNs": {
@@ -829,7 +829,7 @@
         {
             "name": "EMULATOR_managedReadBoolean",
             "params": {},
-            "className": "io.realm.kotlin.benchmarks.android.AccessorTests",
+            "className": "io.github.xilinjia.krdb.benchmarks.android.AccessorTests",
             "totalRunTimeNs": 5894045135,
             "metrics": {
                 "timeNs": {
@@ -910,7 +910,7 @@
         {
             "name": "EMULATOR_managedReadObject",
             "params": {},
-            "className": "io.realm.kotlin.benchmarks.android.AccessorTests",
+            "className": "io.github.xilinjia.krdb.benchmarks.android.AccessorTests",
             "totalRunTimeNs": 15201181331,
             "metrics": {
                 "timeNs": {
@@ -991,7 +991,7 @@
         {
             "name": "EMULATOR_writeData[size-10-pk-false]",
             "params": {},
-            "className": "io.realm.kotlin.benchmarks.android.BulkWriteTests",
+            "className": "io.github.xilinjia.krdb.benchmarks.android.BulkWriteTests",
             "totalRunTimeNs": 13057007323,
             "metrics": {
                 "timeNs": {
@@ -1072,7 +1072,7 @@
         {
             "name": "EMULATOR_writeData[size-100-pk-false]",
             "params": {},
-            "className": "io.realm.kotlin.benchmarks.android.BulkWriteTests",
+            "className": "io.github.xilinjia.krdb.benchmarks.android.BulkWriteTests",
             "totalRunTimeNs": 14653828134,
             "metrics": {
                 "timeNs": {
@@ -1153,7 +1153,7 @@
         {
             "name": "EMULATOR_writeData[size-1,000-pk-false]",
             "params": {},
-            "className": "io.realm.kotlin.benchmarks.android.BulkWriteTests",
+            "className": "io.github.xilinjia.krdb.benchmarks.android.BulkWriteTests",
             "totalRunTimeNs": 13888908697,
             "metrics": {
                 "timeNs": {
@@ -1234,7 +1234,7 @@
         {
             "name": "EMULATOR_writeData[size-10,000-pk-false]",
             "params": {},
-            "className": "io.realm.kotlin.benchmarks.android.BulkWriteTests",
+            "className": "io.github.xilinjia.krdb.benchmarks.android.BulkWriteTests",
             "totalRunTimeNs": 26382238637,
             "metrics": {
                 "timeNs": {
@@ -1315,7 +1315,7 @@
         {
             "name": "EMULATOR_writeData[size-10-pk-true]",
             "params": {},
-            "className": "io.realm.kotlin.benchmarks.android.BulkWriteTests",
+            "className": "io.github.xilinjia.krdb.benchmarks.android.BulkWriteTests",
             "totalRunTimeNs": 13843084108,
             "metrics": {
                 "timeNs": {
@@ -1396,7 +1396,7 @@
         {
             "name": "EMULATOR_writeData[size-100-pk-true]",
             "params": {},
-            "className": "io.realm.kotlin.benchmarks.android.BulkWriteTests",
+            "className": "io.github.xilinjia.krdb.benchmarks.android.BulkWriteTests",
             "totalRunTimeNs": 13687405438,
             "metrics": {
                 "timeNs": {
@@ -1477,7 +1477,7 @@
         {
             "name": "EMULATOR_writeData[size-1,000-pk-true]",
             "params": {},
-            "className": "io.realm.kotlin.benchmarks.android.BulkWriteTests",
+            "className": "io.github.xilinjia.krdb.benchmarks.android.BulkWriteTests",
             "totalRunTimeNs": 10358233683,
             "metrics": {
                 "timeNs": {
@@ -1558,7 +1558,7 @@
         {
             "name": "EMULATOR_writeData[size-10,000-pk-true]",
             "params": {},
-            "className": "io.realm.kotlin.benchmarks.android.BulkWriteTests",
+            "className": "io.github.xilinjia.krdb.benchmarks.android.BulkWriteTests",
             "totalRunTimeNs": 27508730097,
             "metrics": {
                 "timeNs": {
@@ -1639,7 +1639,7 @@
         {
             "name": "EMULATOR_openRealm[schema-SINGLE]",
             "params": {},
-            "className": "io.realm.kotlin.benchmarks.android.OpenRealmTests",
+            "className": "io.github.xilinjia.krdb.benchmarks.android.OpenRealmTests",
             "totalRunTimeNs": 13509466401,
             "metrics": {
                 "timeNs": {
@@ -1720,7 +1720,7 @@
         {
             "name": "EMULATOR_openRealm[schema-SMALL]",
             "params": {},
-            "className": "io.realm.kotlin.benchmarks.android.OpenRealmTests",
+            "className": "io.github.xilinjia.krdb.benchmarks.android.OpenRealmTests",
             "totalRunTimeNs": 9770391560,
             "metrics": {
                 "timeNs": {
@@ -1801,7 +1801,7 @@
         {
             "name": "EMULATOR_openRealm[schema-LARGE]",
             "params": {},
-            "className": "io.realm.kotlin.benchmarks.android.OpenRealmTests",
+            "className": "io.github.xilinjia.krdb.benchmarks.android.OpenRealmTests",
             "totalRunTimeNs": 13544787814,
             "metrics": {
                 "timeNs": {

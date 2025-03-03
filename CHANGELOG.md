@@ -1,3 +1,14 @@
+## 3.2.3
+
+* fully rebranded (required) to prepare for publishing to maven
+* added useVersion("2.1.0") in root settings.gradle.kts
+* mass renamed packages containing "io.realm.kotlin" to "io.github.xilinjia.krdb" in files
+* mass renamed references containing "io/realm/kotlin" to "io/github/xilinjia/krdb" in files
+* mass restructured directories of io/realm/kotlin to io/github/xilinjia/krdb
+* the shell script rename_realm_kotlin_to_krdb.sh is used to rename packages and restructure directories
+  * it misses io.realm.kotlin in a couple files, which need to be changed manually 
+  * it misses io/realm/kotlin in a couple files, which need to be changed manually 
+
 ## 3.2.2
 
 * set Android targetSDK to 35

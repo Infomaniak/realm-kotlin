@@ -70,17 +70,17 @@ fun copyProperties(action: GradleBuild) {
     }
 }
 
-//allprojects {
-//    version = Realm.version
-//    group = Realm.group
-//
-//    // Define JVM bytecode target for all Kotlin targets
-//    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile> {
-//        compilerOptions {
-//            jvmTarget.set(fromTarget(Versions.kotlinJvmTarget))
-//        }
-//    }
-//}
+allprojects {
+   version = Realm.version
+   group = Realm.group
+
+   // Define JVM bytecode target for all Kotlin targets
+   tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile> {
+       compilerOptions {
+           jvmTarget.set(fromTarget(Versions.kotlinJvmTarget))
+       }
+   }
+}
 
 tasks {
     register("ktlintCheck") {

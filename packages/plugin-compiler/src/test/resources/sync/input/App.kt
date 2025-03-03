@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-import io.realm.kotlin.mongodb.App
-import io.realm.kotlin.mongodb.AppConfiguration
-import io.realm.kotlin.mongodb.sync.SyncConfiguration
-import io.realm.kotlin.mongodb.User
+import io.github.xilinjia.krdb.mongodb.App
+import io.github.xilinjia.krdb.mongodb.AppConfiguration
+import io.github.xilinjia.krdb.mongodb.sync.SyncConfiguration
+import io.github.xilinjia.krdb.mongodb.User
 
 val app1 = App.create("app1")
 val app2 = AppConfiguration.create("app2")

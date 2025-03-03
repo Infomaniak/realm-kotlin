@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package io.realm.kotlin.demo.javacompatibility.data.kotlin
+package io.github.xilinjia.krdb.demo.javacompatibility.data.kotlin
 
 import android.util.Log
-import io.realm.kotlin.Realm
-import io.realm.kotlin.RealmConfiguration
-import io.realm.kotlin.demo.javacompatibility.TAG
-import io.realm.kotlin.demo.javacompatibility.data.Repository
-import io.realm.kotlin.ext.query
-import io.realm.kotlin.types.RealmObject
-import io.realm.kotlin.types.annotations.PrimaryKey
+import io.github.xilinjia.krdb.Realm
+import io.github.xilinjia.krdb.RealmConfiguration
+import io.github.xilinjia.krdb.demo.javacompatibility.TAG
+import io.github.xilinjia.krdb.demo.javacompatibility.data.Repository
+import io.github.xilinjia.krdb.ext.query
+import io.github.xilinjia.krdb.types.RealmObject
+import io.github.xilinjia.krdb.types.annotations.PrimaryKey
 
 class KotlinEntity : RealmObject {
     @PrimaryKey

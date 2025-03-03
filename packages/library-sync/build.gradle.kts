@@ -113,7 +113,7 @@ kotlin {
     }
 
     // Require that all methods in the API have visibility modifiers and return types.
-    // Anything inside `io.realm.kotlin.internal.*` is considered internal regardless of their
+    // Anything inside `io.github.xilinjia.krdb.internal.*` is considered internal regardless of their
     // visibility modifier and will be stripped from Dokka, but will unfortunately still
     // leak into auto-complete in the IDE.
     explicitApi = org.jetbrains.kotlin.gradle.dsl.ExplicitApiMode.Strict
@@ -128,12 +128,12 @@ tasks.withType<KotlinCompilationTask<*>>().configureEach {
 }
 
 tasks.withType<KotlinCompile>().configureEach {
-    compilerOptions.moduleName.set("io.realm.kotlin.library")
+    compilerOptions.moduleName.set("io.github.xilinjia.krdb.library")
 }
 
 // Android configuration
 android {
-    namespace = "io.realm.kotlin.mongodb"
+    namespace = "io.github.xilinjia.krdb.mongodb"
     compileSdk = Versions.Android.compileSdkVersion
     buildToolsVersion = Versions.Android.buildToolsVersion
 
@@ -162,7 +162,7 @@ android {
         sourceCompatibility = Versions.sourceCompatibilityVersion
         targetCompatibility = Versions.targetCompatibilityVersion
     }
-    // Skip BuildConfig generation as it overlaps with io.realm.kotlin.BuildConfig from realm-java
+    // Skip BuildConfig generation as it overlaps with io.github.xilinjia.krdb.BuildConfig from realm-java
     buildFeatures {
         buildConfig = false
     }
@@ -179,7 +179,7 @@ realmPublish {
         name = "Sync Library"
         description = "Sync Library code for Realm Kotlin. This artifact is not " +
             "supposed to be consumed directly, but through " +
-            "'io.realm.kotlin:gradle-plugin:${Realm.version}' instead."
+            "'io.github.xilinjia.krdb:gradle-plugin:${Realm.version}' instead."
     }
 }
 

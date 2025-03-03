@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.realm.kotlin.demo.javacompatibility.data.java
+package io.github.xilinjia.krdb.demo.javacompatibility.data.java
 
 import android.content.Context
 import android.util.Log
@@ -24,8 +24,8 @@ import io.realm.RealmModel
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
 import io.realm.annotations.RealmClass
-import io.realm.kotlin.demo.javacompatibility.TAG
-import io.realm.kotlin.demo.javacompatibility.data.Repository
+import io.github.xilinjia.krdb.demo.javacompatibility.TAG
+import io.github.xilinjia.krdb.demo.javacompatibility.data.Repository
 
 // Realm Kotlin will try to process this class if using io.realm.RealmObject so use
 // io.realm.RealmModel/@RealmClass approach instead
