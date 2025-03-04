@@ -72,13 +72,6 @@ Original Readme of Realm-Kotlin can be referenced [here](https://github.com/real
 See [CONTRIBUTING.md](CONTRIBUTING.md) for more details!
 
 
-# Code of Conduct
-
-This project adheres to the [MongoDB Code of Conduct](https://www.mongodb.com/community-code-of-conduct).
-By participating, you are expected to uphold this code. Please report
-unacceptable behavior to [community-conduct@mongodb.com](mailto:community-conduct@mongodb.com).
-
-
 # License
 
 Realm Kotlin is published under the [Apache 2.0 license](LICENSE).
