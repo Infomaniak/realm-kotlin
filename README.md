@@ -41,7 +41,7 @@ allprojects {
 ```
 and remove:
 ```
-id 'io.realm.kotlin' version '3.0.0' apply false
+id 'io.realm.kotlin' version 'x.x.x' apply false
 ```
 * in the app build.gradle
 
@@ -51,7 +51,7 @@ with
 ```    id 'io.github.xilinjia.krdb' ```
 
 replace:
-```implementation "io.realm.kotlin:library-base:2.1.0" ```
+```implementation "io.realm.kotlin:library-base:x.x.x" ```
 with:
 ```implementation "io.github.xilinjia.krdb:library-base:3.2.3-SNAPSHOT" ```
 
