@@ -8,6 +8,8 @@ Project structure is changed to make Intellij IDE work.  gradlew needs to be run
 
 Testing are performed on the dev versions. Maven artifacts can be published (tested locally), but can not be tested upon yet.
 
+### Being uploaded to maven central, follow up shortly
+
 ### To use this with a local build
 
 * clone this project with: 
@@ -30,7 +32,7 @@ buildscript {
         mavenLocal()
     }
     dependencies {
-        classpath "io.github.xilinjia.krdb:gradle-plugin:3.2.3-SNAPSHOT"
+        classpath "io.github.xilinjia.krdb:gradle-plugin:3.2.4"
     }
 }
 allprojects {
@@ -53,7 +55,7 @@ with
 replace:
 ```implementation "io.realm.kotlin:library-base:x.x.x" ```
 with:
-```implementation "io.github.xilinjia.krdb:library-base:3.2.3-SNAPSHOT" ```
+```implementation "io.github.xilinjia.krdb:library-base:3.2.4" ```
 
 and replace:
 ```apply plugin: "io.realm.kotlin" ```
