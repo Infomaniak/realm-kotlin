@@ -8,7 +8,7 @@ Project structure is changed to make Intellij IDE work.  gradlew needs to be run
 
 Testing are performed on the dev versions. Maven artifacts can be published (tested locally), but can not be tested upon yet.
 
-### Being uploaded to maven central, follow up shortly
+### Published to Maven Central, being tested
 
 ### To use this with a local build
 
