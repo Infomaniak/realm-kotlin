@@ -1,4 +1,3 @@
-import org.jetbrains.kotlin.config.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget.Companion.fromTarget
 
 /*
@@ -23,7 +22,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.0")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}")
     }
 }
 
@@ -44,7 +43,7 @@ val releaseMetaDataDir = File("${buildDir}/outputs/s3")
 releaseMetaDataDir.mkdirs()
 
 fun readAndCacheVersion(): String {
-    val constants: String = File("${projectDir.absolutePath}/buildSrc/src/main/kotlin/Config.kt").readText();
+    val constants: String = File("${projectDir.absolutePath}/buildSrc/src/main/kotlin/Config.kt").readText()
     val regex = "const val version = \"(.*?)\"".toRegex()
     val match: MatchResult = regex.find(constants) ?: throw GradleException("Could not find current Realm version")
     val version: String = match.groups[1]!!.value
@@ -244,15 +243,15 @@ tasks {
                          ":packages:cinterop:publishIosSimulatorArm64PublicationToTestRepository",
                          ":packages:library-base:publishIosArm64PublicationToTestRepository",
                          ":packages:library-base:publishIosSimulatorArm64PublicationToTestRepository",
-                         ":packages:library-sync:publishIosArm64PublicationToTestRepository",
-                         ":packages:library-sync:publishIosSimulatorArm64PublicationToTestRepository",
+//                         ":packages:library-sync:publishIosArm64PublicationToTestRepository",
+//                         ":packages:library-sync:publishIosSimulatorArm64PublicationToTestRepository",
                      )
                  }
                  "iosX64" -> {
                      dependsOn(
                          ":packages:cinterop:publishIosX64PublicationToTestRepository",
                          ":packages:library-base:publishIosX64PublicationToTestRepository",
-                         ":packages:library-sync:publishIosX64PublicationToTestRepository",
+//                         ":packages:library-sync:publishIosX64PublicationToTestRepository",
                      )
                  }
                  "jvm" -> {
@@ -260,21 +259,21 @@ tasks {
                          ":packages:jni-swig-stub:publishAllPublicationsToTestRepository",
                          ":packages:cinterop:publishJvmPublicationToTestRepository",
                          ":packages:library-base:publishJvmPublicationToTestRepository",
-                         ":packages:library-sync:publishJvmPublicationToTestRepository",
+//                         ":packages:library-sync:publishJvmPublicationToTestRepository",
                      )
                  }
                  "macosX64" -> {
                      dependsOn(
                          ":packages:cinterop:publishMacosX64PublicationToTestRepository",
                          ":packages:library-base:publishMacosX64PublicationToTestRepository",
-                         ":packages:library-sync:publishMacosX64PublicationToTestRepository",
+//                         ":packages:library-sync:publishMacosX64PublicationToTestRepository",
                      )
                  }
                  "macosArm64" -> {
                      dependsOn(
                          ":packages:cinterop:publishMacosArm64PublicationToTestRepository",
                          ":packages:library-base:publishMacosArm64PublicationToTestRepository",
-                         ":packages:library-sync:publishMacosArm64PublicationToTestRepository",
+//                         ":packages:library-sync:publishMacosArm64PublicationToTestRepository",
                      )
                  }
                  "android" -> {
@@ -282,14 +281,14 @@ tasks {
                          ":packages:jni-swig-stub:publishAllPublicationsToTestRepository",
                          ":packages:cinterop:publishAndroidReleasePublicationToTestRepository",
                          ":packages:library-base:publishAndroidReleasePublicationToTestRepository",
-                         ":packages:library-sync:publishAndroidReleasePublicationToTestRepository",
+//                         ":packages:library-sync:publishAndroidReleasePublicationToTestRepository",
                      )
                  }
                  "metadata" -> {
                      dependsOn(
                          ":packages:cinterop:publishKotlinMultiplatformPublicationToTestRepository",
                          ":packages:library-base:publishKotlinMultiplatformPublicationToTestRepository",
-                         ":packages:library-sync:publishKotlinMultiplatformPublicationToTestRepository",
+//                         ":packages:library-sync:publishKotlinMultiplatformPublicationToTestRepository",
                      )
                  }
                  "compilerPlugin" -> {

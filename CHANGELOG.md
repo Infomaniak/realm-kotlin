@@ -1,3 +1,11 @@
+## 3.2.4
+
+* preparing for publishing to maven central
+* amended routine to ensure signed packages are built
+* disabled packages of library-sync and test-sync
+* upped Kotlin to 2.1.10
+* upped gradle-kotlin-dsl-plugins to 5.2.0, atomicfu to 0.27.0
+
 ## 3.2.3
 
 * fully rebranded (required) to prepare for publishing to maven

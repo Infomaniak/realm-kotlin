@@ -7,7 +7,6 @@ jobs:
   ktlint:
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout code
         uses: actions/checkout@v4
         with:
@@ -59,7 +58,6 @@ jobs:
   detekt:
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout code
         uses: actions/checkout@v4
         with:
@@ -86,8 +84,8 @@ jobs:
       - name: Run Detekt
         run: ./gradlew detekt
 
-      - name: Stash Detekt results   
-        if: always() 
+      - name: Stash Detekt results
+        if: always()
         run: |
           rm -rf /tmp/detekt
           mkdir /tmp/detekt
@@ -98,7 +96,7 @@ jobs:
           rsync -a --delete --ignore-errors packages/gradle-plugin/build/reports/detekt/ /tmp/detekt/plugin-gradle/ || true
           rsync -a --delete --ignore-errors benchmarks/build/reports/detekt/ /tmp/detekt/benchmarks/ || true
 
-      - name: Publish Detekt results    
+      - name: Publish Detekt results
         uses: actions/upload-artifact@v4
         if: always()
         with:

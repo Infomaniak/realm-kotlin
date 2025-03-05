@@ -220,6 +220,29 @@ tasks.withType<org.jetbrains.dokka.gradle.DokkaTaskPartial>().configureEach {
     }
 }
 
+tasks.matching { it.name.endsWith("PublicationToMavenLocal") }.configureEach {
+    val signTasks = project.tasks.filter { t -> t.name.startsWith("sign") && t.name.endsWith("Publication") }
+    if (signTasks.isNotEmpty()) {
+        dependsOn(signTasks)
+        doFirst {
+            logger.info("Ensuring signing tasks (${signTasks.joinToString { it.name }}) run before $name in :cinterop")
+        }
+    } else {
+        logger.warn("No signing tasks found for $name in :cinterop")
+    }
+}
+
+// CHANGED: Removed afterEvaluate block, replaced with configureEach for specific tasks
+tasks.named("publishKotlinMultiplatformPublicationToMavenLocal") {
+    val signJvm = project.tasks.findByName("signJvmPublication")
+    if (signJvm != null) {
+        dependsOn(signJvm)
+        doFirst {
+            logger.info("Explicitly ensured :publishKotlinMultiplatformPublicationToMavenLocal depends on :signJvmPublication")
+        }
+    }
+}
+
 tasks.register("dokkaJar", Jar::class) {
     val dokkaTask = "dokkaHtmlPartial"
     dependsOn(dokkaTask)
