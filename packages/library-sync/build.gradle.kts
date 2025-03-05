@@ -214,16 +214,16 @@ val javadocJar by tasks.registering(Jar::class) {
 
 // Make sure that docs are published for the Metadata publication as well. This is required
 // by Maven Central
-publishing {
-    // See https://dev.to/kotlin/how-to-build-and-publish-a-kotlin-multiplatform-library-going-public-4a8k
-    publications.withType<MavenPublication> {
-        // Stub javadoc.jar artifact
-        artifact(javadocJar.get())
-    }
-
-    // TODO: configure DOKKA so that it's only published for sync and not base
-    val common = publications.getByName("kotlinMultiplatform") as MavenPublication
-    // Configuration through examples/kmm-sample does not work if we do not resolve the tasks
-    // completely, hence the .get() below.
-    common.artifact(tasks.named("dokkaJar").get())
-}
+// publishing {
+//     // See https://dev.to/kotlin/how-to-build-and-publish-a-kotlin-multiplatform-library-going-public-4a8k
+//     publications.withType<MavenPublication> {
+//         // Stub javadoc.jar artifact
+//         artifact(javadocJar.get())
+//     }
+//
+//     // TODO: configure DOKKA so that it's only published for sync and not base
+//     val common = publications.getByName("kotlinMultiplatform") as MavenPublication
+//     // Configuration through examples/kmm-sample does not work if we do not resolve the tasks
+//     // completely, hence the .get() below.
+//     common.artifact(tasks.named("dokkaJar").get())
+// }

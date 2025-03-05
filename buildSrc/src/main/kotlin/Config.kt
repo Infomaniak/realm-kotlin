@@ -62,7 +62,8 @@ val HOST_OS: OperatingSystem = findHostOs()
 
 object Realm {
     val ciBuild = (System.getenv("CI") != null)
-    const val version = "3.2.3-SNAPSHOT"
+//    const val version = "3.2.4-SNAPSHOT"
+    const val version = "3.2.4"
     const val group = "io.github.xilinjia.krdb"
     const val projectUrl = "https://realm.io"
     const val pluginPortalId = "io.github.xilinjia.krdb"
@@ -83,15 +84,15 @@ object Realm {
         const val url = "https://github.com/realm/realm-kotlin/issues"
     }
     object SCM {
-        const val connection = "scm:git:git://github.com/realm/realm-kotlin.git"
-        const val developerConnection = "scm:git:ssh://github.com/realm/realm-kotlin.git"
-        const val url = "https://github.com/realm/realm-kotlin"
+        const val connection = "scm:git:git://github.com/xilinjia/krdb.git"
+        const val developerConnection = "scm:git:ssh://github.com/xilinjia/krdb.git"
+        const val url = "https://github.com/xilinjia/krdb"
     }
     object Developer {
-        const val name = "Realm"
-        const val email = "info@realm.io"
-        const val organization = "MongoDB"
-        const val organizationUrl = "https://www.mongodb.com"
+        const val name = "Xilin Jia"
+        const val email = "xilin.vw@gmail.com"
+        const val organization = ""
+        const val organizationUrl = "https://github.com/XilinJia/krdb"
     }
 }
 
@@ -111,7 +112,7 @@ object Versions {
     const val androidxTest = "1.6.1" // https://maven.google.com/web/index.html#androidx.test:rules
 
     // Must be built with same (major.minor!?) kotlin version as 'kotlin' variable below, to be binary compatible with kotlin
-    const val atomicfu = "0.26.1" // https://github.com/Kotlin/kotlinx.atomicfu
+    const val atomicfu = "0.27.0" // https://github.com/Kotlin/kotlinx.atomicfu
     const val atomicfuPlugin = "0.27.0" // https://github.com/Kotlin/kotlinx.atomicfu
     const val autoService = "1.0" // https://mvnrepository.com/artifact/com.google.auto.service/auto-service
     const val buildkonfig = "0.13.3" // https://github.com/yshrsmz/BuildKonfig
@@ -125,9 +126,9 @@ object Versions {
     const val junit = "4.13.2" // https://mvnrepository.com/artifact/junit/junit
     const val kbson = "0.4.0" // https://github.com/mongodb/kbson
     // When updating the Kotlin version, also remember to update /examples/min-android-sample/build.gradle.kts
-    const val kotlin = "2.1.0" // https://github.com/JetBrains/kotlin and https://kotlinlang.org/docs/releases.html#release-details
+    const val kotlin = "2.1.10" // https://github.com/JetBrains/kotlin and https://kotlinlang.org/docs/releases.html#release-details
     const val kotlinJvmTarget = "17" // Which JVM bytecode version is kotlin compiled to.
-    const val latestKotlin = "2.1.0" // https://kotlinlang.org/docs/eap.html#build-details
+    const val latestKotlin = "2.1.10" // https://kotlinlang.org/docs/eap.html#build-details
     const val kotlinCompileTesting = "0.7.0" // https://github.com/zacsweers/kotlin-compile-testing
     const val ktlint = "1.5.0" // https://github.com/pinterest/ktlint
     const val ktor = "2.3.12" // https://github.com/ktorio/ktor

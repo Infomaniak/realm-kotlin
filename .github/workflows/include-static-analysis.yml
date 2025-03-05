@@ -7,7 +7,6 @@ jobs:
   ktlint:
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout code
         uses: actions/checkout@v4
         with:
@@ -44,7 +43,7 @@ jobs:
           rsync -a --delete --ignore-errors examples/kmm-sample/shared/build/reports/ktlint/ /tmp/ktlint/example/ || true
           rsync -a --delete --ignore-errors packages/cinterop/build/reports/ktlint/ /tmp/ktlint/cinterop/ || true
           rsync -a --delete --ignore-errors packages/library-base/build/reports/ktlint/ /tmp/ktlint/library-base/ || true
-          rsync -a --delete --ignore-errors packages/library-sync/build/reports/ktlint/ /tmp/ktlint/library-sync/ || true
+          # rsync -a --delete --ignore-errors packages/library-sync/build/reports/ktlint/ /tmp/ktlint/library-sync/ || true
           rsync -a --delete --ignore-errors packages/plugin-compiler/build/reports/ktlint/ /tmp/ktlint/plugin-compiler/ || true
           rsync -a --delete --ignore-errors packages/gradle-plugin/build/reports/ktlint/ /tmp/ktlint/plugin-gradle/ || true
           rsync -a --delete --ignore-errors benchmarks/build/reports/ktlint/ /tmp/ktlint/benchmarks/ || true
@@ -60,7 +59,6 @@ jobs:
   detekt:
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout code
         uses: actions/checkout@v4
         with:
@@ -87,20 +85,20 @@ jobs:
       - name: Run Detekt
         run: ./gradlew detekt
 
-      - name: Stash Detekt results   
-        if: always() 
+      - name: Stash Detekt results
+        if: always()
         run: |
           rm -rf /tmp/detekt
           mkdir /tmp/detekt
           rsync -a --delete --ignore-errors examples/kmm-sample/shared/build/reports/detekt/ /tmp/detekt/example/ || true
           rsync -a --delete --ignore-errors packages/cinterop/build/reports/detekt/ /tmp/detekt/cinterop/ || true
           rsync -a --delete --ignore-errors packages/library-base/build/reports/detekt/ /tmp/detekt/library-base/ || true
-          rsync -a --delete --ignore-errors packages/library-sync/build/reports/detekt/ /tmp/detekt/library-sync/ || true
+#          rsync -a --delete --ignore-errors packages/library-sync/build/reports/detekt/ /tmp/detekt/library-sync/ || true
           rsync -a --delete --ignore-errors packages/plugin-compiler/build/reports/detekt/ /tmp/detekt/plugin-compiler/ || true
           rsync -a --delete --ignore-errors packages/gradle-plugin/build/reports/detekt/ /tmp/detekt/plugin-gradle/ || true
           rsync -a --delete --ignore-errors benchmarks/build/reports/detekt/ /tmp/detekt/benchmarks/ || true
 
-      - name: Publish Detekt results    
+      - name: Publish Detekt results
         uses: actions/upload-artifact@v4
         if: always()
         with:

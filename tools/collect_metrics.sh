@@ -122,11 +122,11 @@ LIBRARY_BASE_AAR_SIZE=$RETURN_AAR_SIZE
 cleanup_aar_tmp_data
 
 # Track metrics for library-sync-android
-echo "\n--- Tracking metrics for library-sync-android ---"
-calculate_aar_metadata "$PACKAGE_DIR/library-sync-android/$VERSION/"
-LIBRARY_SYNC_ANDROID_METHOD_COUNT=$RETURN_METHOD_COUNT
-LIBRARY_SYNC_AAR_SIZE=$RETURN_AAR_SIZE
-cleanup_aar_tmp_data
+#echo "\n--- Tracking metrics for library-sync-android ---"
+#calculate_aar_metadata "$PACKAGE_DIR/library-sync-android/$VERSION/"
+#LIBRARY_SYNC_ANDROID_METHOD_COUNT=$RETURN_METHOD_COUNT
+#LIBRARY_SYNC_AAR_SIZE=$RETURN_AAR_SIZE
+#cleanup_aar_tmp_data
 
 # Track metrics for cinterop-macos<platform>
 echo "\n--- Tracking metrics for cinterop-macosarm64 ---"

@@ -1,11 +1,6 @@
-# Contributing to Realm Kotlin
+# Contributing to KRDB, Kotlin SDK for Realm DB
 
-## CLA
-
-We welcomes all contributions! The only requirement we have is that, like many other projects, we need to have a [Contributor License Agreement](https://en.wikipedia.org/wiki/Contributor_License_Agreement) (CLA) in place before we can accept any external code. Our own CLA is a modified version of the Apache Software Foundation’s CLA.
-
-[Please submit your CLA electronically using our Google form](https://docs.google.com/forms/d/e/1FAIpQLSeQ9ROFaTu9pyrmPhXc-dEnLD84DbLuT_-tPNZDOL9J10tOKQ/viewform) so we can accept your submissions. The GitHub username you file there will need to match that of your Pull Requests. If you have any questions or cannot file the CLA electronically, you can email help@realm.io.
-
+We welcomes all contributions! 
 
 ## How to build locally
 
@@ -24,7 +19,7 @@ We welcomes all contributions! The only requirement we have is that, like many o
 
 Checkout repo:
 ```sh
-git clone --recursive  https://github.com/realm/realm-kotlin.git 
+git clone --recursive  https://github.com/XilinJia/krdb.git 
 ```
 
 ### Windows support

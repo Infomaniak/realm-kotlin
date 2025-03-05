@@ -20,6 +20,8 @@ package org.realm.kotlin
 import Realm
 import io.github.gradlenexus.publishplugin.NexusPublishExtension
 import io.github.gradlenexus.publishplugin.NexusPublishPlugin
+import java.io.File
+import java.time.Duration
 import org.gradle.api.Action
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -27,13 +29,10 @@ import org.gradle.api.publish.PublishingExtension
 import org.gradle.api.publish.maven.MavenPublication
 import org.gradle.api.publish.maven.plugins.MavenPublishPlugin
 import org.gradle.kotlin.dsl.create
-import org.gradle.kotlin.dsl.findByType
 import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.withType
 import org.gradle.plugins.signing.SigningExtension
 import org.gradle.plugins.signing.SigningPlugin
-import java.io.File
-import java.time.Duration
 
 // Custom options for POM configurations that might differ between Realm modules
 open class PomOptions {
@@ -50,9 +49,8 @@ open class RealmPublishExtensions {
 }
 
 fun getPropertyValue(project: Project, propertyName: String, defaultValue: String = ""): String {
-    if (project.hasProperty(propertyName)) {
-        return project.property(propertyName) as String
-    }
+    if (project.hasProperty(propertyName)) return project.property(propertyName) as String
+
     val systemValue: String? = System.getenv(propertyName)
     return systemValue ?: defaultValue
 }
@@ -92,44 +90,64 @@ class RealmPublishPlugin : Plugin<Project> {
         // Also, we should not apply the MavenPublish plugin to the root project as it will result in an
         // empty `realm-kotlin` artifact being deployed to Maven Central.
         val isRootProject: Boolean = (project == project.rootProject)
-        if (isRootProject) {
-            configureRootProject(project)
-        } else {
+        if (isRootProject) configureRootProject(project)
+        else {
             configureSubProject(project, signBuild)
             configureTestRepository(project)
         }
     }
 
     private fun configureSubProject(project: Project, signBuild: Boolean) {
-        // ID for the Realm Kotlin PGP key file.
-        val keyId = "1F48C9B0"
-        // Apparently Gradle treats properties define through a gradle.properties file differently
-        // than those defined through the commandline using `-P`. This is a problem with new
-        // line characters as found in an ascii-armoured PGP file. To ensure we can work around this,
-        // all newlines have been replaced with `#` and thus needs to be reverted here.
-        val ringFile: String = getPropertyValue(project,"signSecretRingFileKotlin").replace('#', '\n')
+        val keyId: String = getPropertyValue(project, "signingKeyIdKotlin")
+        val ringFile: String = getPropertyValue(project, "signSecretRingFileKotlin").replace('#', '\n')
         val password: String = getPropertyValue(project, "signPasswordKotlin")
 
         with(project) {
             plugins.apply(SigningPlugin::class.java)
             plugins.apply(MavenPublishPlugin::class.java)
 
-            // Create the RealmPublish plugin. It must evaluate after all other plugins as it modifies their output.
-            // Only allow configuration from sub projects as the top-level project is just a placeholder
-            extensions.create<RealmPublishExtensions>("realmPublish")
+            // Create extension
+            val realmPublishExt = extensions.create<RealmPublishExtensions>("realmPublish")
 
-            afterEvaluate {
-                project.extensions.findByType<RealmPublishExtensions>()?.run {
-                    configurePom(project, pom)
-                }
-            }
-
-            // Configure signing of artifacts
+            // Configure signing
             extensions.getByType<SigningExtension>().apply {
                 isRequired = signBuild
                 useInMemoryPgpKeys(keyId, ringFile, password)
                 sign(project.extensions.getByType<PublishingExtension>().publications)
             }
+
+            extensions.getByType<PublishingExtension>().publications
+                .withType<MavenPublication>()
+                .configureEach {
+                    pom {
+                        name.set(realmPublishExt.pom.name)
+                        description.set(realmPublishExt.pom.description)
+                        url.set(Realm.projectUrl)
+                        licenses {
+                            license {
+                                name.set(Realm.License.name)
+                                url.set(Realm.License.url)
+                            }
+                        }
+                        issueManagement {
+                            system.set(Realm.IssueManagement.system)
+                            url.set(Realm.IssueManagement.url)
+                        }
+                        scm {
+                            connection.set(Realm.SCM.connection)
+                            developerConnection.set(Realm.SCM.developerConnection)
+                            url.set(Realm.SCM.url)
+                        }
+                        developers {
+                            developer {
+                                name.set(Realm.Developer.name)
+                                email.set(Realm.Developer.email)
+                                organization.set(Realm.Developer.organization)
+                                organizationUrl.set(Realm.Developer.organizationUrl)
+                            }
+                        }
+                    }
+                }
         }
     }
 
@@ -154,43 +172,6 @@ class RealmPublishPlugin : Plugin<Project> {
                 this.transitionCheckOptions {
                     maxRetries.set(720) // Retry for 2 hours. Sometimes Maven Central is really slow!
                     delayBetween.set(Duration.ofSeconds(10))
-                }
-            }
-        }
-    }
-
-    private fun configurePom(project: Project, options: PomOptions) {
-        project.extensions.getByType<PublishingExtension>().apply {
-            publications.withType<MavenPublication>().all {
-                pom {
-                    name.set(options.name)
-                    description.set(options.description)
-                    url.set(Realm.projectUrl)
-                    licenses {
-                        license {
-                            name.set(Realm.License.name)
-                            url.set(Realm.License.url)
-                        }
-                    }
-                    issueManagement {
-                        system.set(Realm.IssueManagement.system)
-                        url.set(Realm.IssueManagement.url)
-                    }
-                    scm {
-                        connection.set(Realm.SCM.connection)
-                        developerConnection.set(Realm.SCM.developerConnection)
-                        url.set(Realm.SCM.url)
-                    }
-                    developers {
-                        developers {
-                            developer {
-                                name.set(Realm.Developer.name)
-                                email.set(Realm.Developer.email)
-                                organization.set(Realm.Developer.organization)
-                                organizationUrl.set(Realm.Developer.organizationUrl)
-                            }
-                        }
-                    }
                 }
             }
         }
