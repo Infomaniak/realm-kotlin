@@ -10,7 +10,7 @@ Testing are performed on the dev versions. Maven artifacts can be published (tes
 
 ### Published to Maven Central, being tested
 
-### To use this with a local build
+### To use this with a local build (3.2.4 is being tested, use 3.2.3 instead)
 
 * clone this project with: 
 ```git clone --recursive https://github.com/XilinJia/krdb.git ```
