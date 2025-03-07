@@ -1,3 +1,8 @@
+## 3.2.5
+
+* various testing on Android app
+* fixed maven central package for Android
+
 ## 3.2.4
 
 * preparing for publishing to maven central

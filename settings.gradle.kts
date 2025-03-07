@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-rootProject.name = "krdb"
+rootProject.name = "krdb-root"
 
 pluginManagement {
     repositories {

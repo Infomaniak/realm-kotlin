@@ -17,6 +17,12 @@ fun loadAndroidNativeLibs(context: Context, version: String) {
     if (android.os.Build.VERSION.SDK_INT < 23) {
         ReLinker.loadLibrary(context, "realmc", version)
     } else {
-        System.loadLibrary("realmc")
+        try {
+//            println("loading library realmc")
+            System.loadLibrary("realmc")
+        } catch (e: Throwable) {
+            println("Failed to load realmc library: $e")
+            throw e
+        }
     }
 }

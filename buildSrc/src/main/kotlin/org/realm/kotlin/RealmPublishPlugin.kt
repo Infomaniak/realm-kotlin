@@ -109,11 +109,15 @@ class RealmPublishPlugin : Plugin<Project> {
             // Create extension
             val realmPublishExt = extensions.create<RealmPublishExtensions>("realmPublish")
 
-            // Configure signing
-            extensions.getByType<SigningExtension>().apply {
-                isRequired = signBuild
-                useInMemoryPgpKeys(keyId, ringFile, password)
-                sign(project.extensions.getByType<PublishingExtension>().publications)
+            if (!signBuild || (keyId.isEmpty() || ringFile.isEmpty() || password.isEmpty())) {
+                project.logger.warn("Signing skipped: One or more signing parameters (keyId, ringFile, password) are empty")
+            } else {
+                // Configure signing
+                extensions.getByType<SigningExtension>().apply {
+                    isRequired = signBuild
+                    useInMemoryPgpKeys(keyId, ringFile, password)
+                    sign(project.extensions.getByType<PublishingExtension>().publications)
+                }
             }
 
             extensions.getByType<PublishingExtension>().publications

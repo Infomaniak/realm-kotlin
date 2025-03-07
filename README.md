@@ -8,13 +8,56 @@ Project structure is changed to make Intellij IDE work.  gradlew needs to be run
 
 Testing are performed on the dev versions. Maven artifacts can be published (tested locally), but can not be tested upon yet.
 
-### Published to Maven Central, being tested
+### Published to Maven Central, how to use:
 
-### To use this with a local build (3.2.4 is being tested, use 3.2.3 instead)
+#### Note, the maven artifacts are built on Linux and lack support for iOS and MacOS, hopefully a github actions can resolve this later
+
+* in project build.gradle, add:
+```
+buildscript {
+    dependencies {
+        classpath "io.github.xilinjia.krdb:gradle-plugin:3.2.4"
+    }
+}
+```
+and remove:
+```
+id 'io.realm.kotlin' version 'x.x.x' apply false
+```
+
+* in the app build.gradle
+
+in the plugins block, replace:
+```id 'io.realm.kotlin' ```
+with
+```    id 'io.github.xilinjia.krdb' ```
+
+replace:
+```implementation "io.realm.kotlin:library-base:x.x.x" ```
+with:
+```implementation "io.github.xilinjia.krdb:library-base:3.2.4" ```
+
+and replace:
+```apply plugin: "io.realm.kotlin" ```
+with
+```apply plugin: "io.github.xilinjia.krdb" ```
+
+* in all kotlin files, replace "io.realm.kotlin" with "io.github.xilinjia.krdb"
+* and of course, change your Kotlin to 2.1.10
+
+
+### To use this with a local build
+
+In addition to the above,
 
 * clone this project with: 
 ```git clone --recursive https://github.com/XilinJia/krdb.git ```
-* build in the project root directory with: ```./gradlew publishToMavenLocal ```
+* build in the project root directory with: 
+```
+./gradlew clean
+./gradlew jvmTest
+./gradlew publishToMavenLocal 
+```
 * in Android project, in settings.gradle at the project level, add in the beginning:
 ```
 pluginManagement {
@@ -41,29 +84,6 @@ allprojects {
     }
 }
 ```
-and remove:
-```
-id 'io.realm.kotlin' version 'x.x.x' apply false
-```
-* in the app build.gradle
-
-in the plugins block, replace:
-```id 'io.realm.kotlin' ```
-with
-```    id 'io.github.xilinjia.krdb' ```
-
-replace:
-```implementation "io.realm.kotlin:library-base:x.x.x" ```
-with:
-```implementation "io.github.xilinjia.krdb:library-base:3.2.4" ```
-
-and replace:
-```apply plugin: "io.realm.kotlin" ```
-with
-```apply plugin: "io.github.xilinjia.krdb" ```
-
-* in all kotlin files, replace "io.realm.kotlin" with "io.github.xilinjia.krdb"
-* and of course, change your Kotlin to 2.1.10
 
 ------------------------------------
 
