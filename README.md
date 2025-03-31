@@ -1,12 +1,17 @@
 ### This is a fork and rebranding of [Realm Kotlin](https://github.com/XilinJia/realm-kotlin) which is a fork of the deprecated [Realm Kotlin](https://github.com/realm/realm-kotlin).  This has been made compatible with Kotlin 2.1.x while updating various dependencies
 
-JVM has been tested to work the same as with builds with Kotlin 2.0.x.  Android is being tested.  Testing iOS and MacOS will depend on other contributors.
+JVM has been tested to work the same as with builds with Kotlin 2.0.x.  Android has been tested to work.  Testing iOS and MacOS will depend on other contributors.
 
 Unlike the forked repo, this one can be built from source on Linux.
 
 Project structure is changed to make Intellij IDE work.  gradlew needs to be run from the root directory rather than packages.
 
 Testing are performed on the dev versions. Maven artifacts can be published (tested locally), but can not be tested upon yet.
+
+### Version compatibility
+
+krdb 3.2.5 <==> Kotlin 2.1.10
+krdb 3.2.6 <==> Kotlin 2.1.20
 
 ### Published to Maven Central, how to use:
 
