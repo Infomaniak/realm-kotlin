@@ -1,3 +1,7 @@
+## 3.2.6
+
+* built with Kotlin 2.1.20 compatible with 2.1.20
+
 ## 3.2.5
 
 * various testing on Android app
