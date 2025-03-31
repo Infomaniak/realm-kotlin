@@ -49,7 +49,7 @@ with
 ```apply plugin: "io.github.xilinjia.krdb" ```
 
 * in all kotlin files, replace "io.realm.kotlin" with "io.github.xilinjia.krdb"
-* and of course, change your Kotlin to 2.1.10
+* and of course, change your Kotlin to 2.1.x (refer to Version compatibility)
 
 
 ### To use this with a local build
