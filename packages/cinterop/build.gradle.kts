@@ -877,4 +877,19 @@ afterEvaluate {
     tasks.named("jvmSourcesJar") {
         dependsOn("generateSdkVersionConstant")
     }
+    tasks.named("iosArm64SourcesJar") {
+        dependsOn("generateSdkVersionConstant")
+    }
+    tasks.named("iosSimulatorArm64SourcesJar") {
+        dependsOn("generateSdkVersionConstant")
+    }
+    tasks.named("iosX64SourcesJar") {
+        dependsOn("generateSdkVersionConstant")
+    }
+    tasks.named("macosArm64SourcesJar") {
+        dependsOn("generateSdkVersionConstant")
+    }
+    tasks.named("macosX64SourcesJar") {
+        dependsOn("generateSdkVersionConstant")
+    }
 }
