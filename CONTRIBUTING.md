@@ -9,7 +9,7 @@ We welcomes all contributions!
 - Swig 4.2.0 or above. On Mac this can be installed using Homebrew: `brew install swig`.
 - Ccache. On Mac this can be installed using Homebrew: `brew install ccache`.
 - CMake 3.18.1 or above. Can be installed through the Android SDK Manager.
-- Java 11.
+- Java 17.
 - Define environment variables:
   - `ANDROID_HOME`
   - `JAVA_HOME`
@@ -58,7 +58,7 @@ But this will also trigger tests in the SDK modules.
 #### Triggering tests from Android Studio
 * Use Android Studio Dolphin or a later version.
 * Go to `Preferences > Build, Execution, Deployment > Build Tools > Gradle`.
-* Under `Gradle JDK`, select the JDK 11 that you installed (not the embedded version).
+* Under `Gradle JDK`, select the JDK 17 that you installed (not the embedded version).
 
 #### Emulator
 * Create a virtual device through Android Studio Device Manager.

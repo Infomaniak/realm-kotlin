@@ -1,3 +1,9 @@
+## 3.2.7
+
+* avoided NullPointerException in SuspendableWriter
+* merged PR to fix publishToMavenLocal issue on MacOS, thanks to @tinoue
+* updated Java to 17 in Contributing.md
+
 ## 3.2.6
 
 * built with Kotlin 2.1.20 compatible with 2.1.20
