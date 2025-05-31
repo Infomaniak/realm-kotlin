@@ -123,31 +123,36 @@ class RealmPublishPlugin : Plugin<Project> {
             extensions.getByType<PublishingExtension>().publications
                 .withType<MavenPublication>()
                 .configureEach {
-                    pom {
-                        name.set(realmPublishExt.pom.name)
-                        description.set(realmPublishExt.pom.description)
-                        url.set(Realm.projectUrl)
-                        licenses {
-                            license {
-                                name.set(Realm.License.name)
-                                url.set(Realm.License.url)
+                    project.afterEvaluate {
+                        extensions.getByType<PublishingExtension>().publications.forEach {
+                            println(">>> Publication: ${it.name}")
+                        }
+                        pom {
+                            name.set(realmPublishExt.pom.name)
+                            description.set(realmPublishExt.pom.description)
+                            url.set(Realm.projectUrl)
+                            licenses {
+                                license {
+                                    name.set(Realm.License.name)
+                                    url.set(Realm.License.url)
+                                }
                             }
-                        }
-                        issueManagement {
-                            system.set(Realm.IssueManagement.system)
-                            url.set(Realm.IssueManagement.url)
-                        }
-                        scm {
-                            connection.set(Realm.SCM.connection)
-                            developerConnection.set(Realm.SCM.developerConnection)
-                            url.set(Realm.SCM.url)
-                        }
-                        developers {
-                            developer {
-                                name.set(Realm.Developer.name)
-                                email.set(Realm.Developer.email)
-                                organization.set(Realm.Developer.organization)
-                                organizationUrl.set(Realm.Developer.organizationUrl)
+                            issueManagement {
+                                system.set(Realm.IssueManagement.system)
+                                url.set(Realm.IssueManagement.url)
+                            }
+                            scm {
+                                connection.set(Realm.SCM.connection)
+                                developerConnection.set(Realm.SCM.developerConnection)
+                                url.set(Realm.SCM.url)
+                            }
+                            developers {
+                                developer {
+                                    name.set(Realm.Developer.name)
+                                    email.set(Realm.Developer.email)
+                                    organization.set(Realm.Developer.organization)
+                                    organizationUrl.set(Realm.Developer.organizationUrl)
+                                }
                             }
                         }
                     }
