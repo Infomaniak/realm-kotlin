@@ -3,6 +3,7 @@
 * avoided NullPointerException in SuspendableWriter
 * merged PR to fix publishToMavenLocal issue on MacOS, thanks to @tinoue
 * updated Java to 17 in Contributing.md
+* fixed missing name and description in pom in various packages
 
 ## 3.2.6
 
