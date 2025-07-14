@@ -79,8 +79,8 @@ class RealmModelDefaultMethodGeneration(private val pluginContext: IrPluginConte
 //                    valueArgumentsCount = 2
                 ).apply {
                     dispatchReceiver = irGetObject(realmObjectHelper.symbol)
-                    putValueArgument(0, irGet(function.dispatchReceiverParameter!!.type, function.dispatchReceiverParameter!!.symbol))
-                    putValueArgument(1, irGet(function.valueParameters[0].type, function.valueParameters[0].symbol))
+                    arguments[0] = irGet(function.dispatchReceiverParameter!!.type, function.dispatchReceiverParameter!!.symbol)
+                    arguments[1] = irGet(function.parameters[0].type, function.parameters[0].symbol)
                 }
             )
         }
@@ -99,7 +99,7 @@ class RealmModelDefaultMethodGeneration(private val pluginContext: IrPluginConte
 //                    valueArgumentsCount = 1
                 ).apply {
                     dispatchReceiver = irGetObject(realmObjectHelper.symbol)
-                    putValueArgument(0, irGet(function.dispatchReceiverParameter!!.type, function.dispatchReceiverParameter!!.symbol))
+                    arguments[0] = irGet(function.dispatchReceiverParameter!!.type, function.dispatchReceiverParameter!!.symbol)
                 }
             )
         }
@@ -118,7 +118,7 @@ class RealmModelDefaultMethodGeneration(private val pluginContext: IrPluginConte
 //                    valueArgumentsCount = 1
                 ).apply {
                     dispatchReceiver = irGetObject(realmObjectHelper.symbol)
-                    putValueArgument(0, irGet(function.dispatchReceiverParameter!!.type, function.dispatchReceiverParameter!!.symbol))
+                    arguments[0] = irGet(function.dispatchReceiverParameter!!.type, function.dispatchReceiverParameter!!.symbol)
                 }
             )
         }

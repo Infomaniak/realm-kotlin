@@ -21,6 +21,7 @@ import io.github.xilinjia.krdb.compiler.fir.RealmPluginGeneratorKey
 import io.github.xilinjia.krdb.compiler.isBaseRealmObject
 import org.jetbrains.kotlin.descriptors.Modality
 import org.jetbrains.kotlin.fir.FirSession
+import org.jetbrains.kotlin.fir.declarations.DirectDeclarationsAccess
 import org.jetbrains.kotlin.fir.extensions.FirDeclarationGenerationExtension
 import org.jetbrains.kotlin.fir.extensions.MemberGenerationContext
 import org.jetbrains.kotlin.fir.plugin.createMemberFunction
@@ -43,6 +44,7 @@ private val realmObjectDefaultMethods = setOf(
  * Fir extension that adds `toString`, `equals` and `hashCode` to RealmObject-classes.
  */
 class ObjectExtension(session: FirSession) : FirDeclarationGenerationExtension(session) {
+    @OptIn(DirectDeclarationsAccess::class)
     override fun getCallableNamesForClass(
         classSymbol: FirClassSymbol<*>,
         context: MemberGenerationContext

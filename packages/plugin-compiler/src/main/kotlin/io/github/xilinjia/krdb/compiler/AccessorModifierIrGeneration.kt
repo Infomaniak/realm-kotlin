@@ -117,6 +117,8 @@ import org.jetbrains.kotlin.types.StarProjectionImpl
 import org.jetbrains.kotlin.types.isNullable
 import org.jetbrains.kotlin.types.typeUtil.supertypes
 import kotlin.collections.set
+//import org.jetbrains.kotlin.ir.util.isNullable
+//import org.jetbrains.kotlin.ir.util.isSubtypeOfClass
 
 /**
  * Modifies the IR tree to transform getter/setter to call the C-Interop layer to retrieve read the managed values from the Realm
@@ -822,23 +824,23 @@ class AccessorModifierIrGeneration(private val pluginContext: IrPluginContext) {
                         ).also {
                             it.dispatchReceiver = irGetObject(realmObjectHelper.symbol)
                         }.apply {
-                            if (typeArgumentsCount > 0) {
-                                putTypeArgument(0, type)
+                            if (typeArguments.isNotEmpty()) {
+                                typeArguments[0] = type
                             }
-                            putValueArgument(0, irGet(objectReferenceType, tmp.symbol))
-                            putValueArgument(1, irString(property.persistedName))
+                            arguments[0] = irGet(objectReferenceType, tmp.symbol)
+                            arguments[1] = irString(property.persistedName)
                         }
                         val storageValue = fromRealmValue?.let {
                             irCall(callee = it).apply {
-                                if (typeArgumentsCount > 0) {
-                                    putTypeArgument(0, type)
+                                if (typeArguments.isNotEmpty()) {
+                                    typeArguments[0] = type
                                 }
-                                putValueArgument(0, managedObjectGetValueCall)
+                                arguments[0] = managedObjectGetValueCall
                             }
                         } ?: managedObjectGetValueCall
                         val publicValue = toPublic?.let {
                             irCall(callee = toPublic).apply {
-                                putValueArgument(0, storageValue)
+                                arguments[0] = storageValue
                             }
                         } ?: storageValue
                         +irIfNull(
@@ -892,15 +894,15 @@ class AccessorModifierIrGeneration(private val pluginContext: IrPluginContext) {
                     )
                     val storageValue: IrDeclarationReference = fromPublic?.let {
                         irCall(callee = it).apply {
-                            putValueArgument(0, irGet(setter.valueParameters.first()))
+                            arguments[0] = irGet(parameters.first())
                         }
-                    } ?: irGet(setter.valueParameters.first())
+                    } ?: irGet(parameters.first())
                     val realmValue: IrDeclarationReference = toRealmValue?.let {
                         irCall(callee = it).apply {
-                            if (typeArgumentsCount > 0) {
-                                putTypeArgument(0, type)
+                            if (typeArguments.isNotEmpty()) {
+                                typeArguments[0] = type
                             }
-                            putValueArgument(0, storageValue)
+                            arguments[0] = storageValue
                         }
                     } ?: storageValue
                     val cinteropCall = irCall(
@@ -908,12 +910,12 @@ class AccessorModifierIrGeneration(private val pluginContext: IrPluginContext) {
                     ).also {
                         it.dispatchReceiver = irGetObject(realmObjectHelper.symbol)
                     }.apply {
-                        if (typeArgumentsCount > 0) {
-                            putTypeArgument(0, type)
+                        if (typeArguments.isNotEmpty()) {
+                            typeArguments[0] = type
                         }
-                        putValueArgument(0, irGet(objectReferenceType, tmp.symbol))
-                        putValueArgument(1, irString(property.persistedName))
-                        putValueArgument(2, realmValue)
+                        arguments[0] = irGet(objectReferenceType, tmp.symbol)
+                        arguments[1] = irString(property.persistedName)
+                        arguments[2] = realmValue
                     }
 
                     +irIfNull(
@@ -924,7 +926,7 @@ class AccessorModifierIrGeneration(private val pluginContext: IrPluginContext) {
                         irSetField(
                             irGet(receiver),
                             backingField.symbol.owner,
-                            irGet(setter.valueParameters.first()),
+                            irGet(parameters.first()),
                         ),
                         // Managed object, return realm value
                         elsePart = cinteropCall
@@ -1071,24 +1073,28 @@ class AccessorModifierIrGeneration(private val pluginContext: IrPluginContext) {
 
         // Otherwise just return the matching core type present in the declaration
         val genericPropertyType: PropertyType? = getPropertyTypeFromKotlinType(collectionGenericType)
-        return if (genericPropertyType == null) {
-            logError(
-                "Unsupported type for ${collectionType.description}: '${collectionGenericType.getKotlinTypeFqNameCompat(true)
-                }'",
-                declaration.locationOf()
-            )
-            null
-        } else if (genericPropertyType == PropertyType.RLM_PROPERTY_TYPE_MIXED && !collectionGenericType.isNullable()) {
-            logError(
-                "Unsupported type for ${collectionType.description}: Only '${collectionType.description}<RealmAny?>' is supported.",
-                declaration.locationOf()
-            )
-            return null
-        } else {
-            CoreType(
-                propertyType = genericPropertyType,
-                nullable = collectionGenericType.isNullable()
-            )
+        return when (genericPropertyType) {
+            null -> {
+                logError(
+                    "Unsupported type for ${collectionType.description}: '${collectionGenericType.getKotlinTypeFqNameCompat(true)
+                    }'",
+                    declaration.locationOf()
+                )
+                null
+            }
+            PropertyType.RLM_PROPERTY_TYPE_MIXED if !collectionGenericType.isNullable() -> {
+                logError(
+                    "Unsupported type for ${collectionType.description}: Only '${collectionType.description}<RealmAny?>' is supported.",
+                    declaration.locationOf()
+                )
+                return null
+            }
+            else -> {
+                CoreType(
+                    propertyType = genericPropertyType,
+                    nullable = collectionGenericType.isNullable()
+                )
+            }
         }
     }
 
