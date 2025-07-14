@@ -130,14 +130,11 @@ private class RealmModelLowering(private val pluginContext: IrPluginContext) : C
                     type = type,
                     constructorSymbol = constructorSymbol
                 ).apply {
-                    putValueArgument(
-                        0,
-                        IrClassReferenceImpl(
-                            startOffset, endOffset,
-                            pluginContext.irBuiltIns.kClassClass.starProjectedType,
-                            irClass.companionObject()!!.symbol,
-                            type
-                        )
+                    arguments[0] = IrClassReferenceImpl(
+                        startOffset, endOffset,
+                        pluginContext.irBuiltIns.kClassClass.starProjectedType,
+                        irClass.companionObject()!!.symbol,
+                        type
                     )
                 }
                 irClass.annotations += modelObjectAnnotation

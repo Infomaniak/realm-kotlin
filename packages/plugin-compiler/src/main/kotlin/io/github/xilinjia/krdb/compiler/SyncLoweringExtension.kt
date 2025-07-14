@@ -70,35 +70,35 @@ private class SyncLowering(private val pluginContext: IrPluginContext, private v
     private val appCreateAppId: IrSimpleFunction =
         pluginContext.lookupClassOrThrow(ClassIds.APP).companionObject()!!
             .lookupFunction(Names.APP_CREATE) {
-                it.valueParameters.size == 1 && it.valueParameters[0].type == pluginContext.irBuiltIns.stringType
+                it.parameters.size == 1 && it.parameters[0].type == pluginContext.irBuiltIns.stringType
             }
     // AppImpl.create(appId, bundleId)
     private val appCreateAppIdBundleId: IrSimpleFunction =
         pluginContext.lookupClassOrThrow(ClassIds.APP_IMPL).companionObject()!!.lookupFunction(Names.APP_CREATE) {
-            it.valueParameters.size == 2
+            it.parameters.size == 2
         }
     // AppConfiguration.create(appId)
     private val appConfigurationCreateAppId: IrSimpleFunction =
         pluginContext.lookupClassOrThrow(ClassIds.APP_CONFIGURATION).companionObject()!!
             .lookupFunction(Names.APP_CONFIGURATION_CREATE) {
-                it.valueParameters.size == 1 && it.valueParameters[0].type == pluginContext.irBuiltIns.stringType
+                it.parameters.size == 1 && it.parameters[0].type == pluginContext.irBuiltIns.stringType
             }
     // AppConfigurationImpl.create(appId, bundleId)
     private val appConfigurationImplCreateAppIdBungleId: IrSimpleFunction =
         pluginContext.lookupClassOrThrow(ClassIds.APP_CONFIGURATION_IMPL).companionObject()!!.lookupFunction(Names.APP_CONFIGURATION_CREATE) {
-            it.valueParameters.size == 2
+            it.parameters.size == 2
         }
     private val appConfigurationBuilder: IrClass =
         pluginContext.lookupClassOrThrow(APP_CONFIGURATION_BUILDER)
     // AppConfiguration.Builder.build()
     private val appBuilderBuildNoArg: IrSimpleFunction =
         appConfigurationBuilder.lookupFunction(Names.APP_CONFIGURATION_BUILDER_BUILD) {
-            it.valueParameters.isEmpty()
+            it.parameters.isEmpty()
         }
     // AppConfiguration.Builder.build(bundleId)
     private val appBuilderBuildBundleId: IrSimpleFunction =
         appConfigurationBuilder.lookupFunction(Names.APP_CONFIGURATION_BUILDER_BUILD) {
-            it.valueParameters.size == 1
+            it.parameters.size == 1
         }
 
     // Maps from a given call into a new call along with the accompanying dispatch receiver
@@ -145,19 +145,17 @@ private class SyncLowering(private val pluginContext: IrPluginContext, private v
                     superQualifierSymbol = null
                 ).apply {
                     dispatchReceiver = dispatchReceiverFunction(expression)
-                    val valueArguments = List(expression.valueArgumentsCount) { expression.getValueArgument(it) }
+                    val valueArguments = List(expression.arguments.size) { expression.arguments[it] }
                     valueArguments.forEachIndexed { index, irExpression ->
-                        putValueArgument(index, irExpression,)
+                        arguments[index] = irExpression
                     }
-                    putValueArgument(
-                        expression.valueArgumentsCount,
+                    arguments[expression.arguments.size] =
                         IrConstImpl.string(
                             startOffset,
                             endOffset,
                             pluginContext.irBuiltIns.stringType,
                             bundleId
                         )
-                    )
                 }
             }
             return super.visitCall(expression)

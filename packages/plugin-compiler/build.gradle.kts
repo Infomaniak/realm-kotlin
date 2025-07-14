@@ -47,6 +47,7 @@ dependencies {
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     compilerOptions.freeCompilerArgs.add("-Xjvm-default=all-compatibility")
+//    compilerOptions.freeCompilerArgs.add("-Xjvm-default=all")
 }
 
 realmPublish {
