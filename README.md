@@ -1,4 +1,4 @@
-### This is a fork and rebranding of [Realm Kotlin](https://github.com/XilinJia/realm-kotlin) which is a fork of the deprecated [Realm Kotlin](https://github.com/realm/realm-kotlin).  This has been made compatible with Kotlin 2.1.x while updating various dependencies
+### This is a fork and rebranding of [Realm Kotlin](https://github.com/XilinJia/realm-kotlin) which is a fork of the deprecated [Realm Kotlin](https://github.com/realm/realm-kotlin).  This has been made compatible with Kotlin 2.1+ while updating various dependencies
 
 JVM has been tested to work the same as with builds with Kotlin 2.0.x.  Android, iOS and MacOS has been tested to work.
 
