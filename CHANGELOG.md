@@ -5,6 +5,7 @@
 * gradle upped to 8.13
 * fixed syntax errors in build.gradle.kts in cinterop related to kotlinOptions for Mac ans iOS
 * fixed syntax errors in build.gradle.kts in cinterop related to KotlinCompile
+* various other dependencies updates suitable for Kotlin 2.2.0
 
 ## 3.2.7
 

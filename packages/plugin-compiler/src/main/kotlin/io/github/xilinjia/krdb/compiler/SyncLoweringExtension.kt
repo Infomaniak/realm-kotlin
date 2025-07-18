@@ -29,6 +29,7 @@ import org.jetbrains.kotlin.ir.declarations.IrClass
 import org.jetbrains.kotlin.ir.declarations.IrDeclarationContainer
 import org.jetbrains.kotlin.ir.declarations.IrFile
 import org.jetbrains.kotlin.ir.declarations.IrModuleFragment
+import org.jetbrains.kotlin.ir.declarations.IrParameterKind
 import org.jetbrains.kotlin.ir.declarations.IrSimpleFunction
 import org.jetbrains.kotlin.ir.expressions.IrCall
 import org.jetbrains.kotlin.ir.expressions.IrExpression
@@ -70,23 +71,27 @@ private class SyncLowering(private val pluginContext: IrPluginContext, private v
     private val appCreateAppId: IrSimpleFunction =
         pluginContext.lookupClassOrThrow(ClassIds.APP).companionObject()!!
             .lookupFunction(Names.APP_CREATE) {
-                it.parameters.size == 1 && it.parameters[0].type == pluginContext.irBuiltIns.stringType
+                val params = it.parameters.filter {p -> p.kind == IrParameterKind.Regular || p.kind == IrParameterKind.Context }
+                params.size == 1 && params[0].type == pluginContext.irBuiltIns.stringType
             }
     // AppImpl.create(appId, bundleId)
     private val appCreateAppIdBundleId: IrSimpleFunction =
         pluginContext.lookupClassOrThrow(ClassIds.APP_IMPL).companionObject()!!.lookupFunction(Names.APP_CREATE) {
-            it.parameters.size == 2
+            val params = it.parameters.filter {p -> p.kind == IrParameterKind.Regular || p.kind == IrParameterKind.Context }
+            params.size == 2
         }
     // AppConfiguration.create(appId)
     private val appConfigurationCreateAppId: IrSimpleFunction =
         pluginContext.lookupClassOrThrow(ClassIds.APP_CONFIGURATION).companionObject()!!
             .lookupFunction(Names.APP_CONFIGURATION_CREATE) {
-                it.parameters.size == 1 && it.parameters[0].type == pluginContext.irBuiltIns.stringType
+                val params = it.parameters.filter {p -> p.kind == IrParameterKind.Regular || p.kind == IrParameterKind.Context }
+                params.size == 1 && params[0].type == pluginContext.irBuiltIns.stringType
             }
     // AppConfigurationImpl.create(appId, bundleId)
     private val appConfigurationImplCreateAppIdBungleId: IrSimpleFunction =
         pluginContext.lookupClassOrThrow(ClassIds.APP_CONFIGURATION_IMPL).companionObject()!!.lookupFunction(Names.APP_CONFIGURATION_CREATE) {
-            it.parameters.size == 2
+            val params = it.parameters.filter {p -> p.kind == IrParameterKind.Regular || p.kind == IrParameterKind.Context }
+            params.size == 2
         }
     private val appConfigurationBuilder: IrClass =
         pluginContext.lookupClassOrThrow(APP_CONFIGURATION_BUILDER)
@@ -98,7 +103,8 @@ private class SyncLowering(private val pluginContext: IrPluginContext, private v
     // AppConfiguration.Builder.build(bundleId)
     private val appBuilderBuildBundleId: IrSimpleFunction =
         appConfigurationBuilder.lookupFunction(Names.APP_CONFIGURATION_BUILDER_BUILD) {
-            it.parameters.size == 1
+            val params = it.parameters.filter {p -> p.kind == IrParameterKind.Regular || p.kind == IrParameterKind.Context }
+            params.size == 1
         }
 
     // Maps from a given call into a new call along with the accompanying dispatch receiver
