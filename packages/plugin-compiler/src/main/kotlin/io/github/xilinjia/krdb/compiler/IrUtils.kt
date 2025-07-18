@@ -415,7 +415,7 @@ data class SchemaProperty(
     companion object {
         fun getPersistedName(declaration: IrProperty): String {
             @Suppress("UNCHECKED_CAST")
-            return (declaration.getAnnotation(PERSISTED_NAME_ANNOTATION.asSingleFqName()).arguments[0] as? IrConstImpl)?.value?.toString() ?: ""
+            return (declaration.getAnnotation(PERSISTED_NAME_ANNOTATION.asSingleFqName()).arguments[0] as IrConstImpl).value?.toString() ?: ""
         }
     }
 }
@@ -461,8 +461,8 @@ internal fun <T : IrExpression> buildSetOf(
 ): IrExpression {
     val setOf = context.referenceFunctions(CallableId(FqName("kotlin.collections"), Name.identifier("setOf")))
         .first {
-            val parameters = it.owner.parameters
-            parameters.size == 1 && parameters.first().isVararg
+            val params = it.owner.parameters.filter { p -> p.kind == IrParameterKind.Regular || p.kind == IrParameterKind.Context }
+            params.size == 1 && params.first().isVararg
         }
     val setIrClass: IrClass = context.lookupClassOrThrow(ClassIds.KOTLIN_COLLECTIONS_SET)
     return buildOf(context, startOffset, endOffset, setOf, setIrClass, elementType, args)
@@ -477,8 +477,8 @@ internal fun <T : IrExpression> buildListOf(
 ): IrExpression {
     val listOf = context.referenceFunctions(KOTLIN_COLLECTIONS_LISTOF)
         .first {
-            val parameters = it.owner.parameters
-            parameters.size == 1 && parameters.first().isVararg
+            val params = it.owner.parameters.filter { p -> p.kind == IrParameterKind.Regular || p.kind == IrParameterKind.Context }
+            params.size == 1 && params.first().isVararg
         }
     val listIrClass: IrClass = context.lookupClassOrThrow(ClassIds.KOTLIN_COLLECTIONS_LIST)
     return buildOf(context, startOffset, endOffset, listOf, listIrClass, elementType, args)
@@ -636,7 +636,7 @@ fun getCollectionElementType(backingFieldType: IrType): IrType? {
 
 fun getBacklinksTargetType(backingField: IrField): IrType {
     (backingField.initializer!!.expression as IrCall).let { irCall ->
-        val propertyReference = irCall.arguments[0] as IrPropertyReference
+        val propertyReference = irCall.arguments[1] as IrPropertyReference
         val propertyType = (propertyReference.type as IrAbstractSimpleType)
         return propertyType.arguments[0] as IrType
     }
@@ -646,7 +646,7 @@ fun getBacklinksTargetPropertyType(declaration: IrProperty): IrType? {
     val backingField: IrField = declaration.backingField!!
 
     (backingField.initializer!!.expression as IrCall).let { irCall ->
-        val targetPropertyParameter = irCall.arguments[0]
+        val targetPropertyParameter = irCall.arguments[1]
 
         // Limit linkingObjects to accept only initialization parameters
         if (targetPropertyParameter is IrPropertyReference) {
@@ -664,7 +664,7 @@ fun getBacklinksTargetPropertyType(declaration: IrProperty): IrType? {
 
 fun getLinkingObjectPropertyName(backingField: IrField): String {
     (backingField.initializer!!.expression as IrCall).let { irCall ->
-        val propertyReference = irCall.arguments[0] as IrPropertyReference
+        val propertyReference = irCall.arguments[1] as IrPropertyReference
         val targetProperty: IrProperty = propertyReference.symbol.owner
         return if (targetProperty.hasAnnotation(PERSISTED_NAME_ANNOTATION)) {
             SchemaProperty.getPersistedName(targetProperty)
@@ -680,7 +680,7 @@ fun getLinkingObjectPropertyName(backingField: IrField): String {
 fun getSchemaClassName(clazz: IrClass): String {
     return if (clazz.hasAnnotation(PERSISTED_NAME_ANNOTATION)) {
         @Suppress("UNCHECKED_CAST")
-        return (clazz.getAnnotation(PERSISTED_NAME_ANNOTATION.asSingleFqName()).arguments[0] as? IrConstImpl)?.value?.toString() ?: ""
+        return (clazz.getAnnotation(PERSISTED_NAME_ANNOTATION.asSingleFqName()).arguments[0] as IrConstImpl).value?.toString() ?: ""
     } else {
         clazz.name.identifier
     }

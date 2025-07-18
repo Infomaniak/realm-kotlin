@@ -10,6 +10,8 @@ Testing are performed on the dev versions. Maven artifacts can be published (tes
 
 ### Version compatibility
 
+krdb 3.2.8 <==> Kotlin 2.2.0
+
 krdb 3.2.6/7 <==> Kotlin 2.1.20
 
 krdb 3.2.5 <==> Kotlin 2.1.10
@@ -49,8 +51,7 @@ with
 ```apply plugin: "io.github.xilinjia.krdb" ```
 
 * in all kotlin files, replace "io.realm.kotlin" with "io.github.xilinjia.krdb"
-* and of course, change your Kotlin to 2.1.x (refer to Version compatibility)
-
+* and of course, change your Kotlin to 2.x.y (refer to Version compatibility)
 
 ### To use this with a local build
 
