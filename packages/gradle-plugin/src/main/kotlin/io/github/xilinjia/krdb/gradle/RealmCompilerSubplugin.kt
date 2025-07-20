@@ -29,6 +29,7 @@ import io.github.xilinjia.krdb.gradle.analytics.ProjectConfiguration
 import io.github.xilinjia.krdb.gradle.analytics.TargetInfo
 import io.github.xilinjia.krdb.gradle.analytics.hexStringify
 import io.github.xilinjia.krdb.gradle.analytics.sha256Hash
+import java.io.File
 import org.gradle.api.Project
 import org.gradle.api.plugins.ExtensionAware
 import org.gradle.api.provider.Provider
@@ -52,7 +53,6 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinWithJavaCompilation
 import org.jetbrains.kotlin.konan.target.Architecture
 import org.jetbrains.kotlin.konan.target.Family
 import org.jetbrains.kotlin.konan.target.KonanTarget
-import java.io.File
 
 internal val gradleVersion: GradleVersion = GradleVersion.current().baseVersion
 internal val gradle70: GradleVersion = GradleVersion.version("7.0")
@@ -295,7 +295,8 @@ private fun gatherTargetInfo(kotlinCompilation: KotlinCompilation<*>): TargetInf
         }
 
         is KotlinJvmCompilation -> {
-            val jvmTarget = kotlinCompilation.kotlinOptions.jvmTarget
+//            val jvmTarget = kotlinCompilation.kotlinOptions.jvmTarget
+            val jvmTarget = kotlinCompilation.target.compilerOptions.jvmTarget.orNull?.target
             TargetInfo("JVM", "Universal", jvmTarget, jvmTarget)
         }
 
