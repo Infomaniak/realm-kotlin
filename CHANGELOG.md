@@ -2,9 +2,10 @@
 
 * updated Kotlin to 2.2.0
 * fixed build errors due to deprecations in Kotlin 2.2.0
-* gradle upped to 8.13
+* gradle upped to 8.14.3
 * fixed syntax errors in build.gradle.kts in cinterop related to kotlinOptions for Mac ans iOS
 * fixed syntax errors in build.gradle.kts in cinterop related to KotlinCompile
+* fixed unknown jvmTarget issue when doing publish local
 * various other dependencies updates suitable for Kotlin 2.2.0
 
 ## 3.2.7
