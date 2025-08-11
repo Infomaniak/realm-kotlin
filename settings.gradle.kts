@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-rootProject.name = "krdb-root"
+rootProject.name = "realm-kotlin-root"
 
 pluginManagement {
     repositories {
