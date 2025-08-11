@@ -14,12 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.test.common
+package io.realm.kotlin.test.common
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.entities.Sample
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.entities.Sample
+import io.realm.kotlin.test.platform.PlatformUtils
 import kotlin.random.Random
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest

@@ -14,22 +14,22 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.common
+package io.realm.kotlin.test.common
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.entities.Sample
-import io.github.xilinjia.krdb.entities.link.Child
-import io.github.xilinjia.krdb.entities.link.Parent
-import io.github.xilinjia.krdb.entities.migration.embedded.before.EmbeddedMigrationChild
-import io.github.xilinjia.krdb.entities.migration.embedded.before.EmbeddedMigrationParent
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.internal.platform.runBlocking
-import io.github.xilinjia.krdb.migration.AutomaticSchemaMigration
-import io.github.xilinjia.krdb.query.find
-import io.github.xilinjia.krdb.test.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.util.use
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.entities.Sample
+import io.realm.kotlin.entities.link.Child
+import io.realm.kotlin.entities.link.Parent
+import io.realm.kotlin.entities.migration.embedded.before.EmbeddedMigrationChild
+import io.realm.kotlin.entities.migration.embedded.before.EmbeddedMigrationParent
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.internal.platform.runBlocking
+import io.realm.kotlin.migration.AutomaticSchemaMigration
+import io.realm.kotlin.query.find
+import io.realm.kotlin.test.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.util.use
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test
@@ -188,8 +188,8 @@ class MigrationTests {
     fun migrationThrowsOnViolatingEmbeddedObjectConstraints() = runBlocking<Unit> {
         val initialConfiguration = RealmConfiguration.Builder(
             schema = setOf(
-                io.github.xilinjia.krdb.entities.migration.embedded.before.EmbeddedMigrationParent::class,
-                io.github.xilinjia.krdb.entities.migration.embedded.before.EmbeddedMigrationChild::class
+                io.realm.kotlin.entities.migration.embedded.before.EmbeddedMigrationParent::class,
+                io.realm.kotlin.entities.migration.embedded.before.EmbeddedMigrationChild::class
             )
         )
             .directory(tmpDir)
@@ -203,8 +203,8 @@ class MigrationTests {
 
         val migratedConfiguration = RealmConfiguration.Builder(
             schema = setOf(
-                io.github.xilinjia.krdb.entities.migration.embedded.after.EmbeddedMigrationParent::class,
-                io.github.xilinjia.krdb.entities.migration.embedded.after.EmbeddedMigrationChild::class,
+                io.realm.kotlin.entities.migration.embedded.after.EmbeddedMigrationParent::class,
+                io.realm.kotlin.entities.migration.embedded.after.EmbeddedMigrationChild::class,
             )
         )
             .directory(tmpDir)
@@ -221,8 +221,8 @@ class MigrationTests {
     fun automaticBacklinkHandling_deleteOrphanedChildren() = runBlocking {
         val initialConfiguration = RealmConfiguration.Builder(
             schema = setOf(
-                io.github.xilinjia.krdb.entities.migration.embedded.before.EmbeddedMigrationParent::class,
-                io.github.xilinjia.krdb.entities.migration.embedded.before.EmbeddedMigrationChild::class
+                io.realm.kotlin.entities.migration.embedded.before.EmbeddedMigrationParent::class,
+                io.realm.kotlin.entities.migration.embedded.before.EmbeddedMigrationChild::class
             )
         )
             .directory(tmpDir)
@@ -241,8 +241,8 @@ class MigrationTests {
 
         val migratedConfiguration = RealmConfiguration.Builder(
             schema = setOf(
-                io.github.xilinjia.krdb.entities.migration.embedded.after.EmbeddedMigrationParent::class,
-                io.github.xilinjia.krdb.entities.migration.embedded.after.EmbeddedMigrationChild::class,
+                io.realm.kotlin.entities.migration.embedded.after.EmbeddedMigrationParent::class,
+                io.realm.kotlin.entities.migration.embedded.after.EmbeddedMigrationChild::class,
             )
         )
             .directory(tmpDir)
@@ -252,7 +252,7 @@ class MigrationTests {
 
         Realm.open(migratedConfiguration).use {
             val childWithParent =
-                it.query<io.github.xilinjia.krdb.entities.migration.embedded.after.EmbeddedMigrationChild>()
+                it.query<io.realm.kotlin.entities.migration.embedded.after.EmbeddedMigrationChild>()
                     .find().single()
             assertEquals("child-with-parent", childWithParent.id)
         }
@@ -262,8 +262,8 @@ class MigrationTests {
     fun automaticBacklinkHandling_cloneDuplicateReferences() = runBlocking {
         val initialConfiguration = RealmConfiguration.Builder(
             schema = setOf(
-                io.github.xilinjia.krdb.entities.migration.embedded.before.EmbeddedMigrationParent::class,
-                io.github.xilinjia.krdb.entities.migration.embedded.before.EmbeddedMigrationChild::class
+                io.realm.kotlin.entities.migration.embedded.before.EmbeddedMigrationParent::class,
+                io.realm.kotlin.entities.migration.embedded.before.EmbeddedMigrationChild::class
             )
         )
             .directory(tmpDir)
@@ -292,8 +292,8 @@ class MigrationTests {
 
         val migratedConfiguration = RealmConfiguration.Builder(
             schema = setOf(
-                io.github.xilinjia.krdb.entities.migration.embedded.after.EmbeddedMigrationParent::class,
-                io.github.xilinjia.krdb.entities.migration.embedded.after.EmbeddedMigrationChild::class,
+                io.realm.kotlin.entities.migration.embedded.after.EmbeddedMigrationParent::class,
+                io.realm.kotlin.entities.migration.embedded.after.EmbeddedMigrationChild::class,
             )
         )
             .directory(tmpDir)
@@ -304,7 +304,7 @@ class MigrationTests {
         Realm.open(migratedConfiguration).use {
             assertEquals(
                 2,
-                it.query<io.github.xilinjia.krdb.entities.migration.embedded.after.EmbeddedMigrationChild>()
+                it.query<io.realm.kotlin.entities.migration.embedded.after.EmbeddedMigrationChild>()
                     .find().count()
             )
         }

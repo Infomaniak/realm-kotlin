@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
 /**
  * Wrapper around Core Timestamp values.

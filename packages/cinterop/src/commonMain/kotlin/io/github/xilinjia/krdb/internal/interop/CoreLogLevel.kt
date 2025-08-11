@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
 expect enum class CoreLogLevel {
     RLM_LOG_LEVEL_ALL,

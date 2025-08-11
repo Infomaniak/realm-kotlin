@@ -13,23 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.serializers
+package io.realm.kotlin.serializers
 
-import io.github.xilinjia.krdb.ext.asRealmObject
-import io.github.xilinjia.krdb.ext.toRealmDictionary
-import io.github.xilinjia.krdb.ext.toRealmList
-import io.github.xilinjia.krdb.ext.toRealmSet
-import io.github.xilinjia.krdb.internal.asBsonDateTime
-import io.github.xilinjia.krdb.internal.asRealmInstant
-import io.github.xilinjia.krdb.types.MutableRealmInt
-import io.github.xilinjia.krdb.types.RealmAny
-import io.github.xilinjia.krdb.types.RealmAny.Type
-import io.github.xilinjia.krdb.types.RealmDictionary
-import io.github.xilinjia.krdb.types.RealmInstant
-import io.github.xilinjia.krdb.types.RealmList
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.RealmSet
-import io.github.xilinjia.krdb.types.RealmUUID
+import io.realm.kotlin.ext.asRealmObject
+import io.realm.kotlin.ext.toRealmDictionary
+import io.realm.kotlin.ext.toRealmList
+import io.realm.kotlin.ext.toRealmSet
+import io.realm.kotlin.internal.asBsonDateTime
+import io.realm.kotlin.internal.asRealmInstant
+import io.realm.kotlin.types.MutableRealmInt
+import io.realm.kotlin.types.RealmAny
+import io.realm.kotlin.types.RealmAny.Type
+import io.realm.kotlin.types.RealmDictionary
+import io.realm.kotlin.types.RealmInstant
+import io.realm.kotlin.types.RealmList
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.RealmSet
+import io.realm.kotlin.types.RealmUUID
 import kotlinx.serialization.Contextual
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.Serializable
@@ -83,7 +83,7 @@ import org.mongodb.kbson.Decimal128
  * )
  * ```
  *
- * Serializers for all Realm data types can be found in [io.github.xilinjia.krdb.serializers].
+ * Serializers for all Realm data types can be found in [io.realm.kotlin.serializers].
  */
 public class RealmListKSerializer<E>(elementSerializer: KSerializer<E>) :
     KSerializer<RealmList<E>> {
@@ -136,7 +136,7 @@ public class RealmListKSerializer<E>(elementSerializer: KSerializer<E>) :
  * )
  * ```
  *
- * Serializers for all Realm data types can be found in [io.github.xilinjia.krdb.serializers].
+ * Serializers for all Realm data types can be found in [io.realm.kotlin.serializers].
  */
 public class RealmSetKSerializer<E>(elementSerializer: KSerializer<E>) : KSerializer<RealmSet<E>> {
     private val serializer = SetSerializer(elementSerializer)
@@ -188,7 +188,7 @@ public class RealmSetKSerializer<E>(elementSerializer: KSerializer<E>) : KSerial
  * )
  * ```
  *
- * Serializers for all Realm data types can be found in [io.github.xilinjia.krdb.serializers].
+ * Serializers for all Realm data types can be found in [io.realm.kotlin.serializers].
  */
 public class RealmDictionaryKSerializer<E>(elementSerializer: KSerializer<E>) :
     KSerializer<RealmDictionary<E>> {
@@ -242,7 +242,7 @@ public class RealmDictionaryKSerializer<E>(elementSerializer: KSerializer<E>) :
  * )
  * ```
  *
- * Serializers for all Realm data types can be found in [io.github.xilinjia.krdb.serializers].
+ * Serializers for all Realm data types can be found in [io.realm.kotlin.serializers].
  */
 public object RealmInstantKSerializer : KSerializer<RealmInstant> {
     private val serializer = BsonDateTime.serializer()
@@ -324,7 +324,7 @@ public object RealmInstantKSerializer : KSerializer<RealmInstant> {
  * )
  * ```
  *
- * Serializers for all Realm data types can be found in [io.github.xilinjia.krdb.serializers].
+ * Serializers for all Realm data types can be found in [io.realm.kotlin.serializers].
  */
 public object RealmAnyKSerializer : KSerializer<RealmAny> {
 
@@ -446,7 +446,7 @@ public object RealmAnyKSerializer : KSerializer<RealmAny> {
  * )
  * ```
  *
- * Serializers for all Realm data types can be found in [io.github.xilinjia.krdb.serializers].
+ * Serializers for all Realm data types can be found in [io.realm.kotlin.serializers].
  */
 public object RealmUUIDKSerializer : KSerializer<RealmUUID> {
     private val serializer = BsonBinary.serializer()
@@ -497,7 +497,7 @@ public object RealmUUIDKSerializer : KSerializer<RealmUUID> {
  * )
  * ```
  *
- * Serializers for all Realm data types can be found in [io.github.xilinjia.krdb.serializers].
+ * Serializers for all Realm data types can be found in [io.realm.kotlin.serializers].
  */
 public object MutableRealmIntKSerializer : KSerializer<MutableRealmInt> {
     override val descriptor: SerialDescriptor = Long.serializer().descriptor

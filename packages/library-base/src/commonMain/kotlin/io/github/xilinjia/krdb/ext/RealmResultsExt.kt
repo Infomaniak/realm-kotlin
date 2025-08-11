@@ -1,10 +1,10 @@
-package io.github.xilinjia.krdb.ext
+package io.realm.kotlin.ext
 
-import io.github.xilinjia.krdb.TypedRealm
-import io.github.xilinjia.krdb.internal.getRealm
-import io.github.xilinjia.krdb.query.RealmResults
-import io.github.xilinjia.krdb.types.RealmList
-import io.github.xilinjia.krdb.types.TypedRealmObject
+import io.realm.kotlin.TypedRealm
+import io.realm.kotlin.internal.getRealm
+import io.realm.kotlin.query.RealmResults
+import io.realm.kotlin.types.RealmList
+import io.realm.kotlin.types.TypedRealmObject
 
 /**
  * Makes an unmanaged in-memory copy of the elements in a [RealmResults]. This is a deep copy

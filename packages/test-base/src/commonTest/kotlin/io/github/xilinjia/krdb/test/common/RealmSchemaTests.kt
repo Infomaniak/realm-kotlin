@@ -14,28 +14,28 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.common
+package io.realm.kotlin.test.common
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.entities.MultipleConstructors
-import io.github.xilinjia.krdb.entities.Sample
-import io.github.xilinjia.krdb.entities.embedded.EmbeddedChild
-import io.github.xilinjia.krdb.entities.embedded.EmbeddedInnerChild
-import io.github.xilinjia.krdb.entities.embedded.EmbeddedParent
-import io.github.xilinjia.krdb.entities.schema.SchemaVariations
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.internal.interop.PropertyType
-import io.github.xilinjia.krdb.internal.platform.runBlocking
-import io.github.xilinjia.krdb.internal.schema.RealmClassImpl
-import io.github.xilinjia.krdb.query.RealmResults
-import io.github.xilinjia.krdb.schema.ListPropertyType
-import io.github.xilinjia.krdb.schema.RealmClassKind
-import io.github.xilinjia.krdb.schema.RealmPropertyType
-import io.github.xilinjia.krdb.schema.RealmStorageType
-import io.github.xilinjia.krdb.schema.ValuePropertyType
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.util.use
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.entities.MultipleConstructors
+import io.realm.kotlin.entities.Sample
+import io.realm.kotlin.entities.embedded.EmbeddedChild
+import io.realm.kotlin.entities.embedded.EmbeddedInnerChild
+import io.realm.kotlin.entities.embedded.EmbeddedParent
+import io.realm.kotlin.entities.schema.SchemaVariations
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.internal.interop.PropertyType
+import io.realm.kotlin.internal.platform.runBlocking
+import io.realm.kotlin.internal.schema.RealmClassImpl
+import io.realm.kotlin.query.RealmResults
+import io.realm.kotlin.schema.ListPropertyType
+import io.realm.kotlin.schema.RealmClassKind
+import io.realm.kotlin.schema.RealmPropertyType
+import io.realm.kotlin.schema.RealmStorageType
+import io.realm.kotlin.schema.ValuePropertyType
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.util.use
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test
@@ -277,7 +277,7 @@ class RealmSchemaTests {
     // not see any new classes/properties. Thus only verifying that we have an updated key cache
     // instance
     fun schemaChanged() = runBlocking {
-        val schema = realm.schema() as io.github.xilinjia.krdb.internal.schema.RealmSchemaImpl
+        val schema = realm.schema() as io.realm.kotlin.internal.schema.RealmSchemaImpl
         val schemaVariationsDescriptor: RealmClassImpl = schema["SchemaVariations"]!!
         val sampleDescriptor: RealmClassImpl = schema["Sample"]!!
 
@@ -286,24 +286,24 @@ class RealmSchemaTests {
             copyToRealm(Sample())
         }
         // And grab the class metadata instance
-        val classCache = (sample1 as io.github.xilinjia.krdb.internal.RealmObjectInternal).`io_realm_kotlin_objectReference`!!.metadata
+        val classCache = (sample1 as io.realm.kotlin.internal.RealmObjectInternal).`io_realm_kotlin_objectReference`!!.metadata
 
         val sample2 = realm.write {
             copyToRealm(Sample())
         }
 
         // Assert that this is the same for subsequent objects of the same type
-        assertTrue(classCache === (sample2 as io.github.xilinjia.krdb.internal.RealmObjectInternal).`io_realm_kotlin_objectReference`!!.metadata)
+        assertTrue(classCache === (sample2 as io.realm.kotlin.internal.RealmObjectInternal).`io_realm_kotlin_objectReference`!!.metadata)
 
         // Update the schema
-        (realm as io.github.xilinjia.krdb.internal.RealmImpl).updateSchema(
-            io.github.xilinjia.krdb.internal.schema.RealmSchemaImpl(
+        (realm as io.realm.kotlin.internal.RealmImpl).updateSchema(
+            io.realm.kotlin.internal.schema.RealmSchemaImpl(
                 listOf(
                     schemaVariationsDescriptor,
                     sampleDescriptor,
                     RealmClassImpl(
-                        io.github.xilinjia.krdb.internal.interop.ClassInfo("NEW_CLASS", numProperties = 1),
-                        listOf(io.github.xilinjia.krdb.internal.interop.PropertyInfo("NEW_PROPERTY", type = PropertyType.RLM_PROPERTY_TYPE_STRING))
+                        io.realm.kotlin.internal.interop.ClassInfo("NEW_CLASS", numProperties = 1),
+                        listOf(io.realm.kotlin.internal.interop.PropertyInfo("NEW_PROPERTY", type = PropertyType.RLM_PROPERTY_TYPE_STRING))
                     )
                 )
             )
@@ -313,9 +313,9 @@ class RealmSchemaTests {
         val sample3 = realm.write {
             copyToRealm(Sample())
         }
-        assertFalse(classCache === (sample3 as io.github.xilinjia.krdb.internal.RealmObjectInternal).`io_realm_kotlin_objectReference`!!.metadata)
+        assertFalse(classCache === (sample3 as io.realm.kotlin.internal.RealmObjectInternal).`io_realm_kotlin_objectReference`!!.metadata)
         // and that the old frozen objects still have the original class meta data instance
-        assertTrue(classCache === (sample1 as io.github.xilinjia.krdb.internal.RealmObjectInternal).`io_realm_kotlin_objectReference`!!.metadata)
-        assertTrue(classCache === (sample2 as io.github.xilinjia.krdb.internal.RealmObjectInternal).`io_realm_kotlin_objectReference`!!.metadata)
+        assertTrue(classCache === (sample1 as io.realm.kotlin.internal.RealmObjectInternal).`io_realm_kotlin_objectReference`!!.metadata)
+        assertTrue(classCache === (sample2 as io.realm.kotlin.internal.RealmObjectInternal).`io_realm_kotlin_objectReference`!!.metadata)
     }
 }

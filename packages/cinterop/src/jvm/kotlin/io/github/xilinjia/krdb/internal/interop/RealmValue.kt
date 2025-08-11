@@ -15,7 +15,7 @@
  */
 @file:Suppress("NOTHING_TO_INLINE")
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
 // TODO BENCHMARK: investigate performance between using this as value vs reference type
 actual typealias RealmValueT = realm_value_t

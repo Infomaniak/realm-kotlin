@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.platform
+package io.realm.kotlin.test.platform
 
-import io.github.xilinjia.krdb.test.util.Utils
+import io.realm.kotlin.test.util.Utils
 import kotlinx.cinterop.ULongVar
 import kotlinx.cinterop.alloc
 import kotlinx.cinterop.cValue

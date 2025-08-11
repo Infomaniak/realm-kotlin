@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.types
+package io.realm.kotlin.types
 
-import io.github.xilinjia.krdb.MutableRealm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.ext.realmDictionaryOf
-import io.github.xilinjia.krdb.internal.RealmMapEntrySet
-import io.github.xilinjia.krdb.internal.RealmMapMutableEntry
-import io.github.xilinjia.krdb.notifications.InitialMap
-import io.github.xilinjia.krdb.notifications.MapChange
-import io.github.xilinjia.krdb.notifications.UpdatedMap
+import io.realm.kotlin.MutableRealm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.ext.realmDictionaryOf
+import io.realm.kotlin.internal.RealmMapEntrySet
+import io.realm.kotlin.internal.RealmMapMutableEntry
+import io.realm.kotlin.notifications.InitialMap
+import io.realm.kotlin.notifications.MapChange
+import io.realm.kotlin.notifications.UpdatedMap
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow

@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.internal.interop.ArrayAccessor
-import io.github.xilinjia.krdb.internal.interop.CollectionChangeSetBuilder
-import io.github.xilinjia.krdb.internal.interop.MapChangeSetBuilder
-import io.github.xilinjia.krdb.internal.interop.RealmChangesPointer
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.notifications.DictionaryChangeSet
-import io.github.xilinjia.krdb.notifications.ListChangeSet
-import io.github.xilinjia.krdb.notifications.ListChangeSet.Range
-import io.github.xilinjia.krdb.notifications.SetChangeSet
+import io.realm.kotlin.internal.interop.ArrayAccessor
+import io.realm.kotlin.internal.interop.CollectionChangeSetBuilder
+import io.realm.kotlin.internal.interop.MapChangeSetBuilder
+import io.realm.kotlin.internal.interop.RealmChangesPointer
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.notifications.DictionaryChangeSet
+import io.realm.kotlin.notifications.ListChangeSet
+import io.realm.kotlin.notifications.ListChangeSet.Range
+import io.realm.kotlin.notifications.SetChangeSet
 
 // --------------------------------------------------------
 // Collections: List and Set

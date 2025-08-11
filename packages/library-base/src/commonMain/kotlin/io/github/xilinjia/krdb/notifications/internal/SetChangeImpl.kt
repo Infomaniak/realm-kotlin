@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.notifications.internal
+package io.realm.kotlin.notifications.internal
 
-import io.github.xilinjia.krdb.notifications.DeletedSet
-import io.github.xilinjia.krdb.notifications.InitialSet
-import io.github.xilinjia.krdb.notifications.SetChangeSet
-import io.github.xilinjia.krdb.notifications.UpdatedSet
-import io.github.xilinjia.krdb.types.RealmSet
+import io.realm.kotlin.notifications.DeletedSet
+import io.realm.kotlin.notifications.InitialSet
+import io.realm.kotlin.notifications.SetChangeSet
+import io.realm.kotlin.notifications.UpdatedSet
+import io.realm.kotlin.types.RealmSet
 
 internal class InitialSetImpl<T>(override val set: RealmSet<T>) : InitialSet<T>
 

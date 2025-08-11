@@ -14,30 +14,30 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.Configuration
-import io.github.xilinjia.krdb.MutableRealm
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.dynamic.DynamicRealm
-import io.github.xilinjia.krdb.internal.dynamic.DynamicRealmImpl
-import io.github.xilinjia.krdb.internal.interop.ClassKey
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmKeyPathArrayPointer
-import io.github.xilinjia.krdb.internal.interop.SynchronizableObject
-import io.github.xilinjia.krdb.internal.platform.copyAssetFile
-import io.github.xilinjia.krdb.internal.platform.fileExists
-import io.github.xilinjia.krdb.internal.platform.runBlocking
-import io.github.xilinjia.krdb.internal.schema.RealmSchemaImpl
-import io.github.xilinjia.krdb.internal.util.LiveRealmContext
-import io.github.xilinjia.krdb.internal.util.Validation.sdkError
-import io.github.xilinjia.krdb.internal.util.createLiveRealmContext
-import io.github.xilinjia.krdb.internal.util.terminateWhen
-import io.github.xilinjia.krdb.notifications.RealmChange
-import io.github.xilinjia.krdb.notifications.internal.InitialRealmImpl
-import io.github.xilinjia.krdb.notifications.internal.UpdatedRealmImpl
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.types.TypedRealmObject
+import io.realm.kotlin.Configuration
+import io.realm.kotlin.MutableRealm
+import io.realm.kotlin.Realm
+import io.realm.kotlin.dynamic.DynamicRealm
+import io.realm.kotlin.internal.dynamic.DynamicRealmImpl
+import io.realm.kotlin.internal.interop.ClassKey
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmKeyPathArrayPointer
+import io.realm.kotlin.internal.interop.SynchronizableObject
+import io.realm.kotlin.internal.platform.copyAssetFile
+import io.realm.kotlin.internal.platform.fileExists
+import io.realm.kotlin.internal.platform.runBlocking
+import io.realm.kotlin.internal.schema.RealmSchemaImpl
+import io.realm.kotlin.internal.util.LiveRealmContext
+import io.realm.kotlin.internal.util.Validation.sdkError
+import io.realm.kotlin.internal.util.createLiveRealmContext
+import io.realm.kotlin.internal.util.terminateWhen
+import io.realm.kotlin.notifications.RealmChange
+import io.realm.kotlin.notifications.internal.InitialRealmImpl
+import io.realm.kotlin.notifications.internal.UpdatedRealmImpl
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.types.TypedRealmObject
 import kotlinx.atomicfu.AtomicRef
 import kotlinx.atomicfu.atomic
 import kotlinx.coroutines.CoroutineScope

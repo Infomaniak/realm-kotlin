@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb
+package io.realm.kotlin
 
 /**
  * A `VersionId` representing the transactional id of the Realm itself or it's objects.

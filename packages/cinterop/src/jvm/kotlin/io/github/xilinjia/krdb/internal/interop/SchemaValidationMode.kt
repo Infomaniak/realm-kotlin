@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
 actual enum class SchemaValidationMode(override val nativeValue: Int) : NativeEnumerated {
     RLM_SCHEMA_VALIDATION_BASIC(realm_schema_validation_mode_e.RLM_SCHEMA_VALIDATION_BASIC),

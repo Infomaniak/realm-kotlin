@@ -48,10 +48,10 @@ private:
         , m_java_lang_string(env, "java/lang/String", false)
         , m_kotlin_jvm_functions_function0(env, "kotlin/jvm/functions/Function0", false)
         , m_kotlin_jvm_functions_function1(env, "kotlin/jvm/functions/Function1", false)
-        , m_io_realm_kotlin_internal_interop_long_pointer_wrapper(env, "io/github/xilinjia/krdb/internal/interop/LongPointerWrapper", false)
-        , m_io_realm_kotlin_internal_interop_log_callback(env, "io/github/xilinjia/krdb/internal/interop/LogCallback", false)
-        , m_io_realm_kotlin_internal_interop_core_error_converter(env, "io/github/xilinjia/krdb/internal/interop/CoreErrorConverter", false)
-        , m_io_realm_kotlin_internal_interop_notification_callback(env, "io/github/xilinjia/krdb/internal/interop/NotificationCallback", false)
+        , m_io_realm_kotlin_internal_interop_long_pointer_wrapper(env, "io/realm/kotlin/internal/interop/LongPointerWrapper", false)
+        , m_io_realm_kotlin_internal_interop_log_callback(env, "io/realm/kotlin/internal/interop/LogCallback", false)
+        , m_io_realm_kotlin_internal_interop_core_error_converter(env, "io/realm/kotlin/internal/interop/CoreErrorConverter", false)
+        , m_io_realm_kotlin_internal_interop_notification_callback(env, "io/realm/kotlin/internal/interop/NotificationCallback", false)
 
     {
     }

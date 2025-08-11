@@ -14,24 +14,24 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.common.notifications
+package io.realm.kotlin.test.common.notifications
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.entities.dictionary.DictionaryEmbeddedLevel1
-import io.github.xilinjia.krdb.entities.dictionary.RealmDictionaryContainer
-import io.github.xilinjia.krdb.ext.realmDictionaryOf
-import io.github.xilinjia.krdb.notifications.DeletedMap
-import io.github.xilinjia.krdb.notifications.InitialMap
-import io.github.xilinjia.krdb.notifications.MapChange
-import io.github.xilinjia.krdb.notifications.UpdatedMap
-import io.github.xilinjia.krdb.test.common.DICTIONARY_KEYS_FOR_NULLABLE
-import io.github.xilinjia.krdb.test.common.NULLABLE_DICTIONARY_OBJECT_VALUES
-import io.github.xilinjia.krdb.test.common.utils.RealmEntityNotificationTests
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.util.TestChannel
-import io.github.xilinjia.krdb.test.util.receiveOrFail
-import io.github.xilinjia.krdb.types.RealmDictionary
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.entities.dictionary.DictionaryEmbeddedLevel1
+import io.realm.kotlin.entities.dictionary.RealmDictionaryContainer
+import io.realm.kotlin.ext.realmDictionaryOf
+import io.realm.kotlin.notifications.DeletedMap
+import io.realm.kotlin.notifications.InitialMap
+import io.realm.kotlin.notifications.MapChange
+import io.realm.kotlin.notifications.UpdatedMap
+import io.realm.kotlin.test.common.DICTIONARY_KEYS_FOR_NULLABLE
+import io.realm.kotlin.test.common.NULLABLE_DICTIONARY_OBJECT_VALUES
+import io.realm.kotlin.test.common.utils.RealmEntityNotificationTests
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.util.TestChannel
+import io.realm.kotlin.test.util.receiveOrFail
+import io.realm.kotlin.types.RealmDictionary
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.async
 import kotlinx.coroutines.channels.Channel

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
 actual object ClassFlags {
     actual val RLM_CLASS_NORMAL = realm_class_flags_e.RLM_CLASS_NORMAL

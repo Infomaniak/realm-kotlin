@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.util
+package io.realm.kotlin.internal.util
 
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.contract

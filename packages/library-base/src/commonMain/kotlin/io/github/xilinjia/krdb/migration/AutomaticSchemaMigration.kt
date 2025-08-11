@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.migration
+package io.realm.kotlin.migration
 
-import io.github.xilinjia.krdb.dynamic.DynamicMutableRealm
-import io.github.xilinjia.krdb.dynamic.DynamicMutableRealmObject
-import io.github.xilinjia.krdb.dynamic.DynamicRealm
-import io.github.xilinjia.krdb.dynamic.DynamicRealmObject
-import io.github.xilinjia.krdb.query.RealmResults
+import io.realm.kotlin.dynamic.DynamicMutableRealm
+import io.realm.kotlin.dynamic.DynamicMutableRealmObject
+import io.realm.kotlin.dynamic.DynamicRealm
+import io.realm.kotlin.dynamic.DynamicRealmObject
+import io.realm.kotlin.query.RealmResults
 
 /**
  * A realm migration that performs automatic schema migration and allows additional custom

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.notifications.internal
+package io.realm.kotlin.notifications.internal
 
 /**
  * A _cancellable_ representing ongoing tasks or subscription that can be cancelled.

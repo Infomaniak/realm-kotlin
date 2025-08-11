@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
 actual enum class ErrorCode(actual override val description: String?, actual override val nativeValue: Int) :
     CodeDescription {

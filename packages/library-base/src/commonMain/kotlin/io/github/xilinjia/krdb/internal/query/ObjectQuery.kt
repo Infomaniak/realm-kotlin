@@ -14,30 +14,30 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.query
+package io.realm.kotlin.internal.query
 
-import io.github.xilinjia.krdb.internal.InternalDeleteable
-import io.github.xilinjia.krdb.internal.Mediator
-import io.github.xilinjia.krdb.internal.Notifiable
-import io.github.xilinjia.krdb.internal.Observable
-import io.github.xilinjia.krdb.internal.RealmReference
-import io.github.xilinjia.krdb.internal.RealmResultsImpl
-import io.github.xilinjia.krdb.internal.RealmValueArgumentConverter.convertToQueryArgs
-import io.github.xilinjia.krdb.internal.asInternalDeleteable
-import io.github.xilinjia.krdb.internal.interop.ClassKey
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmQueryPointer
-import io.github.xilinjia.krdb.internal.interop.RealmResultsPointer
-import io.github.xilinjia.krdb.internal.interop.inputScope
-import io.github.xilinjia.krdb.internal.schema.ClassMetadata
-import io.github.xilinjia.krdb.notifications.ResultsChange
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.query.RealmResults
-import io.github.xilinjia.krdb.query.RealmScalarNullableQuery
-import io.github.xilinjia.krdb.query.RealmScalarQuery
-import io.github.xilinjia.krdb.query.RealmSingleQuery
-import io.github.xilinjia.krdb.query.Sort
-import io.github.xilinjia.krdb.types.BaseRealmObject
+import io.realm.kotlin.internal.InternalDeleteable
+import io.realm.kotlin.internal.Mediator
+import io.realm.kotlin.internal.Notifiable
+import io.realm.kotlin.internal.Observable
+import io.realm.kotlin.internal.RealmReference
+import io.realm.kotlin.internal.RealmResultsImpl
+import io.realm.kotlin.internal.RealmValueArgumentConverter.convertToQueryArgs
+import io.realm.kotlin.internal.asInternalDeleteable
+import io.realm.kotlin.internal.interop.ClassKey
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmQueryPointer
+import io.realm.kotlin.internal.interop.RealmResultsPointer
+import io.realm.kotlin.internal.interop.inputScope
+import io.realm.kotlin.internal.schema.ClassMetadata
+import io.realm.kotlin.notifications.ResultsChange
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.query.RealmResults
+import io.realm.kotlin.query.RealmScalarNullableQuery
+import io.realm.kotlin.query.RealmScalarQuery
+import io.realm.kotlin.query.RealmSingleQuery
+import io.realm.kotlin.query.Sort
+import io.realm.kotlin.types.BaseRealmObject
 import kotlinx.coroutines.flow.Flow
 import kotlin.reflect.KClass
 

@@ -1,4 +1,4 @@
-package io.github.xilinjia.krdb.types.annotations
+package io.realm.kotlin.types.annotations
 
 @Retention(AnnotationRetention.SOURCE)
 @Target(AnnotationTarget.FIELD)

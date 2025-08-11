@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.notifications.internal
+package io.realm.kotlin.notifications.internal
 
-import io.github.xilinjia.krdb.notifications.InitialResults
-import io.github.xilinjia.krdb.notifications.ListChangeSet
-import io.github.xilinjia.krdb.notifications.UpdatedResults
-import io.github.xilinjia.krdb.query.RealmResults
-import io.github.xilinjia.krdb.types.BaseRealmObject
+import io.realm.kotlin.notifications.InitialResults
+import io.realm.kotlin.notifications.ListChangeSet
+import io.realm.kotlin.notifications.UpdatedResults
+import io.realm.kotlin.query.RealmResults
+import io.realm.kotlin.types.BaseRealmObject
 
 internal class InitialResultsImpl<T : BaseRealmObject>(
     override val list: RealmResults<T>

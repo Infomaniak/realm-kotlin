@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.types
+package io.realm.kotlin.types
 
-import io.github.xilinjia.krdb.Deleteable
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.notifications.InitialSet
-import io.github.xilinjia.krdb.notifications.SetChange
-import io.github.xilinjia.krdb.notifications.UpdatedSet
+import io.realm.kotlin.Deleteable
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.notifications.InitialSet
+import io.realm.kotlin.notifications.SetChange
+import io.realm.kotlin.notifications.UpdatedSet
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow

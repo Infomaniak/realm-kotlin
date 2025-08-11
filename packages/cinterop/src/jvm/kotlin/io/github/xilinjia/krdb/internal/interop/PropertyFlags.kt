@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
 actual object PropertyFlags {
     actual val RLM_PROPERTY_NORMAL: Int = realm_property_flags_e.RLM_PROPERTY_NORMAL

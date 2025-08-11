@@ -14,31 +14,31 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.common
+package io.realm.kotlin.test.common
 
-import io.github.xilinjia.krdb.MutableRealm
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.entities.Sample
-import io.github.xilinjia.krdb.entities.SampleWithPrimaryKey
-import io.github.xilinjia.krdb.entities.set.RealmSetContainer
-import io.github.xilinjia.krdb.ext.asRealmObject
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.ext.realmSetOf
-import io.github.xilinjia.krdb.ext.toRealmSet
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.query.RealmResults
-import io.github.xilinjia.krdb.query.find
-import io.github.xilinjia.krdb.test.common.utils.ErrorCatcher
-import io.github.xilinjia.krdb.test.common.utils.GenericTypeSafetyManager
-import io.github.xilinjia.krdb.test.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.util.TypeDescriptor
-import io.github.xilinjia.krdb.types.RealmAny
-import io.github.xilinjia.krdb.types.RealmInstant
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.RealmSet
-import io.github.xilinjia.krdb.types.RealmUUID
+import io.realm.kotlin.MutableRealm
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.entities.Sample
+import io.realm.kotlin.entities.SampleWithPrimaryKey
+import io.realm.kotlin.entities.set.RealmSetContainer
+import io.realm.kotlin.ext.asRealmObject
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.ext.realmSetOf
+import io.realm.kotlin.ext.toRealmSet
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.query.RealmResults
+import io.realm.kotlin.query.find
+import io.realm.kotlin.test.common.utils.ErrorCatcher
+import io.realm.kotlin.test.common.utils.GenericTypeSafetyManager
+import io.realm.kotlin.test.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.util.TypeDescriptor
+import io.realm.kotlin.types.RealmAny
+import io.realm.kotlin.types.RealmInstant
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.RealmSet
+import io.realm.kotlin.types.RealmUUID
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.async
 import kotlinx.coroutines.channels.BufferOverflow

@@ -14,22 +14,22 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.common
+package io.realm.kotlin.test.common
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.entities.JsonStyleRealmObject
-import io.github.xilinjia.krdb.entities.Sample
-import io.github.xilinjia.krdb.ext.asRealmObject
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.ext.realmAnyDictionaryOf
-import io.github.xilinjia.krdb.ext.realmAnyListOf
-import io.github.xilinjia.krdb.ext.realmDictionaryOf
-import io.github.xilinjia.krdb.ext.realmListOf
-import io.github.xilinjia.krdb.internal.platform.runBlocking
-import io.github.xilinjia.krdb.test.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.types.RealmAny
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.entities.JsonStyleRealmObject
+import io.realm.kotlin.entities.Sample
+import io.realm.kotlin.ext.asRealmObject
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.ext.realmAnyDictionaryOf
+import io.realm.kotlin.ext.realmAnyListOf
+import io.realm.kotlin.ext.realmDictionaryOf
+import io.realm.kotlin.ext.realmListOf
+import io.realm.kotlin.internal.platform.runBlocking
+import io.realm.kotlin.test.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.types.RealmAny
 import org.mongodb.kbson.ObjectId
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest

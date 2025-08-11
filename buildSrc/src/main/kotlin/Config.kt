@@ -63,9 +63,9 @@ val HOST_OS: OperatingSystem = findHostOs()
 object Realm {
     val ciBuild = (System.getenv("CI") != null)
      const val version = "3.2.8"
-    const val group = "io.github.xilinjia.krdb"
+    const val group = "io.realm.kotlin"
     const val projectUrl = "https://realm.io"
-    const val pluginPortalId = "io.github.xilinjia.krdb"
+    const val pluginPortalId = "io.realm.kotlin"
     // Modules has to match ${project.group}:${project.name} to make composite build work
     const val compilerPluginId = "plugin-compiler"
     const val compilerPluginIdNative = "plugin-compiler-shaded"

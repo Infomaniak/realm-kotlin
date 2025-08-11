@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.entities.dictionary
+package io.realm.kotlin.entities.dictionary
 
-import io.github.xilinjia.krdb.ext.realmDictionaryOf
-import io.github.xilinjia.krdb.types.EmbeddedRealmObject
-import io.github.xilinjia.krdb.types.RealmAny
-import io.github.xilinjia.krdb.types.RealmDictionary
-import io.github.xilinjia.krdb.types.RealmInstant
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.RealmUUID
+import io.realm.kotlin.ext.realmDictionaryOf
+import io.realm.kotlin.types.EmbeddedRealmObject
+import io.realm.kotlin.types.RealmAny
+import io.realm.kotlin.types.RealmDictionary
+import io.realm.kotlin.types.RealmInstant
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.RealmUUID
 import org.mongodb.kbson.BsonObjectId
 import org.mongodb.kbson.Decimal128
 import kotlin.reflect.KMutableProperty1

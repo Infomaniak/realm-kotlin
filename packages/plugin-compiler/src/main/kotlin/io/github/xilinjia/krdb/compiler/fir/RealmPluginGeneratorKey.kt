@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.compiler.fir
+package io.realm.kotlin.compiler.fir
 
 import org.jetbrains.kotlin.GeneratedDeclarationKey
 

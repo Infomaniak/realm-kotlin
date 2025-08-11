@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.compiler.fir.model
+package io.realm.kotlin.compiler.fir.model
 
-import io.github.xilinjia.krdb.compiler.Names
-import io.github.xilinjia.krdb.compiler.fir.RealmPluginGeneratorKey
-import io.github.xilinjia.krdb.compiler.isBaseRealmObject
+import io.realm.kotlin.compiler.Names
+import io.realm.kotlin.compiler.fir.RealmPluginGeneratorKey
+import io.realm.kotlin.compiler.isBaseRealmObject
 import org.jetbrains.kotlin.fir.FirSession
 import org.jetbrains.kotlin.fir.analysis.checkers.getContainingClassSymbol
 import org.jetbrains.kotlin.fir.declarations.utils.isCompanion

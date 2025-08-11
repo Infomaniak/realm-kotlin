@@ -1,11 +1,11 @@
 @file:OptIn(ExperimentalCompilerApi::class)
 
-package io.github.xilinjia.krdb.test.compiler
+package io.realm.kotlin.test.compiler
 
 import com.tschuchort.compiletesting.JvmCompilationResult
 import com.tschuchort.compiletesting.SourceFile
-import io.github.xilinjia.krdb.compiler.CollectionType
-import io.github.xilinjia.krdb.test.util.Compiler
+import io.realm.kotlin.compiler.CollectionType
+import io.realm.kotlin.test.util.Compiler
 import org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi
 
 fun createFileAndCompile(fileName: String, code: String): JvmCompilationResult =
@@ -46,14 +46,14 @@ internal const val EMBEDDED_CLASS = "EmbeddedClass"
 internal const val OBJECT_CLASS = "SampleClass"
 
 private val COLLECTION_CODE = """
-import io.github.xilinjia.krdb.types.EmbeddedRealmObject
-import io.github.xilinjia.krdb.types.RealmAny
-import io.github.xilinjia.krdb.types.RealmDictionary
-import io.github.xilinjia.krdb.types.RealmInstant
-import io.github.xilinjia.krdb.types.RealmList
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.RealmSet
-import io.github.xilinjia.krdb.types.RealmUUID
+import io.realm.kotlin.types.EmbeddedRealmObject
+import io.realm.kotlin.types.RealmAny
+import io.realm.kotlin.types.RealmDictionary
+import io.realm.kotlin.types.RealmInstant
+import io.realm.kotlin.types.RealmList
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.RealmSet
+import io.realm.kotlin.types.RealmUUID
 import org.mongodb.kbson.BsonDecimal128
 import org.mongodb.kbson.BsonObjectId
 

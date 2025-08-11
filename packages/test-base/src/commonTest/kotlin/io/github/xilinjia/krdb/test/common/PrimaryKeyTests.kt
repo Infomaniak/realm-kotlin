@@ -13,36 +13,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.test.common
+package io.realm.kotlin.test.common
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.entities.primarykey.NoPrimaryKey
-import io.github.xilinjia.krdb.entities.primarykey.PrimaryKeyBsonObjectId
-import io.github.xilinjia.krdb.entities.primarykey.PrimaryKeyBsonObjectIdNullable
-import io.github.xilinjia.krdb.entities.primarykey.PrimaryKeyByte
-import io.github.xilinjia.krdb.entities.primarykey.PrimaryKeyByteNullable
-import io.github.xilinjia.krdb.entities.primarykey.PrimaryKeyChar
-import io.github.xilinjia.krdb.entities.primarykey.PrimaryKeyCharNullable
-import io.github.xilinjia.krdb.entities.primarykey.PrimaryKeyInt
-import io.github.xilinjia.krdb.entities.primarykey.PrimaryKeyIntNullable
-import io.github.xilinjia.krdb.entities.primarykey.PrimaryKeyLong
-import io.github.xilinjia.krdb.entities.primarykey.PrimaryKeyLongNullable
-import io.github.xilinjia.krdb.entities.primarykey.PrimaryKeyRealmUUID
-import io.github.xilinjia.krdb.entities.primarykey.PrimaryKeyRealmUUIDNullable
-import io.github.xilinjia.krdb.entities.primarykey.PrimaryKeyShort
-import io.github.xilinjia.krdb.entities.primarykey.PrimaryKeyShortNullable
-import io.github.xilinjia.krdb.entities.primarykey.PrimaryKeyString
-import io.github.xilinjia.krdb.entities.primarykey.PrimaryKeyStringNullable
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.query.find
-import io.github.xilinjia.krdb.test.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.util.TypeDescriptor.allPrimaryKeyFieldTypes
-import io.github.xilinjia.krdb.test.util.TypeDescriptor.rType
-import io.github.xilinjia.krdb.test.util.use
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.RealmUUID
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.entities.primarykey.NoPrimaryKey
+import io.realm.kotlin.entities.primarykey.PrimaryKeyBsonObjectId
+import io.realm.kotlin.entities.primarykey.PrimaryKeyBsonObjectIdNullable
+import io.realm.kotlin.entities.primarykey.PrimaryKeyByte
+import io.realm.kotlin.entities.primarykey.PrimaryKeyByteNullable
+import io.realm.kotlin.entities.primarykey.PrimaryKeyChar
+import io.realm.kotlin.entities.primarykey.PrimaryKeyCharNullable
+import io.realm.kotlin.entities.primarykey.PrimaryKeyInt
+import io.realm.kotlin.entities.primarykey.PrimaryKeyIntNullable
+import io.realm.kotlin.entities.primarykey.PrimaryKeyLong
+import io.realm.kotlin.entities.primarykey.PrimaryKeyLongNullable
+import io.realm.kotlin.entities.primarykey.PrimaryKeyRealmUUID
+import io.realm.kotlin.entities.primarykey.PrimaryKeyRealmUUIDNullable
+import io.realm.kotlin.entities.primarykey.PrimaryKeyShort
+import io.realm.kotlin.entities.primarykey.PrimaryKeyShortNullable
+import io.realm.kotlin.entities.primarykey.PrimaryKeyString
+import io.realm.kotlin.entities.primarykey.PrimaryKeyStringNullable
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.query.find
+import io.realm.kotlin.test.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.util.TypeDescriptor.allPrimaryKeyFieldTypes
+import io.realm.kotlin.test.util.TypeDescriptor.rType
+import io.realm.kotlin.test.util.use
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.RealmUUID
 import org.mongodb.kbson.BsonObjectId
 import kotlin.reflect.typeOf
 import kotlin.test.AfterTest
@@ -229,7 +229,7 @@ class PrimaryKeyTests {
             .build()
 
 //        @Suppress("invisible_reference", "invisible_member")
-        val mediator = (configuration as io.github.xilinjia.krdb.internal.RealmConfigurationImpl).mediator
+        val mediator = (configuration as io.realm.kotlin.internal.RealmConfigurationImpl).mediator
 
         Realm.open(configuration).use { realm ->
             realm.writeBlocking {

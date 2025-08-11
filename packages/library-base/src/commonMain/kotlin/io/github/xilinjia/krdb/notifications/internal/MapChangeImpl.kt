@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.notifications.internal
+package io.realm.kotlin.notifications.internal
 
-import io.github.xilinjia.krdb.notifications.DeletedMap
-import io.github.xilinjia.krdb.notifications.InitialMap
-import io.github.xilinjia.krdb.notifications.MapChangeSet
-import io.github.xilinjia.krdb.notifications.UpdatedMap
-import io.github.xilinjia.krdb.types.RealmMap
+import io.realm.kotlin.notifications.DeletedMap
+import io.realm.kotlin.notifications.InitialMap
+import io.realm.kotlin.notifications.MapChangeSet
+import io.realm.kotlin.notifications.UpdatedMap
+import io.realm.kotlin.types.RealmMap
 
 internal class InitialMapImpl<K, V>(override val map: RealmMap<K, V>) : InitialMap<K, V>
 internal typealias InitialDictionaryImpl<V> = InitialMapImpl<String, V>

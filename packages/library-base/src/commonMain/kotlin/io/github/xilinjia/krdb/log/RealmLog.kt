@@ -13,18 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.log
+package io.realm.kotlin.log
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.internal.fromCoreLogLevel
-import io.github.xilinjia.krdb.internal.interop.CoreLogLevel
-import io.github.xilinjia.krdb.internal.interop.LogCallback
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.SynchronizableObject
-import io.github.xilinjia.krdb.internal.platform.createDefaultSystemLogger
-import io.github.xilinjia.krdb.internal.toCoreLogLevel
-import io.github.xilinjia.krdb.log.RealmLog.add
-import io.github.xilinjia.krdb.log.RealmLog.addDefaultSystemLogger
+import io.realm.kotlin.Realm
+import io.realm.kotlin.internal.fromCoreLogLevel
+import io.realm.kotlin.internal.interop.CoreLogLevel
+import io.realm.kotlin.internal.interop.LogCallback
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.SynchronizableObject
+import io.realm.kotlin.internal.platform.createDefaultSystemLogger
+import io.realm.kotlin.internal.toCoreLogLevel
+import io.realm.kotlin.log.RealmLog.add
+import io.realm.kotlin.log.RealmLog.addDefaultSystemLogger
 
 /**
  * Global logger class used by all Realm components.
@@ -46,7 +46,7 @@ public object RealmLog {
     // `internal` until we can remove the old log API
     private var systemLoggerInstalled: RealmLogger? = null
     // Kotlin Multiplatform is currently lacking primitives like CopyOnWriteArrayList. We could
-    // use `io.github.xilinjia.krdb.internal.interop.SynchronizableObject`, but it would require locking
+    // use `io.realm.kotlin.internal.interop.SynchronizableObject`, but it would require locking
     // when reporting a log statement which feel a bit heavy, so instead we have added locks around
     // all modifications to this array (which are expected to be rare) and the `doLog` method must
     // copy this reference before using it.

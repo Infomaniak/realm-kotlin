@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
 import kotlinx.coroutines.flow.Flow
 

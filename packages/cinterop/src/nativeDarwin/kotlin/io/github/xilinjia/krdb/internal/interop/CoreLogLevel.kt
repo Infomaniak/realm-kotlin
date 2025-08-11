@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
 actual enum class CoreLogLevel(private val internalPriority: Int) {
     RLM_LOG_LEVEL_ALL(realm_wrapper.RLM_LOG_LEVEL_ALL.toInt()),

@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 @file:Suppress("invisible_reference", "invisible_member")
-package io.github.xilinjia.krdb.test.common
+package io.realm.kotlin.test.common
 
-import io.github.xilinjia.krdb.internal.ContextLogger
-import io.github.xilinjia.krdb.internal.categoriesByPath
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.log.LogCategory
-import io.github.xilinjia.krdb.log.LogLevel
-import io.github.xilinjia.krdb.log.RealmLog
-import io.github.xilinjia.krdb.log.RealmLogger
-import io.github.xilinjia.krdb.test.util.TestLogger
-import io.github.xilinjia.krdb.test.util.Utils
+import io.realm.kotlin.internal.ContextLogger
+import io.realm.kotlin.internal.categoriesByPath
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.log.LogCategory
+import io.realm.kotlin.log.LogLevel
+import io.realm.kotlin.log.RealmLog
+import io.realm.kotlin.log.RealmLogger
+import io.realm.kotlin.test.util.TestLogger
+import io.realm.kotlin.test.util.Utils
 import kotlinx.atomicfu.atomic
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest

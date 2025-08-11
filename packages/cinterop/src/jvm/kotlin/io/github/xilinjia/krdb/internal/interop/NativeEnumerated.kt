@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
 // Interface to hold C API enumerated constant reference by SWIG constant
 interface NativeEnumerated {

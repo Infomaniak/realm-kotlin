@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
 import kotlinx.cinterop.CArrayPointer
 import kotlinx.cinterop.ULongVar

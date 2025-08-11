@@ -1,4 +1,4 @@
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
 import android.content.Context
 import com.getkeepsafe.relinker.ReLinker

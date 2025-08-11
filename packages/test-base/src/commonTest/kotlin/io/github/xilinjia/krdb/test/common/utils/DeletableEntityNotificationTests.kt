@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.common.utils
+package io.realm.kotlin.test.common.utils
 
 /**
  * All classes that tests classes that exposes notifications on entities that can be removed from

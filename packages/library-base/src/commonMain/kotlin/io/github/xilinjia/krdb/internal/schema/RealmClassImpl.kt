@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.schema
+package io.realm.kotlin.internal.schema
 
-import io.github.xilinjia.krdb.internal.interop.ClassInfo
-import io.github.xilinjia.krdb.internal.interop.PropertyInfo
-import io.github.xilinjia.krdb.schema.RealmClass
-import io.github.xilinjia.krdb.schema.RealmClassKind
-import io.github.xilinjia.krdb.schema.RealmProperty
-import io.github.xilinjia.krdb.schema.ValuePropertyType
+import io.realm.kotlin.internal.interop.ClassInfo
+import io.realm.kotlin.internal.interop.PropertyInfo
+import io.realm.kotlin.schema.RealmClass
+import io.realm.kotlin.schema.RealmClassKind
+import io.realm.kotlin.schema.RealmProperty
+import io.realm.kotlin.schema.ValuePropertyType
 
 // TODO Public due to being a transitive dependency to RealmObjectCompanion
 public data class RealmClassImpl(

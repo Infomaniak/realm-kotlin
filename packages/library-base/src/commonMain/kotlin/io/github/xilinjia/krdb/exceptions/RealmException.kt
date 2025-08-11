@@ -1,4 +1,4 @@
-package io.github.xilinjia.krdb.exceptions
+package io.realm.kotlin.exceptions
 
 /**
  * Top level class for all exceptions that are Realm specific and doesn't have a better

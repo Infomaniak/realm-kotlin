@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
-import io.github.xilinjia.krdb.internal.interop.PropertyFlags.RLM_PROPERTY_FULLTEXT_INDEXED
-import io.github.xilinjia.krdb.internal.interop.PropertyFlags.RLM_PROPERTY_INDEXED
-import io.github.xilinjia.krdb.internal.interop.PropertyFlags.RLM_PROPERTY_NORMAL
-import io.github.xilinjia.krdb.internal.interop.PropertyFlags.RLM_PROPERTY_NULLABLE
-import io.github.xilinjia.krdb.internal.interop.PropertyFlags.RLM_PROPERTY_PRIMARY_KEY
+import io.realm.kotlin.internal.interop.PropertyFlags.RLM_PROPERTY_FULLTEXT_INDEXED
+import io.realm.kotlin.internal.interop.PropertyFlags.RLM_PROPERTY_INDEXED
+import io.realm.kotlin.internal.interop.PropertyFlags.RLM_PROPERTY_NORMAL
+import io.realm.kotlin.internal.interop.PropertyFlags.RLM_PROPERTY_NULLABLE
+import io.realm.kotlin.internal.interop.PropertyFlags.RLM_PROPERTY_PRIMARY_KEY
 
 @Suppress("LongParameterList")
 // TODO OPTIMIZE We could hold on to the native allocated memory and only read values lazily

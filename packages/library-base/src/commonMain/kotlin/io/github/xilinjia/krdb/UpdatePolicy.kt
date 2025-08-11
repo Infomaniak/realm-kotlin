@@ -1,9 +1,9 @@
-package io.github.xilinjia.krdb
+package io.realm.kotlin
 
 /**
  * Update policy that controls how to handle import of objects with existing primary keys when
  * import them with [MutableRealm.copyToRealm] and
- * [io.github.xilinjia.krdb.dynamic.DynamicMutableRealm.copyToRealm].
+ * [io.realm.kotlin.dynamic.DynamicMutableRealm.copyToRealm].
  *
  * @see MutableRealm.copyToRealm
  * @see DynamicMutableRealm.copyToRealm

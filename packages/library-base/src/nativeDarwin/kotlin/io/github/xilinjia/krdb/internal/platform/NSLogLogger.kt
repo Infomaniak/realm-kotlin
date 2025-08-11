@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.internal.platform
+package io.realm.kotlin.internal.platform
 
-import io.github.xilinjia.krdb.internal.messageWithCategory
-import io.github.xilinjia.krdb.log.LogCategory
-import io.github.xilinjia.krdb.log.LogLevel
-import io.github.xilinjia.krdb.log.RealmLogger
+import io.realm.kotlin.internal.messageWithCategory
+import io.realm.kotlin.log.LogCategory
+import io.realm.kotlin.log.LogLevel
+import io.realm.kotlin.log.RealmLogger
 import platform.Foundation.NSLog
 import platform.Foundation.NSString
 import platform.Foundation.stringWithFormat

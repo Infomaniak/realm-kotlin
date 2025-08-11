@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.types.annotations
+package io.realm.kotlin.types.annotations
 
-import io.github.xilinjia.krdb.types.RealmInstant
-import io.github.xilinjia.krdb.types.RealmUUID
+import io.realm.kotlin.types.RealmInstant
+import io.realm.kotlin.types.RealmUUID
 import org.mongodb.kbson.BsonObjectId
 
 @Retention(AnnotationRetention.SOURCE)

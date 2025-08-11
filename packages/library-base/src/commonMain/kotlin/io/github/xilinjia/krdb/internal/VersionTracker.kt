@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.VersionId
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmPointer
-import io.github.xilinjia.krdb.internal.platform.WeakReference
+import io.realm.kotlin.VersionId
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmPointer
+import io.realm.kotlin.internal.platform.WeakReference
 import kotlinx.atomicfu.AtomicRef
 import kotlinx.atomicfu.atomic
 

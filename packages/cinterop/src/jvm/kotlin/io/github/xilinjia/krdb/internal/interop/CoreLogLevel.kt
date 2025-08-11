@@ -1,4 +1,4 @@
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
 actual enum class CoreLogLevel(private val internalPriority: Int) {
     RLM_LOG_LEVEL_ALL(realm_log_level_e.RLM_LOG_LEVEL_ALL),

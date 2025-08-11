@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
 // TODO Could be replace by lambda. See realm_app_config_new networkTransportFactory for example.
 interface Callback<T : RealmNativePointer> {

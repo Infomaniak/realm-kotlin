@@ -14,26 +14,26 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.common
+package io.realm.kotlin.test.common
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.entities.Sample
-import io.github.xilinjia.krdb.entities.SampleWithPrimaryKey
-import io.github.xilinjia.krdb.entities.StringPropertyWithPrimaryKey
-import io.github.xilinjia.krdb.entities.embedded.embeddedSchema
-import io.github.xilinjia.krdb.entities.link.Child
-import io.github.xilinjia.krdb.entities.link.Parent
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.internal.RealmImpl
-import io.github.xilinjia.krdb.internal.VersionInfo
-import io.github.xilinjia.krdb.log.LogLevel
-import io.github.xilinjia.krdb.log.RealmLog
-import io.github.xilinjia.krdb.notifications.RealmChange
-import io.github.xilinjia.krdb.notifications.ResultsChange
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.util.TestChannel
-import io.github.xilinjia.krdb.test.util.receiveOrFail
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.entities.Sample
+import io.realm.kotlin.entities.SampleWithPrimaryKey
+import io.realm.kotlin.entities.StringPropertyWithPrimaryKey
+import io.realm.kotlin.entities.embedded.embeddedSchema
+import io.realm.kotlin.entities.link.Child
+import io.realm.kotlin.entities.link.Parent
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.internal.RealmImpl
+import io.realm.kotlin.internal.VersionInfo
+import io.realm.kotlin.log.LogLevel
+import io.realm.kotlin.log.RealmLog
+import io.realm.kotlin.notifications.RealmChange
+import io.realm.kotlin.notifications.ResultsChange
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.util.TestChannel
+import io.realm.kotlin.test.util.receiveOrFail
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async

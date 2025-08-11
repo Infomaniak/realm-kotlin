@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.VersionId
+import io.realm.kotlin.VersionId
 
 /**
  * A **live realm holder** encapsulated common properties of [SuspendableWriter] and
@@ -26,7 +26,7 @@ import io.github.xilinjia.krdb.VersionId
 internal abstract class LiveRealmHolder<out LiveRealm> {
 
     abstract val realmInitializer: Lazy<LiveRealm>
-    abstract val realm: io.github.xilinjia.krdb.internal.LiveRealm
+    abstract val realm: io.realm.kotlin.internal.LiveRealm
 
     /**
      * Current version of the frozen snapshot reference of the live realm. This is not guaranteed

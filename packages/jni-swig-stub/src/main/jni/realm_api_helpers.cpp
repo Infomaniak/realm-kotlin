@@ -147,9 +147,9 @@ schema_changed_callback(void* userdata, const realm_schema_t* new_schema) {
 bool migration_callback(void *userdata, realm_t *old_realm, realm_t *new_realm,
                         const realm_schema_t *schema) {
     auto env = get_env(true);
-    static JavaClass java_callback_class(env, "io/github/xilinjia/krdb/internal/interop/MigrationCallback");
+    static JavaClass java_callback_class(env, "io/realm/kotlin/internal/interop/MigrationCallback");
     static JavaMethod java_callback_method(env, java_callback_class, "migrate",
-                                           "(Lio/github/xilinjia/krdb/internal/interop/NativePointer;Lio/github/xilinjia/krdb/internal/interop/NativePointer;Lio/github/xilinjia/krdb/internal/interop/NativePointer;)V");
+                                           "(Lio/realm/kotlin/internal/interop/NativePointer;Lio/realm/kotlin/internal/interop/NativePointer;Lio/realm/kotlin/internal/interop/NativePointer;)V");
     // These realm/schema pointers are only valid for the duration of the
     // migration so don't let ownership follow the NativePointer-objects
     env->PushLocalFrame(3);
@@ -296,7 +296,7 @@ class CustomJVMScheduler {
 public:
     CustomJVMScheduler(jobject dispatchScheduler) : m_id(std::this_thread::get_id()) {
         JNIEnv *jenv = get_env();
-        jclass jvm_scheduler_class = jenv->FindClass("io/github/xilinjia/krdb/internal/interop/JVMScheduler");
+        jclass jvm_scheduler_class = jenv->FindClass("io/realm/kotlin/internal/interop/JVMScheduler");
         m_notify_method = jenv->GetMethodID(jvm_scheduler_class, "notifyCore", "(J)V");
         m_cancel_method = jenv->GetMethodID(jvm_scheduler_class, "cancel", "()V");
         m_jvm_dispatch_scheduler = jenv->NewGlobalRef(dispatchScheduler);
@@ -342,7 +342,7 @@ private:
 // Note: using jlong here will create a linker issue
 // Undefined symbols for architecture x86_64:
 //  "invoke_core_notify_callback(long long, long long)", referenced from:
-//      _Java_io.github.xilinjia.krdb.internal_interop_realmcJNI_invoke_1core_1notify_1callback in realmc.cpp.o
+//      _Java_io.realm.kotlin.internal_interop_realmcJNI_invoke_1core_1notify_1callback in realmc.cpp.o
 //ld: symbol(s) not found for architecture x86_64
 //
 // I suspect this could be related to the fact that jni.h defines jlong differently between Android (typedef int64_t)
@@ -374,7 +374,7 @@ realm_create_scheduler(jobject dispatchScheduler) {
 
 bool realm_should_compact_callback(void* userdata, uint64_t total_bytes, uint64_t used_bytes) {
     auto env = get_env(true);
-    static JavaClass java_should_compact_class(env, "io/github/xilinjia/krdb/internal/interop/CompactOnLaunchCallback");
+    static JavaClass java_should_compact_class(env, "io/realm/kotlin/internal/interop/CompactOnLaunchCallback");
     static JavaMethod java_should_compact_method(env, java_should_compact_class, "invoke", "(JJ)Z");
 
     jobject callback = static_cast<jobject>(userdata);
@@ -384,7 +384,7 @@ bool realm_should_compact_callback(void* userdata, uint64_t total_bytes, uint64_
 
 bool realm_data_initialization_callback(void* userdata, realm_t*) {
     auto env = get_env(true);
-    static JavaClass java_data_init_class(env, "io/github/xilinjia/krdb/internal/interop/DataInitializationCallback");
+    static JavaClass java_data_init_class(env, "io/realm/kotlin/internal/interop/DataInitializationCallback");
     static JavaMethod java_data_init_method(env, java_data_init_class, "invoke", "()V");
 
     jobject callback = static_cast<jobject>(userdata);

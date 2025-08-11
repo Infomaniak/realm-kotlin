@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmInterop
 
 /**
  * Interface holding default implementation of methods related to controlling a write transaction.

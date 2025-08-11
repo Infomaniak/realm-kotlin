@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.platform
+package io.realm.kotlin.internal.platform
 
-import io.github.xilinjia.krdb.internal.RealmObjectCompanion
-import io.github.xilinjia.krdb.types.BaseRealmObject
+import io.realm.kotlin.internal.RealmObjectCompanion
+import io.realm.kotlin.types.BaseRealmObject
 import kotlin.reflect.KClass
 
 /**

@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.types
+package io.realm.kotlin.types
 
-import io.github.xilinjia.krdb.internal.RealmUUIDImpl
+import io.realm.kotlin.internal.RealmUUIDImpl
 
 /**
  * A class that represents an immutable universally unique identifier (UUID). A UUID represents a 128-bit value.

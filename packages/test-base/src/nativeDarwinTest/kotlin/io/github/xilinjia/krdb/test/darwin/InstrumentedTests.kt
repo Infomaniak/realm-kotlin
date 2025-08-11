@@ -14,29 +14,29 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.darwin
+package io.realm.kotlin.test.darwin
 
 // FIXME API-CLEANUP Do we actually want to expose this. Test should probably just be reeavluated
 //  or moved.
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.entities.Sample
-import io.github.xilinjia.krdb.internal.BaseRealmImpl
-import io.github.xilinjia.krdb.internal.Mediator
-import io.github.xilinjia.krdb.internal.RealmObjectCompanion
-import io.github.xilinjia.krdb.internal.RealmObjectInternal
-import io.github.xilinjia.krdb.internal.RealmObjectReference
-import io.github.xilinjia.krdb.internal.RealmReference
-import io.github.xilinjia.krdb.internal.interop.CapiT
-import io.github.xilinjia.krdb.internal.interop.ClassKey
-import io.github.xilinjia.krdb.internal.interop.NativePointer
-import io.github.xilinjia.krdb.internal.interop.PropertyKey
-import io.github.xilinjia.krdb.internal.interop.RealmPointer
-import io.github.xilinjia.krdb.internal.schema.ClassMetadata
-import io.github.xilinjia.krdb.internal.schema.PropertyMetadata
-import io.github.xilinjia.krdb.internal.schema.SchemaMetadata
-import io.github.xilinjia.krdb.types.BaseRealmObject
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.TypedRealmObject
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.entities.Sample
+import io.realm.kotlin.internal.BaseRealmImpl
+import io.realm.kotlin.internal.Mediator
+import io.realm.kotlin.internal.RealmObjectCompanion
+import io.realm.kotlin.internal.RealmObjectInternal
+import io.realm.kotlin.internal.RealmObjectReference
+import io.realm.kotlin.internal.RealmReference
+import io.realm.kotlin.internal.interop.CapiT
+import io.realm.kotlin.internal.interop.ClassKey
+import io.realm.kotlin.internal.interop.NativePointer
+import io.realm.kotlin.internal.interop.PropertyKey
+import io.realm.kotlin.internal.interop.RealmPointer
+import io.realm.kotlin.internal.schema.ClassMetadata
+import io.realm.kotlin.internal.schema.PropertyMetadata
+import io.realm.kotlin.internal.schema.SchemaMetadata
+import io.realm.kotlin.types.BaseRealmObject
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.TypedRealmObject
 import kotlinx.cinterop.COpaquePointerVar
 import kotlinx.cinterop.CPointed
 import kotlinx.cinterop.CPointer
@@ -70,7 +70,7 @@ class InstrumentedTests {
         val p = Sample()
 
         @Suppress("CAST_NEVER_SUCCEEDS")
-        val realmModel: io.github.xilinjia.krdb.internal.RealmObjectInternal = p as? io.github.xilinjia.krdb.internal.RealmObjectInternal
+        val realmModel: io.realm.kotlin.internal.RealmObjectInternal = p as? io.realm.kotlin.internal.RealmObjectInternal
             ?: error("Supertype RealmObjectInternal was not added to Sample class")
 
         memScoped {

@@ -1,8 +1,8 @@
-package io.github.xilinjia.krdb.test.util
+package io.realm.kotlin.test.util
 
-import io.github.xilinjia.krdb.log.LogCategory
-import io.github.xilinjia.krdb.log.LogLevel
-import io.github.xilinjia.krdb.log.RealmLogger
+import io.realm.kotlin.log.LogCategory
+import io.realm.kotlin.log.LogLevel
+import io.realm.kotlin.log.RealmLogger
 
 /**
  * Logger implementation that track latest log event, so we are able to inspect it.

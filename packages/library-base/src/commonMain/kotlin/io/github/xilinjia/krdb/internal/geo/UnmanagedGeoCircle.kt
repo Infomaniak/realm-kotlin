@@ -1,9 +1,9 @@
-package io.github.xilinjia.krdb.internal.geo
+package io.realm.kotlin.internal.geo
 
-import io.github.xilinjia.krdb.annotations.ExperimentalGeoSpatialApi
-import io.github.xilinjia.krdb.types.geo.Distance
-import io.github.xilinjia.krdb.types.geo.GeoCircle
-import io.github.xilinjia.krdb.types.geo.GeoPoint
+import io.realm.kotlin.annotations.ExperimentalGeoSpatialApi
+import io.realm.kotlin.types.geo.Distance
+import io.realm.kotlin.types.geo.GeoCircle
+import io.realm.kotlin.types.geo.GeoPoint
 
 @OptIn(ExperimentalGeoSpatialApi::class)
 public data class UnmanagedGeoCircle(

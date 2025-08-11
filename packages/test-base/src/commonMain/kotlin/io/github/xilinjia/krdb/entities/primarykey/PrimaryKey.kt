@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.entities.primarykey
+package io.realm.kotlin.entities.primarykey
 
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.RealmUUID
-import io.github.xilinjia.krdb.types.annotations.PrimaryKey
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.RealmUUID
+import io.realm.kotlin.types.annotations.PrimaryKey
 import org.mongodb.kbson.BsonObjectId
 import kotlin.random.Random
 import kotlin.random.nextULong

@@ -13,16 +13,16 @@
  *
  */
 
-package io.github.xilinjia.krdb.test.util
+package io.realm.kotlin.test.util
 
-import io.github.xilinjia.krdb.internal.interop.CollectionType
-import io.github.xilinjia.krdb.internal.interop.PropertyType
-import io.github.xilinjia.krdb.internal.platform.returnType
-import io.github.xilinjia.krdb.types.MutableRealmInt
-import io.github.xilinjia.krdb.types.RealmAny
-import io.github.xilinjia.krdb.types.RealmInstant
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.RealmUUID
+import io.realm.kotlin.internal.interop.CollectionType
+import io.realm.kotlin.internal.interop.PropertyType
+import io.realm.kotlin.internal.platform.returnType
+import io.realm.kotlin.types.MutableRealmInt
+import io.realm.kotlin.types.RealmAny
+import io.realm.kotlin.types.RealmInstant
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.RealmUUID
 import org.mongodb.kbson.BsonObjectId
 import org.mongodb.kbson.Decimal128
 import kotlin.reflect.KClass

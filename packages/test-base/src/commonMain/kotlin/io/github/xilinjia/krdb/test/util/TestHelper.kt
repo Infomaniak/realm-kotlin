@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.util
+package io.realm.kotlin.test.util
 
-import io.github.xilinjia.krdb.Realm
+import io.realm.kotlin.Realm
 import kotlin.random.Random
 import kotlin.random.nextULong
 

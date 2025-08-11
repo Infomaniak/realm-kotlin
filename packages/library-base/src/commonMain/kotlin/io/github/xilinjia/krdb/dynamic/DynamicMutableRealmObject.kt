@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.dynamic
+package io.realm.kotlin.dynamic
 
-import io.github.xilinjia.krdb.MutableRealm
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.internal.dynamic.DynamicUnmanagedRealmObject
-import io.github.xilinjia.krdb.schema.RealmStorageType
-import io.github.xilinjia.krdb.types.RealmDictionary
-import io.github.xilinjia.krdb.types.RealmList
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.RealmSet
+import io.realm.kotlin.MutableRealm
+import io.realm.kotlin.Realm
+import io.realm.kotlin.internal.dynamic.DynamicUnmanagedRealmObject
+import io.realm.kotlin.schema.RealmStorageType
+import io.realm.kotlin.types.RealmDictionary
+import io.realm.kotlin.types.RealmList
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.RealmSet
 
 /**
  * A **dynamic mutable realm object** gives access and possibility to update the data of the realm

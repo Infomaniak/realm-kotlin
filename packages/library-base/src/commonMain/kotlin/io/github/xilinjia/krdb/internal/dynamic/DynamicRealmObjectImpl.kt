@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.dynamic
+package io.realm.kotlin.internal.dynamic
 
-import io.github.xilinjia.krdb.dynamic.DynamicRealmObject
-import io.github.xilinjia.krdb.internal.RealmObjectHelper
-import io.github.xilinjia.krdb.internal.RealmObjectInternal
-import io.github.xilinjia.krdb.internal.RealmObjectReference
-import io.github.xilinjia.krdb.query.RealmResults
-import io.github.xilinjia.krdb.types.BaseRealmObject
-import io.github.xilinjia.krdb.types.RealmDictionary
-import io.github.xilinjia.krdb.types.RealmList
-import io.github.xilinjia.krdb.types.RealmSet
+import io.realm.kotlin.dynamic.DynamicRealmObject
+import io.realm.kotlin.internal.RealmObjectHelper
+import io.realm.kotlin.internal.RealmObjectInternal
+import io.realm.kotlin.internal.RealmObjectReference
+import io.realm.kotlin.query.RealmResults
+import io.realm.kotlin.types.BaseRealmObject
+import io.realm.kotlin.types.RealmDictionary
+import io.realm.kotlin.types.RealmList
+import io.realm.kotlin.types.RealmSet
 import kotlin.reflect.KClass
 
 public open class DynamicRealmObjectImpl : DynamicRealmObject, RealmObjectInternal {

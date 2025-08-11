@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
 actual class SynchronizableObject {
     actual inline fun <R> withLock(block: () -> R): R = synchronized(this) { block() }

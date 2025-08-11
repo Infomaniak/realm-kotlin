@@ -16,11 +16,11 @@
 
 @file:OptIn(ExperimentalCompilerApi::class)
 
-package io.github.xilinjia.krdb.test.compiler
+package io.realm.kotlin.test.compiler
 
 import com.tschuchort.compiletesting.KotlinCompilation
 import com.tschuchort.compiletesting.SourceFile
-import io.github.xilinjia.krdb.test.util.Compiler.compileFromSource
+import io.realm.kotlin.test.util.Compiler.compileFromSource
 import org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi
 import org.junit.Test
 import kotlin.test.assertEquals
@@ -33,21 +33,21 @@ class RealmObjectAsGenericTests {
             source = SourceFile.kotlin(
                 "object_as_generic.kt",
                 """
-                    import io.github.xilinjia.krdb.types.BaseRealmObject
-                    import io.github.xilinjia.krdb.types.EmbeddedRealmObject
-                    import io.github.xilinjia.krdb.types.RealmObject
+                    import io.realm.kotlin.types.BaseRealmObject
+                    import io.realm.kotlin.types.EmbeddedRealmObject
+                    import io.realm.kotlin.types.RealmObject
 
                     open class BaseClass<T : BaseRealmObject>
                     class Foo : BaseClass<RealmObject>()
-                    class Bar : BaseClass<io.github.xilinjia.krdb.types.RealmObject>()
+                    class Bar : BaseClass<io.realm.kotlin.types.RealmObject>()
                     class RealmObjectAsGenericsFoo : BaseClass<RealmObject>()
-                    class RealmObjectAsGenericsBar : BaseClass<io.github.xilinjia.krdb.types.RealmObject>()
+                    class RealmObjectAsGenericsBar : BaseClass<io.realm.kotlin.types.RealmObject>()
                     class RealmObjectFoo : RealmObject, BaseClass<RealmObject>()
-                    class RealmObjectBar : io.github.xilinjia.krdb.types.RealmObject, BaseClass<io.github.xilinjia.krdb.types.RealmObject>()
+                    class RealmObjectBar : io.realm.kotlin.types.RealmObject, BaseClass<io.realm.kotlin.types.RealmObject>()
                     class EmbeddedRealmObjectAsGenericsFoo : BaseClass<EmbeddedRealmObject>()
-                    class EmbeddedRealmObjectAsGenericsBar : BaseClass<io.github.xilinjia.krdb.types.EmbeddedRealmObject>()
+                    class EmbeddedRealmObjectAsGenericsBar : BaseClass<io.realm.kotlin.types.EmbeddedRealmObject>()
                     class EmbeddedObjectFoo : EmbeddedRealmObject, BaseClass<EmbeddedRealmObject>()
-                    class EmbeddedObjectBar : io.github.xilinjia.krdb.types.EmbeddedRealmObject, BaseClass<io.github.xilinjia.krdb.types.EmbeddedRealmObject>()
+                    class EmbeddedObjectBar : io.realm.kotlin.types.EmbeddedRealmObject, BaseClass<io.realm.kotlin.types.EmbeddedRealmObject>()
                 """.trimIndent()
             )
         )

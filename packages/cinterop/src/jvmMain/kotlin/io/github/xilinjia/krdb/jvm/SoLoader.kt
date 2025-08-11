@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.jvm
+package io.realm.kotlin.jvm
 
-import io.github.xilinjia.krdb.internal.SDK_VERSION
+import io.realm.kotlin.internal.SDK_VERSION
 import java.io.File
 import java.nio.file.Files
 import java.util.Locale
@@ -58,7 +58,7 @@ class SoLoader {
 
         // for each SO file:
         // check if the library is already installed in the default platform location
-        // path should be <default user lib dir>/io.github.xilinjia.krdb/libraryVersion]/librealmffi.so
+        // path should be <default user lib dir>/io.realm.kotlin/libraryVersion]/librealmffi.so
         // if the full path exists then load it otherwise unpack and load it.
         val libraryInstallationLocation: File = defaultAbsolutePath(libraryName)
         if (!libraryInstallationLocation.exists() || SDK_VERSION.endsWith("-SNAPSHOT", ignoreCase = true)) {
@@ -102,13 +102,13 @@ private enum class Platform(
         shortName = "/jni/macos",
         prefix = "lib",
         suffix = "dylib",
-        defaultSystemLocation = "${System.getProperty("user.home")}/Library/Caches/io.github.xilinjia.krdb/"
+        defaultSystemLocation = "${System.getProperty("user.home")}/Library/Caches/io.realm.kotlin/"
     ),
     LINUX(
         shortName = "/jni/linux",
         prefix = "lib",
         suffix = "so",
-        defaultSystemLocation = "${System.getProperty("user.home")}/.cache/io.github.xilinjia.krdb/"
+        defaultSystemLocation = "${System.getProperty("user.home")}/.cache/io.realm.kotlin/"
     ),
     WINDOWS(
         shortName = "/jni/windows",

@@ -15,12 +15,12 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.util
+package io.realm.kotlin.test.util
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.types.RealmInstant
-import io.github.xilinjia.krdb.types.RealmObject
+import io.realm.kotlin.Realm
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.types.RealmInstant
+import io.realm.kotlin.types.RealmObject
 import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.channels.Channel
@@ -51,7 +51,7 @@ object Utils {
  */
 suspend fun <T : RealmObject> T.update(block: T.() -> Unit): T {
     @Suppress("invisible_reference", "invisible_member")
-    val realm = ((this as io.github.xilinjia.krdb.internal.RealmObjectInternal).`io_realm_kotlin_objectReference`!!.owner).owner as Realm
+    val realm = ((this as io.realm.kotlin.internal.RealmObjectInternal).`io_realm_kotlin_objectReference`!!.owner).owner as Realm
     return realm.write {
         val liveObject: T = findLatest(this@update)!!
         block(liveObject)

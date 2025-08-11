@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.util
+package io.realm.kotlin.internal.util
 
 // Common exceptions used to raise uniform errors from platform specific implementations.
 public object Exceptions {

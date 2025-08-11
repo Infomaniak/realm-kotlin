@@ -13,19 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb
+package io.realm.kotlin
 
-import io.github.xilinjia.krdb.internal.InternalConfiguration
-import io.github.xilinjia.krdb.internal.RealmImpl
-import io.github.xilinjia.krdb.internal.interop.Constants
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.use
-import io.github.xilinjia.krdb.internal.platform.fileExists
-import io.github.xilinjia.krdb.internal.platform.isWindows
-import io.github.xilinjia.krdb.notifications.RealmChange
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.TypedRealmObject
+import io.realm.kotlin.internal.InternalConfiguration
+import io.realm.kotlin.internal.RealmImpl
+import io.realm.kotlin.internal.interop.Constants
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.use
+import io.realm.kotlin.internal.platform.fileExists
+import io.realm.kotlin.internal.platform.isWindows
+import io.realm.kotlin.notifications.RealmChange
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.TypedRealmObject
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlin.reflect.KClass

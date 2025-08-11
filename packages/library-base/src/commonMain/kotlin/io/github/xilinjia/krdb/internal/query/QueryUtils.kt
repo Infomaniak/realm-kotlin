@@ -1,12 +1,12 @@
-package io.github.xilinjia.krdb.internal.query
+package io.realm.kotlin.internal.query
 
-import io.github.xilinjia.krdb.internal.Mediator
-import io.github.xilinjia.krdb.internal.RealmReference
-import io.github.xilinjia.krdb.internal.RealmResultsImpl
-import io.github.xilinjia.krdb.internal.interop.ClassKey
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmResultsPointer
-import io.github.xilinjia.krdb.types.BaseRealmObject
+import io.realm.kotlin.internal.Mediator
+import io.realm.kotlin.internal.RealmReference
+import io.realm.kotlin.internal.RealmResultsImpl
+import io.realm.kotlin.internal.interop.ClassKey
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmResultsPointer
+import io.realm.kotlin.types.BaseRealmObject
 import kotlin.reflect.KClass
 
 internal fun <T : BaseRealmObject> thawResults(

@@ -16,25 +16,25 @@
 
 @file:Suppress("invisible_member", "invisible_reference")
 
-package io.github.xilinjia.krdb.test.common
+package io.realm.kotlin.test.common
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.entities.backlink.Child
-import io.github.xilinjia.krdb.entities.backlink.EmbeddedChild
-import io.github.xilinjia.krdb.entities.backlink.MissingSourceProperty
-import io.github.xilinjia.krdb.entities.backlink.Parent
-import io.github.xilinjia.krdb.entities.backlink.Parent2
-import io.github.xilinjia.krdb.entities.backlink.Recursive
-import io.github.xilinjia.krdb.ext.backlinks
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.ext.realmDictionaryOf
-import io.github.xilinjia.krdb.ext.realmListOf
-import io.github.xilinjia.krdb.ext.realmSetOf
-import io.github.xilinjia.krdb.internal.asDynamicRealm
-import io.github.xilinjia.krdb.query.find
-import io.github.xilinjia.krdb.test.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.entities.backlink.Child
+import io.realm.kotlin.entities.backlink.EmbeddedChild
+import io.realm.kotlin.entities.backlink.MissingSourceProperty
+import io.realm.kotlin.entities.backlink.Parent
+import io.realm.kotlin.entities.backlink.Parent2
+import io.realm.kotlin.entities.backlink.Recursive
+import io.realm.kotlin.ext.backlinks
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.ext.realmDictionaryOf
+import io.realm.kotlin.ext.realmListOf
+import io.realm.kotlin.ext.realmSetOf
+import io.realm.kotlin.internal.asDynamicRealm
+import io.realm.kotlin.query.find
+import io.realm.kotlin.test.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.platform.PlatformUtils
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test
@@ -245,7 +245,7 @@ class BacklinksTests {
                 .first()
                 .find { child ->
                     assertNotNull(child)
-                    assertFailsWithMessage<IllegalArgumentException>("Trying to access property 'name' as an object reference but schema type is 'class io.github.xilinjia.krdb.types.RealmUUID'") {
+                    assertFailsWithMessage<IllegalArgumentException>("Trying to access property 'name' as an object reference but schema type is 'class io.realm.kotlin.types.RealmUUID'") {
                         child.getBacklinks("name")
                     }
                 }
@@ -256,7 +256,7 @@ class BacklinksTests {
                 .first()
                 .find { child ->
                     assertNotNull(child)
-                    assertFailsWithMessage<IllegalArgumentException>("Trying to access property 'uuidSet' as an object reference but schema type is 'RealmSet<class io.github.xilinjia.krdb.types.RealmUUID>'") {
+                    assertFailsWithMessage<IllegalArgumentException>("Trying to access property 'uuidSet' as an object reference but schema type is 'RealmSet<class io.realm.kotlin.types.RealmUUID>'") {
                         child.getBacklinks("uuidSet")
                     }
                 }
@@ -267,7 +267,7 @@ class BacklinksTests {
                 .first()
                 .find { child ->
                     assertNotNull(child)
-                    assertFailsWithMessage<IllegalArgumentException>("Trying to access property 'uuidList' as an object reference but schema type is 'RealmList<class io.github.xilinjia.krdb.types.RealmUUID>'") {
+                    assertFailsWithMessage<IllegalArgumentException>("Trying to access property 'uuidList' as an object reference but schema type is 'RealmList<class io.realm.kotlin.types.RealmUUID>'") {
                         child.getBacklinks("uuidList")
                     }
                 }
@@ -278,7 +278,7 @@ class BacklinksTests {
                 .first()
                 .find { child ->
                     assertNotNull(child)
-                    assertFailsWithMessage<IllegalArgumentException>("Trying to access property 'uuidDictionary' as an object reference but schema type is 'RealmDictionary<class io.github.xilinjia.krdb.types.RealmUUID>'") {
+                    assertFailsWithMessage<IllegalArgumentException>("Trying to access property 'uuidDictionary' as an object reference but schema type is 'RealmDictionary<class io.realm.kotlin.types.RealmUUID>'") {
                         child.getBacklinks("uuidDictionary")
                     }
                 }

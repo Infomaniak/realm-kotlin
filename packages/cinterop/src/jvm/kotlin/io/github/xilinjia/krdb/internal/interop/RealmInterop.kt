@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
-import io.github.xilinjia.krdb.internal.interop.Constants.ENCRYPTION_KEY_LENGTH
+import io.realm.kotlin.internal.interop.Constants.ENCRYPTION_KEY_LENGTH
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch

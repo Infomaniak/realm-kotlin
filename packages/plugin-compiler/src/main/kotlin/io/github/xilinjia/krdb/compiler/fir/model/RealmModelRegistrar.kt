@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.compiler.fir.model
+package io.realm.kotlin.compiler.fir.model
 
 import org.jetbrains.kotlin.fir.extensions.FirExtensionRegistrar
 

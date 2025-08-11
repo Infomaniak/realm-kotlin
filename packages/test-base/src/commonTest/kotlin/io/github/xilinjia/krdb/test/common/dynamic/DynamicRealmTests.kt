@@ -31,15 +31,15 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.common.dynamic
+package io.realm.kotlin.test.common.dynamic
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.dynamic.getValue
-import io.github.xilinjia.krdb.entities.Sample
-import io.github.xilinjia.krdb.internal.asDynamicRealm
-import io.github.xilinjia.krdb.test.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.dynamic.getValue
+import io.realm.kotlin.entities.Sample
+import io.realm.kotlin.internal.asDynamicRealm
+import io.realm.kotlin.test.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.platform.PlatformUtils
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test

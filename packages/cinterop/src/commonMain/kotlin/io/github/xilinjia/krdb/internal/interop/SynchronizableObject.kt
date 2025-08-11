@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
 /**
  * A __synchronizable object__ that can be used to enforce mutual exclusion so that only one

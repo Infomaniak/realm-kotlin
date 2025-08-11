@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.common.utils
+package io.realm.kotlin.test.common.utils
 
 /**
  * Test for top level entities that can be deleted and supports key-path-filtering (i.e.

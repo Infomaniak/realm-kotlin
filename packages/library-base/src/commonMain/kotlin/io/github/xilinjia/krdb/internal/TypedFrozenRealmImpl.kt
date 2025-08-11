@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.internal.interop.FrozenRealmPointer
+import io.realm.kotlin.internal.interop.FrozenRealmPointer
 
 /**
  * Minimal frozen Realm implementation that only allows launching queries against it.

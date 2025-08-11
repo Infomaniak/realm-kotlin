@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.test.ios
+package io.realm.kotlin.test.ios
 
-import io.github.xilinjia.krdb.internal.platform.OS_NAME
+import io.realm.kotlin.internal.platform.OS_NAME
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

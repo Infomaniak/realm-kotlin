@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop.gc
+package io.realm.kotlin.internal.interop.gc
 
-import io.github.xilinjia.krdb.internal.interop.CapiT
-import io.github.xilinjia.krdb.internal.interop.LongPointerWrapper
+import io.realm.kotlin.internal.interop.CapiT
+import io.realm.kotlin.internal.interop.LongPointerWrapper
 import java.lang.ref.ReferenceQueue
 
 object NativeContext {

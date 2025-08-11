@@ -13,28 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.test.common
+package io.realm.kotlin.test.common
 
-import io.github.xilinjia.krdb.Configuration
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.VersionId
-import io.github.xilinjia.krdb.entities.link.Child
-import io.github.xilinjia.krdb.entities.link.Parent
-import io.github.xilinjia.krdb.ext.isManaged
-import io.github.xilinjia.krdb.ext.isValid
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.ext.version
-import io.github.xilinjia.krdb.internal.platform.fileExists
-import io.github.xilinjia.krdb.internal.platform.isWindows
-import io.github.xilinjia.krdb.internal.platform.pathOf
-import io.github.xilinjia.krdb.query.find
-import io.github.xilinjia.krdb.test.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.platform.platformFileSystem
-import io.github.xilinjia.krdb.test.util.TestChannel
-import io.github.xilinjia.krdb.test.util.receiveOrFail
-import io.github.xilinjia.krdb.test.util.use
+import io.realm.kotlin.Configuration
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.VersionId
+import io.realm.kotlin.entities.link.Child
+import io.realm.kotlin.entities.link.Parent
+import io.realm.kotlin.ext.isManaged
+import io.realm.kotlin.ext.isValid
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.ext.version
+import io.realm.kotlin.internal.platform.fileExists
+import io.realm.kotlin.internal.platform.isWindows
+import io.realm.kotlin.internal.platform.pathOf
+import io.realm.kotlin.query.find
+import io.realm.kotlin.test.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.platform.platformFileSystem
+import io.realm.kotlin.test.util.TestChannel
+import io.realm.kotlin.test.util.receiveOrFail
+import io.realm.kotlin.test.util.use
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.Job
@@ -908,9 +908,9 @@ class RealmTests {
 //    }
 //
 //    @Suppress("invisible_reference")
-//    private val intermediateReferences: AtomicRef<Set<Pair<NativePointer, WeakReference<io.github.xilinjia.krdb.internal.RealmReference>>>>
+//    private val intermediateReferences: AtomicRef<Set<Pair<NativePointer, WeakReference<io.realm.kotlin.internal.RealmReference>>>>
 //        get() {
 //            @Suppress("invisible_member")
-//            return (realm as io.github.xilinjia.krdb.internal.RealmImpl).intermediateReferences
+//            return (realm as io.realm.kotlin.internal.RealmImpl).intermediateReferences
 //        }
 }

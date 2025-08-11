@@ -13,20 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.internal.query
+package io.realm.kotlin.internal.query
 
-import io.github.xilinjia.krdb.internal.ObjectBoundRealmResults
-import io.github.xilinjia.krdb.internal.RealmObjectReference
-import io.github.xilinjia.krdb.internal.bind
-import io.github.xilinjia.krdb.notifications.ResultsChange
-import io.github.xilinjia.krdb.notifications.SingleQueryChange
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.query.RealmResults
-import io.github.xilinjia.krdb.query.RealmScalarNullableQuery
-import io.github.xilinjia.krdb.query.RealmScalarQuery
-import io.github.xilinjia.krdb.query.RealmSingleQuery
-import io.github.xilinjia.krdb.query.Sort
-import io.github.xilinjia.krdb.types.BaseRealmObject
+import io.realm.kotlin.internal.ObjectBoundRealmResults
+import io.realm.kotlin.internal.RealmObjectReference
+import io.realm.kotlin.internal.bind
+import io.realm.kotlin.notifications.ResultsChange
+import io.realm.kotlin.notifications.SingleQueryChange
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.query.RealmResults
+import io.realm.kotlin.query.RealmScalarNullableQuery
+import io.realm.kotlin.query.RealmScalarQuery
+import io.realm.kotlin.query.RealmSingleQuery
+import io.realm.kotlin.query.Sort
+import io.realm.kotlin.types.BaseRealmObject
 import kotlinx.coroutines.flow.Flow
 import kotlin.reflect.KClass
 

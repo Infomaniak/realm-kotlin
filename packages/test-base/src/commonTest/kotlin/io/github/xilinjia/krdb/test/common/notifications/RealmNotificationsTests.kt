@@ -14,21 +14,21 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.common.notifications
+package io.realm.kotlin.test.common.notifications
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.VersionId
-import io.github.xilinjia.krdb.entities.Sample
-import io.github.xilinjia.krdb.ext.asFlow
-import io.github.xilinjia.krdb.internal.platform.runBlocking
-import io.github.xilinjia.krdb.notifications.InitialRealm
-import io.github.xilinjia.krdb.notifications.RealmChange
-import io.github.xilinjia.krdb.notifications.UpdatedRealm
-import io.github.xilinjia.krdb.test.common.utils.FlowableTests
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.util.TestChannel
-import io.github.xilinjia.krdb.test.util.receiveOrFail
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.VersionId
+import io.realm.kotlin.entities.Sample
+import io.realm.kotlin.ext.asFlow
+import io.realm.kotlin.internal.platform.runBlocking
+import io.realm.kotlin.notifications.InitialRealm
+import io.realm.kotlin.notifications.RealmChange
+import io.realm.kotlin.notifications.UpdatedRealm
+import io.realm.kotlin.test.common.utils.FlowableTests
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.util.TestChannel
+import io.realm.kotlin.test.util.receiveOrFail
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.async
 import kotlinx.coroutines.channels.BufferOverflow

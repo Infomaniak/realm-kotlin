@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.internal.interop.LiveRealmPointer
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.types.TypedRealmObject
+import io.realm.kotlin.internal.interop.LiveRealmPointer
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.types.TypedRealmObject
 import kotlin.reflect.KClass
 
 /**

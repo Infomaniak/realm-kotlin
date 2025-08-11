@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.types.BaseRealmObject
+import io.realm.kotlin.types.BaseRealmObject
 import kotlin.reflect.KClass
 
 // TODO Public due to being a transitive dependency of ConfigurationImpl

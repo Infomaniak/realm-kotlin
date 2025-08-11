@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.entities.migration
+package io.realm.kotlin.entities.migration
 
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.annotations.PersistedName
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.annotations.PersistedName
 
 @Suppress("MagicNumber")
 class Sample : RealmObject {

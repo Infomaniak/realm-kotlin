@@ -14,26 +14,26 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.common
+package io.realm.kotlin.test.common
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.UpdatePolicy
-import io.github.xilinjia.krdb.entities.embedded.EmbeddedChild
-import io.github.xilinjia.krdb.entities.embedded.EmbeddedChildWithInitializer
-import io.github.xilinjia.krdb.entities.embedded.EmbeddedChildWithPrimaryKeyParent
-import io.github.xilinjia.krdb.entities.embedded.EmbeddedInnerChild
-import io.github.xilinjia.krdb.entities.embedded.EmbeddedParent
-import io.github.xilinjia.krdb.entities.embedded.EmbeddedParentWithPrimaryKey
-import io.github.xilinjia.krdb.entities.embedded.embeddedSchema
-import io.github.xilinjia.krdb.entities.embedded.embeddedSchemaWithPrimaryKey
-import io.github.xilinjia.krdb.ext.parent
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.ext.realmDictionaryOf
-import io.github.xilinjia.krdb.ext.realmListOf
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.types.RealmUUID
-import io.github.xilinjia.krdb.types.TypedRealmObject
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.UpdatePolicy
+import io.realm.kotlin.entities.embedded.EmbeddedChild
+import io.realm.kotlin.entities.embedded.EmbeddedChildWithInitializer
+import io.realm.kotlin.entities.embedded.EmbeddedChildWithPrimaryKeyParent
+import io.realm.kotlin.entities.embedded.EmbeddedInnerChild
+import io.realm.kotlin.entities.embedded.EmbeddedParent
+import io.realm.kotlin.entities.embedded.EmbeddedParentWithPrimaryKey
+import io.realm.kotlin.entities.embedded.embeddedSchema
+import io.realm.kotlin.entities.embedded.embeddedSchemaWithPrimaryKey
+import io.realm.kotlin.ext.parent
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.ext.realmDictionaryOf
+import io.realm.kotlin.ext.realmListOf
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.types.RealmUUID
+import io.realm.kotlin.types.TypedRealmObject
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test
@@ -101,7 +101,7 @@ class EmbeddedRealmObjectTests {
                 }
             )
             val child = parent.child!!
-            assertFailsWith<ClassCastException>("io.github.xilinjia.krdb.entities.embedded.EmbeddedParent cannot be cast to io.github.xilinjia.krdb.entities.embedded.EmbeddedChild") {
+            assertFailsWith<ClassCastException>("io.realm.kotlin.entities.embedded.EmbeddedParent cannot be cast to io.realm.kotlin.entities.embedded.EmbeddedChild") {
                 val parentFromChild: EmbeddedChild = child.parent()
             }
         }

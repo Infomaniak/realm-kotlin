@@ -16,50 +16,50 @@
 
 @file:OptIn(UnsafeDuringIrConstructionAPI::class)
 
-package io.github.xilinjia.krdb.compiler
+package io.realm.kotlin.compiler
 
-import io.github.xilinjia.krdb.compiler.ClassIds.ASYMMETRIC_OBJECT_INTERFACE
-import io.github.xilinjia.krdb.compiler.ClassIds.EMBEDDED_OBJECT_INTERFACE
-import io.github.xilinjia.krdb.compiler.ClassIds.IGNORE_ANNOTATION
-import io.github.xilinjia.krdb.compiler.ClassIds.KBSON_DECIMAL128
-import io.github.xilinjia.krdb.compiler.ClassIds.KBSON_OBJECT_ID
-import io.github.xilinjia.krdb.compiler.ClassIds.REALM_ANY
-import io.github.xilinjia.krdb.compiler.ClassIds.REALM_BACKLINKS
-import io.github.xilinjia.krdb.compiler.ClassIds.REALM_DICTIONARY
-import io.github.xilinjia.krdb.compiler.ClassIds.REALM_EMBEDDED_BACKLINKS
-import io.github.xilinjia.krdb.compiler.ClassIds.REALM_INSTANT
-import io.github.xilinjia.krdb.compiler.ClassIds.REALM_LIST
-import io.github.xilinjia.krdb.compiler.ClassIds.REALM_MUTABLE_INTEGER
-import io.github.xilinjia.krdb.compiler.ClassIds.REALM_OBJECT_HELPER
-import io.github.xilinjia.krdb.compiler.ClassIds.REALM_OBJECT_INTERFACE
-import io.github.xilinjia.krdb.compiler.ClassIds.REALM_SET
-import io.github.xilinjia.krdb.compiler.ClassIds.REALM_UUID
-import io.github.xilinjia.krdb.compiler.ClassIds.TRANSIENT_ANNOTATION
-import io.github.xilinjia.krdb.compiler.Names.OBJECT_REFERENCE
-import io.github.xilinjia.krdb.compiler.Names.REALM_ACCESSOR_HELPER_GET_BOOLEAN
-import io.github.xilinjia.krdb.compiler.Names.REALM_ACCESSOR_HELPER_GET_BYTE_ARRAY
-import io.github.xilinjia.krdb.compiler.Names.REALM_ACCESSOR_HELPER_GET_DECIMAL128
-import io.github.xilinjia.krdb.compiler.Names.REALM_ACCESSOR_HELPER_GET_DOUBLE
-import io.github.xilinjia.krdb.compiler.Names.REALM_ACCESSOR_HELPER_GET_FLOAT
-import io.github.xilinjia.krdb.compiler.Names.REALM_ACCESSOR_HELPER_GET_INSTANT
-import io.github.xilinjia.krdb.compiler.Names.REALM_ACCESSOR_HELPER_GET_LONG
-import io.github.xilinjia.krdb.compiler.Names.REALM_ACCESSOR_HELPER_GET_OBJECT_ID
-import io.github.xilinjia.krdb.compiler.Names.REALM_ACCESSOR_HELPER_GET_REALM_ANY
-import io.github.xilinjia.krdb.compiler.Names.REALM_ACCESSOR_HELPER_GET_STRING
-import io.github.xilinjia.krdb.compiler.Names.REALM_ACCESSOR_HELPER_GET_UUID
-import io.github.xilinjia.krdb.compiler.Names.REALM_ACCESSOR_HELPER_SET_VALUE
-import io.github.xilinjia.krdb.compiler.Names.REALM_OBJECT_HELPER_GET_DICTIONARY
-import io.github.xilinjia.krdb.compiler.Names.REALM_OBJECT_HELPER_GET_LIST
-import io.github.xilinjia.krdb.compiler.Names.REALM_OBJECT_HELPER_GET_MUTABLE_INT
-import io.github.xilinjia.krdb.compiler.Names.REALM_OBJECT_HELPER_GET_OBJECT
-import io.github.xilinjia.krdb.compiler.Names.REALM_OBJECT_HELPER_GET_SET
-import io.github.xilinjia.krdb.compiler.Names.REALM_OBJECT_HELPER_SET_DICTIONARY
-import io.github.xilinjia.krdb.compiler.Names.REALM_OBJECT_HELPER_SET_EMBEDDED_REALM_OBJECT
-import io.github.xilinjia.krdb.compiler.Names.REALM_OBJECT_HELPER_SET_LIST
-import io.github.xilinjia.krdb.compiler.Names.REALM_OBJECT_HELPER_SET_OBJECT
-import io.github.xilinjia.krdb.compiler.Names.REALM_OBJECT_HELPER_SET_SET
-import io.github.xilinjia.krdb.compiler.Names.REALM_SYNTHETIC_PROPERTY_PREFIX
-import io.github.xilinjia.krdb.compiler.fir.RealmPluginGeneratorKey
+import io.realm.kotlin.compiler.ClassIds.ASYMMETRIC_OBJECT_INTERFACE
+import io.realm.kotlin.compiler.ClassIds.EMBEDDED_OBJECT_INTERFACE
+import io.realm.kotlin.compiler.ClassIds.IGNORE_ANNOTATION
+import io.realm.kotlin.compiler.ClassIds.KBSON_DECIMAL128
+import io.realm.kotlin.compiler.ClassIds.KBSON_OBJECT_ID
+import io.realm.kotlin.compiler.ClassIds.REALM_ANY
+import io.realm.kotlin.compiler.ClassIds.REALM_BACKLINKS
+import io.realm.kotlin.compiler.ClassIds.REALM_DICTIONARY
+import io.realm.kotlin.compiler.ClassIds.REALM_EMBEDDED_BACKLINKS
+import io.realm.kotlin.compiler.ClassIds.REALM_INSTANT
+import io.realm.kotlin.compiler.ClassIds.REALM_LIST
+import io.realm.kotlin.compiler.ClassIds.REALM_MUTABLE_INTEGER
+import io.realm.kotlin.compiler.ClassIds.REALM_OBJECT_HELPER
+import io.realm.kotlin.compiler.ClassIds.REALM_OBJECT_INTERFACE
+import io.realm.kotlin.compiler.ClassIds.REALM_SET
+import io.realm.kotlin.compiler.ClassIds.REALM_UUID
+import io.realm.kotlin.compiler.ClassIds.TRANSIENT_ANNOTATION
+import io.realm.kotlin.compiler.Names.OBJECT_REFERENCE
+import io.realm.kotlin.compiler.Names.REALM_ACCESSOR_HELPER_GET_BOOLEAN
+import io.realm.kotlin.compiler.Names.REALM_ACCESSOR_HELPER_GET_BYTE_ARRAY
+import io.realm.kotlin.compiler.Names.REALM_ACCESSOR_HELPER_GET_DECIMAL128
+import io.realm.kotlin.compiler.Names.REALM_ACCESSOR_HELPER_GET_DOUBLE
+import io.realm.kotlin.compiler.Names.REALM_ACCESSOR_HELPER_GET_FLOAT
+import io.realm.kotlin.compiler.Names.REALM_ACCESSOR_HELPER_GET_INSTANT
+import io.realm.kotlin.compiler.Names.REALM_ACCESSOR_HELPER_GET_LONG
+import io.realm.kotlin.compiler.Names.REALM_ACCESSOR_HELPER_GET_OBJECT_ID
+import io.realm.kotlin.compiler.Names.REALM_ACCESSOR_HELPER_GET_REALM_ANY
+import io.realm.kotlin.compiler.Names.REALM_ACCESSOR_HELPER_GET_STRING
+import io.realm.kotlin.compiler.Names.REALM_ACCESSOR_HELPER_GET_UUID
+import io.realm.kotlin.compiler.Names.REALM_ACCESSOR_HELPER_SET_VALUE
+import io.realm.kotlin.compiler.Names.REALM_OBJECT_HELPER_GET_DICTIONARY
+import io.realm.kotlin.compiler.Names.REALM_OBJECT_HELPER_GET_LIST
+import io.realm.kotlin.compiler.Names.REALM_OBJECT_HELPER_GET_MUTABLE_INT
+import io.realm.kotlin.compiler.Names.REALM_OBJECT_HELPER_GET_OBJECT
+import io.realm.kotlin.compiler.Names.REALM_OBJECT_HELPER_GET_SET
+import io.realm.kotlin.compiler.Names.REALM_OBJECT_HELPER_SET_DICTIONARY
+import io.realm.kotlin.compiler.Names.REALM_OBJECT_HELPER_SET_EMBEDDED_REALM_OBJECT
+import io.realm.kotlin.compiler.Names.REALM_OBJECT_HELPER_SET_LIST
+import io.realm.kotlin.compiler.Names.REALM_OBJECT_HELPER_SET_OBJECT
+import io.realm.kotlin.compiler.Names.REALM_OBJECT_HELPER_SET_SET
+import io.realm.kotlin.compiler.Names.REALM_SYNTHETIC_PROPERTY_PREFIX
+import io.realm.kotlin.compiler.fir.RealmPluginGeneratorKey
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
 import org.jetbrains.kotlin.ir.IrStatement
 import org.jetbrains.kotlin.ir.builders.IrBlockBuilder
@@ -195,23 +195,23 @@ class AccessorModifierIrGeneration(private val pluginContext: IrPluginContext) {
 
     // Top level SDK->Core converters
     private val byteToLong: IrSimpleFunction =
-        pluginContext.referenceFunctions(CallableId(FqName("io.github.xilinjia.krdb.internal"), Name.identifier("byteToLong"))).first().owner
+        pluginContext.referenceFunctions(CallableId(FqName("io.realm.kotlin.internal"), Name.identifier("byteToLong"))).first().owner
     private val charToLong: IrSimpleFunction =
-        pluginContext.referenceFunctions(CallableId(FqName("io.github.xilinjia.krdb.internal"), Name.identifier("charToLong"))).first().owner
+        pluginContext.referenceFunctions(CallableId(FqName("io.realm.kotlin.internal"), Name.identifier("charToLong"))).first().owner
     private val shortToLong: IrSimpleFunction =
-        pluginContext.referenceFunctions(CallableId(FqName("io.github.xilinjia.krdb.internal"), Name.identifier("shortToLong"))).first().owner
+        pluginContext.referenceFunctions(CallableId(FqName("io.realm.kotlin.internal"), Name.identifier("shortToLong"))).first().owner
     private val intToLong: IrSimpleFunction =
-        pluginContext.referenceFunctions(CallableId(FqName("io.github.xilinjia.krdb.internal"), Name.identifier("intToLong"))).first().owner
+        pluginContext.referenceFunctions(CallableId(FqName("io.realm.kotlin.internal"), Name.identifier("intToLong"))).first().owner
 
     // Top level Core->SDK converters
     private val longToByte: IrSimpleFunction =
-        pluginContext.referenceFunctions(CallableId(FqName("io.github.xilinjia.krdb.internal"), Name.identifier("longToByte"))).first().owner
+        pluginContext.referenceFunctions(CallableId(FqName("io.realm.kotlin.internal"), Name.identifier("longToByte"))).first().owner
     private val longToChar: IrSimpleFunction =
-        pluginContext.referenceFunctions(CallableId(FqName("io.github.xilinjia.krdb.internal"), Name.identifier("longToChar"))).first().owner
+        pluginContext.referenceFunctions(CallableId(FqName("io.realm.kotlin.internal"), Name.identifier("longToChar"))).first().owner
     private val longToShort: IrSimpleFunction =
-        pluginContext.referenceFunctions(CallableId(FqName("io.github.xilinjia.krdb.internal"), Name.identifier("longToShort"))).first().owner
+        pluginContext.referenceFunctions(CallableId(FqName("io.realm.kotlin.internal"), Name.identifier("longToShort"))).first().owner
     private val longToInt: IrSimpleFunction =
-        pluginContext.referenceFunctions(CallableId(FqName("io.github.xilinjia.krdb.internal"), Name.identifier("longToInt"))).first().owner
+        pluginContext.referenceFunctions(CallableId(FqName("io.realm.kotlin.internal"), Name.identifier("longToInt"))).first().owner
 
     private lateinit var objectReferenceProperty: IrProperty
     private lateinit var objectReferenceType: IrType

@@ -16,31 +16,31 @@
 
 @file:Suppress("invisible_member", "invisible_reference")
 
-package io.github.xilinjia.krdb.test.common
+package io.realm.kotlin.test.common
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.dynamic.getValue
-import io.github.xilinjia.krdb.ext.backlinks
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.ext.realmListOf
-import io.github.xilinjia.krdb.ext.realmSetOf
-import io.github.xilinjia.krdb.internal.asDynamicRealm
-import io.github.xilinjia.krdb.migration.AutomaticSchemaMigration
-import io.github.xilinjia.krdb.query.max
-import io.github.xilinjia.krdb.query.min
-import io.github.xilinjia.krdb.query.sum
-import io.github.xilinjia.krdb.schema.RealmStorageType
-import io.github.xilinjia.krdb.test.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.util.use
-import io.github.xilinjia.krdb.types.RealmInstant
-import io.github.xilinjia.krdb.types.RealmList
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.RealmSet
-import io.github.xilinjia.krdb.types.RealmUUID
-import io.github.xilinjia.krdb.types.annotations.PersistedName
-import io.github.xilinjia.krdb.types.annotations.PrimaryKey
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.dynamic.getValue
+import io.realm.kotlin.ext.backlinks
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.ext.realmListOf
+import io.realm.kotlin.ext.realmSetOf
+import io.realm.kotlin.internal.asDynamicRealm
+import io.realm.kotlin.migration.AutomaticSchemaMigration
+import io.realm.kotlin.query.max
+import io.realm.kotlin.query.min
+import io.realm.kotlin.query.sum
+import io.realm.kotlin.schema.RealmStorageType
+import io.realm.kotlin.test.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.util.use
+import io.realm.kotlin.types.RealmInstant
+import io.realm.kotlin.types.RealmList
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.RealmSet
+import io.realm.kotlin.types.RealmUUID
+import io.realm.kotlin.types.annotations.PersistedName
+import io.realm.kotlin.types.annotations.PrimaryKey
 import org.mongodb.kbson.BsonObjectId
 import kotlin.reflect.KMutableProperty1
 import kotlin.test.AfterTest
@@ -312,8 +312,8 @@ class PersistedNameTests {
 
     @Test
     fun schema_changingPersistedName_triggersMigration() {
-        val oldSchema = setOf(io.github.xilinjia.krdb.entities.migration.before.PersistedNameChangeMigrationSample::class)
-        val newSchema = setOf(io.github.xilinjia.krdb.entities.migration.after.PersistedNameChangeMigrationSample::class)
+        val oldSchema = setOf(io.realm.kotlin.entities.migration.before.PersistedNameChangeMigrationSample::class)
+        val newSchema = setOf(io.realm.kotlin.entities.migration.after.PersistedNameChangeMigrationSample::class)
 
         // Open a realm with the old schema
         val oldConfig = RealmConfiguration
@@ -325,7 +325,7 @@ class PersistedNameTests {
 
         // Add an object to the realm and close it
         oldRealm.writeBlocking {
-            copyToRealm(io.github.xilinjia.krdb.entities.migration.before.PersistedNameChangeMigrationSample())
+            copyToRealm(io.realm.kotlin.entities.migration.before.PersistedNameChangeMigrationSample())
         }
         oldRealm.close()
 
@@ -350,8 +350,8 @@ class PersistedNameTests {
 
     @Test
     fun schema_changingPublicName_doesNotTriggerMigration() {
-        val oldSchema = setOf(io.github.xilinjia.krdb.entities.migration.before.PublicNameChangeMigrationSample::class)
-        val newSchema = setOf(io.github.xilinjia.krdb.entities.migration.after.PublicNameChangeMigrationSample::class)
+        val oldSchema = setOf(io.realm.kotlin.entities.migration.before.PublicNameChangeMigrationSample::class)
+        val newSchema = setOf(io.realm.kotlin.entities.migration.after.PublicNameChangeMigrationSample::class)
 
         // Open a realm with the old schema
         val oldConfig = RealmConfiguration
@@ -363,7 +363,7 @@ class PersistedNameTests {
 
         // Add an object to the realm and close it
         oldRealm.writeBlocking {
-            copyToRealm(io.github.xilinjia.krdb.entities.migration.before.PublicNameChangeMigrationSample())
+            copyToRealm(io.realm.kotlin.entities.migration.before.PublicNameChangeMigrationSample())
         }
         oldRealm.close()
 

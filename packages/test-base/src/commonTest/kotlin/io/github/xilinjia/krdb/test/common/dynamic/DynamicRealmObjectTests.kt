@@ -16,42 +16,42 @@
 
 @file:Suppress("invisible_member", "invisible_reference")
 
-package io.github.xilinjia.krdb.test.common.dynamic
+package io.realm.kotlin.test.common.dynamic
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.dynamic.DynamicRealmObject
-import io.github.xilinjia.krdb.dynamic.getNullableValue
-import io.github.xilinjia.krdb.dynamic.getNullableValueDictionary
-import io.github.xilinjia.krdb.dynamic.getNullableValueList
-import io.github.xilinjia.krdb.dynamic.getNullableValueSet
-import io.github.xilinjia.krdb.dynamic.getValue
-import io.github.xilinjia.krdb.dynamic.getValueDictionary
-import io.github.xilinjia.krdb.dynamic.getValueList
-import io.github.xilinjia.krdb.dynamic.getValueSet
-import io.github.xilinjia.krdb.entities.Sample
-import io.github.xilinjia.krdb.ext.asFlow
-import io.github.xilinjia.krdb.ext.asRealmObject
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.ext.realmDictionaryOf
-import io.github.xilinjia.krdb.ext.realmListOf
-import io.github.xilinjia.krdb.ext.toRealmSet
-import io.github.xilinjia.krdb.internal.asDynamicRealm
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.schema.ListPropertyType
-import io.github.xilinjia.krdb.schema.MapPropertyType
-import io.github.xilinjia.krdb.schema.RealmPropertyType
-import io.github.xilinjia.krdb.schema.RealmStorageType
-import io.github.xilinjia.krdb.schema.SetPropertyType
-import io.github.xilinjia.krdb.schema.ValuePropertyType
-import io.github.xilinjia.krdb.test.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.types.RealmAny
-import io.github.xilinjia.krdb.types.RealmDictionary
-import io.github.xilinjia.krdb.types.RealmInstant
-import io.github.xilinjia.krdb.types.RealmList
-import io.github.xilinjia.krdb.types.RealmSet
-import io.github.xilinjia.krdb.types.RealmUUID
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.dynamic.DynamicRealmObject
+import io.realm.kotlin.dynamic.getNullableValue
+import io.realm.kotlin.dynamic.getNullableValueDictionary
+import io.realm.kotlin.dynamic.getNullableValueList
+import io.realm.kotlin.dynamic.getNullableValueSet
+import io.realm.kotlin.dynamic.getValue
+import io.realm.kotlin.dynamic.getValueDictionary
+import io.realm.kotlin.dynamic.getValueList
+import io.realm.kotlin.dynamic.getValueSet
+import io.realm.kotlin.entities.Sample
+import io.realm.kotlin.ext.asFlow
+import io.realm.kotlin.ext.asRealmObject
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.ext.realmDictionaryOf
+import io.realm.kotlin.ext.realmListOf
+import io.realm.kotlin.ext.toRealmSet
+import io.realm.kotlin.internal.asDynamicRealm
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.schema.ListPropertyType
+import io.realm.kotlin.schema.MapPropertyType
+import io.realm.kotlin.schema.RealmPropertyType
+import io.realm.kotlin.schema.RealmStorageType
+import io.realm.kotlin.schema.SetPropertyType
+import io.realm.kotlin.schema.ValuePropertyType
+import io.realm.kotlin.test.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.types.RealmAny
+import io.realm.kotlin.types.RealmDictionary
+import io.realm.kotlin.types.RealmInstant
+import io.realm.kotlin.types.RealmList
+import io.realm.kotlin.types.RealmSet
+import io.realm.kotlin.types.RealmUUID
 import org.mongodb.kbson.BsonObjectId
 import org.mongodb.kbson.Decimal128
 import kotlin.test.AfterTest
@@ -1710,10 +1710,10 @@ class DynamicRealmObjectTests {
         }
 
         // Wrong variants
-        assertFailsWithMessage<IllegalArgumentException>("Trying to access property 'Sample.nullableObject' as type: 'class kotlin.String' but actual schema type is 'class io.github.xilinjia.krdb.types.BaseRealmObject?'") {
+        assertFailsWithMessage<IllegalArgumentException>("Trying to access property 'Sample.nullableObject' as type: 'class kotlin.String' but actual schema type is 'class io.realm.kotlin.types.BaseRealmObject?'") {
             dynamicSample.getValue<String>("nullableObject")
         }
-        assertFailsWithMessage<IllegalArgumentException>("Trying to access property 'Sample.nullableObject' as type: 'class kotlin.String?' but actual schema type is 'class io.github.xilinjia.krdb.types.BaseRealmObject?'") {
+        assertFailsWithMessage<IllegalArgumentException>("Trying to access property 'Sample.nullableObject' as type: 'class kotlin.String?' but actual schema type is 'class io.realm.kotlin.types.BaseRealmObject?'") {
             dynamicSample.getNullableValue<String>("nullableObject")
         }
 
@@ -1734,10 +1734,10 @@ class DynamicRealmObjectTests {
         val dynamicSample = dynamicRealm.query("Sample").find().first()
 
         // We cannot get wrong mix of types or nullability in the API, so only checking wrong variants
-        assertFailsWithMessage<IllegalArgumentException>("Trying to access property 'Sample.stringField' as type: 'class io.github.xilinjia.krdb.types.BaseRealmObject?' but actual schema type is 'class kotlin.String'") {
+        assertFailsWithMessage<IllegalArgumentException>("Trying to access property 'Sample.stringField' as type: 'class io.realm.kotlin.types.BaseRealmObject?' but actual schema type is 'class kotlin.String'") {
             dynamicSample.getObject("stringField")
         }
-        assertFailsWithMessage<IllegalArgumentException>("Trying to access property 'Sample.stringListField' as type: 'class io.github.xilinjia.krdb.types.BaseRealmObject?' but actual schema type is 'RealmList<class kotlin.String>'") {
+        assertFailsWithMessage<IllegalArgumentException>("Trying to access property 'Sample.stringListField' as type: 'class io.realm.kotlin.types.BaseRealmObject?' but actual schema type is 'RealmList<class kotlin.String>'") {
             dynamicSample.getObject("stringListField")
         }
     }
@@ -1804,13 +1804,13 @@ class DynamicRealmObjectTests {
         assertFailsWithMessage<IllegalArgumentException>("Trying to access property 'Sample.stringField' as type: 'RealmList<class kotlin.String>' but actual schema type is 'class kotlin.String'") {
             dynamicSample.getValueList<String>("stringField")
         }
-        assertFailsWithMessage<IllegalArgumentException>("Trying to access property 'Sample.nullableObject' as type: 'RealmList<class kotlin.Long>' but actual schema type is 'class io.github.xilinjia.krdb.types.BaseRealmObject?'") {
+        assertFailsWithMessage<IllegalArgumentException>("Trying to access property 'Sample.nullableObject' as type: 'RealmList<class kotlin.Long>' but actual schema type is 'class io.realm.kotlin.types.BaseRealmObject?'") {
             dynamicSample.getValueList<Long>("nullableObject")
         }
         assertFailsWithMessage<IllegalArgumentException>("Trying to access property 'Sample.nullableStringField' as type: 'RealmList<class kotlin.Long?>' but actual schema type is 'class kotlin.String?'") {
             dynamicSample.getNullableValueList<Long>("nullableStringField")
         }
-        assertFailsWithMessage<IllegalArgumentException>("Trying to access property 'Sample.nullableStringListField' as type: 'RealmList<class io.github.xilinjia.krdb.types.BaseRealmObject>' but actual schema type is 'RealmList<class kotlin.String?>'") {
+        assertFailsWithMessage<IllegalArgumentException>("Trying to access property 'Sample.nullableStringListField' as type: 'RealmList<class io.realm.kotlin.types.BaseRealmObject>' but actual schema type is 'RealmList<class kotlin.String?>'") {
             dynamicSample.getObjectList("nullableStringListField")
         }
     }

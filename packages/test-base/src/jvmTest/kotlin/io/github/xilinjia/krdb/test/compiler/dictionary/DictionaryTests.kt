@@ -16,16 +16,16 @@
 
 @file:OptIn(ExperimentalCompilerApi::class)
 
-package io.github.xilinjia.krdb.test.compiler.dictionary
+package io.realm.kotlin.test.compiler.dictionary
 
 import com.tschuchort.compiletesting.KotlinCompilation
-import io.github.xilinjia.krdb.compiler.CollectionType
-import io.github.xilinjia.krdb.test.compiler.CollectionTests
-import io.github.xilinjia.krdb.test.compiler.EMBEDDED_CLASS
-import io.github.xilinjia.krdb.test.compiler.OBJECT_CLASS
-import io.github.xilinjia.krdb.test.compiler.createFileAndCompile
-import io.github.xilinjia.krdb.test.compiler.getTestCodeForCollection
-import io.github.xilinjia.krdb.test.compiler.globalNonNullableTypes
+import io.realm.kotlin.compiler.CollectionType
+import io.realm.kotlin.test.compiler.CollectionTests
+import io.realm.kotlin.test.compiler.EMBEDDED_CLASS
+import io.realm.kotlin.test.compiler.OBJECT_CLASS
+import io.realm.kotlin.test.compiler.createFileAndCompile
+import io.realm.kotlin.test.compiler.getTestCodeForCollection
+import io.realm.kotlin.test.compiler.globalNonNullableTypes
 import org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi
 import org.junit.Test
 import kotlin.test.assertEquals

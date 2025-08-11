@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
 // FIXME API-INTERNAL Compiler does not pick up the actual if not in a separate file, so not
 //  following RealmEnums.kt structure, but might have to move anyway, so keeping the structure

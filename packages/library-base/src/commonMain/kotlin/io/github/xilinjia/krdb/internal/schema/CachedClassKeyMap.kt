@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.schema
+package io.realm.kotlin.internal.schema
 
-import io.github.xilinjia.krdb.internal.RealmObjectCompanion
-import io.github.xilinjia.krdb.internal.interop.ClassKey
-import io.github.xilinjia.krdb.internal.interop.CollectionType
-import io.github.xilinjia.krdb.internal.interop.PropertyInfo
-import io.github.xilinjia.krdb.internal.interop.PropertyKey
-import io.github.xilinjia.krdb.internal.interop.PropertyType
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmPointer
-import io.github.xilinjia.krdb.internal.interop.SCHEMA_NO_VALUE
-import io.github.xilinjia.krdb.types.BaseRealmObject
-import io.github.xilinjia.krdb.types.TypedRealmObject
+import io.realm.kotlin.internal.RealmObjectCompanion
+import io.realm.kotlin.internal.interop.ClassKey
+import io.realm.kotlin.internal.interop.CollectionType
+import io.realm.kotlin.internal.interop.PropertyInfo
+import io.realm.kotlin.internal.interop.PropertyKey
+import io.realm.kotlin.internal.interop.PropertyType
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmPointer
+import io.realm.kotlin.internal.interop.SCHEMA_NO_VALUE
+import io.realm.kotlin.types.BaseRealmObject
+import io.realm.kotlin.types.TypedRealmObject
 import kotlin.reflect.KClass
 import kotlin.reflect.KProperty
 import kotlin.reflect.KProperty1

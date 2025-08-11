@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.notifications
+package io.realm.kotlin.notifications
 
-import io.github.xilinjia.krdb.query.RealmSingleQuery
-import io.github.xilinjia.krdb.types.BaseRealmObject
+import io.realm.kotlin.query.RealmSingleQuery
+import io.realm.kotlin.types.BaseRealmObject
 
 /**
  * This sealed class describe the possible events that can be observed on a [RealmSingleQuery] flow.

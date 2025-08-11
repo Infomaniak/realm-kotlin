@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.ext
+package io.realm.kotlin.ext
 
-import io.github.xilinjia.krdb.internal.UnmanagedRealmDictionary
-import io.github.xilinjia.krdb.internal.UnmanagedRealmList
-import io.github.xilinjia.krdb.internal.UnmanagedRealmSet
-import io.github.xilinjia.krdb.types.RealmDictionary
-import io.github.xilinjia.krdb.types.RealmDictionaryEntrySet
-import io.github.xilinjia.krdb.types.RealmList
-import io.github.xilinjia.krdb.types.RealmSet
+import io.realm.kotlin.internal.UnmanagedRealmDictionary
+import io.realm.kotlin.internal.UnmanagedRealmList
+import io.realm.kotlin.internal.UnmanagedRealmSet
+import io.realm.kotlin.types.RealmDictionary
+import io.realm.kotlin.types.RealmDictionaryEntrySet
+import io.realm.kotlin.types.RealmList
+import io.realm.kotlin.types.RealmSet
 
 /**
  * Instantiates an **unmanaged** [RealmList] containing all the elements of this iterable.

@@ -14,19 +14,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.entities.backlink
+package io.realm.kotlin.entities.backlink
 
-import io.github.xilinjia.krdb.ext.backlinks
-import io.github.xilinjia.krdb.ext.realmDictionaryOf
-import io.github.xilinjia.krdb.ext.realmListOf
-import io.github.xilinjia.krdb.ext.realmSetOf
-import io.github.xilinjia.krdb.types.EmbeddedRealmObject
-import io.github.xilinjia.krdb.types.RealmDictionary
-import io.github.xilinjia.krdb.types.RealmList
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.RealmSet
-import io.github.xilinjia.krdb.types.RealmUUID
-import io.github.xilinjia.krdb.types.annotations.Ignore
+import io.realm.kotlin.ext.backlinks
+import io.realm.kotlin.ext.realmDictionaryOf
+import io.realm.kotlin.ext.realmListOf
+import io.realm.kotlin.ext.realmSetOf
+import io.realm.kotlin.types.EmbeddedRealmObject
+import io.realm.kotlin.types.RealmDictionary
+import io.realm.kotlin.types.RealmList
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.RealmSet
+import io.realm.kotlin.types.RealmUUID
+import io.realm.kotlin.types.annotations.Ignore
 import org.mongodb.kbson.ObjectId
 
 class Child : RealmObject {

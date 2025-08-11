@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.demo.javacompatibility
+package io.realm.kotlin.demo.javacompatibility
 
 import android.app.Application
 import io.realm.Realm
-import io.github.xilinjia.krdb.demo.javacompatibility.data.java.JavaRepository
-import io.github.xilinjia.krdb.demo.javacompatibility.data.kotlin.KotlinRepository
+import io.realm.kotlin.demo.javacompatibility.data.java.JavaRepository
+import io.realm.kotlin.demo.javacompatibility.data.kotlin.KotlinRepository
 
 const val TAG: String = "JavaCompatibilityApp"
 

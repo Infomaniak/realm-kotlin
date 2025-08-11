@@ -17,7 +17,7 @@
 
 plugins {
     kotlin("multiplatform")
-    id("io.github.xilinjia.krdb")
+    id("io.realm.kotlin")
 }
 
 kotlin {
@@ -42,7 +42,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("io.github.xilinjia.krdb:library-base:${Realm.version}")
+                implementation("io.realm.kotlin:library-base:${Realm.version}")
             }
         }
         val commonTest by getting {

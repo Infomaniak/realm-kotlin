@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.internal.RealmObjectHelper.NOT_IN_A_TRANSACTION_MSG
-import io.github.xilinjia.krdb.internal.interop.PropertyKey
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmInterop.realm_get_value
-import io.github.xilinjia.krdb.internal.interop.getterScope
-import io.github.xilinjia.krdb.internal.interop.inputScope
-import io.github.xilinjia.krdb.types.BaseRealmObject
-import io.github.xilinjia.krdb.types.MutableRealmInt
+import io.realm.kotlin.internal.RealmObjectHelper.NOT_IN_A_TRANSACTION_MSG
+import io.realm.kotlin.internal.interop.PropertyKey
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmInterop.realm_get_value
+import io.realm.kotlin.internal.interop.getterScope
+import io.realm.kotlin.internal.interop.inputScope
+import io.realm.kotlin.types.BaseRealmObject
+import io.realm.kotlin.types.MutableRealmInt
 
 internal class ManagedMutableRealmInt(
     private val obj: RealmObjectReference<out BaseRealmObject>,

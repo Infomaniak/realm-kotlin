@@ -12,9 +12,9 @@
  * limitations under the License.
  *
  */
-package io.github.xilinjia.krdb
+package io.realm.kotlin
 
-import io.github.xilinjia.krdb.schema.RealmSchema
+import io.realm.kotlin.schema.RealmSchema
 
 /**
  * Base class for all Realm instances ([Realm] and [MutableRealm]).

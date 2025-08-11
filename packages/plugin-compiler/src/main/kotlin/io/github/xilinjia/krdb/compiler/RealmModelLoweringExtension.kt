@@ -16,11 +16,11 @@
 
 @file:OptIn(UnsafeDuringIrConstructionAPI::class)
 
-package io.github.xilinjia.krdb.compiler
+package io.realm.kotlin.compiler
 
-import io.github.xilinjia.krdb.compiler.ClassIds.MODEL_OBJECT_ANNOTATION
-import io.github.xilinjia.krdb.compiler.ClassIds.REALM_MODEL_COMPANION
-import io.github.xilinjia.krdb.compiler.ClassIds.REALM_OBJECT_INTERNAL_INTERFACE
+import io.realm.kotlin.compiler.ClassIds.MODEL_OBJECT_ANNOTATION
+import io.realm.kotlin.compiler.ClassIds.REALM_MODEL_COMPANION
+import io.realm.kotlin.compiler.ClassIds.REALM_OBJECT_INTERNAL_INTERFACE
 import org.jetbrains.kotlin.backend.common.ClassLoweringPass
 import org.jetbrains.kotlin.backend.common.CompilationException
 import org.jetbrains.kotlin.backend.common.extensions.IrGenerationExtension

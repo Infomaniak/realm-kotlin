@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.internal.interop.CapiT
-import io.github.xilinjia.krdb.internal.interop.NativePointer
+import io.realm.kotlin.internal.interop.CapiT
+import io.realm.kotlin.internal.interop.NativePointer
 
 internal interface CollectionOperator<E, T> {
     val mediator: Mediator

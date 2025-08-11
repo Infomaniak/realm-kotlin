@@ -13,15 +13,15 @@
  *
  */
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.Versioned
-import io.github.xilinjia.krdb.internal.interop.Callback
-import io.github.xilinjia.krdb.internal.interop.RealmChangesPointer
-import io.github.xilinjia.krdb.internal.interop.RealmKeyPathArrayPointer
-import io.github.xilinjia.krdb.internal.interop.RealmNotificationTokenPointer
-import io.github.xilinjia.krdb.internal.util.Validation.sdkError
-import io.github.xilinjia.krdb.internal.util.trySendWithBufferOverflowCheck
+import io.realm.kotlin.Versioned
+import io.realm.kotlin.internal.interop.Callback
+import io.realm.kotlin.internal.interop.RealmChangesPointer
+import io.realm.kotlin.internal.interop.RealmKeyPathArrayPointer
+import io.realm.kotlin.internal.interop.RealmNotificationTokenPointer
+import io.realm.kotlin.internal.util.Validation.sdkError
+import io.realm.kotlin.internal.util.trySendWithBufferOverflowCheck
 import kotlinx.coroutines.channels.ProducerScope
 
 /**

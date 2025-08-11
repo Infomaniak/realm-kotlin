@@ -16,17 +16,17 @@
 
 @file:OptIn(ExperimentalCompilerApi::class)
 
-package io.github.xilinjia.krdb.test.compiler
+package io.realm.kotlin.test.compiler
 
 import com.tschuchort.compiletesting.KotlinCompilation
 import com.tschuchort.compiletesting.SourceFile
-import io.github.xilinjia.krdb.internal.interop.CollectionType
-import io.github.xilinjia.krdb.test.util.Compiler.compileFromSource
-import io.github.xilinjia.krdb.test.util.TypeDescriptor.allFieldTypes
-import io.github.xilinjia.krdb.types.MutableRealmInt
-import io.github.xilinjia.krdb.types.RealmAny
-import io.github.xilinjia.krdb.types.RealmInstant
-import io.github.xilinjia.krdb.types.RealmUUID
+import io.realm.kotlin.internal.interop.CollectionType
+import io.realm.kotlin.test.util.Compiler.compileFromSource
+import io.realm.kotlin.test.util.TypeDescriptor.allFieldTypes
+import io.realm.kotlin.types.MutableRealmInt
+import io.realm.kotlin.types.RealmAny
+import io.realm.kotlin.types.RealmInstant
+import io.realm.kotlin.types.RealmUUID
 import org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi
 import org.junit.Test
 import org.mongodb.kbson.BsonObjectId
@@ -70,17 +70,17 @@ class IndexTests {
 
             val kotlinLiteral = type.toKotlinLiteral()
             val result = compileFromSource(
-                plugins = listOf(io.github.xilinjia.krdb.compiler.Registrar()),
+                plugins = listOf(io.realm.kotlin.compiler.Registrar()),
                 source = SourceFile.kotlin(
                     "indexing.kt",
                     """
-                        import io.github.xilinjia.krdb.types.MutableRealmInt
-                        import io.github.xilinjia.krdb.types.RealmAny
-                        import io.github.xilinjia.krdb.types.RealmInstant
-                        import io.github.xilinjia.krdb.types.RealmObject
-                        import io.github.xilinjia.krdb.types.RealmUUID
-                        import io.github.xilinjia.krdb.types.annotations.Index
-                        import io.github.xilinjia.krdb.RealmConfiguration
+                        import io.realm.kotlin.types.MutableRealmInt
+                        import io.realm.kotlin.types.RealmAny
+                        import io.realm.kotlin.types.RealmInstant
+                        import io.realm.kotlin.types.RealmObject
+                        import io.realm.kotlin.types.RealmUUID
+                        import io.realm.kotlin.types.annotations.Index
+                        import io.realm.kotlin.RealmConfiguration
                         import org.mongodb.kbson.BsonObjectId
                         import org.mongodb.kbson.BsonDecimal128
 
@@ -115,17 +115,17 @@ class IndexTests {
         )
         for (pair in collectionsAndDefaults) {
             val result = compileFromSource(
-                plugins = listOf(io.github.xilinjia.krdb.compiler.Registrar()),
+                plugins = listOf(io.realm.kotlin.compiler.Registrar()),
                 source = SourceFile.kotlin(
                     "indexing_collections.kt",
                     """
-                        import io.github.xilinjia.krdb.types.RealmObject
-                        import io.github.xilinjia.krdb.types.RealmList
-                        import io.github.xilinjia.krdb.types.RealmSet
-                        import io.github.xilinjia.krdb.ext.realmListOf
-                        import io.github.xilinjia.krdb.ext.realmSetOf
-                        import io.github.xilinjia.krdb.RealmConfiguration
-                        import io.github.xilinjia.krdb.types.annotations.Index
+                        import io.realm.kotlin.types.RealmObject
+                        import io.realm.kotlin.types.RealmList
+                        import io.realm.kotlin.types.RealmSet
+                        import io.realm.kotlin.ext.realmListOf
+                        import io.realm.kotlin.ext.realmSetOf
+                        import io.realm.kotlin.RealmConfiguration
+                        import io.realm.kotlin.types.annotations.Index
 
                         class A : RealmObject {
                             @Index

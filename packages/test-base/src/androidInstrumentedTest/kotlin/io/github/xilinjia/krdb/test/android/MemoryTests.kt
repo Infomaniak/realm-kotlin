@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.android
+package io.realm.kotlin.test.android
 
 import android.os.Process
 import android.text.format.Formatter
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.platform.PlatformUtils.triggerGC
-import io.github.xilinjia.krdb.test.util.use
-import io.github.xilinjia.krdb.types.RealmObject
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.platform.PlatformUtils.triggerGC
+import io.realm.kotlin.test.util.use
+import io.realm.kotlin.types.RealmObject
 import org.junit.After
 import org.junit.Before
 import org.junit.Test

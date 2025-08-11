@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.compiler
+package io.realm.kotlin.compiler
 
 import com.google.auto.service.AutoService
 import org.jetbrains.kotlin.compiler.plugin.AbstractCliOption
@@ -25,12 +25,12 @@ import org.jetbrains.kotlin.config.CompilerConfiguration
 import org.jetbrains.kotlin.config.CompilerConfigurationKey
 
 const val FEATURE_LIST_PATH_KEY = "featureListPath"
-val featureListPathConfigurationKey: CompilerConfigurationKey<String> = CompilerConfigurationKey<String>("io.github.xilinjia.krdb.featureListPath")
+val featureListPathConfigurationKey: CompilerConfigurationKey<String> = CompilerConfigurationKey<String>("io.realm.kotlin.featureListPath")
 
 @OptIn(ExperimentalCompilerApi::class)
 @AutoService(CommandLineProcessor::class)
 class RealmCommandLineProcessor : CommandLineProcessor {
-    override val pluginId: String = "io.github.xilinjia.krdb"
+    override val pluginId: String = "io.realm.kotlin"
     override val pluginOptions: Collection<CliOption> = listOf(
         CliOption(
             optionName = "featureListPath",

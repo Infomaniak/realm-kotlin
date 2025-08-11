@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.query
+package io.realm.kotlin.query
 
-import io.github.xilinjia.krdb.types.BaseRealmObject
+import io.realm.kotlin.types.BaseRealmObject
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 

@@ -1,8 +1,8 @@
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.log.LogLevel
-import io.github.xilinjia.krdb.log.RealmLog
-import io.github.xilinjia.krdb.log.SdkLogCategory
+import io.realm.kotlin.log.LogLevel
+import io.realm.kotlin.log.RealmLog
+import io.realm.kotlin.log.SdkLogCategory
 
 /**
  * Internal logger class used to inject context aware information into log message

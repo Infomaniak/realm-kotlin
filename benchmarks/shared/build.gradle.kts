@@ -2,7 +2,7 @@ plugins {
     kotlin("multiplatform")
     // kotlin("native.cocoapods")
     id("com.android.library")
-    id("io.github.xilinjia.krdb")
+    id("io.realm.kotlin")
 }
 
 version = "1.0"
@@ -28,7 +28,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("io.github.xilinjia.krdb:library-base:${Realm.version}")
+                implementation("io.realm.kotlin:library-base:${Realm.version}")
             }
         }
         val androidMain by getting
@@ -55,7 +55,7 @@ kotlin {
 }
 
 android {
-    namespace = "io.github.xilinjia.krdb.benchmarks"
+    namespace = "io.realm.kotlin.benchmarks"
     compileSdk = Versions.Android.compileSdkVersion
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {

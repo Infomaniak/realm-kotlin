@@ -14,9 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.entities.embedded
+package io.realm.kotlin.entities.embedded
 
-import io.github.xilinjia.krdb.types.RealmObject
+import io.realm.kotlin.types.RealmObject
 
 class EmbeddedChildWithInitializer : RealmObject {
     var child: EmbeddedChild? = EmbeddedChild("Initial child")

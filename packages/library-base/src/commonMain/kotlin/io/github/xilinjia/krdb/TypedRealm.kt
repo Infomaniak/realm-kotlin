@@ -1,13 +1,13 @@
-package io.github.xilinjia.krdb
+package io.realm.kotlin
 
-import io.github.xilinjia.krdb.ext.realmDictionaryOf
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.query.TRUE_PREDICATE
-import io.github.xilinjia.krdb.types.RealmDictionary
-import io.github.xilinjia.krdb.types.RealmList
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.RealmSet
-import io.github.xilinjia.krdb.types.TypedRealmObject
+import io.realm.kotlin.ext.realmDictionaryOf
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.query.TRUE_PREDICATE
+import io.realm.kotlin.types.RealmDictionary
+import io.realm.kotlin.types.RealmList
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.RealmSet
+import io.realm.kotlin.types.TypedRealmObject
 import kotlin.reflect.KClass
 
 /**
@@ -34,7 +34,7 @@ public interface TypedRealm : BaseRealm {
 
     /**
      * Makes an unmanaged in-memory copy of an already persisted
-     * [io.github.xilinjia.krdb.types.RealmObject]. This is a deep copy that will copy all referenced
+     * [io.realm.kotlin.types.RealmObject]. This is a deep copy that will copy all referenced
      * objects.
      *
      * @param obj managed object to copy from the Realm.
@@ -47,7 +47,7 @@ public interface TypedRealm : BaseRealm {
 
     /**
      * Makes an unmanaged in-memory copy of a collection of already persisted
-     * [io.github.xilinjia.krdb.types.RealmObject]s. This is a deep copy that will copy all referenced
+     * [io.realm.kotlin.types.RealmObject]s. This is a deep copy that will copy all referenced
      * objects.
      *
      * @param collection the list of objects to copy. The collection itself does not need to be
@@ -67,7 +67,7 @@ public interface TypedRealm : BaseRealm {
 
     /**
      * Makes an unmanaged in-memory copy of a [RealmDictionary] of already persisted
-     * [io.github.xilinjia.krdb.types.RealmObject]s. This is a deep copy that will copy all referenced
+     * [io.realm.kotlin.types.RealmObject]s. This is a deep copy that will copy all referenced
      * objects.
      *
      * @param dictionary the dictionary of objects to copy. The dictionary itself does not need to

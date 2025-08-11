@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
 object Constants {
     const val ENCRYPTION_KEY_LENGTH = 64

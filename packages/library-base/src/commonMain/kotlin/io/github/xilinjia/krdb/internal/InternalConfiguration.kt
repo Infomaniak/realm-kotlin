@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.Configuration
-import io.github.xilinjia.krdb.internal.interop.RealmConfigurationPointer
-import io.github.xilinjia.krdb.internal.interop.SchemaMode
-import io.github.xilinjia.krdb.internal.util.CoroutineDispatcherFactory
-import io.github.xilinjia.krdb.types.BaseRealmObject
+import io.realm.kotlin.Configuration
+import io.realm.kotlin.internal.interop.RealmConfigurationPointer
+import io.realm.kotlin.internal.interop.SchemaMode
+import io.realm.kotlin.internal.util.CoroutineDispatcherFactory
+import io.realm.kotlin.types.BaseRealmObject
 import kotlin.reflect.KClass
 
 /**

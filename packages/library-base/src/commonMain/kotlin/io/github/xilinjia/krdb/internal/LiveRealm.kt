@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.VersionId
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmSchemaPointer
-import io.github.xilinjia.krdb.internal.interop.SynchronizableObject
-import io.github.xilinjia.krdb.internal.platform.WeakReference
-import io.github.xilinjia.krdb.internal.platform.runBlocking
-import io.github.xilinjia.krdb.internal.util.LiveRealmContext
+import io.realm.kotlin.VersionId
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmSchemaPointer
+import io.realm.kotlin.internal.interop.SynchronizableObject
+import io.realm.kotlin.internal.platform.WeakReference
+import io.realm.kotlin.internal.platform.runBlocking
+import io.realm.kotlin.internal.util.LiveRealmContext
 import kotlinx.atomicfu.AtomicRef
 import kotlinx.atomicfu.atomic
 import kotlinx.coroutines.withContext

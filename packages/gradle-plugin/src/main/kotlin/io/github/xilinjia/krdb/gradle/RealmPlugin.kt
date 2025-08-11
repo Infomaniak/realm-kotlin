@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.gradle
+package io.realm.kotlin.gradle
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -37,11 +37,11 @@ open class RealmPlugin : Plugin<Project> {
             if (conf.name.endsWith("UnitTestRuntimeClasspath")) {
                 conf.resolutionStrategy.dependencySubstitution { ds: DependencySubstitutions ->
                     with(ds) {
-                        substitute(module("io.github.xilinjia.krdb:library-base:$PLUGIN_VERSION")).using(
-                            module("io.github.xilinjia.krdb:library-base-jvm:$PLUGIN_VERSION")
+                        substitute(module("io.realm.kotlin:library-base:$PLUGIN_VERSION")).using(
+                            module("io.realm.kotlin:library-base-jvm:$PLUGIN_VERSION")
                         )
-                        substitute(module("io.github.xilinjia.krdb:cinterop:$PLUGIN_VERSION")).using(
-                            module("io.github.xilinjia.krdb:cinterop-jvm:$PLUGIN_VERSION")
+                        substitute(module("io.realm.kotlin:cinterop:$PLUGIN_VERSION")).using(
+                            module("io.realm.kotlin:cinterop-jvm:$PLUGIN_VERSION")
                         )
                     }
                 }

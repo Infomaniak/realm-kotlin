@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.benchmarks.android
+package io.realm.kotlin.benchmarks.android
 
 import androidx.benchmark.junit4.BenchmarkRule
 import androidx.benchmark.junit4.measureRepeated
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.benchmarks.SchemaSize
-import io.github.xilinjia.krdb.types.RealmObject
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.benchmarks.SchemaSize
+import io.realm.kotlin.types.RealmObject
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule

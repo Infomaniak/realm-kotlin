@@ -1,6 +1,6 @@
 @file:OptIn(UnsafeDuringIrConstructionAPI::class)
 
-package io.github.xilinjia.krdb.compiler
+package io.realm.kotlin.compiler
 
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
 import org.jetbrains.kotlin.ir.builders.irGet

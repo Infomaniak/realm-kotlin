@@ -16,9 +16,9 @@
 // TODO https://github.com/realm/realm-kotlin/issues/889
 @file:Suppress("TooGenericExceptionThrown", "TooGenericExceptionCaught")
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
-import io.github.xilinjia.krdb.internal.interop.Constants.ENCRYPTION_KEY_LENGTH
+import io.realm.kotlin.internal.interop.Constants.ENCRYPTION_KEY_LENGTH
 import kotlinx.atomicfu.AtomicBoolean
 import kotlinx.atomicfu.atomic
 import kotlinx.cinterop.AutofreeScope
@@ -2125,7 +2125,7 @@ actual object RealmInterop {
             //
             // Ass a work-around we use the `canceled` flag that is being set when the Scheduler
             // is being released. This should be safe as we are only closing the dispatcher when
-            // releasing the scheduler. See [io.github.xilinjia.krdb.internal.util.LiveRealmContext] for
+            // releasing the scheduler. See [io.realm.kotlin.internal.util.LiveRealmContext] for
             // the logic around this.
             //
             // Note, JVM and Native behave differently on this. See this issue for more

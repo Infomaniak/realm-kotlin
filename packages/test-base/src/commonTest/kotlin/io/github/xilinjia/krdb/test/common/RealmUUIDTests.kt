@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.common
+package io.realm.kotlin.test.common
 
-import io.github.xilinjia.krdb.test.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.types.RealmUUID
+import io.realm.kotlin.test.common.utils.assertFailsWithMessage
+import io.realm.kotlin.types.RealmUUID
 import kotlin.experimental.and
 import kotlin.test.Test
 import kotlin.test.assertContains

@@ -1,4 +1,4 @@
-package io.github.xilinjia.krdb.test.common.utils
+package io.realm.kotlin.test.common.utils
 
 import kotlin.test.Test
 

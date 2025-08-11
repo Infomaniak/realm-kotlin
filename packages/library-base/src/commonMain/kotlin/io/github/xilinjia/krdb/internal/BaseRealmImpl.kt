@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.BaseRealm
-import io.github.xilinjia.krdb.internal.interop.ClassKey
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.notifications.internal.Callback
-import io.github.xilinjia.krdb.notifications.internal.Cancellable
-import io.github.xilinjia.krdb.types.BaseRealmObject
+import io.realm.kotlin.BaseRealm
+import io.realm.kotlin.internal.interop.ClassKey
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.notifications.internal.Callback
+import io.realm.kotlin.notifications.internal.Cancellable
+import io.realm.kotlin.types.BaseRealmObject
 import kotlinx.coroutines.flow.Flow
 
 @Suppress("UnnecessaryAbstractClass")

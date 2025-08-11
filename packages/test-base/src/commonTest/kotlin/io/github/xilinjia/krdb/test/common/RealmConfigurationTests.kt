@@ -16,25 +16,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.test.common
+package io.realm.kotlin.test.common
 
-import io.github.xilinjia.krdb.Configuration
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.entities.Sample
-import io.github.xilinjia.krdb.internal.InternalConfiguration
-import io.github.xilinjia.krdb.internal.platform.PATH_SEPARATOR
-import io.github.xilinjia.krdb.internal.platform.appFilesDirectory
-import io.github.xilinjia.krdb.internal.platform.pathOf
-import io.github.xilinjia.krdb.internal.platform.runBlocking
-import io.github.xilinjia.krdb.internal.util.CoroutineDispatcherFactory
-import io.github.xilinjia.krdb.log.LogLevel
-import io.github.xilinjia.krdb.log.RealmLog
-import io.github.xilinjia.krdb.migration.AutomaticSchemaMigration
-import io.github.xilinjia.krdb.test.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.platform.platformFileSystem
-import io.github.xilinjia.krdb.test.util.use
+import io.realm.kotlin.Configuration
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.entities.Sample
+import io.realm.kotlin.internal.InternalConfiguration
+import io.realm.kotlin.internal.platform.PATH_SEPARATOR
+import io.realm.kotlin.internal.platform.appFilesDirectory
+import io.realm.kotlin.internal.platform.pathOf
+import io.realm.kotlin.internal.platform.runBlocking
+import io.realm.kotlin.internal.util.CoroutineDispatcherFactory
+import io.realm.kotlin.log.LogLevel
+import io.realm.kotlin.log.RealmLog
+import io.realm.kotlin.migration.AutomaticSchemaMigration
+import io.realm.kotlin.test.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.platform.platformFileSystem
+import io.realm.kotlin.test.util.use
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.ExperimentalCoroutinesApi

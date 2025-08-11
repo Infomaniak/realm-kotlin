@@ -15,32 +15,32 @@
  */
 @file:Suppress("unchecked_cast")
 
-package io.github.xilinjia.krdb.test.common
+package io.realm.kotlin.test.common
 
-import io.github.xilinjia.krdb.MutableRealm
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.entities.dictionary.DictionaryEmbeddedLevel1
-import io.github.xilinjia.krdb.entities.dictionary.RealmDictionaryContainer
-import io.github.xilinjia.krdb.ext.asRealmObject
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.ext.realmDictionaryEntryOf
-import io.github.xilinjia.krdb.ext.realmDictionaryOf
-import io.github.xilinjia.krdb.ext.toRealmDictionary
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.query.RealmResults
-import io.github.xilinjia.krdb.query.find
-import io.github.xilinjia.krdb.test.common.utils.ErrorCatcher
-import io.github.xilinjia.krdb.test.common.utils.GenericTypeSafetyManager
-import io.github.xilinjia.krdb.test.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.util.TypeDescriptor
-import io.github.xilinjia.krdb.types.RealmAny
-import io.github.xilinjia.krdb.types.RealmDictionary
-import io.github.xilinjia.krdb.types.RealmDictionaryEntrySet
-import io.github.xilinjia.krdb.types.RealmInstant
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.RealmUUID
+import io.realm.kotlin.MutableRealm
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.entities.dictionary.DictionaryEmbeddedLevel1
+import io.realm.kotlin.entities.dictionary.RealmDictionaryContainer
+import io.realm.kotlin.ext.asRealmObject
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.ext.realmDictionaryEntryOf
+import io.realm.kotlin.ext.realmDictionaryOf
+import io.realm.kotlin.ext.toRealmDictionary
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.query.RealmResults
+import io.realm.kotlin.query.find
+import io.realm.kotlin.test.common.utils.ErrorCatcher
+import io.realm.kotlin.test.common.utils.GenericTypeSafetyManager
+import io.realm.kotlin.test.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.util.TypeDescriptor
+import io.realm.kotlin.types.RealmAny
+import io.realm.kotlin.types.RealmDictionary
+import io.realm.kotlin.types.RealmDictionaryEntrySet
+import io.realm.kotlin.types.RealmInstant
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.RealmUUID
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.async
 import kotlinx.coroutines.channels.BufferOverflow

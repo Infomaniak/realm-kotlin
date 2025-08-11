@@ -16,45 +16,45 @@
 
 @file:OptIn(UnsafeDuringIrConstructionAPI::class)
 
-package io.github.xilinjia.krdb.compiler
+package io.realm.kotlin.compiler
 
-import io.github.xilinjia.krdb.compiler.ClassIds.CLASS_INFO
-import io.github.xilinjia.krdb.compiler.ClassIds.CLASS_KIND_TYPE
-import io.github.xilinjia.krdb.compiler.ClassIds.COLLECTION_TYPE
-import io.github.xilinjia.krdb.compiler.ClassIds.FULLTEXT_ANNOTATION
-import io.github.xilinjia.krdb.compiler.ClassIds.INDEX_ANNOTATION
-import io.github.xilinjia.krdb.compiler.ClassIds.KBSON_OBJECT_ID
-import io.github.xilinjia.krdb.compiler.ClassIds.KOTLIN_COLLECTIONS_MAP
-import io.github.xilinjia.krdb.compiler.ClassIds.KOTLIN_COLLECTIONS_MAPOF
-import io.github.xilinjia.krdb.compiler.ClassIds.KOTLIN_PAIR
-import io.github.xilinjia.krdb.compiler.ClassIds.OBJECT_REFERENCE_CLASS
-import io.github.xilinjia.krdb.compiler.ClassIds.PRIMARY_KEY_ANNOTATION
-import io.github.xilinjia.krdb.compiler.ClassIds.PROPERTY_INFO
-import io.github.xilinjia.krdb.compiler.ClassIds.PROPERTY_INFO_CREATE
-import io.github.xilinjia.krdb.compiler.ClassIds.PROPERTY_TYPE
-import io.github.xilinjia.krdb.compiler.ClassIds.REALM_ANY
-import io.github.xilinjia.krdb.compiler.ClassIds.REALM_INSTANT
-import io.github.xilinjia.krdb.compiler.ClassIds.REALM_MODEL_COMPANION
-import io.github.xilinjia.krdb.compiler.ClassIds.REALM_OBJECT_INTERFACE
-import io.github.xilinjia.krdb.compiler.ClassIds.REALM_OBJECT_INTERNAL_INTERFACE
-import io.github.xilinjia.krdb.compiler.ClassIds.REALM_UUID
-import io.github.xilinjia.krdb.compiler.ClassIds.TYPED_REALM_OBJECT_INTERFACE
-import io.github.xilinjia.krdb.compiler.Names.CLASS_INFO_CREATE
-import io.github.xilinjia.krdb.compiler.Names.OBJECT_REFERENCE
-import io.github.xilinjia.krdb.compiler.Names.PROPERTY_COLLECTION_TYPE_DICTIONARY
-import io.github.xilinjia.krdb.compiler.Names.PROPERTY_COLLECTION_TYPE_LIST
-import io.github.xilinjia.krdb.compiler.Names.PROPERTY_COLLECTION_TYPE_NONE
-import io.github.xilinjia.krdb.compiler.Names.PROPERTY_COLLECTION_TYPE_SET
-import io.github.xilinjia.krdb.compiler.Names.PROPERTY_TYPE_LINKING_OBJECTS
-import io.github.xilinjia.krdb.compiler.Names.PROPERTY_TYPE_OBJECT
-import io.github.xilinjia.krdb.compiler.Names.REALM_OBJECT_COMPANION_CLASS_KIND
-import io.github.xilinjia.krdb.compiler.Names.REALM_OBJECT_COMPANION_CLASS_MEMBER
-import io.github.xilinjia.krdb.compiler.Names.REALM_OBJECT_COMPANION_CLASS_NAME_MEMBER
-import io.github.xilinjia.krdb.compiler.Names.REALM_OBJECT_COMPANION_FIELDS_MEMBER
-import io.github.xilinjia.krdb.compiler.Names.REALM_OBJECT_COMPANION_NEW_INSTANCE_METHOD
-import io.github.xilinjia.krdb.compiler.Names.REALM_OBJECT_COMPANION_PRIMARY_KEY_MEMBER
-import io.github.xilinjia.krdb.compiler.Names.REALM_OBJECT_COMPANION_SCHEMA_METHOD
-import io.github.xilinjia.krdb.compiler.Names.SET
+import io.realm.kotlin.compiler.ClassIds.CLASS_INFO
+import io.realm.kotlin.compiler.ClassIds.CLASS_KIND_TYPE
+import io.realm.kotlin.compiler.ClassIds.COLLECTION_TYPE
+import io.realm.kotlin.compiler.ClassIds.FULLTEXT_ANNOTATION
+import io.realm.kotlin.compiler.ClassIds.INDEX_ANNOTATION
+import io.realm.kotlin.compiler.ClassIds.KBSON_OBJECT_ID
+import io.realm.kotlin.compiler.ClassIds.KOTLIN_COLLECTIONS_MAP
+import io.realm.kotlin.compiler.ClassIds.KOTLIN_COLLECTIONS_MAPOF
+import io.realm.kotlin.compiler.ClassIds.KOTLIN_PAIR
+import io.realm.kotlin.compiler.ClassIds.OBJECT_REFERENCE_CLASS
+import io.realm.kotlin.compiler.ClassIds.PRIMARY_KEY_ANNOTATION
+import io.realm.kotlin.compiler.ClassIds.PROPERTY_INFO
+import io.realm.kotlin.compiler.ClassIds.PROPERTY_INFO_CREATE
+import io.realm.kotlin.compiler.ClassIds.PROPERTY_TYPE
+import io.realm.kotlin.compiler.ClassIds.REALM_ANY
+import io.realm.kotlin.compiler.ClassIds.REALM_INSTANT
+import io.realm.kotlin.compiler.ClassIds.REALM_MODEL_COMPANION
+import io.realm.kotlin.compiler.ClassIds.REALM_OBJECT_INTERFACE
+import io.realm.kotlin.compiler.ClassIds.REALM_OBJECT_INTERNAL_INTERFACE
+import io.realm.kotlin.compiler.ClassIds.REALM_UUID
+import io.realm.kotlin.compiler.ClassIds.TYPED_REALM_OBJECT_INTERFACE
+import io.realm.kotlin.compiler.Names.CLASS_INFO_CREATE
+import io.realm.kotlin.compiler.Names.OBJECT_REFERENCE
+import io.realm.kotlin.compiler.Names.PROPERTY_COLLECTION_TYPE_DICTIONARY
+import io.realm.kotlin.compiler.Names.PROPERTY_COLLECTION_TYPE_LIST
+import io.realm.kotlin.compiler.Names.PROPERTY_COLLECTION_TYPE_NONE
+import io.realm.kotlin.compiler.Names.PROPERTY_COLLECTION_TYPE_SET
+import io.realm.kotlin.compiler.Names.PROPERTY_TYPE_LINKING_OBJECTS
+import io.realm.kotlin.compiler.Names.PROPERTY_TYPE_OBJECT
+import io.realm.kotlin.compiler.Names.REALM_OBJECT_COMPANION_CLASS_KIND
+import io.realm.kotlin.compiler.Names.REALM_OBJECT_COMPANION_CLASS_MEMBER
+import io.realm.kotlin.compiler.Names.REALM_OBJECT_COMPANION_CLASS_NAME_MEMBER
+import io.realm.kotlin.compiler.Names.REALM_OBJECT_COMPANION_FIELDS_MEMBER
+import io.realm.kotlin.compiler.Names.REALM_OBJECT_COMPANION_NEW_INSTANCE_METHOD
+import io.realm.kotlin.compiler.Names.REALM_OBJECT_COMPANION_PRIMARY_KEY_MEMBER
+import io.realm.kotlin.compiler.Names.REALM_OBJECT_COMPANION_SCHEMA_METHOD
+import io.realm.kotlin.compiler.Names.SET
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
 import org.jetbrains.kotlin.backend.common.lower.DeclarationIrBuilder
 import org.jetbrains.kotlin.cli.common.messages.CompilerMessageSourceLocation
@@ -123,7 +123,7 @@ import org.jetbrains.kotlin.ir.util.isNullable
 /**
  * Helper to assisting in modifying classes marked with the [RealmObject] interface according to our
  * needs:
- * - Adding the internal properties of [io.github.xilinjia.krdb.internal.RealmObjectInternal]
+ * - Adding the internal properties of [io.realm.kotlin.internal.RealmObjectInternal]
  * - Adding the internal properties and methods of [RealmObjectCompanion] to the associated companion.
  */
 @Suppress("LargeClass")
@@ -251,7 +251,7 @@ class RealmModelSyntheticPropertiesGeneration(private val pluginContext: IrPlugi
     }
 
     /**
-     * Add all "simple" fields required to satisfy the `io.github.xilinjia.krdb.internal.RealmObjectCompanion`
+     * Add all "simple" fields required to satisfy the `io.realm.kotlin.internal.RealmObjectCompanion`
      * interface.
      *
      * The following two fields must be added by using other methods:
@@ -428,7 +428,7 @@ class RealmModelSyntheticPropertiesGeneration(private val pluginContext: IrPlugi
                 endOffset = endOffset,
                 type = classKindType.defaultType,
                 symbol = classKindTypes.first {
-                    // These names must match the values in io.github.xilinjia.krdb.schema.RealmClassKind
+                    // These names must match the values in io.realm.kotlin.schema.RealmClassKind
                     it.name == when {
                         isEmbedded -> Name.identifier("EMBEDDED")
                         isAsymmetric -> Name.identifier("ASYMMETRIC")

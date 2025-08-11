@@ -18,9 +18,9 @@
 
 @file:Suppress("invisible_reference", "invisible_member")
 
-package io.github.xilinjia.krdb.test.common.utils
+package io.realm.kotlin.test.common.utils
 
-import io.github.xilinjia.krdb.internal.platform.SecureRandom
+import io.realm.kotlin.internal.platform.SecureRandom
 import kotlin.test.Test
 import kotlin.test.assertNotEquals
 

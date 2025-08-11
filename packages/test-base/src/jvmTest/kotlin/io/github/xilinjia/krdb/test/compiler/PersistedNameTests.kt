@@ -16,12 +16,12 @@
 
 @file:OptIn(ExperimentalCompilerApi::class)
 
-package io.github.xilinjia.krdb.test.compiler
+package io.realm.kotlin.test.compiler
 
 import com.tschuchort.compiletesting.KotlinCompilation
 import com.tschuchort.compiletesting.SourceFile
-import io.github.xilinjia.krdb.compiler.Registrar
-import io.github.xilinjia.krdb.test.util.Compiler
+import io.realm.kotlin.compiler.Registrar
+import io.realm.kotlin.test.util.Compiler
 import org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi
 import org.junit.Test
 import kotlin.test.assertContains
@@ -35,8 +35,8 @@ class PersistedNameTests {
             source = SourceFile.kotlin(
                 "persistedNameAnnotationEmpty.kt",
                 """
-                    import io.github.xilinjia.krdb.types.RealmObject
-                    import io.github.xilinjia.krdb.types.annotations.PersistedName
+                    import io.realm.kotlin.types.RealmObject
+                    import io.realm.kotlin.types.annotations.PersistedName
                     
                     class InvalidSample : RealmObject {
                         @PersistedName("")
@@ -58,8 +58,8 @@ class PersistedNameTests {
             source = SourceFile.kotlin(
                 "persistedNameAnnotationDuplicate.kt",
                 """
-                    import io.github.xilinjia.krdb.types.RealmObject
-                    import io.github.xilinjia.krdb.types.annotations.PersistedName
+                    import io.realm.kotlin.types.RealmObject
+                    import io.realm.kotlin.types.annotations.PersistedName
                     
                     class InvalidSample : RealmObject {
                         // Duplicate names (annotation and a lexically later field)

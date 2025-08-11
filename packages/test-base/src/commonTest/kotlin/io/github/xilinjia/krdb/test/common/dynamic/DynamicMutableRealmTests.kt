@@ -15,32 +15,32 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.common.dynamic
+package io.realm.kotlin.test.common.dynamic
 
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.UpdatePolicy
-import io.github.xilinjia.krdb.dynamic.DynamicMutableRealm
-import io.github.xilinjia.krdb.dynamic.DynamicMutableRealmObject
-import io.github.xilinjia.krdb.dynamic.getNullableValue
-import io.github.xilinjia.krdb.dynamic.getValue
-import io.github.xilinjia.krdb.dynamic.getValueList
-import io.github.xilinjia.krdb.dynamic.getValueSet
-import io.github.xilinjia.krdb.entities.Sample
-import io.github.xilinjia.krdb.entities.SampleWithPrimaryKey
-import io.github.xilinjia.krdb.entities.embedded.embeddedSchema
-import io.github.xilinjia.krdb.entities.embedded.embeddedSchemaWithPrimaryKey
-import io.github.xilinjia.krdb.entities.primarykey.PrimaryKeyString
-import io.github.xilinjia.krdb.entities.primarykey.PrimaryKeyStringNullable
-import io.github.xilinjia.krdb.ext.isManaged
-import io.github.xilinjia.krdb.ext.isValid
-import io.github.xilinjia.krdb.ext.realmListOf
-import io.github.xilinjia.krdb.internal.InternalConfiguration
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.query.RealmResults
-import io.github.xilinjia.krdb.query.RealmSingleQuery
-import io.github.xilinjia.krdb.test.StandaloneDynamicMutableRealm
-import io.github.xilinjia.krdb.test.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.UpdatePolicy
+import io.realm.kotlin.dynamic.DynamicMutableRealm
+import io.realm.kotlin.dynamic.DynamicMutableRealmObject
+import io.realm.kotlin.dynamic.getNullableValue
+import io.realm.kotlin.dynamic.getValue
+import io.realm.kotlin.dynamic.getValueList
+import io.realm.kotlin.dynamic.getValueSet
+import io.realm.kotlin.entities.Sample
+import io.realm.kotlin.entities.SampleWithPrimaryKey
+import io.realm.kotlin.entities.embedded.embeddedSchema
+import io.realm.kotlin.entities.embedded.embeddedSchemaWithPrimaryKey
+import io.realm.kotlin.entities.primarykey.PrimaryKeyString
+import io.realm.kotlin.entities.primarykey.PrimaryKeyStringNullable
+import io.realm.kotlin.ext.isManaged
+import io.realm.kotlin.ext.isValid
+import io.realm.kotlin.ext.realmListOf
+import io.realm.kotlin.internal.InternalConfiguration
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.query.RealmResults
+import io.realm.kotlin.query.RealmSingleQuery
+import io.realm.kotlin.test.StandaloneDynamicMutableRealm
+import io.realm.kotlin.test.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.platform.PlatformUtils
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test

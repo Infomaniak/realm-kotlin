@@ -15,12 +15,12 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test
+package io.realm.kotlin.test
 
-import io.github.xilinjia.krdb.internal.InternalConfiguration
-import io.github.xilinjia.krdb.internal.dynamic.DynamicMutableRealmImpl
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmSchedulerPointer
+import io.realm.kotlin.internal.InternalConfiguration
+import io.realm.kotlin.internal.dynamic.DynamicMutableRealmImpl
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmSchedulerPointer
 
 /**
  * Special dynamic mutable realm with methods for managing a write transaction.

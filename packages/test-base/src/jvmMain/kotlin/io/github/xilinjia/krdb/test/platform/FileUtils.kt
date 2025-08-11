@@ -1,4 +1,4 @@
-package io.github.xilinjia.krdb.test.platform
+package io.realm.kotlin.test.platform
 
 import okio.FileSystem
 

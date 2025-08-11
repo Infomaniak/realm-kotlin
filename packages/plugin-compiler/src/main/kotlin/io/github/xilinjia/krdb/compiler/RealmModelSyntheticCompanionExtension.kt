@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.compiler
+package io.realm.kotlin.compiler
 
-import io.github.xilinjia.krdb.compiler.Names.REALM_OBJECT_COMPANION_NEW_INSTANCE_METHOD
-import io.github.xilinjia.krdb.compiler.Names.REALM_OBJECT_COMPANION_SCHEMA_METHOD
+import io.realm.kotlin.compiler.Names.REALM_OBJECT_COMPANION_NEW_INSTANCE_METHOD
+import io.realm.kotlin.compiler.Names.REALM_OBJECT_COMPANION_SCHEMA_METHOD
 import org.jetbrains.kotlin.descriptors.CallableMemberDescriptor
 import org.jetbrains.kotlin.descriptors.ClassDescriptor
 import org.jetbrains.kotlin.descriptors.DescriptorVisibilities
@@ -112,7 +112,7 @@ class RealmModelSyntheticCompanionExtension : SyntheticResolveExtension {
                 /* typeParameters = */ emptyList(),
                 /* unsubstitutedValueParameters = */ emptyList(),
                 // FIXME Howto resolve types from "runtime" module. Should be
-                //  `io.github.xilinjia.krdb.internal.Table`, but doesn't seem to break as long as the actual
+                //  `io.realm.kotlin.internal.Table`, but doesn't seem to break as long as the actual
                 //  implementation return type can be cast to this return type
                 /* unsubstitutedReturnType = */ realmObjectClass.builtIns.anyType,
                 /* modality = */ Modality.OPEN,

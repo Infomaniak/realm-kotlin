@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.query
+package io.realm.kotlin.query
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.types.BaseRealmObject
-import io.github.xilinjia.krdb.types.RealmInstant
-import io.github.xilinjia.krdb.types.RealmList
+import io.realm.kotlin.Realm
+import io.realm.kotlin.types.BaseRealmObject
+import io.realm.kotlin.types.RealmInstant
+import io.realm.kotlin.types.RealmList
 import kotlinx.coroutines.flow.Flow
 import kotlin.reflect.KClass
 

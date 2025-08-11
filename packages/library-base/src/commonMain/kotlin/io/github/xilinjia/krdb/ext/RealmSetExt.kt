@@ -14,21 +14,21 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.ext
+package io.realm.kotlin.ext
 
-import io.github.xilinjia.krdb.TypedRealm
-import io.github.xilinjia.krdb.internal.ManagedRealmSet
-import io.github.xilinjia.krdb.internal.UnmanagedRealmSet
-import io.github.xilinjia.krdb.internal.asRealmSet
-import io.github.xilinjia.krdb.internal.getRealm
-import io.github.xilinjia.krdb.internal.query
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.query.TRUE_PREDICATE
-import io.github.xilinjia.krdb.types.BaseRealmObject
-import io.github.xilinjia.krdb.types.RealmDictionary
-import io.github.xilinjia.krdb.types.RealmList
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.RealmSet
+import io.realm.kotlin.TypedRealm
+import io.realm.kotlin.internal.ManagedRealmSet
+import io.realm.kotlin.internal.UnmanagedRealmSet
+import io.realm.kotlin.internal.asRealmSet
+import io.realm.kotlin.internal.getRealm
+import io.realm.kotlin.internal.query
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.query.TRUE_PREDICATE
+import io.realm.kotlin.types.BaseRealmObject
+import io.realm.kotlin.types.RealmDictionary
+import io.realm.kotlin.types.RealmList
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.RealmSet
 
 /**
  * Instantiates an **unmanaged** [RealmSet].

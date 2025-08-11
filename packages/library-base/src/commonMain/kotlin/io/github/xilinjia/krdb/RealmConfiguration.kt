@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb
+package io.realm.kotlin
 
-import io.github.xilinjia.krdb.internal.ContextLogger
-import io.github.xilinjia.krdb.internal.RealmConfigurationImpl
-import io.github.xilinjia.krdb.internal.platform.appFilesDirectory
-import io.github.xilinjia.krdb.internal.util.CoroutineDispatcherFactory
-import io.github.xilinjia.krdb.migration.AutomaticSchemaMigration
-import io.github.xilinjia.krdb.migration.RealmMigration
-import io.github.xilinjia.krdb.types.TypedRealmObject
+import io.realm.kotlin.internal.ContextLogger
+import io.realm.kotlin.internal.RealmConfigurationImpl
+import io.realm.kotlin.internal.platform.appFilesDirectory
+import io.realm.kotlin.internal.util.CoroutineDispatcherFactory
+import io.realm.kotlin.migration.AutomaticSchemaMigration
+import io.realm.kotlin.migration.RealmMigration
+import io.realm.kotlin.types.TypedRealmObject
 import kotlin.reflect.KClass
 
 /**

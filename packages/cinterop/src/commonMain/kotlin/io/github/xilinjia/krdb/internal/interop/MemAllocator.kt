@@ -16,7 +16,7 @@
 
 @file:JvmName("RealmValueAllocatorJvm")
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
 import org.mongodb.kbson.Decimal128
 import kotlin.jvm.JvmName

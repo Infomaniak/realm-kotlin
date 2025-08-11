@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.internal.platform
+package io.realm.kotlin.internal.platform
 
-import io.github.xilinjia.krdb.internal.RealmInstantImpl
-import io.github.xilinjia.krdb.internal.util.Exceptions
-import io.github.xilinjia.krdb.log.RealmLogger
-import io.github.xilinjia.krdb.types.RealmInstant
+import io.realm.kotlin.internal.RealmInstantImpl
+import io.realm.kotlin.internal.util.Exceptions
+import io.realm.kotlin.log.RealmLogger
+import io.realm.kotlin.types.RealmInstant
 import kotlinx.cinterop.BetaInteropApi
 import kotlinx.cinterop.BooleanVar
 import kotlinx.cinterop.ObjCObjectVar

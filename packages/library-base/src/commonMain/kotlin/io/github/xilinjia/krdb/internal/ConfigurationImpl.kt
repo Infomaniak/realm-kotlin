@@ -14,36 +14,36 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.CompactOnLaunchCallback
-import io.github.xilinjia.krdb.InitialDataCallback
-import io.github.xilinjia.krdb.InitialRealmFileConfiguration
-import io.github.xilinjia.krdb.dynamic.DynamicMutableRealm
-import io.github.xilinjia.krdb.dynamic.DynamicMutableRealmObject
-import io.github.xilinjia.krdb.dynamic.DynamicRealm
-import io.github.xilinjia.krdb.dynamic.DynamicRealmObject
-import io.github.xilinjia.krdb.internal.dynamic.DynamicMutableRealmImpl
-import io.github.xilinjia.krdb.internal.dynamic.DynamicMutableRealmObjectImpl
-import io.github.xilinjia.krdb.internal.dynamic.DynamicRealmImpl
-import io.github.xilinjia.krdb.internal.dynamic.DynamicRealmObjectImpl
-import io.github.xilinjia.krdb.internal.dynamic.DynamicUnmanagedRealmObject
-import io.github.xilinjia.krdb.internal.interop.FrozenRealmPointer
-import io.github.xilinjia.krdb.internal.interop.LiveRealmPointer
-import io.github.xilinjia.krdb.internal.interop.MigrationCallback
-import io.github.xilinjia.krdb.internal.interop.RealmConfigurationPointer
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmSchemaPointer
-import io.github.xilinjia.krdb.internal.interop.SchemaMode
-import io.github.xilinjia.krdb.internal.interop.use
-import io.github.xilinjia.krdb.internal.platform.PATH_SEPARATOR
-import io.github.xilinjia.krdb.internal.platform.appFilesDirectory
-import io.github.xilinjia.krdb.internal.platform.prepareRealmFilePath
-import io.github.xilinjia.krdb.internal.platform.realmObjectCompanionOrThrow
-import io.github.xilinjia.krdb.internal.util.CoroutineDispatcherFactory
-import io.github.xilinjia.krdb.migration.AutomaticSchemaMigration
-import io.github.xilinjia.krdb.migration.RealmMigration
-import io.github.xilinjia.krdb.types.BaseRealmObject
+import io.realm.kotlin.CompactOnLaunchCallback
+import io.realm.kotlin.InitialDataCallback
+import io.realm.kotlin.InitialRealmFileConfiguration
+import io.realm.kotlin.dynamic.DynamicMutableRealm
+import io.realm.kotlin.dynamic.DynamicMutableRealmObject
+import io.realm.kotlin.dynamic.DynamicRealm
+import io.realm.kotlin.dynamic.DynamicRealmObject
+import io.realm.kotlin.internal.dynamic.DynamicMutableRealmImpl
+import io.realm.kotlin.internal.dynamic.DynamicMutableRealmObjectImpl
+import io.realm.kotlin.internal.dynamic.DynamicRealmImpl
+import io.realm.kotlin.internal.dynamic.DynamicRealmObjectImpl
+import io.realm.kotlin.internal.dynamic.DynamicUnmanagedRealmObject
+import io.realm.kotlin.internal.interop.FrozenRealmPointer
+import io.realm.kotlin.internal.interop.LiveRealmPointer
+import io.realm.kotlin.internal.interop.MigrationCallback
+import io.realm.kotlin.internal.interop.RealmConfigurationPointer
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmSchemaPointer
+import io.realm.kotlin.internal.interop.SchemaMode
+import io.realm.kotlin.internal.interop.use
+import io.realm.kotlin.internal.platform.PATH_SEPARATOR
+import io.realm.kotlin.internal.platform.appFilesDirectory
+import io.realm.kotlin.internal.platform.prepareRealmFilePath
+import io.realm.kotlin.internal.platform.realmObjectCompanionOrThrow
+import io.realm.kotlin.internal.util.CoroutineDispatcherFactory
+import io.realm.kotlin.migration.AutomaticSchemaMigration
+import io.realm.kotlin.migration.RealmMigration
+import io.realm.kotlin.types.BaseRealmObject
 import kotlin.reflect.KClass
 
 @Suppress("LongParameterList")
@@ -142,7 +142,7 @@ internal open class ConfigurationImpl(
 
         // We need to freeze `compactOnLaunchCallback` reference on initial thread for Kotlin Native
         val compactCallback = compactOnLaunchCallback?.let { callback ->
-            object : io.github.xilinjia.krdb.internal.interop.CompactOnLaunchCallback {
+            object : io.realm.kotlin.internal.interop.CompactOnLaunchCallback {
                 override fun invoke(totalBytes: Long, usedBytes: Long): Boolean {
                     return callback.shouldCompact(totalBytes, usedBytes)
                 }

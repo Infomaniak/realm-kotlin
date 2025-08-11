@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.android
+package io.realm.kotlin.test.android
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.entities.Sample
-import io.github.xilinjia.krdb.internal.platform.singleThreadDispatcher
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.util.use
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.entities.Sample
+import io.realm.kotlin.internal.platform.singleThreadDispatcher
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.util.use
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.After
 import org.junit.Before

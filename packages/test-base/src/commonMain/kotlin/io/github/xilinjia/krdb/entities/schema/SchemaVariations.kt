@@ -14,22 +14,22 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.entities.schema
+package io.realm.kotlin.entities.schema
 
-import io.github.xilinjia.krdb.entities.Sample
-import io.github.xilinjia.krdb.ext.realmDictionaryOf
-import io.github.xilinjia.krdb.ext.realmListOf
-import io.github.xilinjia.krdb.ext.realmSetOf
-import io.github.xilinjia.krdb.types.RealmAny
-import io.github.xilinjia.krdb.types.RealmDictionary
-import io.github.xilinjia.krdb.types.RealmInstant
-import io.github.xilinjia.krdb.types.RealmList
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.RealmSet
-import io.github.xilinjia.krdb.types.RealmUUID
-import io.github.xilinjia.krdb.types.annotations.FullText
-import io.github.xilinjia.krdb.types.annotations.Index
-import io.github.xilinjia.krdb.types.annotations.PrimaryKey
+import io.realm.kotlin.entities.Sample
+import io.realm.kotlin.ext.realmDictionaryOf
+import io.realm.kotlin.ext.realmListOf
+import io.realm.kotlin.ext.realmSetOf
+import io.realm.kotlin.types.RealmAny
+import io.realm.kotlin.types.RealmDictionary
+import io.realm.kotlin.types.RealmInstant
+import io.realm.kotlin.types.RealmList
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.RealmSet
+import io.realm.kotlin.types.RealmUUID
+import io.realm.kotlin.types.annotations.FullText
+import io.realm.kotlin.types.annotations.Index
+import io.realm.kotlin.types.annotations.PrimaryKey
 import org.mongodb.kbson.BsonObjectId
 import org.mongodb.kbson.Decimal128
 

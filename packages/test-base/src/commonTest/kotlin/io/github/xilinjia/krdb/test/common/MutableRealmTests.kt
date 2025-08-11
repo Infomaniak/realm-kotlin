@@ -13,28 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.test.common
+package io.realm.kotlin.test.common
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.UpdatePolicy
-import io.github.xilinjia.krdb.entities.Sample
-import io.github.xilinjia.krdb.entities.SampleWithPrimaryKey
-import io.github.xilinjia.krdb.entities.StringPropertyWithPrimaryKey
-import io.github.xilinjia.krdb.entities.embedded.EmbeddedChild
-import io.github.xilinjia.krdb.entities.embedded.EmbeddedParent
-import io.github.xilinjia.krdb.entities.embedded.EmbeddedParentWithPrimaryKey
-import io.github.xilinjia.krdb.entities.embedded.embeddedSchema
-import io.github.xilinjia.krdb.entities.link.Child
-import io.github.xilinjia.krdb.entities.link.Parent
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.query.RealmResults
-import io.github.xilinjia.krdb.query.RealmSingleQuery
-import io.github.xilinjia.krdb.test.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.util.use
-import io.github.xilinjia.krdb.types.RealmInstant
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.UpdatePolicy
+import io.realm.kotlin.entities.Sample
+import io.realm.kotlin.entities.SampleWithPrimaryKey
+import io.realm.kotlin.entities.StringPropertyWithPrimaryKey
+import io.realm.kotlin.entities.embedded.EmbeddedChild
+import io.realm.kotlin.entities.embedded.EmbeddedParent
+import io.realm.kotlin.entities.embedded.EmbeddedParentWithPrimaryKey
+import io.realm.kotlin.entities.embedded.embeddedSchema
+import io.realm.kotlin.entities.link.Child
+import io.realm.kotlin.entities.link.Parent
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.query.RealmResults
+import io.realm.kotlin.query.RealmSingleQuery
+import io.realm.kotlin.test.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.util.use
+import io.realm.kotlin.types.RealmInstant
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import org.mongodb.kbson.Decimal128
