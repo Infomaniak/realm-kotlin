@@ -16,21 +16,21 @@
 
 @file:OptIn(ExperimentalKBsonSerializerApi::class)
 
-package io.github.xilinjia.krdb.test.mongodb.common.mongo
+package io.realm.kotlin.test.mongodb.common.mongo
 
-import io.github.xilinjia.krdb.entities.sync.SyncObjectWithAllTypes
-import io.github.xilinjia.krdb.entities.sync.flx.FlexEmbeddedObject
-import io.github.xilinjia.krdb.entities.sync.flx.FlexParentObject
-import io.github.xilinjia.krdb.ext.asRealmObject
-import io.github.xilinjia.krdb.ext.realmAnyDictionaryOf
-import io.github.xilinjia.krdb.ext.realmAnyListOf
-import io.github.xilinjia.krdb.ext.realmDictionaryOf
-import io.github.xilinjia.krdb.ext.realmListOf
-import io.github.xilinjia.krdb.ext.realmSetOf
-import io.github.xilinjia.krdb.mongodb.mongo.realmSerializerModule
-import io.github.xilinjia.krdb.test.mongodb.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.types.RealmInstant
-import io.github.xilinjia.krdb.types.RealmUUID
+import io.realm.kotlin.entities.sync.SyncObjectWithAllTypes
+import io.realm.kotlin.entities.sync.flx.FlexEmbeddedObject
+import io.realm.kotlin.entities.sync.flx.FlexParentObject
+import io.realm.kotlin.ext.asRealmObject
+import io.realm.kotlin.ext.realmAnyDictionaryOf
+import io.realm.kotlin.ext.realmAnyListOf
+import io.realm.kotlin.ext.realmDictionaryOf
+import io.realm.kotlin.ext.realmListOf
+import io.realm.kotlin.ext.realmSetOf
+import io.realm.kotlin.mongodb.mongo.realmSerializerModule
+import io.realm.kotlin.test.mongodb.common.utils.assertFailsWithMessage
+import io.realm.kotlin.types.RealmInstant
+import io.realm.kotlin.types.RealmUUID
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString

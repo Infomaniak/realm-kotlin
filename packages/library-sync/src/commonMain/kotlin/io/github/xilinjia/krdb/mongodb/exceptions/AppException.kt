@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.exceptions
+package io.realm.kotlin.mongodb.exceptions
 
-import io.github.xilinjia.krdb.exceptions.RealmException
+import io.realm.kotlin.exceptions.RealmException
 
 /**
  * Top level class for all exceptions that are specific to using App Services and Device Sync.
@@ -24,13 +24,13 @@ import io.github.xilinjia.krdb.exceptions.RealmException
  * Subclasses of this class fall into two broad categories: [ServiceException] and [SyncException].
  *
  * 1. [ServiceException]'s are thrown by all API's that talk directly to App Services
- *    through HTTP requests. The [io.github.xilinjia.krdb.mongodb.App],
- *    [io.github.xilinjia.krdb.mongodb.User] and [io.github.xilinjia.krdb.mongodb.auth.EmailPasswordAuth] classes
+ *    through HTTP requests. The [io.realm.kotlin.mongodb.App],
+ *    [io.realm.kotlin.mongodb.User] and [io.realm.kotlin.mongodb.auth.EmailPasswordAuth] classes
  *    handle HTTP requests for the SDK.
  *
  * 2. [SyncException]'s are thrown by errors caused when using Device Sync APIs, i.e
- *    realms opened using a [io.github.xilinjia.krdb.mongodb.SyncConfiguration]. These errors propagate
- *    through the [io.github.xilinjia.krdb.mongodb.SyncConfiguration.Builder.errorHandler].
+ *    realms opened using a [io.realm.kotlin.mongodb.SyncConfiguration]. These errors propagate
+ *    through the [io.realm.kotlin.mongodb.SyncConfiguration.Builder.errorHandler].
  *
  * Each of these categories are divided further:
  *

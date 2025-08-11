@@ -14,29 +14,29 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.internal
+package io.realm.kotlin.mongodb.internal
 
-import io.github.xilinjia.krdb.internal.ContextLogger
-import io.github.xilinjia.krdb.internal.SDK_VERSION
-import io.github.xilinjia.krdb.internal.interop.RealmAppConfigurationPointer
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmSyncClientConfigurationPointer
-import io.github.xilinjia.krdb.internal.interop.SyncConnectionParams
-import io.github.xilinjia.krdb.internal.interop.sync.MetadataMode
-import io.github.xilinjia.krdb.internal.interop.sync.NetworkTransport
-import io.github.xilinjia.krdb.internal.interop.sync.WebSocketTransport
-import io.github.xilinjia.krdb.internal.platform.DEVICE_MANUFACTURER
-import io.github.xilinjia.krdb.internal.platform.DEVICE_MODEL
-import io.github.xilinjia.krdb.internal.platform.OS_VERSION
-import io.github.xilinjia.krdb.internal.platform.RUNTIME
-import io.github.xilinjia.krdb.internal.platform.RUNTIME_VERSION
-import io.github.xilinjia.krdb.internal.platform.appFilesDirectory
-import io.github.xilinjia.krdb.internal.util.CoroutineDispatcherFactory
-import io.github.xilinjia.krdb.internal.util.DispatcherHolder
-import io.github.xilinjia.krdb.mongodb.AppConfiguration
-import io.github.xilinjia.krdb.mongodb.AppConfiguration.Companion.DEFAULT_BASE_URL
-import io.github.xilinjia.krdb.mongodb.HttpLogObfuscator
-import io.github.xilinjia.krdb.mongodb.sync.SyncTimeoutOptions
+import io.realm.kotlin.internal.ContextLogger
+import io.realm.kotlin.internal.SDK_VERSION
+import io.realm.kotlin.internal.interop.RealmAppConfigurationPointer
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmSyncClientConfigurationPointer
+import io.realm.kotlin.internal.interop.SyncConnectionParams
+import io.realm.kotlin.internal.interop.sync.MetadataMode
+import io.realm.kotlin.internal.interop.sync.NetworkTransport
+import io.realm.kotlin.internal.interop.sync.WebSocketTransport
+import io.realm.kotlin.internal.platform.DEVICE_MANUFACTURER
+import io.realm.kotlin.internal.platform.DEVICE_MODEL
+import io.realm.kotlin.internal.platform.OS_VERSION
+import io.realm.kotlin.internal.platform.RUNTIME
+import io.realm.kotlin.internal.platform.RUNTIME_VERSION
+import io.realm.kotlin.internal.platform.appFilesDirectory
+import io.realm.kotlin.internal.util.CoroutineDispatcherFactory
+import io.realm.kotlin.internal.util.DispatcherHolder
+import io.realm.kotlin.mongodb.AppConfiguration
+import io.realm.kotlin.mongodb.AppConfiguration.Companion.DEFAULT_BASE_URL
+import io.realm.kotlin.mongodb.HttpLogObfuscator
+import io.realm.kotlin.mongodb.sync.SyncTimeoutOptions
 import org.mongodb.kbson.ExperimentalKBsonSerializerApi
 import org.mongodb.kbson.serialization.EJson
 

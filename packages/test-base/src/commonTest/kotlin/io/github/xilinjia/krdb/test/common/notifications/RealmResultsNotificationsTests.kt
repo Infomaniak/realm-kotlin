@@ -14,30 +14,30 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.common.notifications
+package io.realm.kotlin.test.common.notifications
 
 import co.touchlab.stately.concurrency.AtomicInt
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.entities.Sample
-import io.github.xilinjia.krdb.entities.list.RealmListContainer
-import io.github.xilinjia.krdb.entities.list.listTestSchema
-import io.github.xilinjia.krdb.ext.asFlow
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.notifications.InitialResults
-import io.github.xilinjia.krdb.notifications.ListChangeSet.Range
-import io.github.xilinjia.krdb.notifications.ResultsChange
-import io.github.xilinjia.krdb.notifications.UpdatedResults
-import io.github.xilinjia.krdb.query.find
-import io.github.xilinjia.krdb.test.common.OBJECT_VALUES
-import io.github.xilinjia.krdb.test.common.OBJECT_VALUES2
-import io.github.xilinjia.krdb.test.common.OBJECT_VALUES3
-import io.github.xilinjia.krdb.test.common.utils.FlowableTests
-import io.github.xilinjia.krdb.test.common.utils.KeyPathFlowableTests
-import io.github.xilinjia.krdb.test.common.utils.assertIsChangeSet
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.util.TestChannel
-import io.github.xilinjia.krdb.test.util.receiveOrFail
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.entities.Sample
+import io.realm.kotlin.entities.list.RealmListContainer
+import io.realm.kotlin.entities.list.listTestSchema
+import io.realm.kotlin.ext.asFlow
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.notifications.InitialResults
+import io.realm.kotlin.notifications.ListChangeSet.Range
+import io.realm.kotlin.notifications.ResultsChange
+import io.realm.kotlin.notifications.UpdatedResults
+import io.realm.kotlin.query.find
+import io.realm.kotlin.test.common.OBJECT_VALUES
+import io.realm.kotlin.test.common.OBJECT_VALUES2
+import io.realm.kotlin.test.common.OBJECT_VALUES3
+import io.realm.kotlin.test.common.utils.FlowableTests
+import io.realm.kotlin.test.common.utils.KeyPathFlowableTests
+import io.realm.kotlin.test.common.utils.assertIsChangeSet
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.util.TestChannel
+import io.realm.kotlin.test.util.receiveOrFail
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.async
 import kotlinx.coroutines.channels.Channel

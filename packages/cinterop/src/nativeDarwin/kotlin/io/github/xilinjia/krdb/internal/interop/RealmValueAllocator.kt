@@ -16,7 +16,7 @@
 
 @file:Suppress("OVERRIDE_BY_INLINE")
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
 import kotlinx.cinterop.Arena
 import kotlinx.cinterop.addressOf

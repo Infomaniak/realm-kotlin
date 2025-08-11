@@ -13,15 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.internal.query.ObjectBoundQuery
-import io.github.xilinjia.krdb.internal.util.terminateWhen
-import io.github.xilinjia.krdb.notifications.DeletedObject
-import io.github.xilinjia.krdb.notifications.ResultsChange
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.query.RealmResults
-import io.github.xilinjia.krdb.types.BaseRealmObject
+import io.realm.kotlin.internal.query.ObjectBoundQuery
+import io.realm.kotlin.internal.util.terminateWhen
+import io.realm.kotlin.notifications.DeletedObject
+import io.realm.kotlin.notifications.ResultsChange
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.query.RealmResults
+import io.realm.kotlin.types.BaseRealmObject
 import kotlinx.coroutines.flow.Flow
 
 /**

@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.ext
+package io.realm.kotlin.ext
 
-import io.github.xilinjia.krdb.internal.BacklinksDelegateImpl
-import io.github.xilinjia.krdb.query.RealmResults
-import io.github.xilinjia.krdb.types.BacklinksDelegate
-import io.github.xilinjia.krdb.types.RealmDictionary
-import io.github.xilinjia.krdb.types.RealmList
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.RealmSet
-import io.github.xilinjia.krdb.types.TypedRealmObject
+import io.realm.kotlin.internal.BacklinksDelegateImpl
+import io.realm.kotlin.query.RealmResults
+import io.realm.kotlin.types.BacklinksDelegate
+import io.realm.kotlin.types.RealmDictionary
+import io.realm.kotlin.types.RealmList
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.RealmSet
+import io.realm.kotlin.types.TypedRealmObject
 import kotlin.reflect.KClass
 import kotlin.reflect.KProperty1
 

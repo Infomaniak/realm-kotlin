@@ -1,7 +1,7 @@
-package io.github.xilinjia.krdb.mongodb.exceptions
+package io.realm.kotlin.mongodb.exceptions
 
-import io.github.xilinjia.krdb.exceptions.RealmException
-import io.github.xilinjia.krdb.mongodb.sync.SyncConfiguration
+import io.realm.kotlin.exceptions.RealmException
+import io.realm.kotlin.mongodb.sync.SyncConfiguration
 
 /**
  * Thrown when opening a Realm and it didn't finish download server data in the allocated timeframe.

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
 // Could potentially work without an open realm - sort of non-live object-ish
 // FIXME Do we need a type variable here?

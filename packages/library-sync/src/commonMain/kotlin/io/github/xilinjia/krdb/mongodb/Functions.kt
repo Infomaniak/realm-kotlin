@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.mongodb
+package io.realm.kotlin.mongodb
 
-import io.github.xilinjia.krdb.mongodb.ext.call
+import io.realm.kotlin.mongodb.ext.call
 
 /**
  * A Functions manager to call remote Atlas Functions for the associated Atlas App Services Application.

@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.dynamic
+package io.realm.kotlin.internal.dynamic
 
-import io.github.xilinjia.krdb.dynamic.DynamicRealm
-import io.github.xilinjia.krdb.dynamic.DynamicRealmObject
-import io.github.xilinjia.krdb.internal.BaseRealmImpl
-import io.github.xilinjia.krdb.internal.FrozenRealmReferenceImpl
-import io.github.xilinjia.krdb.internal.InternalConfiguration
-import io.github.xilinjia.krdb.internal.RealmReference
-import io.github.xilinjia.krdb.internal.interop.FrozenRealmPointer
-import io.github.xilinjia.krdb.internal.query.ObjectQuery
-import io.github.xilinjia.krdb.internal.schema.RealmSchemaImpl
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.schema.RealmClassKind
-import io.github.xilinjia.krdb.schema.RealmSchema
+import io.realm.kotlin.dynamic.DynamicRealm
+import io.realm.kotlin.dynamic.DynamicRealmObject
+import io.realm.kotlin.internal.BaseRealmImpl
+import io.realm.kotlin.internal.FrozenRealmReferenceImpl
+import io.realm.kotlin.internal.InternalConfiguration
+import io.realm.kotlin.internal.RealmReference
+import io.realm.kotlin.internal.interop.FrozenRealmPointer
+import io.realm.kotlin.internal.query.ObjectQuery
+import io.realm.kotlin.internal.schema.RealmSchemaImpl
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.schema.RealmClassKind
+import io.realm.kotlin.schema.RealmSchema
 
 internal open class DynamicRealmImpl(
     configuration: InternalConfiguration,

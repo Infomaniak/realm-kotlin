@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.internal
+package io.realm.kotlin.mongodb.internal
 
-import io.github.xilinjia.krdb.BaseRealm
-import io.github.xilinjia.krdb.TypedRealm
-import io.github.xilinjia.krdb.internal.RealmInstantImpl
-import io.github.xilinjia.krdb.internal.interop.RealmBaseSubscriptionSetPointer
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmSubscriptionPointer
-import io.github.xilinjia.krdb.mongodb.sync.Subscription
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.types.RealmInstant
-import io.github.xilinjia.krdb.types.RealmObject
+import io.realm.kotlin.BaseRealm
+import io.realm.kotlin.TypedRealm
+import io.realm.kotlin.internal.RealmInstantImpl
+import io.realm.kotlin.internal.interop.RealmBaseSubscriptionSetPointer
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmSubscriptionPointer
+import io.realm.kotlin.mongodb.sync.Subscription
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.types.RealmInstant
+import io.realm.kotlin.types.RealmObject
 import org.mongodb.kbson.ObjectId
 import kotlin.reflect.KClass
 
@@ -48,7 +48,7 @@ internal class SubscriptionImpl(
         // DynamicRealm
         return when (realm) {
             is TypedRealm -> {
-                val companion = io.github.xilinjia.krdb.internal.platform.realmObjectCompanionOrThrow(type)
+                val companion = io.realm.kotlin.internal.platform.realmObjectCompanionOrThrow(type)
                 val userTypeName = companion.`io_realm_kotlin_className`
                 if (userTypeName != objectType) {
                     throw IllegalArgumentException(

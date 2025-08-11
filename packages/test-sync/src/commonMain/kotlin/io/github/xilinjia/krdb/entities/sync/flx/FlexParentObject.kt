@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.entities.sync.flx
+package io.realm.kotlin.entities.sync.flx
 
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.annotations.PrimaryKey
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.annotations.PrimaryKey
 import org.mongodb.kbson.ObjectId
 
 /**

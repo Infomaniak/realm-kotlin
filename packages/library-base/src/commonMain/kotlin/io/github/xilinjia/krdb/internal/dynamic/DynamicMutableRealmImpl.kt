@@ -14,28 +14,28 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.dynamic
+package io.realm.kotlin.internal.dynamic
 
-import io.github.xilinjia.krdb.Deleteable
-import io.github.xilinjia.krdb.UpdatePolicy
-import io.github.xilinjia.krdb.dynamic.DynamicMutableRealm
-import io.github.xilinjia.krdb.dynamic.DynamicMutableRealmObject
-import io.github.xilinjia.krdb.dynamic.DynamicRealmObject
-import io.github.xilinjia.krdb.ext.isValid
-import io.github.xilinjia.krdb.internal.BaseRealmImpl
-import io.github.xilinjia.krdb.internal.InternalConfiguration
-import io.github.xilinjia.krdb.internal.LiveRealmReference
-import io.github.xilinjia.krdb.internal.WriteTransactionManager
-import io.github.xilinjia.krdb.internal.asInternalDeleteable
-import io.github.xilinjia.krdb.internal.interop.LiveRealmPointer
-import io.github.xilinjia.krdb.internal.query.ObjectQuery
-import io.github.xilinjia.krdb.internal.runIfManaged
-import io.github.xilinjia.krdb.internal.schema.RealmSchemaImpl
-import io.github.xilinjia.krdb.internal.toRealmObject
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.schema.RealmClass
-import io.github.xilinjia.krdb.schema.RealmClassKind
-import io.github.xilinjia.krdb.schema.RealmSchema
+import io.realm.kotlin.Deleteable
+import io.realm.kotlin.UpdatePolicy
+import io.realm.kotlin.dynamic.DynamicMutableRealm
+import io.realm.kotlin.dynamic.DynamicMutableRealmObject
+import io.realm.kotlin.dynamic.DynamicRealmObject
+import io.realm.kotlin.ext.isValid
+import io.realm.kotlin.internal.BaseRealmImpl
+import io.realm.kotlin.internal.InternalConfiguration
+import io.realm.kotlin.internal.LiveRealmReference
+import io.realm.kotlin.internal.WriteTransactionManager
+import io.realm.kotlin.internal.asInternalDeleteable
+import io.realm.kotlin.internal.interop.LiveRealmPointer
+import io.realm.kotlin.internal.query.ObjectQuery
+import io.realm.kotlin.internal.runIfManaged
+import io.realm.kotlin.internal.schema.RealmSchemaImpl
+import io.realm.kotlin.internal.toRealmObject
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.schema.RealmClass
+import io.realm.kotlin.schema.RealmClassKind
+import io.realm.kotlin.schema.RealmSchema
 
 // Public due to tests needing to access `close` and trying to make the class visible through
 // annotations didn't work for some reason.
@@ -77,7 +77,7 @@ public open class DynamicMutableRealmImpl(
         updatePolicy: UpdatePolicy
     ): DynamicMutableRealmObject {
         checkAsymmetric(obj.type, "Asymmetric Realm objects can only be added using the `insert()` method.")
-        return io.github.xilinjia.krdb.internal.copyToRealm(configuration.mediator, realmReference, obj, updatePolicy, mutableMapOf()) as DynamicMutableRealmObject
+        return io.realm.kotlin.internal.copyToRealm(configuration.mediator, realmReference, obj, updatePolicy, mutableMapOf()) as DynamicMutableRealmObject
     }
 
     // This implementation should be aligned with InternalMutableRealm to ensure that we have same

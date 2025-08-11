@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.darwin
+package io.realm.kotlin.test.darwin
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.entities.Sample
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.test.platform.PlatformUtils.createTempDir
-import io.github.xilinjia.krdb.test.platform.PlatformUtils.deleteTempDir
-import io.github.xilinjia.krdb.test.platform.PlatformUtils.triggerGC
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.entities.Sample
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.test.platform.PlatformUtils.createTempDir
+import io.realm.kotlin.test.platform.PlatformUtils.deleteTempDir
+import io.realm.kotlin.test.platform.PlatformUtils.triggerGC
 import kotlinx.cinterop.CPointer
 import kotlinx.cinterop.refTo
 import kotlinx.cinterop.toKString

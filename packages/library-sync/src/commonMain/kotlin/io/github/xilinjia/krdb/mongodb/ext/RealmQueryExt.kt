@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.ext
+package io.realm.kotlin.mongodb.ext
 
-import io.github.xilinjia.krdb.mongodb.annotations.ExperimentalFlexibleSyncApi
-import io.github.xilinjia.krdb.mongodb.internal.createSubscriptionFromQuery
-import io.github.xilinjia.krdb.mongodb.sync.Subscription
-import io.github.xilinjia.krdb.mongodb.sync.SubscriptionSet
-import io.github.xilinjia.krdb.mongodb.sync.WaitForSync
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.query.RealmResults
-import io.github.xilinjia.krdb.types.RealmObject
+import io.realm.kotlin.mongodb.annotations.ExperimentalFlexibleSyncApi
+import io.realm.kotlin.mongodb.internal.createSubscriptionFromQuery
+import io.realm.kotlin.mongodb.sync.Subscription
+import io.realm.kotlin.mongodb.sync.SubscriptionSet
+import io.realm.kotlin.mongodb.sync.WaitForSync
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.query.RealmResults
+import io.realm.kotlin.types.RealmObject
 import kotlin.time.Duration
 
 /**
@@ -61,7 +61,7 @@ import kotlin.time.Duration
  * @throws kotlinx.coroutines.TimeoutCancellationException if the specified timeout was hit before
  * a query result could be returned.
  * @throws IllegalStateException if this method is called on a Realm that isn't using Flexible Sync.
- * @throws io.github.xilinjia.krdb.mongodb.exceptions.BadFlexibleSyncQueryException if the server did not
+ * @throws io.realm.kotlin.mongodb.exceptions.BadFlexibleSyncQueryException if the server did not
  * accept the set of queries. The exact reason is found in the exception message.
  */
 @ExperimentalFlexibleSyncApi

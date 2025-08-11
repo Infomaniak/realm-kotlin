@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.compiler
+package io.realm.kotlin.compiler
 
 import com.google.auto.service.AutoService
-import io.github.xilinjia.krdb.compiler.fir.model.RealmModelRegistrar
+import io.realm.kotlin.compiler.fir.model.RealmModelRegistrar
 import org.jetbrains.kotlin.backend.common.extensions.IrGenerationExtension
 import org.jetbrains.kotlin.cli.common.CLIConfigurationKeys
 import org.jetbrains.kotlin.cli.common.messages.MessageCollector

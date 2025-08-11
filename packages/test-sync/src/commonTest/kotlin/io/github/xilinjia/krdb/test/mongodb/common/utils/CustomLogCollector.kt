@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.mongodb.common.utils
+package io.realm.kotlin.test.mongodb.common.utils
 
-import io.github.xilinjia.krdb.log.LogCategory
-import io.github.xilinjia.krdb.log.LogLevel
-import io.github.xilinjia.krdb.log.RealmLogger
+import io.realm.kotlin.log.LogCategory
+import io.realm.kotlin.log.LogLevel
+import io.realm.kotlin.log.RealmLogger
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock

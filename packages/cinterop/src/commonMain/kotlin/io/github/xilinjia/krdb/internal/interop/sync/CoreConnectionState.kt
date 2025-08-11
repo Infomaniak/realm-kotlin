@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop.sync
+package io.realm.kotlin.internal.interop.sync
 
 expect enum class CoreConnectionState {
     RLM_SYNC_CONNECTION_STATE_DISCONNECTED,

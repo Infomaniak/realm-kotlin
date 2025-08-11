@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.notifications
+package io.realm.kotlin.notifications
 
-import io.github.xilinjia.krdb.query.RealmResults
-import io.github.xilinjia.krdb.types.RealmDictionary
+import io.realm.kotlin.query.RealmResults
+import io.realm.kotlin.types.RealmDictionary
 
 /**
  * This interface models the changes that can occur to a list.

@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.common
+package io.realm.kotlin.test.common
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.entities.Sample
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.internal.platform.fileExists
-import io.github.xilinjia.krdb.internal.platform.threadId
-import io.github.xilinjia.krdb.test.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.util.use
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.entities.Sample
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.internal.platform.fileExists
+import io.realm.kotlin.internal.platform.threadId
+import io.realm.kotlin.test.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.util.use
 import kotlinx.atomicfu.AtomicRef
 import kotlinx.atomicfu.atomic
 import kotlin.test.AfterTest
@@ -114,28 +114,28 @@ class InitialDataTests {
 
     @Test
     fun initialData_triggersWhenMigrationDeletesFile() {
-        val config1 = RealmConfiguration.Builder(schema = setOf(io.github.xilinjia.krdb.entities.migration.before.MigrationSample::class))
+        val config1 = RealmConfiguration.Builder(schema = setOf(io.realm.kotlin.entities.migration.before.MigrationSample::class))
             .directory(tmpDir)
             .initialData {
-                copyToRealm(io.github.xilinjia.krdb.entities.migration.before.MigrationSample())
+                copyToRealm(io.realm.kotlin.entities.migration.before.MigrationSample())
             }
             .build()
 
-        val config2 = RealmConfiguration.Builder(schema = setOf(io.github.xilinjia.krdb.entities.migration.after.MigrationSample::class))
+        val config2 = RealmConfiguration.Builder(schema = setOf(io.realm.kotlin.entities.migration.after.MigrationSample::class))
             .directory(tmpDir)
             .deleteRealmIfMigrationNeeded()
             .initialData {
-                copyToRealm(io.github.xilinjia.krdb.entities.migration.after.MigrationSample())
+                copyToRealm(io.realm.kotlin.entities.migration.after.MigrationSample())
             }
             .build()
 
         assertEquals(config1.path, config2.path)
 
         Realm.open(config1).use {
-            assertEquals(1, it.query<io.github.xilinjia.krdb.entities.migration.before.MigrationSample>().count().find())
+            assertEquals(1, it.query<io.realm.kotlin.entities.migration.before.MigrationSample>().count().find())
         }
         Realm.open(config2).use {
-            assertEquals(1, it.query<io.github.xilinjia.krdb.entities.migration.after.MigrationSample>().count().find())
+            assertEquals(1, it.query<io.realm.kotlin.entities.migration.after.MigrationSample>().count().find())
         }
     }
 

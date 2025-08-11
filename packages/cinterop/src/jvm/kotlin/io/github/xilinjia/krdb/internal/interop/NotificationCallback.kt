@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
 /**
  * Internal callback used from JNI to notify RealmResults or RealmObject changes.

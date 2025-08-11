@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop.sync
+package io.realm.kotlin.internal.interop.sync
 
-import io.github.xilinjia.krdb.internal.interop.NativeEnumerated
-import io.github.xilinjia.krdb.internal.interop.realm_user_state_e
+import io.realm.kotlin.internal.interop.NativeEnumerated
+import io.realm.kotlin.internal.interop.realm_user_state_e
 
 actual enum class CoreUserState(
     override val nativeValue: Int

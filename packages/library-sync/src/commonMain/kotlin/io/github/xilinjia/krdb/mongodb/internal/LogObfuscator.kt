@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.internal
+package io.realm.kotlin.mongodb.internal
 
-import io.github.xilinjia.krdb.mongodb.HttpLogObfuscator
-import io.github.xilinjia.krdb.mongodb.internal.LogReplacer.Companion.defaultFeatureToReplacerMap
+import io.realm.kotlin.mongodb.HttpLogObfuscator
+import io.realm.kotlin.mongodb.internal.LogReplacer.Companion.defaultFeatureToReplacerMap
 
 // Replaces any given regex pattern present in a given logger message matching a number of
 // operations/features: register user, login with email and password, login with tokens and run

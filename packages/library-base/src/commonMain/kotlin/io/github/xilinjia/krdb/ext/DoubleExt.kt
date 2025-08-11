@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.ext
+package io.realm.kotlin.ext
 
-import io.github.xilinjia.krdb.annotations.ExperimentalGeoSpatialApi
-import io.github.xilinjia.krdb.types.geo.Distance
+import io.realm.kotlin.annotations.ExperimentalGeoSpatialApi
+import io.realm.kotlin.types.geo.Distance
 
 /**
  * Create a [Distance] object from kilometers. (mention equatorial distance)

@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.notifications
+package io.realm.kotlin.notifications
 
-import io.github.xilinjia.krdb.BaseRealm
+import io.realm.kotlin.BaseRealm
 
 /**
  * This sealed interface describe the possible changes that can be observed to a Realm.

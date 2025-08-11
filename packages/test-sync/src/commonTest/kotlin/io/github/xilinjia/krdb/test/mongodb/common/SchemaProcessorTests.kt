@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.test.mongodb.common
+package io.realm.kotlin.test.mongodb.common
 
-import io.github.xilinjia.krdb.test.mongodb.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.mongodb.util.SchemaProcessor
-import io.github.xilinjia.krdb.types.EmbeddedRealmObject
+import io.realm.kotlin.test.mongodb.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.mongodb.util.SchemaProcessor
+import io.realm.kotlin.types.EmbeddedRealmObject
 import kotlin.test.Test
 
 class CycleEmbeddedObject1 : EmbeddedRealmObject {

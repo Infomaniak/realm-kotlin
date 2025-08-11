@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.ext
+package io.realm.kotlin.mongodb.ext
 
-import io.github.xilinjia.krdb.MutableRealm
-import io.github.xilinjia.krdb.UpdatePolicy
-import io.github.xilinjia.krdb.internal.RealmObjectInternal
-import io.github.xilinjia.krdb.mongodb.annotations.ExperimentalAsymmetricSyncApi
-import io.github.xilinjia.krdb.types.AsymmetricRealmObject
+import io.realm.kotlin.MutableRealm
+import io.realm.kotlin.UpdatePolicy
+import io.realm.kotlin.internal.RealmObjectInternal
+import io.realm.kotlin.mongodb.annotations.ExperimentalAsymmetricSyncApi
+import io.realm.kotlin.types.AsymmetricRealmObject
 
 /**
  * Insert an [AsymmetricRealmObject] into Realm. Since asymmetric objects are "write-only", it is
@@ -33,8 +33,8 @@ import io.github.xilinjia.krdb.types.AsymmetricRealmObject
 @ExperimentalAsymmetricSyncApi
 public fun <T : AsymmetricRealmObject> MutableRealm.insert(obj: T) {
     @Suppress("invisible_member", "invisible_reference")
-    if (this is io.github.xilinjia.krdb.internal.InternalMutableRealm) {
-        val obj = io.github.xilinjia.krdb.internal.copyToRealm(
+    if (this is io.realm.kotlin.internal.InternalMutableRealm) {
+        val obj = io.realm.kotlin.internal.copyToRealm(
             configuration.mediator,
             realmReference,
             obj,

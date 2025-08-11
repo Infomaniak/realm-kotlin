@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.sync
+package io.realm.kotlin.mongodb.sync
 
 /**
  * A **direction** indicates whether a given [Progress]-flow created with

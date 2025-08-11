@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.common.utils
+package io.realm.kotlin.test.common.utils
 
-import io.github.xilinjia.krdb.notifications.ListChangeSet
-import io.github.xilinjia.krdb.notifications.ListChangeSet.Range
+import io.realm.kotlin.notifications.ListChangeSet
+import io.realm.kotlin.notifications.ListChangeSet.Range
 import kotlin.test.assertContains
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue

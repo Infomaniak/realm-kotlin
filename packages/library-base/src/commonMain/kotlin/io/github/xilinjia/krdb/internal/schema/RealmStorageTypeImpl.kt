@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.schema
+package io.realm.kotlin.internal.schema
 
-import io.github.xilinjia.krdb.dynamic.DynamicMutableRealmObject
-import io.github.xilinjia.krdb.dynamic.DynamicRealmObject
-import io.github.xilinjia.krdb.internal.RealmAnyImpl
-import io.github.xilinjia.krdb.internal.RealmInstantImpl
-import io.github.xilinjia.krdb.internal.RealmUUIDImpl
-import io.github.xilinjia.krdb.internal.dynamic.DynamicUnmanagedRealmObject
-import io.github.xilinjia.krdb.internal.interop.PropertyType
-import io.github.xilinjia.krdb.schema.RealmStorageType
-import io.github.xilinjia.krdb.types.BaseRealmObject
-import io.github.xilinjia.krdb.types.RealmAny
-import io.github.xilinjia.krdb.types.RealmInstant
-import io.github.xilinjia.krdb.types.RealmUUID
+import io.realm.kotlin.dynamic.DynamicMutableRealmObject
+import io.realm.kotlin.dynamic.DynamicRealmObject
+import io.realm.kotlin.internal.RealmAnyImpl
+import io.realm.kotlin.internal.RealmInstantImpl
+import io.realm.kotlin.internal.RealmUUIDImpl
+import io.realm.kotlin.internal.dynamic.DynamicUnmanagedRealmObject
+import io.realm.kotlin.internal.interop.PropertyType
+import io.realm.kotlin.schema.RealmStorageType
+import io.realm.kotlin.types.BaseRealmObject
+import io.realm.kotlin.types.RealmAny
+import io.realm.kotlin.types.RealmInstant
+import io.realm.kotlin.types.RealmUUID
 import kotlin.reflect.KClass
 
 internal object RealmStorageTypeImpl {

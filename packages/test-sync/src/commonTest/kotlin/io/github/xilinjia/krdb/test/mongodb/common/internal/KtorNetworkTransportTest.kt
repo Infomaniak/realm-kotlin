@@ -16,23 +16,23 @@
 
 @file:OptIn(ExperimentalCoroutinesApi::class)
 
-package io.github.xilinjia.krdb.test.mongodb.common.internal
+package io.realm.kotlin.test.mongodb.common.internal
 
 import io.ktor.http.HttpMethod
-import io.github.xilinjia.krdb.internal.interop.sync.Response
-import io.github.xilinjia.krdb.internal.platform.runBlocking
-import io.github.xilinjia.krdb.internal.platform.singleThreadDispatcher
-import io.github.xilinjia.krdb.internal.util.CoroutineDispatcherFactory
-import io.github.xilinjia.krdb.internal.util.use
-import io.github.xilinjia.krdb.mongodb.internal.KtorNetworkTransport
-import io.github.xilinjia.krdb.test.mongodb.TEST_SERVER_BASE_URL
-import io.github.xilinjia.krdb.test.mongodb.util.AppInitializer
-import io.github.xilinjia.krdb.test.mongodb.util.AppServicesClient
-import io.github.xilinjia.krdb.test.mongodb.util.BaasApp
-import io.github.xilinjia.krdb.test.mongodb.util.Function
-import io.github.xilinjia.krdb.test.util.TestChannel
-import io.github.xilinjia.krdb.test.util.receiveOrFail
-import io.github.xilinjia.krdb.test.util.trySendOrFail
+import io.realm.kotlin.internal.interop.sync.Response
+import io.realm.kotlin.internal.platform.runBlocking
+import io.realm.kotlin.internal.platform.singleThreadDispatcher
+import io.realm.kotlin.internal.util.CoroutineDispatcherFactory
+import io.realm.kotlin.internal.util.use
+import io.realm.kotlin.mongodb.internal.KtorNetworkTransport
+import io.realm.kotlin.test.mongodb.TEST_SERVER_BASE_URL
+import io.realm.kotlin.test.mongodb.util.AppInitializer
+import io.realm.kotlin.test.mongodb.util.AppServicesClient
+import io.realm.kotlin.test.mongodb.util.BaasApp
+import io.realm.kotlin.test.mongodb.util.Function
+import io.realm.kotlin.test.util.TestChannel
+import io.realm.kotlin.test.util.receiveOrFail
+import io.realm.kotlin.test.util.trySendOrFail
 import kotlinx.coroutines.CloseableCoroutineDispatcher
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlin.test.AfterTest

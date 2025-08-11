@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.mongodb.util
+package io.realm.kotlin.test.mongodb.util
 
-import io.github.xilinjia.krdb.mongodb.sync.SyncMode
-import io.github.xilinjia.krdb.mongodb.sync.SyncSession
+import io.realm.kotlin.mongodb.sync.SyncMode
+import io.realm.kotlin.mongodb.sync.SyncSession
 import kotlinx.serialization.json.JsonObject
 
 /**

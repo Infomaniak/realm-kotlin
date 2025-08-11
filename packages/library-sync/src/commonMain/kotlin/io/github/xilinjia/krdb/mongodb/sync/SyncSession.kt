@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.sync
+package io.realm.kotlin.mongodb.sync
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.mongodb.User
-import io.github.xilinjia.krdb.mongodb.exceptions.SyncException
-import io.github.xilinjia.krdb.mongodb.sync.SyncSession.ErrorHandler
-import io.github.xilinjia.krdb.mongodb.sync.SyncSession.State.ACTIVE
-import io.github.xilinjia.krdb.mongodb.sync.SyncSession.State.DYING
+import io.realm.kotlin.Realm
+import io.realm.kotlin.mongodb.User
+import io.realm.kotlin.mongodb.exceptions.SyncException
+import io.realm.kotlin.mongodb.sync.SyncSession.ErrorHandler
+import io.realm.kotlin.mongodb.sync.SyncSession.State.ACTIVE
+import io.realm.kotlin.mongodb.sync.SyncSession.State.DYING
 import kotlinx.coroutines.flow.Flow
 import kotlin.time.Duration
 

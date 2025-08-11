@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.mongodb.jvm
+package io.realm.kotlin.test.mongodb.jvm
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.entities.sync.ChildPk
-import io.github.xilinjia.krdb.entities.sync.ParentPk
-import io.github.xilinjia.krdb.mongodb.Credentials
-import io.github.xilinjia.krdb.mongodb.sync.SyncConfiguration
-import io.github.xilinjia.krdb.test.mongodb.TestApp
-import io.github.xilinjia.krdb.test.mongodb.util.DefaultPartitionBasedAppInitializer
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.util.TestHelper
+import io.realm.kotlin.Realm
+import io.realm.kotlin.entities.sync.ChildPk
+import io.realm.kotlin.entities.sync.ParentPk
+import io.realm.kotlin.mongodb.Credentials
+import io.realm.kotlin.mongodb.sync.SyncConfiguration
+import io.realm.kotlin.test.mongodb.TestApp
+import io.realm.kotlin.test.mongodb.util.DefaultPartitionBasedAppInitializer
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.util.TestHelper
 import kotlinx.coroutines.runBlocking
 import org.mongodb.kbson.ExperimentalKBsonSerializerApi
 import kotlin.test.Ignore

@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop.sync
+package io.realm.kotlin.internal.interop.sync
 
-import io.github.xilinjia.krdb.internal.interop.NativeEnumerated
-import io.github.xilinjia.krdb.internal.interop.realm_sync_session_state_e
+import io.realm.kotlin.internal.interop.NativeEnumerated
+import io.realm.kotlin.internal.interop.realm_sync_session_state_e
 
 actual enum class CoreSyncSessionState(override val nativeValue: Int) : NativeEnumerated {
     RLM_SYNC_SESSION_STATE_DYING(realm_sync_session_state_e.RLM_SYNC_SESSION_STATE_DYING),

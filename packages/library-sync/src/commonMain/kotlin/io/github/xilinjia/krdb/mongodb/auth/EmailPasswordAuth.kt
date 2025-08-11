@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.auth
+package io.realm.kotlin.mongodb.auth
 
-import io.github.xilinjia.krdb.mongodb.exceptions.AppException
+import io.realm.kotlin.mongodb.exceptions.AppException
 
 /**
  * Class encapsulating functionality for managing [User]s through the
@@ -29,9 +29,9 @@ public interface EmailPasswordAuth {
      * @param email the email used to register a user. This will be the username used during log in.
      * @param password the password associated with the email. The password must be between
      * 6 and 128 characters long.
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.UserAlreadyExistsException if this email was already
+     * @throws io.realm.kotlin.mongodb.exceptions.UserAlreadyExistsException if this email was already
      * registered.
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.ServiceException for other failures that can happen when
+     * @throws io.realm.kotlin.mongodb.exceptions.ServiceException for other failures that can happen when
      * communicating with App Services. See [AppException] for details.
      */
     public suspend fun registerUser(email: String, password: String)
@@ -41,9 +41,9 @@ public interface EmailPasswordAuth {
      *
      * @param token the confirmation token.
      * @param tokenId the id of the confirmation token.
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.UserAlreadyConfirmedException if this email was already
+     * @throws io.realm.kotlin.mongodb.exceptions.UserAlreadyConfirmedException if this email was already
      * confirmed.
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.ServiceException for other failures that can happen when
+     * @throws io.realm.kotlin.mongodb.exceptions.ServiceException for other failures that can happen when
      * communicating with App Services. See [AppException] for details.
      */
     public suspend fun confirmUser(token: String, tokenId: String)
@@ -52,11 +52,11 @@ public interface EmailPasswordAuth {
      * Resend the confirmation for a user to the given email.
      *
      * @param email the email of the user.
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.UserNotFoundException if no user was registered with
+     * @throws io.realm.kotlin.mongodb.exceptions.UserNotFoundException if no user was registered with
      * this email.
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.UserAlreadyConfirmedException if the user was already
+     * @throws io.realm.kotlin.mongodb.exceptions.UserAlreadyConfirmedException if the user was already
      * confirmed.
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.ServiceException for other failures that can happen when
+     * @throws io.realm.kotlin.mongodb.exceptions.ServiceException for other failures that can happen when
      * communicating with App Services. See [AppException] for details.
      */
     public suspend fun resendConfirmationEmail(email: String)
@@ -65,13 +65,13 @@ public interface EmailPasswordAuth {
      * Retries the custom confirmation on a user for a given email.
      *
      * @param email the email of the user.
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.UserNotFoundException if no user was registered with
+     * @throws io.realm.kotlin.mongodb.exceptions.UserNotFoundException if no user was registered with
      * this email.
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.UserAlreadyConfirmedException if the user was already
+     * @throws io.realm.kotlin.mongodb.exceptions.UserAlreadyConfirmedException if the user was already
      * confirmed.
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.BadRequestException if the custom function failed to
+     * @throws io.realm.kotlin.mongodb.exceptions.BadRequestException if the custom function failed to
      * confirm the user.
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.ServiceException for other failures that can happen when
+     * @throws io.realm.kotlin.mongodb.exceptions.ServiceException for other failures that can happen when
      * communicating with App Services. See [AppException] for details.
      */
     public suspend fun retryCustomConfirmation(email: String)
@@ -80,9 +80,9 @@ public interface EmailPasswordAuth {
      * Sends a user a password reset email for the given email.
      *
      * @param email the email of the user.
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.UserNotFoundException if no user was registered with
+     * @throws io.realm.kotlin.mongodb.exceptions.UserNotFoundException if no user was registered with
      * this email.
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.ServiceException for other failures that can happen when
+     * @throws io.realm.kotlin.mongodb.exceptions.ServiceException for other failures that can happen when
      * communicating with App Services. See [AppException] for details.
      */
     public suspend fun sendResetPasswordEmail(email: String)
@@ -106,11 +106,11 @@ public interface EmailPasswordAuth {
      * @param tokenId the id of the reset password token.
      * @param newPassword the new password for the user identified by the `token`. The password
      * must be between 6 and 128 characters long.
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.UserNotFoundException if the tokens do not map to an
+     * @throws io.realm.kotlin.mongodb.exceptions.UserNotFoundException if the tokens do not map to an
      * existing user.
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.BadRequestException if the input tokens where
+     * @throws io.realm.kotlin.mongodb.exceptions.BadRequestException if the input tokens where
      * rejected by the server for being malformed.
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.ServiceException for other failures that can happen when
+     * @throws io.realm.kotlin.mongodb.exceptions.ServiceException for other failures that can happen when
      * communicating with App Services. See [AppException] for details.
      */
     public suspend fun resetPassword(token: String, tokenId: String, newPassword: String)

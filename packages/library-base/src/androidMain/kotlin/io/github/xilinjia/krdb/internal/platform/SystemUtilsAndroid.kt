@@ -1,12 +1,12 @@
-package io.github.xilinjia.krdb.internal.platform
+package io.realm.kotlin.internal.platform
 
 import android.os.Build
-import io.github.xilinjia.krdb.internal.RealmInitializer
-import io.github.xilinjia.krdb.internal.RealmInstantImpl
-import io.github.xilinjia.krdb.internal.interop.SyncConnectionParams
-import io.github.xilinjia.krdb.internal.util.Exceptions
-import io.github.xilinjia.krdb.log.RealmLogger
-import io.github.xilinjia.krdb.types.RealmInstant
+import io.realm.kotlin.internal.RealmInitializer
+import io.realm.kotlin.internal.RealmInstantImpl
+import io.realm.kotlin.internal.interop.SyncConnectionParams
+import io.realm.kotlin.internal.util.Exceptions
+import io.realm.kotlin.log.RealmLogger
+import io.realm.kotlin.types.RealmInstant
 import java.io.FileNotFoundException
 import java.io.InputStream
 

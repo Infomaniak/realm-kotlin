@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.sync
+package io.realm.kotlin.mongodb.sync
 
-import io.github.xilinjia.krdb.MutableRealm
-import io.github.xilinjia.krdb.TypedRealm
-import io.github.xilinjia.krdb.mongodb.exceptions.ClientResetRequiredException
+import io.realm.kotlin.MutableRealm
+import io.realm.kotlin.TypedRealm
+import io.realm.kotlin.mongodb.exceptions.ClientResetRequiredException
 
 /**
  * Interface that defines a generic sync client reset strategy. It can be either

@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.types
+package io.realm.kotlin.types
 
-import io.github.xilinjia.krdb.dynamic.DynamicMutableRealmObject
-import io.github.xilinjia.krdb.dynamic.DynamicRealmObject
-import io.github.xilinjia.krdb.internal.RealmAnyImpl
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.types.RealmAny.Companion.create
+import io.realm.kotlin.dynamic.DynamicMutableRealmObject
+import io.realm.kotlin.dynamic.DynamicRealmObject
+import io.realm.kotlin.internal.RealmAnyImpl
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.types.RealmAny.Companion.create
 import org.mongodb.kbson.BsonObjectId
 import org.mongodb.kbson.Decimal128
 import kotlin.reflect.KClass
@@ -379,7 +379,7 @@ public interface RealmAny {
          * Creates an unmanaged `RealmAny` instance from a [RealmList] of [RealmAny] values.
          *
          * To create a [RealmAny] containing a [RealmList] of arbitrary values wrapped in [RealmAny]s
-         * use the [io.github.xilinjia.krdb.ext.realmAnyListOf].
+         * use the [io.realm.kotlin.ext.realmAnyListOf].
          *
          * A `RealmList<RealmAny?>` can contain all [RealmAny] types, also other collection types:
          * ```
@@ -411,7 +411,7 @@ public interface RealmAny {
          * Creates an unmanaged `RealmAny` instance from a [RealmDictionary] of [RealmAny] values.
          *
          * To create a [RealmAny] containing a [RealmDictionary] of arbitrary values wrapped in
-         * [RealmAny]s use the [io.github.xilinjia.krdb.ext.realmAnyDictionaryOf].
+         * [RealmAny]s use the [io.realm.kotlin.ext.realmAnyDictionaryOf].
          *
          * A `RealmDictionary<RealmAny?>` can contain all [RealmAny] types, also other collection types:
          * ```

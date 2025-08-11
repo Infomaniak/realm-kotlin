@@ -1,7 +1,7 @@
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.internal.interop.Timestamp
-import io.github.xilinjia.krdb.types.RealmInstant
+import io.realm.kotlin.internal.interop.Timestamp
+import io.realm.kotlin.types.RealmInstant
 import org.mongodb.kbson.BsonDateTime
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.milliseconds

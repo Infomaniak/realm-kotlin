@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop.sync
+package io.realm.kotlin.internal.interop.sync
 
 /**
  * Wrapper around C-API `realm_sync_session_state`

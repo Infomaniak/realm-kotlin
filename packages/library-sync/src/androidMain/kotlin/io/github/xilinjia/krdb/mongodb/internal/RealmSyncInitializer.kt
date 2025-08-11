@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.mongodb.internal
+package io.realm.kotlin.mongodb.internal
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -27,8 +27,8 @@ import android.net.NetworkCapabilities
 import android.net.NetworkRequest
 import android.os.Build
 import androidx.startup.Initializer
-import io.github.xilinjia.krdb.internal.ContextLogger
-import io.github.xilinjia.krdb.internal.RealmInitializer
+import io.realm.kotlin.internal.ContextLogger
+import io.realm.kotlin.internal.RealmInitializer
 
 /**
  * An **initializer** for Sync specific functionality that does not fit into the `RealmInitializer`

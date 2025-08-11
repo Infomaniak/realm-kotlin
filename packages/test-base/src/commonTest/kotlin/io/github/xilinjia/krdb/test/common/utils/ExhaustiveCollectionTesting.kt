@@ -1,6 +1,6 @@
-package io.github.xilinjia.krdb.test.common.utils
+package io.realm.kotlin.test.common.utils
 
-import io.github.xilinjia.krdb.MutableRealm
+import io.realm.kotlin.MutableRealm
 import kotlin.reflect.KClassifier
 import kotlin.reflect.KMutableProperty1
 

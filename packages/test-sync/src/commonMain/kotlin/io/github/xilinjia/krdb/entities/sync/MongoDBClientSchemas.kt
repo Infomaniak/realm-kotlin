@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.entities.sync
+package io.realm.kotlin.entities.sync
 
-import io.github.xilinjia.krdb.types.EmbeddedRealmObject
-import io.github.xilinjia.krdb.types.RealmAny
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.annotations.PrimaryKey
+import io.realm.kotlin.types.EmbeddedRealmObject
+import io.realm.kotlin.types.RealmAny
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.annotations.PrimaryKey
 import kotlinx.serialization.Serializable
 import org.mongodb.kbson.BsonObjectId
 import org.mongodb.kbson.ObjectId

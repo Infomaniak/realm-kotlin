@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.entities.sync
+package io.realm.kotlin.entities.sync
 
-import io.github.xilinjia.krdb.ext.backlinks
-import io.github.xilinjia.krdb.query.RealmResults
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.annotations.PrimaryKey
+import io.realm.kotlin.ext.backlinks
+import io.realm.kotlin.query.RealmResults
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.annotations.PrimaryKey
 import kotlin.random.Random
 
 class ChildPk : RealmObject {

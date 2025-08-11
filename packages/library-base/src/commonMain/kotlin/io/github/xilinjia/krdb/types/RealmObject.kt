@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.types
+package io.realm.kotlin.types
 
 /**
  * Marker interface to define a model (managed by Realm).

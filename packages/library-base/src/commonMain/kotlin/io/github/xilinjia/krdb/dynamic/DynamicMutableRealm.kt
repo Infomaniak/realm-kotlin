@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.dynamic
+package io.realm.kotlin.dynamic
 
-import io.github.xilinjia.krdb.Deleteable
-import io.github.xilinjia.krdb.MutableRealm
-import io.github.xilinjia.krdb.UpdatePolicy
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.query.RealmResults
-import io.github.xilinjia.krdb.types.RealmList
-import io.github.xilinjia.krdb.types.RealmObject
+import io.realm.kotlin.Deleteable
+import io.realm.kotlin.MutableRealm
+import io.realm.kotlin.UpdatePolicy
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.query.RealmResults
+import io.realm.kotlin.types.RealmList
+import io.realm.kotlin.types.RealmObject
 
 /**
  * A **dynamic mutable realm** gives access and allows creation and modification of data in the

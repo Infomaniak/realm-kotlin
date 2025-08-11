@@ -1,8 +1,8 @@
-package io.github.xilinjia.krdb.mongodb.internal
+package io.realm.kotlin.mongodb.internal
 
-import io.github.xilinjia.krdb.internal.interop.RealmAppPointer
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.mongodb.sync.Sync
+import io.realm.kotlin.internal.interop.RealmAppPointer
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.mongodb.sync.Sync
 
 internal class SyncImpl(private val app: RealmAppPointer) : Sync {
 

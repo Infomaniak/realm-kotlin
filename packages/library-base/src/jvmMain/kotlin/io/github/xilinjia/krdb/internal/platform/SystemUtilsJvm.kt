@@ -1,11 +1,11 @@
-package io.github.xilinjia.krdb.internal.platform
+package io.realm.kotlin.internal.platform
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.internal.RealmInstantImpl
-import io.github.xilinjia.krdb.internal.interop.SyncConnectionParams
-import io.github.xilinjia.krdb.internal.util.Exceptions
-import io.github.xilinjia.krdb.log.RealmLogger
-import io.github.xilinjia.krdb.types.RealmInstant
+import io.realm.kotlin.Realm
+import io.realm.kotlin.internal.RealmInstantImpl
+import io.realm.kotlin.internal.interop.SyncConnectionParams
+import io.realm.kotlin.internal.util.Exceptions
+import io.realm.kotlin.log.RealmLogger
+import io.realm.kotlin.types.RealmInstant
 import java.io.InputStream
 import java.net.URL
 import java.time.Clock

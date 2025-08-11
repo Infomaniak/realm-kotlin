@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.dynamic
+package io.realm.kotlin.dynamic
 
-import io.github.xilinjia.krdb.BaseRealm
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.query.TRUE_PREDICATE
+import io.realm.kotlin.BaseRealm
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.query.TRUE_PREDICATE
 
 /**
  * A **dynamic realm** gives access to the data of the realm through a generic string based

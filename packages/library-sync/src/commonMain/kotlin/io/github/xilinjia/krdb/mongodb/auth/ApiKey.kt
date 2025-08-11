@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.mongodb.auth
+package io.realm.kotlin.mongodb.auth
 
-import io.github.xilinjia.krdb.mongodb.User
+import io.realm.kotlin.mongodb.User
 import org.mongodb.kbson.BsonObjectId
 
 /**

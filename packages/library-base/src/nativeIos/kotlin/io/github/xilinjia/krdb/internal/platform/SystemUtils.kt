@@ -1,4 +1,4 @@
-package io.github.xilinjia.krdb.internal.platform
+package io.realm.kotlin.internal.platform
 
 import kotlinx.cinterop.alloc
 import kotlinx.cinterop.memScoped

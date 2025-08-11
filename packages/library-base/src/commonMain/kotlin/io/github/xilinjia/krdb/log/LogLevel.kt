@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.log
+package io.realm.kotlin.log
 
-import io.github.xilinjia.krdb.log.LogLevel.TRACE
-import io.github.xilinjia.krdb.log.LogLevel.WTF
+import io.realm.kotlin.log.LogLevel.TRACE
+import io.realm.kotlin.log.LogLevel.WTF
 
 /**
  * Enum describing the log levels available to the Realm logger.

@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.schema
+package io.realm.kotlin.internal.schema
 
-import io.github.xilinjia.krdb.internal.interop.CollectionType
-import io.github.xilinjia.krdb.schema.ListPropertyType
-import io.github.xilinjia.krdb.schema.MapPropertyType
-import io.github.xilinjia.krdb.schema.RealmPropertyType
-import io.github.xilinjia.krdb.schema.SetPropertyType
-import io.github.xilinjia.krdb.schema.ValuePropertyType
+import io.realm.kotlin.internal.interop.CollectionType
+import io.realm.kotlin.schema.ListPropertyType
+import io.realm.kotlin.schema.MapPropertyType
+import io.realm.kotlin.schema.RealmPropertyType
+import io.realm.kotlin.schema.SetPropertyType
+import io.realm.kotlin.schema.ValuePropertyType
 
 public val RealmPropertyType.collectionType: CollectionType
     get() {

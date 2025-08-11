@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop.sync
+package io.realm.kotlin.internal.interop.sync
 
-import io.github.xilinjia.krdb.internal.interop.realmc
+import io.realm.kotlin.internal.interop.realmc
 
 // Implementation of network response callback that is initialized from JNI and passed to
 // NetworkTransport.sendRequest to signal response back to JNI

@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.android
+package io.realm.kotlin.test.android
 
-import io.github.xilinjia.krdb.internal.platform.OS_NAME
-import io.github.xilinjia.krdb.internal.platform.OS_VERSION
-import io.github.xilinjia.krdb.internal.platform.RUNTIME
+import io.realm.kotlin.internal.platform.OS_NAME
+import io.realm.kotlin.internal.platform.OS_VERSION
+import io.realm.kotlin.internal.platform.RUNTIME
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

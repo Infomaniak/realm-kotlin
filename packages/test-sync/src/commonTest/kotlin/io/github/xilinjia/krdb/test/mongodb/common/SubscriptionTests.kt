@@ -13,25 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.test.mongodb.common
+package io.realm.kotlin.test.mongodb.common
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.entities.sync.ChildPk
-import io.github.xilinjia.krdb.entities.sync.ParentPk
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.internal.platform.runBlocking
-import io.github.xilinjia.krdb.mongodb.subscriptions
-import io.github.xilinjia.krdb.mongodb.sync.Subscription
-import io.github.xilinjia.krdb.mongodb.sync.SubscriptionSet
-import io.github.xilinjia.krdb.mongodb.sync.SyncConfiguration
-import io.github.xilinjia.krdb.mongodb.sync.asQuery
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.test.mongodb.TestApp
-import io.github.xilinjia.krdb.test.mongodb.createUserAndLogIn
-import io.github.xilinjia.krdb.test.mongodb.util.DefaultPartitionBasedAppInitializer
-import io.github.xilinjia.krdb.test.util.TestHelper.randomEmail
-import io.github.xilinjia.krdb.test.util.toRealmInstant
-import io.github.xilinjia.krdb.types.RealmInstant
+import io.realm.kotlin.Realm
+import io.realm.kotlin.entities.sync.ChildPk
+import io.realm.kotlin.entities.sync.ParentPk
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.internal.platform.runBlocking
+import io.realm.kotlin.mongodb.subscriptions
+import io.realm.kotlin.mongodb.sync.Subscription
+import io.realm.kotlin.mongodb.sync.SubscriptionSet
+import io.realm.kotlin.mongodb.sync.SyncConfiguration
+import io.realm.kotlin.mongodb.sync.asQuery
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.test.mongodb.TestApp
+import io.realm.kotlin.test.mongodb.createUserAndLogIn
+import io.realm.kotlin.test.mongodb.util.DefaultPartitionBasedAppInitializer
+import io.realm.kotlin.test.util.TestHelper.randomEmail
+import io.realm.kotlin.test.util.toRealmInstant
+import io.realm.kotlin.types.RealmInstant
 import kotlinx.coroutines.delay
 import kotlinx.datetime.Clock
 import kotlin.test.AfterTest

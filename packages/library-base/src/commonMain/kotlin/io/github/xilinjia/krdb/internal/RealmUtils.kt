@@ -15,32 +15,32 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.BaseRealm
-import io.github.xilinjia.krdb.UpdatePolicy
-import io.github.xilinjia.krdb.VersionId
-import io.github.xilinjia.krdb.ext.isManaged
-import io.github.xilinjia.krdb.ext.isValid
-import io.github.xilinjia.krdb.internal.RealmObjectHelper.assign
-import io.github.xilinjia.krdb.internal.RealmValueArgumentConverter.kAnyToPrimaryKeyRealmValue
-import io.github.xilinjia.krdb.internal.dynamic.DynamicUnmanagedRealmObject
-import io.github.xilinjia.krdb.internal.interop.ClassKey
-import io.github.xilinjia.krdb.internal.interop.ObjectKey
-import io.github.xilinjia.krdb.internal.interop.PropertyKey
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmValue
-import io.github.xilinjia.krdb.internal.interop.inputScope
-import io.github.xilinjia.krdb.internal.platform.realmObjectCompanionOrThrow
-import io.github.xilinjia.krdb.internal.query.ObjectQuery
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.query.RealmResults
-import io.github.xilinjia.krdb.schema.RealmClassKind
-import io.github.xilinjia.krdb.types.BaseRealmObject
-import io.github.xilinjia.krdb.types.RealmDictionary
-import io.github.xilinjia.krdb.types.RealmList
-import io.github.xilinjia.krdb.types.RealmSet
-import io.github.xilinjia.krdb.types.TypedRealmObject
+import io.realm.kotlin.BaseRealm
+import io.realm.kotlin.UpdatePolicy
+import io.realm.kotlin.VersionId
+import io.realm.kotlin.ext.isManaged
+import io.realm.kotlin.ext.isValid
+import io.realm.kotlin.internal.RealmObjectHelper.assign
+import io.realm.kotlin.internal.RealmValueArgumentConverter.kAnyToPrimaryKeyRealmValue
+import io.realm.kotlin.internal.dynamic.DynamicUnmanagedRealmObject
+import io.realm.kotlin.internal.interop.ClassKey
+import io.realm.kotlin.internal.interop.ObjectKey
+import io.realm.kotlin.internal.interop.PropertyKey
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmValue
+import io.realm.kotlin.internal.interop.inputScope
+import io.realm.kotlin.internal.platform.realmObjectCompanionOrThrow
+import io.realm.kotlin.internal.query.ObjectQuery
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.query.RealmResults
+import io.realm.kotlin.schema.RealmClassKind
+import io.realm.kotlin.types.BaseRealmObject
+import io.realm.kotlin.types.RealmDictionary
+import io.realm.kotlin.types.RealmList
+import io.realm.kotlin.types.RealmSet
+import io.realm.kotlin.types.TypedRealmObject
 import kotlin.reflect.KClass
 import kotlin.reflect.KProperty1
 

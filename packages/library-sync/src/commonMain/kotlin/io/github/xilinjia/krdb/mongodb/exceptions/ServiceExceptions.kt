@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.exceptions
+package io.realm.kotlin.mongodb.exceptions
 
-import io.github.xilinjia.krdb.internal.interop.CodeDescription
+import io.realm.kotlin.internal.interop.CodeDescription
 
 /**
  * This exception is considered the top-level or "catch-all" for problems related to HTTP requests
@@ -57,8 +57,8 @@ public open class ConnectionException internal constructor(message: String) :
  * This can happen if e.g. tokens do not have the required length or contain garbage data. The
  * exact reason will be in the error message.
  *
- * @see io.github.xilinjia.krdb.mongodb.auth.EmailPasswordAuth.resetPassword
- * @see io.github.xilinjia.krdb.mongodb.auth.EmailPasswordAuth.retryCustomConfirmation
+ * @see io.realm.kotlin.mongodb.auth.EmailPasswordAuth.resetPassword
+ * @see io.realm.kotlin.mongodb.auth.EmailPasswordAuth.retryCustomConfirmation
  */
 public class BadRequestException internal constructor(message: String) : ServiceException(message)
 
@@ -79,9 +79,9 @@ public open class AuthException internal constructor(message: String) : ServiceE
 /**
  * Thrown when trying to confirm a user that was already confirmed on the server.
  *
- * @see io.github.xilinjia.krdb.mongodb.auth.EmailPasswordAuth.confirmUser
- * @see io.github.xilinjia.krdb.mongodb.auth.EmailPasswordAuth.resendConfirmationEmail
- * @see io.github.xilinjia.krdb.mongodb.auth.EmailPasswordAuth.retryCustomConfirmation
+ * @see io.realm.kotlin.mongodb.auth.EmailPasswordAuth.confirmUser
+ * @see io.realm.kotlin.mongodb.auth.EmailPasswordAuth.resendConfirmationEmail
+ * @see io.realm.kotlin.mongodb.auth.EmailPasswordAuth.retryCustomConfirmation
  */
 public class UserAlreadyConfirmedException internal constructor(message: String) :
     AuthException(message)
@@ -90,10 +90,10 @@ public class UserAlreadyConfirmedException internal constructor(message: String)
  * Thrown when using an API that also require some kind of user identifier, but the server is
  * not able to find the user.
  *
- * @see io.github.xilinjia.krdb.mongodb.auth.EmailPasswordAuth.resendConfirmationEmail
- * @see io.github.xilinjia.krdb.mongodb.auth.EmailPasswordAuth.resetPassword
- * @see io.github.xilinjia.krdb.mongodb.auth.EmailPasswordAuth.retryCustomConfirmation
- * @see io.github.xilinjia.krdb.mongodb.auth.EmailPasswordAuth.sendResetPasswordEmail
+ * @see io.realm.kotlin.mongodb.auth.EmailPasswordAuth.resendConfirmationEmail
+ * @see io.realm.kotlin.mongodb.auth.EmailPasswordAuth.resetPassword
+ * @see io.realm.kotlin.mongodb.auth.EmailPasswordAuth.retryCustomConfirmation
+ * @see io.realm.kotlin.mongodb.auth.EmailPasswordAuth.sendResetPasswordEmail
  */
 public class UserNotFoundException internal constructor(message: String) : AuthException(message)
 
@@ -101,7 +101,7 @@ public class UserNotFoundException internal constructor(message: String) : AuthE
  * Thrown when trying to register a new user with email and password, and the user already
  * exists.
  *
- * @see io.github.xilinjia.krdb.mongodb.EmailPasswordAuth.registerUser
+ * @see io.realm.kotlin.mongodb.EmailPasswordAuth.registerUser
  */
 public class UserAlreadyExistsException internal constructor(message: String) :
     AuthException(message)
@@ -110,13 +110,13 @@ public class UserAlreadyExistsException internal constructor(message: String) :
  * Thrown when credentials were rejected by the server when trying to log in. Only some
  * authentication providers will return this error:
  *
- * - [io.github.xilinjia.krdb.mongodb.AuthenticationProvider.EMAIL_PASSWORD]
- * - [io.github.xilinjia.krdb.mongodb.AuthenticationProvider.API_KEY]
- * - [io.github.xilinjia.krdb.mongodb.AuthenticationProvider.JWT]
+ * - [io.realm.kotlin.mongodb.AuthenticationProvider.EMAIL_PASSWORD]
+ * - [io.realm.kotlin.mongodb.AuthenticationProvider.API_KEY]
+ * - [io.realm.kotlin.mongodb.AuthenticationProvider.JWT]
  *
  * The remaining authentication providers will throw a more general [AuthException] instead.
  *
- * @see io.github.xilinjia.krdb.mongodb.App.login
+ * @see io.realm.kotlin.mongodb.App.login
  */
 public class InvalidCredentialsException internal constructor(message: String) :
     AuthException(message)
@@ -131,7 +131,7 @@ public class InvalidCredentialsException internal constructor(message: String) :
  *
  * The exact reason is found in the exception message.
  *
- * @see io.github.xilinjia.krdb.mongodb.User.linkCredentials
+ * @see io.realm.kotlin.mongodb.User.linkCredentials
  */
 public class CredentialsCannotBeLinkedException internal constructor(message: String) :
     ServiceException(message)
@@ -140,7 +140,7 @@ public class CredentialsCannotBeLinkedException internal constructor(message: St
  * Exception indicating that an Atlas Function failed to execute. The exact reason for the error can
  * be found in [Throwable.message].
  *
- * @see [io.github.xilinjia.krdb.mongodb.Functions.call]
+ * @see [io.realm.kotlin.mongodb.Functions.call]
  */
 public class FunctionExecutionException internal constructor(message: String) :
     ServiceException(message)

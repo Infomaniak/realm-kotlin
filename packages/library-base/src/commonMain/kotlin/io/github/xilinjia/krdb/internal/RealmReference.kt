@@ -1,13 +1,13 @@
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.VersionId
-import io.github.xilinjia.krdb.internal.interop.FrozenRealmPointer
-import io.github.xilinjia.krdb.internal.interop.LiveRealmPointer
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmPointer
-import io.github.xilinjia.krdb.internal.schema.CachedSchemaMetadata
-import io.github.xilinjia.krdb.internal.schema.SchemaMetadata
+import io.realm.kotlin.Realm
+import io.realm.kotlin.VersionId
+import io.realm.kotlin.internal.interop.FrozenRealmPointer
+import io.realm.kotlin.internal.interop.LiveRealmPointer
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmPointer
+import io.realm.kotlin.internal.schema.CachedSchemaMetadata
+import io.realm.kotlin.internal.schema.SchemaMetadata
 import kotlinx.atomicfu.AtomicRef
 import kotlinx.atomicfu.atomic
 

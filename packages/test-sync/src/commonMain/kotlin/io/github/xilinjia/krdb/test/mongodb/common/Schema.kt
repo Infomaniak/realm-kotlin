@@ -14,21 +14,21 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.mongodb.common
+package io.realm.kotlin.test.mongodb.common
 
-import io.github.xilinjia.krdb.entities.JsonStyleRealmObject
-import io.github.xilinjia.krdb.entities.Location
-import io.github.xilinjia.krdb.entities.sync.BinaryObject
-import io.github.xilinjia.krdb.entities.sync.COLLECTION_SCHEMAS
-import io.github.xilinjia.krdb.entities.sync.ChildPk
-import io.github.xilinjia.krdb.entities.sync.ObjectIdPk
-import io.github.xilinjia.krdb.entities.sync.ParentPk
-import io.github.xilinjia.krdb.entities.sync.SyncObjectWithAllTypes
-import io.github.xilinjia.krdb.entities.sync.SyncPerson
-import io.github.xilinjia.krdb.entities.sync.SyncRestaurant
-import io.github.xilinjia.krdb.entities.sync.flx.FlexChildObject
-import io.github.xilinjia.krdb.entities.sync.flx.FlexEmbeddedObject
-import io.github.xilinjia.krdb.entities.sync.flx.FlexParentObject
+import io.realm.kotlin.entities.JsonStyleRealmObject
+import io.realm.kotlin.entities.Location
+import io.realm.kotlin.entities.sync.BinaryObject
+import io.realm.kotlin.entities.sync.COLLECTION_SCHEMAS
+import io.realm.kotlin.entities.sync.ChildPk
+import io.realm.kotlin.entities.sync.ObjectIdPk
+import io.realm.kotlin.entities.sync.ParentPk
+import io.realm.kotlin.entities.sync.SyncObjectWithAllTypes
+import io.realm.kotlin.entities.sync.SyncPerson
+import io.realm.kotlin.entities.sync.SyncRestaurant
+import io.realm.kotlin.entities.sync.flx.FlexChildObject
+import io.realm.kotlin.entities.sync.flx.FlexEmbeddedObject
+import io.realm.kotlin.entities.sync.flx.FlexParentObject
 
 private val ASYMMETRIC_SCHEMAS = setOf(
     AsymmetricA::class,

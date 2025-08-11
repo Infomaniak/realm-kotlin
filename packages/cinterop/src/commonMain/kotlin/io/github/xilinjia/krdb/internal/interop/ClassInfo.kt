@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
 // The C-API uses the empty string as value for string properties that are not set
 const val SCHEMA_NO_VALUE = ""

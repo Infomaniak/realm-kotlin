@@ -14,22 +14,22 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.common.notifications
+package io.realm.kotlin.test.common.notifications
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.entities.JsonStyleRealmObject
-import io.github.xilinjia.krdb.ext.asFlow
-import io.github.xilinjia.krdb.ext.realmAnyDictionaryOf
-import io.github.xilinjia.krdb.ext.realmAnyListOf
-import io.github.xilinjia.krdb.internal.platform.runBlocking
-import io.github.xilinjia.krdb.notifications.DeletedObject
-import io.github.xilinjia.krdb.notifications.InitialObject
-import io.github.xilinjia.krdb.notifications.ObjectChange
-import io.github.xilinjia.krdb.notifications.UpdatedObject
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.util.receiveOrFail
-import io.github.xilinjia.krdb.types.RealmAny
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.entities.JsonStyleRealmObject
+import io.realm.kotlin.ext.asFlow
+import io.realm.kotlin.ext.realmAnyDictionaryOf
+import io.realm.kotlin.ext.realmAnyListOf
+import io.realm.kotlin.internal.platform.runBlocking
+import io.realm.kotlin.notifications.DeletedObject
+import io.realm.kotlin.notifications.InitialObject
+import io.realm.kotlin.notifications.ObjectChange
+import io.realm.kotlin.notifications.UpdatedObject
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.util.receiveOrFail
+import io.realm.kotlin.types.RealmAny
 import kotlinx.coroutines.async
 import kotlinx.coroutines.channels.Channel
 import kotlin.test.AfterTest

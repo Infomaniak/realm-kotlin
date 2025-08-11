@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.types
+package io.realm.kotlin.types
 
 /**
  * Base interface for all statically typed realm classes.

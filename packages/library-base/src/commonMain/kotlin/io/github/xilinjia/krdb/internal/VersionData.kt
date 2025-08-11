@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.VersionId
+import io.realm.kotlin.VersionId
 
 /**
  * Version meta data for a single instance.

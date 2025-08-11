@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.entities.migration.embedded.after
+package io.realm.kotlin.entities.migration.embedded.after
 
-import io.github.xilinjia.krdb.types.EmbeddedRealmObject
+import io.realm.kotlin.types.EmbeddedRealmObject
 
 class EmbeddedMigrationChild : EmbeddedRealmObject {
     var id: String = "child"

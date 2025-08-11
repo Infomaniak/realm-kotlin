@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.Deleteable
+import io.realm.kotlin.Deleteable
 
 // TODO Public due to being a transitive dependency of RealmInternalObject
 public interface InternalDeleteable : Deleteable {

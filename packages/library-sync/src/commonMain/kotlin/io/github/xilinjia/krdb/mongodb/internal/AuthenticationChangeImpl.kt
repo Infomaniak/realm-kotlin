@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.mongodb.internal
+package io.realm.kotlin.mongodb.internal
 
-import io.github.xilinjia.krdb.mongodb.LoggedIn
-import io.github.xilinjia.krdb.mongodb.LoggedOut
-import io.github.xilinjia.krdb.mongodb.Removed
-import io.github.xilinjia.krdb.mongodb.User
+import io.realm.kotlin.mongodb.LoggedIn
+import io.realm.kotlin.mongodb.LoggedOut
+import io.realm.kotlin.mongodb.Removed
+import io.realm.kotlin.mongodb.User
 
 internal class LoggedInImpl(override val user: User) : LoggedIn
 internal class LoggedOutImpl(override val user: User) : LoggedOut

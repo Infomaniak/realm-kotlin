@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.mongodb.common.mongo
+package io.realm.kotlin.test.mongodb.common.mongo
 
-import io.github.xilinjia.krdb.entities.sync.CollectionDataType
-import io.github.xilinjia.krdb.internal.platform.runBlocking
-import io.github.xilinjia.krdb.mongodb.ext.insertOne
-import io.github.xilinjia.krdb.mongodb.mongo.MongoClient
-import io.github.xilinjia.krdb.mongodb.mongo.MongoDatabase
-import io.github.xilinjia.krdb.test.mongodb.TestApp
-import io.github.xilinjia.krdb.test.mongodb.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.mongodb.util.DefaultFlexibleSyncAppInitializer
+import io.realm.kotlin.entities.sync.CollectionDataType
+import io.realm.kotlin.internal.platform.runBlocking
+import io.realm.kotlin.mongodb.ext.insertOne
+import io.realm.kotlin.mongodb.mongo.MongoClient
+import io.realm.kotlin.mongodb.mongo.MongoDatabase
+import io.realm.kotlin.test.mongodb.TestApp
+import io.realm.kotlin.test.mongodb.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.mongodb.util.DefaultFlexibleSyncAppInitializer
 import kotlinx.serialization.SerializationException
 import org.mongodb.kbson.BsonDocument
 import org.mongodb.kbson.BsonInt32

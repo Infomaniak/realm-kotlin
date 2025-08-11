@@ -16,32 +16,32 @@
 
 @file:OptIn(ExperimentalRealmSerializerApi::class)
 
-package io.github.xilinjia.krdb.test.mongodb.common
+package io.realm.kotlin.test.mongodb.common
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.annotations.ExperimentalRealmSerializerApi
-import io.github.xilinjia.krdb.entities.sync.CollectionDataType
-import io.github.xilinjia.krdb.internal.platform.fileExists
-import io.github.xilinjia.krdb.internal.platform.runBlocking
-import io.github.xilinjia.krdb.mongodb.AuthenticationProvider
-import io.github.xilinjia.krdb.mongodb.Credentials
-import io.github.xilinjia.krdb.mongodb.User
-import io.github.xilinjia.krdb.mongodb.exceptions.CredentialsCannotBeLinkedException
-import io.github.xilinjia.krdb.mongodb.exceptions.ServiceException
-import io.github.xilinjia.krdb.mongodb.ext.customData
-import io.github.xilinjia.krdb.mongodb.ext.customDataAsBsonDocument
-import io.github.xilinjia.krdb.mongodb.ext.insertOne
-import io.github.xilinjia.krdb.mongodb.mongo.MongoClient
-import io.github.xilinjia.krdb.mongodb.sync.SyncConfiguration
-import io.github.xilinjia.krdb.test.mongodb.TestApp
-import io.github.xilinjia.krdb.test.mongodb.asTestApp
-import io.github.xilinjia.krdb.test.mongodb.common.mongo.CustomDataType
-import io.github.xilinjia.krdb.test.mongodb.common.mongo.TEST_SERVICE_NAME
-import io.github.xilinjia.krdb.test.mongodb.common.mongo.customEjsonSerializer
-import io.github.xilinjia.krdb.test.mongodb.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.mongodb.util.DefaultPartitionBasedAppInitializer
-import io.github.xilinjia.krdb.test.util.TestHelper
-import io.github.xilinjia.krdb.test.util.TestHelper.randomEmail
+import io.realm.kotlin.Realm
+import io.realm.kotlin.annotations.ExperimentalRealmSerializerApi
+import io.realm.kotlin.entities.sync.CollectionDataType
+import io.realm.kotlin.internal.platform.fileExists
+import io.realm.kotlin.internal.platform.runBlocking
+import io.realm.kotlin.mongodb.AuthenticationProvider
+import io.realm.kotlin.mongodb.Credentials
+import io.realm.kotlin.mongodb.User
+import io.realm.kotlin.mongodb.exceptions.CredentialsCannotBeLinkedException
+import io.realm.kotlin.mongodb.exceptions.ServiceException
+import io.realm.kotlin.mongodb.ext.customData
+import io.realm.kotlin.mongodb.ext.customDataAsBsonDocument
+import io.realm.kotlin.mongodb.ext.insertOne
+import io.realm.kotlin.mongodb.mongo.MongoClient
+import io.realm.kotlin.mongodb.sync.SyncConfiguration
+import io.realm.kotlin.test.mongodb.TestApp
+import io.realm.kotlin.test.mongodb.asTestApp
+import io.realm.kotlin.test.mongodb.common.mongo.CustomDataType
+import io.realm.kotlin.test.mongodb.common.mongo.TEST_SERVICE_NAME
+import io.realm.kotlin.test.mongodb.common.mongo.customEjsonSerializer
+import io.realm.kotlin.test.mongodb.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.mongodb.util.DefaultPartitionBasedAppInitializer
+import io.realm.kotlin.test.util.TestHelper
+import io.realm.kotlin.test.util.TestHelper.randomEmail
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.SerializationException

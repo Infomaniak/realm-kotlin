@@ -14,44 +14,44 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.UpdatePolicy
-import io.github.xilinjia.krdb.Versioned
-import io.github.xilinjia.krdb.dynamic.DynamicRealmObject
-import io.github.xilinjia.krdb.ext.asRealmObject
-import io.github.xilinjia.krdb.ext.isManaged
-import io.github.xilinjia.krdb.internal.RealmValueArgumentConverter.convertToQueryArgs
-import io.github.xilinjia.krdb.internal.interop.Callback
-import io.github.xilinjia.krdb.internal.interop.ClassKey
-import io.github.xilinjia.krdb.internal.interop.RealmChangesPointer
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmInterop.realm_list_get
-import io.github.xilinjia.krdb.internal.interop.RealmInterop.realm_list_set_embedded
-import io.github.xilinjia.krdb.internal.interop.RealmKeyPathArrayPointer
-import io.github.xilinjia.krdb.internal.interop.RealmListPointer
-import io.github.xilinjia.krdb.internal.interop.RealmNotificationTokenPointer
-import io.github.xilinjia.krdb.internal.interop.RealmObjectInterop
-import io.github.xilinjia.krdb.internal.interop.RealmValue
-import io.github.xilinjia.krdb.internal.interop.getterScope
-import io.github.xilinjia.krdb.internal.interop.inputScope
-import io.github.xilinjia.krdb.internal.query.ObjectBoundQuery
-import io.github.xilinjia.krdb.internal.query.ObjectQuery
-import io.github.xilinjia.krdb.internal.util.Validation
-import io.github.xilinjia.krdb.notifications.ListChange
-import io.github.xilinjia.krdb.notifications.internal.DeletedListImpl
-import io.github.xilinjia.krdb.notifications.internal.InitialListImpl
-import io.github.xilinjia.krdb.notifications.internal.UpdatedListImpl
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.types.BaseRealmObject
-import io.github.xilinjia.krdb.types.RealmAny
-import io.github.xilinjia.krdb.types.RealmList
-import io.github.xilinjia.krdb.types.RealmObject
+import io.realm.kotlin.UpdatePolicy
+import io.realm.kotlin.Versioned
+import io.realm.kotlin.dynamic.DynamicRealmObject
+import io.realm.kotlin.ext.asRealmObject
+import io.realm.kotlin.ext.isManaged
+import io.realm.kotlin.internal.RealmValueArgumentConverter.convertToQueryArgs
+import io.realm.kotlin.internal.interop.Callback
+import io.realm.kotlin.internal.interop.ClassKey
+import io.realm.kotlin.internal.interop.RealmChangesPointer
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmInterop.realm_list_get
+import io.realm.kotlin.internal.interop.RealmInterop.realm_list_set_embedded
+import io.realm.kotlin.internal.interop.RealmKeyPathArrayPointer
+import io.realm.kotlin.internal.interop.RealmListPointer
+import io.realm.kotlin.internal.interop.RealmNotificationTokenPointer
+import io.realm.kotlin.internal.interop.RealmObjectInterop
+import io.realm.kotlin.internal.interop.RealmValue
+import io.realm.kotlin.internal.interop.getterScope
+import io.realm.kotlin.internal.interop.inputScope
+import io.realm.kotlin.internal.query.ObjectBoundQuery
+import io.realm.kotlin.internal.query.ObjectQuery
+import io.realm.kotlin.internal.util.Validation
+import io.realm.kotlin.notifications.ListChange
+import io.realm.kotlin.notifications.internal.DeletedListImpl
+import io.realm.kotlin.notifications.internal.InitialListImpl
+import io.realm.kotlin.notifications.internal.UpdatedListImpl
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.types.BaseRealmObject
+import io.realm.kotlin.types.RealmAny
+import io.realm.kotlin.types.RealmList
+import io.realm.kotlin.types.RealmObject
 import kotlinx.coroutines.channels.ProducerScope
 import kotlinx.coroutines.flow.Flow
 import kotlin.reflect.KClass
 
-internal const val INDEX_NOT_FOUND = io.github.xilinjia.krdb.internal.interop.INDEX_NOT_FOUND
+internal const val INDEX_NOT_FOUND = io.realm.kotlin.internal.interop.INDEX_NOT_FOUND
 
 /**
  * Implementation for unmanaged lists, backed by a [MutableList].

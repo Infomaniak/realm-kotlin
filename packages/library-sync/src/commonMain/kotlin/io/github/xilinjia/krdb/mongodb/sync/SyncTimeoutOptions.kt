@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.mongodb.sync
+package io.realm.kotlin.mongodb.sync
 
 import kotlin.time.Duration
 
@@ -21,7 +21,7 @@ import kotlin.time.Duration
  * The configured timeouts for various aspects of the sync connection between synchronized realms
  * and App Services.
  *
- * @see [io.github.xilinjia.krdb.mongodb.AppConfiguration.Builder.syncTimeouts]
+ * @see [io.realm.kotlin.mongodb.AppConfiguration.Builder.syncTimeouts]
  */
 public data class SyncTimeoutOptions(
 

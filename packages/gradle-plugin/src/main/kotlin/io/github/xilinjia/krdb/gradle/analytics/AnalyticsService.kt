@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.gradle.analytics
+package io.realm.kotlin.gradle.analytics
 
-import io.github.xilinjia.krdb.gradle.RealmCompilerSubplugin
-import io.github.xilinjia.krdb.gradle.analytics.AnalyticsService.Companion.unknown
-import io.github.xilinjia.krdb.gradle.gradle75
-import io.github.xilinjia.krdb.gradle.gradleVersion
+import io.realm.kotlin.gradle.RealmCompilerSubplugin
+import io.realm.kotlin.gradle.analytics.AnalyticsService.Companion.unknown
+import io.realm.kotlin.gradle.gradle75
+import io.realm.kotlin.gradle.gradleVersion
 import org.gradle.api.logging.Logger
 import org.gradle.api.logging.Logging
 import org.gradle.api.provider.Property

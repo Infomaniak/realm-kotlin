@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.entities.sync.flx
+package io.realm.kotlin.entities.sync.flx
 
-import io.github.xilinjia.krdb.types.EmbeddedRealmObject
+import io.realm.kotlin.types.EmbeddedRealmObject
 
 /**
  * Embedded Object used when testing Flexible Sync.

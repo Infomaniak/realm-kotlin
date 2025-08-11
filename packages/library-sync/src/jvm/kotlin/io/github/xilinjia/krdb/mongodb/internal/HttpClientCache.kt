@@ -1,5 +1,5 @@
 @file:JvmName("HttpClientCacheJVM")
-package io.github.xilinjia.krdb.mongodb.internal
+package io.realm.kotlin.mongodb.internal
 
 import io.ktor.client.HttpClient
 import io.ktor.client.HttpClientConfig

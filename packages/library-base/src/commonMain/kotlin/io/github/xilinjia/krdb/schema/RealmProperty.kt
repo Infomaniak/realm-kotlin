@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.schema
+package io.realm.kotlin.schema
 
 /**
  * A [RealmProperty] describes the properties of a class property in the object model.

@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.exceptions
+package io.realm.kotlin.mongodb.exceptions
 
-import io.github.xilinjia.krdb.internal.interop.RealmAppPointer
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.sync.SyncError
-import io.github.xilinjia.krdb.mongodb.internal.createMessageFromSyncError
+import io.realm.kotlin.internal.interop.RealmAppPointer
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.sync.SyncError
+import io.realm.kotlin.mongodb.internal.createMessageFromSyncError
 
 /**
  * Class encapsulating information needed for handling a Client Reset event.

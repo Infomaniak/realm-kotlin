@@ -14,21 +14,21 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.ext
+package io.realm.kotlin.ext
 
-import io.github.xilinjia.krdb.internal.BacklinksDelegateImpl
-import io.github.xilinjia.krdb.internal.RealmObjectReference
-import io.github.xilinjia.krdb.internal.interop.ClassKey
-import io.github.xilinjia.krdb.internal.interop.NativePointer
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmObjectT
-import io.github.xilinjia.krdb.internal.realmObjectReference
-import io.github.xilinjia.krdb.internal.toRealmObject
-import io.github.xilinjia.krdb.types.BacklinksDelegate
-import io.github.xilinjia.krdb.types.EmbeddedBacklinksDelegate
-import io.github.xilinjia.krdb.types.EmbeddedRealmObject
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.TypedRealmObject
+import io.realm.kotlin.internal.BacklinksDelegateImpl
+import io.realm.kotlin.internal.RealmObjectReference
+import io.realm.kotlin.internal.interop.ClassKey
+import io.realm.kotlin.internal.interop.NativePointer
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmObjectT
+import io.realm.kotlin.internal.realmObjectReference
+import io.realm.kotlin.internal.toRealmObject
+import io.realm.kotlin.types.BacklinksDelegate
+import io.realm.kotlin.types.EmbeddedBacklinksDelegate
+import io.realm.kotlin.types.EmbeddedRealmObject
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.TypedRealmObject
 import kotlin.reflect.KClass
 import kotlin.reflect.KProperty1
 

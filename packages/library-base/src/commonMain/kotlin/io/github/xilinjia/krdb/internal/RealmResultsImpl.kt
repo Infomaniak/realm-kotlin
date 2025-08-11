@@ -14,28 +14,28 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.internal.RealmValueArgumentConverter.convertToQueryArgs
-import io.github.xilinjia.krdb.internal.interop.Callback
-import io.github.xilinjia.krdb.internal.interop.ClassKey
-import io.github.xilinjia.krdb.internal.interop.RealmChangesPointer
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmInterop.realm_results_get
-import io.github.xilinjia.krdb.internal.interop.RealmKeyPathArrayPointer
-import io.github.xilinjia.krdb.internal.interop.RealmNotificationTokenPointer
-import io.github.xilinjia.krdb.internal.interop.RealmResultsPointer
-import io.github.xilinjia.krdb.internal.interop.getterScope
-import io.github.xilinjia.krdb.internal.interop.inputScope
-import io.github.xilinjia.krdb.internal.query.ObjectQuery
-import io.github.xilinjia.krdb.internal.util.Validation.sdkError
-import io.github.xilinjia.krdb.notifications.ResultsChange
-import io.github.xilinjia.krdb.notifications.internal.InitialResultsImpl
-import io.github.xilinjia.krdb.notifications.internal.UpdatedResultsImpl
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.query.RealmResults
-import io.github.xilinjia.krdb.query.TRUE_PREDICATE
-import io.github.xilinjia.krdb.types.BaseRealmObject
+import io.realm.kotlin.internal.RealmValueArgumentConverter.convertToQueryArgs
+import io.realm.kotlin.internal.interop.Callback
+import io.realm.kotlin.internal.interop.ClassKey
+import io.realm.kotlin.internal.interop.RealmChangesPointer
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmInterop.realm_results_get
+import io.realm.kotlin.internal.interop.RealmKeyPathArrayPointer
+import io.realm.kotlin.internal.interop.RealmNotificationTokenPointer
+import io.realm.kotlin.internal.interop.RealmResultsPointer
+import io.realm.kotlin.internal.interop.getterScope
+import io.realm.kotlin.internal.interop.inputScope
+import io.realm.kotlin.internal.query.ObjectQuery
+import io.realm.kotlin.internal.util.Validation.sdkError
+import io.realm.kotlin.notifications.ResultsChange
+import io.realm.kotlin.notifications.internal.InitialResultsImpl
+import io.realm.kotlin.notifications.internal.UpdatedResultsImpl
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.query.RealmResults
+import io.realm.kotlin.query.TRUE_PREDICATE
+import io.realm.kotlin.types.BaseRealmObject
 import kotlinx.coroutines.channels.ProducerScope
 import kotlinx.coroutines.flow.Flow
 import kotlin.reflect.KClass

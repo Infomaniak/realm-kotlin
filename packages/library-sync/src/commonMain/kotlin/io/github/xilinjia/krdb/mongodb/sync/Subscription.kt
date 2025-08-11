@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.sync
+package io.realm.kotlin.mongodb.sync
 
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.types.RealmInstant
-import io.github.xilinjia.krdb.types.RealmObject
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.types.RealmInstant
+import io.realm.kotlin.types.RealmObject
 import org.mongodb.kbson.ObjectId
 import kotlin.reflect.KClass
 

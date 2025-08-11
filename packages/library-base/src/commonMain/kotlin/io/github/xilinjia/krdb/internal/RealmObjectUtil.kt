@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.VersionId
-import io.github.xilinjia.krdb.dynamic.DynamicRealmObject
-import io.github.xilinjia.krdb.internal.interop.ClassKey
-import io.github.xilinjia.krdb.internal.interop.Link
-import io.github.xilinjia.krdb.internal.interop.ObjectKey
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmObjectPointer
-import io.github.xilinjia.krdb.internal.platform.realmObjectCompanionOrNull
-import io.github.xilinjia.krdb.internal.platform.realmObjectCompanionOrThrow
-import io.github.xilinjia.krdb.types.BaseRealmObject
+import io.realm.kotlin.VersionId
+import io.realm.kotlin.dynamic.DynamicRealmObject
+import io.realm.kotlin.internal.interop.ClassKey
+import io.realm.kotlin.internal.interop.Link
+import io.realm.kotlin.internal.interop.ObjectKey
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmObjectPointer
+import io.realm.kotlin.internal.platform.realmObjectCompanionOrNull
+import io.realm.kotlin.internal.platform.realmObjectCompanionOrThrow
+import io.realm.kotlin.types.BaseRealmObject
 import kotlin.reflect.KClass
 
 internal fun <T : BaseRealmObject> RealmObjectInternal.manage(

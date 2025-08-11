@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.entities.sync.subset
+package io.realm.kotlin.entities.sync.subset
 
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.annotations.PersistedName
-import io.github.xilinjia.krdb.types.annotations.PrimaryKey
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.annotations.PersistedName
+import io.realm.kotlin.types.annotations.PrimaryKey
 import kotlin.random.Random
 
 /**
- * Copy of io.github.xilinjia.krdb.entities.sync.ChildPk, but it only contains a subset of its properties
+ * Copy of io.realm.kotlin.entities.sync.ChildPk, but it only contains a subset of its properties
  */
 class ChildPk : RealmObject {
     @PersistedName("_id")

@@ -14,31 +14,31 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.internal
+package io.realm.kotlin.mongodb.internal
 
-import io.github.xilinjia.krdb.internal.NotificationToken
-import io.github.xilinjia.krdb.internal.RealmImpl
-import io.github.xilinjia.krdb.internal.interop.CoreError
-import io.github.xilinjia.krdb.internal.interop.ErrorCode
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmSyncSessionPointer
-import io.github.xilinjia.krdb.internal.interop.SyncSessionTransferCompletionCallback
-import io.github.xilinjia.krdb.internal.interop.sync.CoreConnectionState
-import io.github.xilinjia.krdb.internal.interop.sync.CoreSyncSessionState
-import io.github.xilinjia.krdb.internal.interop.sync.ProgressDirection
-import io.github.xilinjia.krdb.internal.interop.sync.SyncError
-import io.github.xilinjia.krdb.internal.util.Validation
-import io.github.xilinjia.krdb.internal.util.trySendWithBufferOverflowCheck
-import io.github.xilinjia.krdb.mongodb.User
-import io.github.xilinjia.krdb.mongodb.sync.ConnectionState
-import io.github.xilinjia.krdb.mongodb.sync.ConnectionStateChange
-import io.github.xilinjia.krdb.mongodb.sync.Direction
-import io.github.xilinjia.krdb.mongodb.sync.Progress
-import io.github.xilinjia.krdb.mongodb.sync.ProgressMode
-import io.github.xilinjia.krdb.mongodb.sync.SyncConfiguration
-import io.github.xilinjia.krdb.mongodb.sync.SyncSession
-import io.github.xilinjia.krdb.notifications.internal.Cancellable
-import io.github.xilinjia.krdb.notifications.internal.Cancellable.Companion.NO_OP_NOTIFICATION_TOKEN
+import io.realm.kotlin.internal.NotificationToken
+import io.realm.kotlin.internal.RealmImpl
+import io.realm.kotlin.internal.interop.CoreError
+import io.realm.kotlin.internal.interop.ErrorCode
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmSyncSessionPointer
+import io.realm.kotlin.internal.interop.SyncSessionTransferCompletionCallback
+import io.realm.kotlin.internal.interop.sync.CoreConnectionState
+import io.realm.kotlin.internal.interop.sync.CoreSyncSessionState
+import io.realm.kotlin.internal.interop.sync.ProgressDirection
+import io.realm.kotlin.internal.interop.sync.SyncError
+import io.realm.kotlin.internal.util.Validation
+import io.realm.kotlin.internal.util.trySendWithBufferOverflowCheck
+import io.realm.kotlin.mongodb.User
+import io.realm.kotlin.mongodb.sync.ConnectionState
+import io.realm.kotlin.mongodb.sync.ConnectionStateChange
+import io.realm.kotlin.mongodb.sync.Direction
+import io.realm.kotlin.mongodb.sync.Progress
+import io.realm.kotlin.mongodb.sync.ProgressMode
+import io.realm.kotlin.mongodb.sync.SyncConfiguration
+import io.realm.kotlin.mongodb.sync.SyncSession
+import io.realm.kotlin.notifications.internal.Cancellable
+import io.realm.kotlin.notifications.internal.Cancellable.Companion.NO_OP_NOTIFICATION_TOKEN
 import kotlinx.atomicfu.AtomicRef
 import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.channels.Channel

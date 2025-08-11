@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop.sync
+package io.realm.kotlin.internal.interop.sync
 
-import io.github.xilinjia.krdb.internal.interop.CodeDescription
-import io.github.xilinjia.krdb.internal.interop.realm_sync_errno_connection_e
-import io.github.xilinjia.krdb.internal.interop.realm_sync_errno_session_e
-import io.github.xilinjia.krdb.internal.interop.realm_sync_socket_callback_result_e
-import io.github.xilinjia.krdb.internal.interop.realm_web_socket_errno_e
+import io.realm.kotlin.internal.interop.CodeDescription
+import io.realm.kotlin.internal.interop.realm_sync_errno_connection_e
+import io.realm.kotlin.internal.interop.realm_sync_errno_session_e
+import io.realm.kotlin.internal.interop.realm_sync_socket_callback_result_e
+import io.realm.kotlin.internal.interop.realm_web_socket_errno_e
 
 actual enum class SyncConnectionErrorCode(
     actual override val description: String?,

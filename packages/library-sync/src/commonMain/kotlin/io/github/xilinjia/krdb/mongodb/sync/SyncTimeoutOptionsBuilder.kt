@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.mongodb.sync
+package io.realm.kotlin.mongodb.sync
 
-import io.github.xilinjia.krdb.internal.util.Validation
+import io.realm.kotlin.internal.util.Validation
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.milliseconds
 import kotlin.time.Duration.Companion.minutes
@@ -24,7 +24,7 @@ import kotlin.time.Duration.Companion.seconds
 /**
  * Builder for configuring various timeouts related to the sync connection to the server.
  *
- * @see [io.github.xilinjia.krdb.mongodb.AppConfiguration.Builder.syncTimeouts]
+ * @see [io.realm.kotlin.mongodb.AppConfiguration.Builder.syncTimeouts]
  */
 public class SyncTimeoutOptionsBuilder {
 
@@ -50,7 +50,7 @@ public class SyncTimeoutOptionsBuilder {
      * Only durations > 0 seconds are allowed. Default is 30 seconds.
      *
      * @throws IllegalArgumentException if the duration is outside the allowed range.
-     * @see io.github.xilinjia.krdb.mongodb.AppConfiguration.Builder.enableSessionMultiplexing
+     * @see io.realm.kotlin.mongodb.AppConfiguration.Builder.enableSessionMultiplexing
      */
     public var connectionLingerTime: Duration = 30.seconds
         set(value) {

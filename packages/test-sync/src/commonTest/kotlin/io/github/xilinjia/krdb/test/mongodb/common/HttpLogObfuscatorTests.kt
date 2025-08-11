@@ -15,26 +15,26 @@
  */
 @file:Suppress("invisible_reference", "invisible_member")
 
-package io.github.xilinjia.krdb.test.mongodb.common
+package io.realm.kotlin.test.mongodb.common
 
-import io.github.xilinjia.krdb.internal.platform.runBlocking
-import io.github.xilinjia.krdb.log.LogCategory
-import io.github.xilinjia.krdb.log.LogLevel
-import io.github.xilinjia.krdb.log.RealmLog
-import io.github.xilinjia.krdb.log.RealmLogger
-import io.github.xilinjia.krdb.mongodb.Credentials
-import io.github.xilinjia.krdb.mongodb.GoogleAuthType
-import io.github.xilinjia.krdb.mongodb.User
-import io.github.xilinjia.krdb.mongodb.ext.call
-import io.github.xilinjia.krdb.test.mongodb.TestApp
-import io.github.xilinjia.krdb.test.mongodb.common.utils.CustomLogCollector
-import io.github.xilinjia.krdb.test.mongodb.syncServerAppName
-import io.github.xilinjia.krdb.test.mongodb.util.BaseAppInitializer
-import io.github.xilinjia.krdb.test.mongodb.util.FIRST_ARG_FUNCTION
-import io.github.xilinjia.krdb.test.mongodb.util.NULL_FUNCTION
-import io.github.xilinjia.krdb.test.mongodb.util.SUM_FUNCTION
-import io.github.xilinjia.krdb.test.mongodb.util.addEmailProvider
-import io.github.xilinjia.krdb.test.util.receiveOrFail
+import io.realm.kotlin.internal.platform.runBlocking
+import io.realm.kotlin.log.LogCategory
+import io.realm.kotlin.log.LogLevel
+import io.realm.kotlin.log.RealmLog
+import io.realm.kotlin.log.RealmLogger
+import io.realm.kotlin.mongodb.Credentials
+import io.realm.kotlin.mongodb.GoogleAuthType
+import io.realm.kotlin.mongodb.User
+import io.realm.kotlin.mongodb.ext.call
+import io.realm.kotlin.test.mongodb.TestApp
+import io.realm.kotlin.test.mongodb.common.utils.CustomLogCollector
+import io.realm.kotlin.test.mongodb.syncServerAppName
+import io.realm.kotlin.test.mongodb.util.BaseAppInitializer
+import io.realm.kotlin.test.mongodb.util.FIRST_ARG_FUNCTION
+import io.realm.kotlin.test.mongodb.util.NULL_FUNCTION
+import io.realm.kotlin.test.mongodb.util.SUM_FUNCTION
+import io.realm.kotlin.test.mongodb.util.addEmailProvider
+import io.realm.kotlin.test.util.receiveOrFail
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.async
 import kotlinx.coroutines.channels.Channel

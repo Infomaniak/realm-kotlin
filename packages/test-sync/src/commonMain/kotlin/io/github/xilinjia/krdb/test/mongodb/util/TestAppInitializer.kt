@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.test.mongodb.util
+package io.realm.kotlin.test.mongodb.util
 
-import io.github.xilinjia.krdb.test.mongodb.TEST_APP_CLUSTER_NAME
-import io.github.xilinjia.krdb.test.mongodb.TEST_APP_FLEX
-import io.github.xilinjia.krdb.test.mongodb.TEST_APP_PARTITION
-import io.github.xilinjia.krdb.test.mongodb.common.FLEXIBLE_SYNC_SCHEMA
-import io.github.xilinjia.krdb.test.mongodb.common.PARTITION_BASED_SCHEMA
+import io.realm.kotlin.test.mongodb.TEST_APP_CLUSTER_NAME
+import io.realm.kotlin.test.mongodb.TEST_APP_FLEX
+import io.realm.kotlin.test.mongodb.TEST_APP_PARTITION
+import io.realm.kotlin.test.mongodb.common.FLEXIBLE_SYNC_SCHEMA
+import io.realm.kotlin.test.mongodb.common.PARTITION_BASED_SCHEMA
 import kotlinx.serialization.json.Json
 
 interface AppInitializer {

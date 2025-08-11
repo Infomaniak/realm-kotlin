@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop.sync
+package io.realm.kotlin.internal.interop.sync
 
-import io.github.xilinjia.krdb.internal.interop.NativeEnumerated
-import io.github.xilinjia.krdb.internal.interop.realm_flx_sync_subscription_set_state_e
+import io.realm.kotlin.internal.interop.NativeEnumerated
+import io.realm.kotlin.internal.interop.realm_flx_sync_subscription_set_state_e
 
 actual enum class CoreSubscriptionSetState(override val nativeValue: Int) : NativeEnumerated {
     RLM_SYNC_SUBSCRIPTION_UNCOMMITTED(realm_flx_sync_subscription_set_state_e.RLM_SYNC_SUBSCRIPTION_UNCOMMITTED),

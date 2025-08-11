@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.test.mongodb.common.utils
+package io.realm.kotlin.test.mongodb.common.utils
 
-import io.github.xilinjia.krdb.mongodb.sync.SubscriptionSet
-import io.github.xilinjia.krdb.mongodb.sync.SyncSession
+import io.realm.kotlin.mongodb.sync.SubscriptionSet
+import io.realm.kotlin.mongodb.sync.SyncSession
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking

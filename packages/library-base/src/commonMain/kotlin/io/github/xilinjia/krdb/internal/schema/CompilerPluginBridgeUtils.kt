@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.internal.schema
+package io.realm.kotlin.internal.schema
 
-import io.github.xilinjia.krdb.internal.interop.CollectionType
-import io.github.xilinjia.krdb.internal.interop.PropertyInfo
-import io.github.xilinjia.krdb.internal.interop.PropertyType
-import io.github.xilinjia.krdb.internal.realmObjectCompanionOrNull
-import io.github.xilinjia.krdb.types.TypedRealmObject
+import io.realm.kotlin.internal.interop.CollectionType
+import io.realm.kotlin.internal.interop.PropertyInfo
+import io.realm.kotlin.internal.interop.PropertyType
+import io.realm.kotlin.internal.realmObjectCompanionOrNull
+import io.realm.kotlin.types.TypedRealmObject
 import kotlin.reflect.KClass
 
 /**

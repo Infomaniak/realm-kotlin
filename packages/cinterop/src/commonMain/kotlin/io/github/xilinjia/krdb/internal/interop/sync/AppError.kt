@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop.sync
+package io.realm.kotlin.internal.interop.sync
 
-import io.github.xilinjia.krdb.internal.interop.CodeDescription
-import io.github.xilinjia.krdb.internal.interop.ErrorCategory
-import io.github.xilinjia.krdb.internal.interop.ErrorCode
-import io.github.xilinjia.krdb.internal.interop.UnknownCodeDescription
+import io.realm.kotlin.internal.interop.CodeDescription
+import io.realm.kotlin.internal.interop.ErrorCategory
+import io.realm.kotlin.internal.interop.ErrorCode
+import io.realm.kotlin.internal.interop.UnknownCodeDescription
 import kotlin.jvm.JvmStatic
 
 /**

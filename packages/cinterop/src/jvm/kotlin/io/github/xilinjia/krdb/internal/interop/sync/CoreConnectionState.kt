@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop.sync
+package io.realm.kotlin.internal.interop.sync
 
-import io.github.xilinjia.krdb.internal.interop.realm_sync_connection_state_e
+import io.realm.kotlin.internal.interop.realm_sync_connection_state_e
 
 actual enum class CoreConnectionState(val value: Int) {
     RLM_SYNC_CONNECTION_STATE_DISCONNECTED(realm_sync_connection_state_e.RLM_SYNC_CONNECTION_STATE_DISCONNECTED),

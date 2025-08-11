@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.ext
+package io.realm.kotlin.mongodb.ext
 
-import io.github.xilinjia.krdb.internal.util.Validation
-import io.github.xilinjia.krdb.mongodb.exceptions.ServiceException
-import io.github.xilinjia.krdb.mongodb.internal.MongoCollectionImpl
-import io.github.xilinjia.krdb.mongodb.internal.decodeFromBsonValue
-import io.github.xilinjia.krdb.mongodb.internal.decodeFromBsonValueList
-import io.github.xilinjia.krdb.mongodb.internal.encodeToBsonValue
-import io.github.xilinjia.krdb.mongodb.internal.toAny
-import io.github.xilinjia.krdb.mongodb.mongo.MongoCollection
+import io.realm.kotlin.internal.util.Validation
+import io.realm.kotlin.mongodb.exceptions.ServiceException
+import io.realm.kotlin.mongodb.internal.MongoCollectionImpl
+import io.realm.kotlin.mongodb.internal.decodeFromBsonValue
+import io.realm.kotlin.mongodb.internal.decodeFromBsonValueList
+import io.realm.kotlin.mongodb.internal.encodeToBsonValue
+import io.realm.kotlin.mongodb.internal.toAny
+import io.realm.kotlin.mongodb.mongo.MongoCollection
 import org.mongodb.kbson.BsonDocument
 import org.mongodb.kbson.BsonValue
 import kotlin.jvm.JvmName

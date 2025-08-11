@@ -15,27 +15,27 @@
  */
 
 @file:Suppress("invisible_member", "invisible_reference")
-package io.github.xilinjia.krdb.test.mongodb.common
+package io.realm.kotlin.test.mongodb.common
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.dynamic.DynamicMutableRealm
-import io.github.xilinjia.krdb.dynamic.DynamicMutableRealmObject
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.internal.InternalConfiguration
-import io.github.xilinjia.krdb.internal.platform.runBlocking
-import io.github.xilinjia.krdb.mongodb.Credentials
-import io.github.xilinjia.krdb.mongodb.annotations.ExperimentalAsymmetricSyncApi
-import io.github.xilinjia.krdb.mongodb.ext.insert
-import io.github.xilinjia.krdb.mongodb.sync.SyncConfiguration
-import io.github.xilinjia.krdb.mongodb.syncSession
-import io.github.xilinjia.krdb.schema.RealmClassKind
-import io.github.xilinjia.krdb.test.StandaloneDynamicMutableRealm
-import io.github.xilinjia.krdb.test.mongodb.TestApp
-import io.github.xilinjia.krdb.test.mongodb.common.utils.uploadAllLocalChangesOrFail
-import io.github.xilinjia.krdb.test.mongodb.createUserAndLogIn
-import io.github.xilinjia.krdb.test.mongodb.util.DefaultFlexibleSyncAppInitializer
-import io.github.xilinjia.krdb.test.util.TestHelper
-import io.github.xilinjia.krdb.test.util.use
+import io.realm.kotlin.Realm
+import io.realm.kotlin.dynamic.DynamicMutableRealm
+import io.realm.kotlin.dynamic.DynamicMutableRealmObject
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.internal.InternalConfiguration
+import io.realm.kotlin.internal.platform.runBlocking
+import io.realm.kotlin.mongodb.Credentials
+import io.realm.kotlin.mongodb.annotations.ExperimentalAsymmetricSyncApi
+import io.realm.kotlin.mongodb.ext.insert
+import io.realm.kotlin.mongodb.sync.SyncConfiguration
+import io.realm.kotlin.mongodb.syncSession
+import io.realm.kotlin.schema.RealmClassKind
+import io.realm.kotlin.test.StandaloneDynamicMutableRealm
+import io.realm.kotlin.test.mongodb.TestApp
+import io.realm.kotlin.test.mongodb.common.utils.uploadAllLocalChangesOrFail
+import io.realm.kotlin.test.mongodb.createUserAndLogIn
+import io.realm.kotlin.test.mongodb.util.DefaultFlexibleSyncAppInitializer
+import io.realm.kotlin.test.util.TestHelper
+import io.realm.kotlin.test.util.use
 import kotlinx.atomicfu.atomic
 import kotlinx.coroutines.delay
 import org.mongodb.kbson.ObjectId

@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.types
+package io.realm.kotlin.types
 
-import io.github.xilinjia.krdb.ext.backlinks
-import io.github.xilinjia.krdb.query.RealmResults
+import io.realm.kotlin.ext.backlinks
+import io.realm.kotlin.query.RealmResults
 import kotlin.reflect.KProperty
 
 /**

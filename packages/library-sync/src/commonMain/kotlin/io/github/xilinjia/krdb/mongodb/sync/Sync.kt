@@ -1,7 +1,7 @@
-package io.github.xilinjia.krdb.mongodb.sync
+package io.realm.kotlin.mongodb.sync
 
-import io.github.xilinjia.krdb.mongodb.App
-import io.github.xilinjia.krdb.mongodb.syncSession
+import io.realm.kotlin.mongodb.App
+import io.realm.kotlin.mongodb.syncSession
 
 /**
  * A _Device Sync_ manager responsible for controlling all sync sessions across all realms
@@ -9,7 +9,7 @@ import io.github.xilinjia.krdb.mongodb.syncSession
  * realm, see [syncSession].
  *
  * @see App.sync
- * @see io.github.xilinjia.krdb.mongodb.syncSession
+ * @see io.realm.kotlin.mongodb.syncSession
  */
 public interface Sync {
 

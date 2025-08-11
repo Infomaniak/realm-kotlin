@@ -16,24 +16,24 @@
 
 @file:OptIn(ExperimentalCoroutinesApi::class)
 
-package io.github.xilinjia.krdb.test.common.notifications
+package io.realm.kotlin.test.common.notifications
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.entities.JsonStyleRealmObject
-import io.github.xilinjia.krdb.ext.realmAnyDictionaryOf
-import io.github.xilinjia.krdb.ext.realmAnyListOf
-import io.github.xilinjia.krdb.ext.realmAnyOf
-import io.github.xilinjia.krdb.internal.platform.runBlocking
-import io.github.xilinjia.krdb.notifications.DeletedMap
-import io.github.xilinjia.krdb.notifications.InitialMap
-import io.github.xilinjia.krdb.notifications.MapChange
-import io.github.xilinjia.krdb.notifications.UpdatedMap
-import io.github.xilinjia.krdb.test.common.utils.DeletableEntityNotificationTests
-import io.github.xilinjia.krdb.test.common.utils.FlowableTests
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.util.receiveOrFail
-import io.github.xilinjia.krdb.types.RealmAny
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.entities.JsonStyleRealmObject
+import io.realm.kotlin.ext.realmAnyDictionaryOf
+import io.realm.kotlin.ext.realmAnyListOf
+import io.realm.kotlin.ext.realmAnyOf
+import io.realm.kotlin.internal.platform.runBlocking
+import io.realm.kotlin.notifications.DeletedMap
+import io.realm.kotlin.notifications.InitialMap
+import io.realm.kotlin.notifications.MapChange
+import io.realm.kotlin.notifications.UpdatedMap
+import io.realm.kotlin.test.common.utils.DeletableEntityNotificationTests
+import io.realm.kotlin.test.common.utils.FlowableTests
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.util.receiveOrFail
+import io.realm.kotlin.types.RealmAny
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.async
 import kotlinx.coroutines.channels.Channel

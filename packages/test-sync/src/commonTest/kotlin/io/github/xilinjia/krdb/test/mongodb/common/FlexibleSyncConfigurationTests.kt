@@ -13,22 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.test.mongodb.common
+package io.realm.kotlin.test.mongodb.common
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.internal.platform.PATH_SEPARATOR
-import io.github.xilinjia.krdb.internal.platform.pathOf
-import io.github.xilinjia.krdb.internal.platform.runBlocking
-import io.github.xilinjia.krdb.mongodb.App
-import io.github.xilinjia.krdb.mongodb.User
-import io.github.xilinjia.krdb.mongodb.sync.InitialSubscriptionsCallback
-import io.github.xilinjia.krdb.mongodb.sync.SyncConfiguration
-import io.github.xilinjia.krdb.mongodb.sync.SyncMode
-import io.github.xilinjia.krdb.test.mongodb.TestApp
-import io.github.xilinjia.krdb.test.mongodb.asTestApp
-import io.github.xilinjia.krdb.test.mongodb.createUserAndLogIn
-import io.github.xilinjia.krdb.test.mongodb.util.DefaultFlexibleSyncAppInitializer
-import io.github.xilinjia.krdb.test.util.TestHelper
+import io.realm.kotlin.Realm
+import io.realm.kotlin.internal.platform.PATH_SEPARATOR
+import io.realm.kotlin.internal.platform.pathOf
+import io.realm.kotlin.internal.platform.runBlocking
+import io.realm.kotlin.mongodb.App
+import io.realm.kotlin.mongodb.User
+import io.realm.kotlin.mongodb.sync.InitialSubscriptionsCallback
+import io.realm.kotlin.mongodb.sync.SyncConfiguration
+import io.realm.kotlin.mongodb.sync.SyncMode
+import io.realm.kotlin.test.mongodb.TestApp
+import io.realm.kotlin.test.mongodb.asTestApp
+import io.realm.kotlin.test.mongodb.createUserAndLogIn
+import io.realm.kotlin.test.mongodb.util.DefaultFlexibleSyncAppInitializer
+import io.realm.kotlin.test.util.TestHelper
 import kotlinx.atomicfu.atomic
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
@@ -120,7 +120,7 @@ class FlexibleSyncConfigurationTests {
         // TODO Currently we use default implementation for `toString()`. This is
         //  different compared to Realm Java, but it is unclear if this is something
         //  that is worth implementing?
-        assertTrue(config.toString().startsWith("io.github.xilinjia.krdb.mongodb.internal.SyncConfigurationImpl@"), config.toString())
+        assertTrue(config.toString().startsWith("io.realm.kotlin.mongodb.internal.SyncConfigurationImpl@"), config.toString())
     }
 
     // @Test

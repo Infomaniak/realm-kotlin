@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.schema
+package io.realm.kotlin.schema
 
 /**
  * A [RealmClass] describing the object model of a specific class.

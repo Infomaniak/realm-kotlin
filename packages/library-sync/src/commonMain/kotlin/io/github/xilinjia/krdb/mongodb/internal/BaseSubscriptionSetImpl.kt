@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.internal
+package io.realm.kotlin.mongodb.internal
 
-import io.github.xilinjia.krdb.BaseRealm
-import io.github.xilinjia.krdb.internal.BaseRealmImpl
-import io.github.xilinjia.krdb.internal.interop.RealmBaseSubscriptionSetPointer
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmSubscriptionPointer
-import io.github.xilinjia.krdb.internal.interop.sync.CoreSubscriptionSetState
-import io.github.xilinjia.krdb.mongodb.sync.BaseSubscriptionSet
-import io.github.xilinjia.krdb.mongodb.sync.Subscription
-import io.github.xilinjia.krdb.mongodb.sync.SubscriptionSetState
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.types.RealmObject
+import io.realm.kotlin.BaseRealm
+import io.realm.kotlin.internal.BaseRealmImpl
+import io.realm.kotlin.internal.interop.RealmBaseSubscriptionSetPointer
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmSubscriptionPointer
+import io.realm.kotlin.internal.interop.sync.CoreSubscriptionSetState
+import io.realm.kotlin.mongodb.sync.BaseSubscriptionSet
+import io.realm.kotlin.mongodb.sync.Subscription
+import io.realm.kotlin.mongodb.sync.SubscriptionSetState
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.types.RealmObject
 
 internal abstract class BaseSubscriptionSetImpl<T : BaseRealm>(
     protected val realm: T,
@@ -42,7 +42,7 @@ internal abstract class BaseSubscriptionSetImpl<T : BaseRealm>(
 
     @Suppress("invisible_reference", "invisible_member")
     override fun <T : RealmObject> findByQuery(query: RealmQuery<T>): Subscription? {
-        val queryPointer = (query as io.github.xilinjia.krdb.internal.query.ObjectQuery).queryPointer
+        val queryPointer = (query as io.realm.kotlin.internal.query.ObjectQuery).queryPointer
         return nativePointer.let { subscriptionSetPointer: RealmBaseSubscriptionSetPointer ->
             val subscriptionPointer: RealmSubscriptionPointer? = RealmInterop.realm_sync_find_subscription_by_query(
                 subscriptionSetPointer,

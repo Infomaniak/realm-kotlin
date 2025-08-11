@@ -15,72 +15,72 @@
  */
 @file:Suppress("invisible_member", "invisible_reference")
 
-package io.github.xilinjia.krdb.test.mongodb.common
+package io.realm.kotlin.test.mongodb.common
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.VersionId
-import io.github.xilinjia.krdb.entities.JsonStyleRealmObject
-import io.github.xilinjia.krdb.entities.sync.BinaryObject
-import io.github.xilinjia.krdb.entities.sync.ChildPk
-import io.github.xilinjia.krdb.entities.sync.ParentPk
-import io.github.xilinjia.krdb.entities.sync.SyncObjectWithAllTypes
-import io.github.xilinjia.krdb.entities.sync.flx.FlexChildObject
-import io.github.xilinjia.krdb.entities.sync.flx.FlexEmbeddedObject
-import io.github.xilinjia.krdb.entities.sync.flx.FlexParentObject
-import io.github.xilinjia.krdb.ext.asFlow
-import io.github.xilinjia.krdb.ext.asRealmObject
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.ext.realmAnyDictionaryOf
-import io.github.xilinjia.krdb.ext.realmAnyListOf
-import io.github.xilinjia.krdb.internal.interop.ErrorCode
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.platform.fileExists
-import io.github.xilinjia.krdb.internal.platform.pathOf
-import io.github.xilinjia.krdb.internal.platform.runBlocking
-import io.github.xilinjia.krdb.log.RealmLog
-import io.github.xilinjia.krdb.mongodb.App
-import io.github.xilinjia.krdb.mongodb.Credentials
-import io.github.xilinjia.krdb.mongodb.User
-import io.github.xilinjia.krdb.mongodb.exceptions.DownloadingRealmTimeOutException
-import io.github.xilinjia.krdb.mongodb.exceptions.SyncException
-import io.github.xilinjia.krdb.mongodb.exceptions.UnrecoverableSyncException
-import io.github.xilinjia.krdb.mongodb.exceptions.WrongSyncTypeException
-import io.github.xilinjia.krdb.mongodb.internal.SyncSessionImpl
-import io.github.xilinjia.krdb.mongodb.subscriptions
-import io.github.xilinjia.krdb.mongodb.sync.InitialSubscriptionsCallback
-import io.github.xilinjia.krdb.mongodb.sync.SubscriptionSetState
-import io.github.xilinjia.krdb.mongodb.sync.SyncConfiguration
-import io.github.xilinjia.krdb.mongodb.sync.SyncSession
-import io.github.xilinjia.krdb.mongodb.sync.SyncSession.ErrorHandler
-import io.github.xilinjia.krdb.mongodb.syncSession
-import io.github.xilinjia.krdb.notifications.InitialRealm
-import io.github.xilinjia.krdb.notifications.RealmChange
-import io.github.xilinjia.krdb.notifications.ResultsChange
-import io.github.xilinjia.krdb.notifications.UpdatedRealm
-import io.github.xilinjia.krdb.query.RealmResults
-import io.github.xilinjia.krdb.schema.RealmClass
-import io.github.xilinjia.krdb.schema.RealmSchema
-import io.github.xilinjia.krdb.schema.ValuePropertyType
-import io.github.xilinjia.krdb.test.mongodb.TestApp
-import io.github.xilinjia.krdb.test.mongodb.asTestApp
-import io.github.xilinjia.krdb.test.mongodb.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.mongodb.common.utils.uploadAllLocalChangesOrFail
-import io.github.xilinjia.krdb.test.mongodb.createUserAndLogIn
-import io.github.xilinjia.krdb.test.mongodb.use
-import io.github.xilinjia.krdb.test.mongodb.util.DefaultFlexibleSyncAppInitializer
-import io.github.xilinjia.krdb.test.mongodb.util.DefaultPartitionBasedAppInitializer
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.util.TestChannel
-import io.github.xilinjia.krdb.test.util.TestHelper
-import io.github.xilinjia.krdb.test.util.TestHelper.randomEmail
-import io.github.xilinjia.krdb.test.util.receiveOrFail
-import io.github.xilinjia.krdb.test.util.trySendOrFail
-import io.github.xilinjia.krdb.test.util.use
-import io.github.xilinjia.krdb.types.BaseRealmObject
-import io.github.xilinjia.krdb.types.RealmAny
-import io.github.xilinjia.krdb.types.RealmDictionary
-import io.github.xilinjia.krdb.types.RealmList
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.VersionId
+import io.realm.kotlin.entities.JsonStyleRealmObject
+import io.realm.kotlin.entities.sync.BinaryObject
+import io.realm.kotlin.entities.sync.ChildPk
+import io.realm.kotlin.entities.sync.ParentPk
+import io.realm.kotlin.entities.sync.SyncObjectWithAllTypes
+import io.realm.kotlin.entities.sync.flx.FlexChildObject
+import io.realm.kotlin.entities.sync.flx.FlexEmbeddedObject
+import io.realm.kotlin.entities.sync.flx.FlexParentObject
+import io.realm.kotlin.ext.asFlow
+import io.realm.kotlin.ext.asRealmObject
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.ext.realmAnyDictionaryOf
+import io.realm.kotlin.ext.realmAnyListOf
+import io.realm.kotlin.internal.interop.ErrorCode
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.platform.fileExists
+import io.realm.kotlin.internal.platform.pathOf
+import io.realm.kotlin.internal.platform.runBlocking
+import io.realm.kotlin.log.RealmLog
+import io.realm.kotlin.mongodb.App
+import io.realm.kotlin.mongodb.Credentials
+import io.realm.kotlin.mongodb.User
+import io.realm.kotlin.mongodb.exceptions.DownloadingRealmTimeOutException
+import io.realm.kotlin.mongodb.exceptions.SyncException
+import io.realm.kotlin.mongodb.exceptions.UnrecoverableSyncException
+import io.realm.kotlin.mongodb.exceptions.WrongSyncTypeException
+import io.realm.kotlin.mongodb.internal.SyncSessionImpl
+import io.realm.kotlin.mongodb.subscriptions
+import io.realm.kotlin.mongodb.sync.InitialSubscriptionsCallback
+import io.realm.kotlin.mongodb.sync.SubscriptionSetState
+import io.realm.kotlin.mongodb.sync.SyncConfiguration
+import io.realm.kotlin.mongodb.sync.SyncSession
+import io.realm.kotlin.mongodb.sync.SyncSession.ErrorHandler
+import io.realm.kotlin.mongodb.syncSession
+import io.realm.kotlin.notifications.InitialRealm
+import io.realm.kotlin.notifications.RealmChange
+import io.realm.kotlin.notifications.ResultsChange
+import io.realm.kotlin.notifications.UpdatedRealm
+import io.realm.kotlin.query.RealmResults
+import io.realm.kotlin.schema.RealmClass
+import io.realm.kotlin.schema.RealmSchema
+import io.realm.kotlin.schema.ValuePropertyType
+import io.realm.kotlin.test.mongodb.TestApp
+import io.realm.kotlin.test.mongodb.asTestApp
+import io.realm.kotlin.test.mongodb.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.mongodb.common.utils.uploadAllLocalChangesOrFail
+import io.realm.kotlin.test.mongodb.createUserAndLogIn
+import io.realm.kotlin.test.mongodb.use
+import io.realm.kotlin.test.mongodb.util.DefaultFlexibleSyncAppInitializer
+import io.realm.kotlin.test.mongodb.util.DefaultPartitionBasedAppInitializer
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.util.TestChannel
+import io.realm.kotlin.test.util.TestHelper
+import io.realm.kotlin.test.util.TestHelper.randomEmail
+import io.realm.kotlin.test.util.receiveOrFail
+import io.realm.kotlin.test.util.trySendOrFail
+import io.realm.kotlin.test.util.use
+import io.realm.kotlin.types.BaseRealmObject
+import io.realm.kotlin.types.RealmAny
+import io.realm.kotlin.types.RealmDictionary
+import io.realm.kotlin.types.RealmList
 import kotlinx.atomicfu.atomic
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -485,7 +485,7 @@ class SyncedRealmTests {
         runBlocking {
             realm1.syncSession.uploadAllLocalChangesOrFail()
             val config2 = SyncConfiguration.Builder(
-                schema = setOf(io.github.xilinjia.krdb.entities.sync.bogus.ChildPk::class),
+                schema = setOf(io.realm.kotlin.entities.sync.bogus.ChildPk::class),
                 user = user,
                 partitionValue = partitionValue
             ).name("test2.realm")
@@ -1030,7 +1030,7 @@ class SyncedRealmTests {
         createPartitionSyncConfig(
             user = user2,
             partitionValue = partitionValue,
-            // schema = setOf(io.github.xilinjia.krdb.entities.sync.subset.ChildPk::class)
+            // schema = setOf(io.realm.kotlin.entities.sync.subset.ChildPk::class)
         ).let { config ->
             Realm.open(config).use { realm ->
                 // Make sure that server schema changes are integrated
@@ -2164,10 +2164,10 @@ class SyncedRealmTests {
 //    }
 //
 //    @Suppress("invisible_reference")
-//    private val intermediateReferences: AtomicRef<Set<Pair<NativePointer, WeakReference<io.github.xilinjia.krdb.internal.RealmReference>>>>
+//    private val intermediateReferences: AtomicRef<Set<Pair<NativePointer, WeakReference<io.realm.kotlin.internal.RealmReference>>>>
 //        get() {
 //            @Suppress("invisible_member")
-//            return (realm as io.github.xilinjia.krdb.internal.RealmImpl).intermediateReferences
+//            return (realm as io.realm.kotlin.internal.RealmImpl).intermediateReferences
 //        }
 
     @Suppress("LongParameterList")

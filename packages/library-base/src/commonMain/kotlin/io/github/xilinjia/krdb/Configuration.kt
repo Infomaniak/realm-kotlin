@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb
+package io.realm.kotlin
 
-import io.github.xilinjia.krdb.Configuration.SharedBuilder
-import io.github.xilinjia.krdb.internal.MISSING_PLUGIN_MESSAGE
-import io.github.xilinjia.krdb.internal.REALM_FILE_EXTENSION
-import io.github.xilinjia.krdb.internal.platform.PATH_SEPARATOR
-import io.github.xilinjia.krdb.internal.realmObjectCompanionOrNull
-import io.github.xilinjia.krdb.types.BaseRealmObject
+import io.realm.kotlin.Configuration.SharedBuilder
+import io.realm.kotlin.internal.MISSING_PLUGIN_MESSAGE
+import io.realm.kotlin.internal.REALM_FILE_EXTENSION
+import io.realm.kotlin.internal.platform.PATH_SEPARATOR
+import io.realm.kotlin.internal.realmObjectCompanionOrNull
+import io.realm.kotlin.types.BaseRealmObject
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlin.reflect.KClass
 

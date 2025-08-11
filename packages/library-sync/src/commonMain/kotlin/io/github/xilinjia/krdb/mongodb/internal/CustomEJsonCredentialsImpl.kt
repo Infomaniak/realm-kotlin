@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.internal
+package io.realm.kotlin.mongodb.internal
 
-import io.github.xilinjia.krdb.internal.interop.RealmCredentialsPointer
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.mongodb.AuthenticationProvider
-import io.github.xilinjia.krdb.mongodb.Credentials
+import io.realm.kotlin.internal.interop.RealmCredentialsPointer
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.mongodb.AuthenticationProvider
+import io.realm.kotlin.mongodb.Credentials
 
 /**
  * Credentials for a EJson payload. It solved the issue where payload serialization requires access to

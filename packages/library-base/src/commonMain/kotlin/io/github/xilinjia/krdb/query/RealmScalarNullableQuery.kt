@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.query
+package io.realm.kotlin.query
 
 /**
  * Queries that return scalar, nullable values. This type of query is used to more accurately

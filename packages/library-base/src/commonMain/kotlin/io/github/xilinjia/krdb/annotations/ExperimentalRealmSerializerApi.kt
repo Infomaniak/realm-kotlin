@@ -12,7 +12,7 @@
  * limitations under the License.
  *
  */
-package io.github.xilinjia.krdb.annotations
+package io.realm.kotlin.annotations
 
 @MustBeDocumented
 @Target(

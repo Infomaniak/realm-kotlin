@@ -1,12 +1,12 @@
-package io.github.xilinjia.krdb.mongodb.internal
+package io.realm.kotlin.mongodb.internal
 
-import io.github.xilinjia.krdb.internal.ContextLogger
-import io.github.xilinjia.krdb.internal.interop.RealmWebsocketHandlerCallbackPointer
-import io.github.xilinjia.krdb.internal.interop.sync.WebSocketClient
-import io.github.xilinjia.krdb.internal.interop.sync.WebSocketObserver
-import io.github.xilinjia.krdb.internal.interop.sync.WebsocketCallbackResult
-import io.github.xilinjia.krdb.internal.interop.sync.WebsocketEngine
-import io.github.xilinjia.krdb.internal.interop.sync.WebsocketErrorCode
+import io.realm.kotlin.internal.ContextLogger
+import io.realm.kotlin.internal.interop.RealmWebsocketHandlerCallbackPointer
+import io.realm.kotlin.internal.interop.sync.WebSocketClient
+import io.realm.kotlin.internal.interop.sync.WebSocketObserver
+import io.realm.kotlin.internal.interop.sync.WebsocketCallbackResult
+import io.realm.kotlin.internal.interop.sync.WebsocketEngine
+import io.realm.kotlin.internal.interop.sync.WebsocketErrorCode
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient

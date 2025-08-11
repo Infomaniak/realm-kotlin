@@ -1,4 +1,4 @@
-package io.github.xilinjia.krdb.mongodb.internal
+package io.realm.kotlin.mongodb.internal
 
 internal actual fun registerSystemNetworkObserver() {
     // Do nothing on JVM.

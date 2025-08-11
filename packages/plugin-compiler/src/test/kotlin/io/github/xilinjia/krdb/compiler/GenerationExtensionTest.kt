@@ -15,29 +15,29 @@
  */
 @file:OptIn(ExperimentalCompilerApi::class)
 
-package io.github.xilinjia.krdb.compiler
+package io.realm.kotlin.compiler
 
 import com.tschuchort.compiletesting.JvmCompilationResult
 import com.tschuchort.compiletesting.KotlinCompilation
 import com.tschuchort.compiletesting.PluginOption
 import com.tschuchort.compiletesting.SourceFile
-import io.github.xilinjia.krdb.internal.BaseRealmImpl
-import io.github.xilinjia.krdb.internal.Mediator
-import io.github.xilinjia.krdb.internal.RealmObjectCompanion
-import io.github.xilinjia.krdb.internal.RealmObjectInternal
-import io.github.xilinjia.krdb.internal.RealmObjectReference
-import io.github.xilinjia.krdb.internal.RealmReference
-import io.github.xilinjia.krdb.internal.interop.ClassKey
-import io.github.xilinjia.krdb.internal.interop.PropertyKey
-import io.github.xilinjia.krdb.internal.interop.PropertyType
-import io.github.xilinjia.krdb.internal.interop.RealmObjectPointer
-import io.github.xilinjia.krdb.internal.interop.RealmPointer
-import io.github.xilinjia.krdb.internal.schema.ClassMetadata
-import io.github.xilinjia.krdb.internal.schema.PropertyMetadata
-import io.github.xilinjia.krdb.internal.schema.SchemaMetadata
-import io.github.xilinjia.krdb.types.BaseRealmObject
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.TypedRealmObject
+import io.realm.kotlin.internal.BaseRealmImpl
+import io.realm.kotlin.internal.Mediator
+import io.realm.kotlin.internal.RealmObjectCompanion
+import io.realm.kotlin.internal.RealmObjectInternal
+import io.realm.kotlin.internal.RealmObjectReference
+import io.realm.kotlin.internal.RealmReference
+import io.realm.kotlin.internal.interop.ClassKey
+import io.realm.kotlin.internal.interop.PropertyKey
+import io.realm.kotlin.internal.interop.PropertyType
+import io.realm.kotlin.internal.interop.RealmObjectPointer
+import io.realm.kotlin.internal.interop.RealmPointer
+import io.realm.kotlin.internal.schema.ClassMetadata
+import io.realm.kotlin.internal.schema.PropertyMetadata
+import io.realm.kotlin.internal.schema.SchemaMetadata
+import io.realm.kotlin.types.BaseRealmObject
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.TypedRealmObject
 import org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi
 import org.junit.Test
 import java.io.File
@@ -373,7 +373,7 @@ class GenerationExtensionTest {
             inputs,
             options = listOf(
                 PluginOption(
-                    pluginId = "io.github.xilinjia.krdb",
+                    pluginId = "io.realm.kotlin",
                     optionName = "bundleId",
                     optionValue = "BUNDLE_ID"
                 ),

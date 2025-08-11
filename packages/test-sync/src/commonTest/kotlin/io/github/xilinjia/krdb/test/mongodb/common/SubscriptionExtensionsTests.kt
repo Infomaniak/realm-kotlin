@@ -16,27 +16,27 @@
 
 @file:OptIn(ExperimentalFlexibleSyncApi::class)
 
-package io.github.xilinjia.krdb.test.mongodb.common
+package io.realm.kotlin.test.mongodb.common
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.entities.sync.flx.FlexParentObject
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.internal.platform.runBlocking
-import io.github.xilinjia.krdb.mongodb.annotations.ExperimentalFlexibleSyncApi
-import io.github.xilinjia.krdb.mongodb.ext.subscribe
-import io.github.xilinjia.krdb.mongodb.subscriptions
-import io.github.xilinjia.krdb.mongodb.sync.Subscription
-import io.github.xilinjia.krdb.mongodb.sync.SubscriptionSetState
-import io.github.xilinjia.krdb.mongodb.sync.SyncConfiguration
-import io.github.xilinjia.krdb.mongodb.sync.WaitForSync
-import io.github.xilinjia.krdb.mongodb.syncSession
-import io.github.xilinjia.krdb.query.RealmResults
-import io.github.xilinjia.krdb.test.mongodb.TestApp
-import io.github.xilinjia.krdb.test.mongodb.common.utils.uploadAllLocalChangesOrFail
-import io.github.xilinjia.krdb.test.mongodb.createUserAndLogIn
-import io.github.xilinjia.krdb.test.mongodb.util.DefaultFlexibleSyncAppInitializer
-import io.github.xilinjia.krdb.test.util.TestHelper
-import io.github.xilinjia.krdb.test.util.use
+import io.realm.kotlin.Realm
+import io.realm.kotlin.entities.sync.flx.FlexParentObject
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.internal.platform.runBlocking
+import io.realm.kotlin.mongodb.annotations.ExperimentalFlexibleSyncApi
+import io.realm.kotlin.mongodb.ext.subscribe
+import io.realm.kotlin.mongodb.subscriptions
+import io.realm.kotlin.mongodb.sync.Subscription
+import io.realm.kotlin.mongodb.sync.SubscriptionSetState
+import io.realm.kotlin.mongodb.sync.SyncConfiguration
+import io.realm.kotlin.mongodb.sync.WaitForSync
+import io.realm.kotlin.mongodb.syncSession
+import io.realm.kotlin.query.RealmResults
+import io.realm.kotlin.test.mongodb.TestApp
+import io.realm.kotlin.test.mongodb.common.utils.uploadAllLocalChangesOrFail
+import io.realm.kotlin.test.mongodb.createUserAndLogIn
+import io.realm.kotlin.test.mongodb.util.DefaultFlexibleSyncAppInitializer
+import io.realm.kotlin.test.util.TestHelper
+import io.realm.kotlin.test.util.use
 import kotlinx.coroutines.TimeoutCancellationException
 import kotlin.random.Random
 import kotlin.test.AfterTest

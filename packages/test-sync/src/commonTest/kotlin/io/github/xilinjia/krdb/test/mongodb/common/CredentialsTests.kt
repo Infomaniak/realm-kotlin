@@ -16,27 +16,27 @@
 @file:Suppress("invisible_member", "invisible_reference")
 @file:OptIn(ExperimentalRealmSerializerApi::class)
 
-package io.github.xilinjia.krdb.test.mongodb.common
+package io.realm.kotlin.test.mongodb.common
 
-import io.github.xilinjia.krdb.annotations.ExperimentalRealmSerializerApi
-import io.github.xilinjia.krdb.internal.platform.runBlocking
-import io.github.xilinjia.krdb.mongodb.App
-import io.github.xilinjia.krdb.mongodb.AuthenticationProvider
-import io.github.xilinjia.krdb.mongodb.Credentials
-import io.github.xilinjia.krdb.mongodb.GoogleAuthType
-import io.github.xilinjia.krdb.mongodb.User
-import io.github.xilinjia.krdb.mongodb.auth.ApiKey
-import io.github.xilinjia.krdb.mongodb.exceptions.AppException
-import io.github.xilinjia.krdb.mongodb.exceptions.AuthException
-import io.github.xilinjia.krdb.mongodb.internal.AppImpl
-import io.github.xilinjia.krdb.mongodb.internal.CredentialsImpl
-import io.github.xilinjia.krdb.mongodb.internal.CustomEJsonCredentialsImpl
-import io.github.xilinjia.krdb.test.mongodb.TestApp
-import io.github.xilinjia.krdb.test.mongodb.asTestApp
-import io.github.xilinjia.krdb.test.mongodb.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.mongodb.createUserAndLogIn
-import io.github.xilinjia.krdb.test.mongodb.util.DefaultPartitionBasedAppInitializer
-import io.github.xilinjia.krdb.test.util.TestHelper
+import io.realm.kotlin.annotations.ExperimentalRealmSerializerApi
+import io.realm.kotlin.internal.platform.runBlocking
+import io.realm.kotlin.mongodb.App
+import io.realm.kotlin.mongodb.AuthenticationProvider
+import io.realm.kotlin.mongodb.Credentials
+import io.realm.kotlin.mongodb.GoogleAuthType
+import io.realm.kotlin.mongodb.User
+import io.realm.kotlin.mongodb.auth.ApiKey
+import io.realm.kotlin.mongodb.exceptions.AppException
+import io.realm.kotlin.mongodb.exceptions.AuthException
+import io.realm.kotlin.mongodb.internal.AppImpl
+import io.realm.kotlin.mongodb.internal.CredentialsImpl
+import io.realm.kotlin.mongodb.internal.CustomEJsonCredentialsImpl
+import io.realm.kotlin.test.mongodb.TestApp
+import io.realm.kotlin.test.mongodb.asTestApp
+import io.realm.kotlin.test.mongodb.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.mongodb.createUserAndLogIn
+import io.realm.kotlin.test.mongodb.util.DefaultPartitionBasedAppInitializer
+import io.realm.kotlin.test.util.TestHelper
 import kotlinx.serialization.Serializable
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest

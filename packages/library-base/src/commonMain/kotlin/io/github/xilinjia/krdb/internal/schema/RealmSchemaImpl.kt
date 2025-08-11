@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.schema
+package io.realm.kotlin.internal.schema
 
-import io.github.xilinjia.krdb.internal.interop.PropertyInfo
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmPointer
-import io.github.xilinjia.krdb.schema.RealmSchema
+import io.realm.kotlin.internal.interop.PropertyInfo
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmPointer
+import io.realm.kotlin.schema.RealmSchema
 
 internal data class RealmSchemaImpl(
     override val classes: Collection<RealmClassImpl>

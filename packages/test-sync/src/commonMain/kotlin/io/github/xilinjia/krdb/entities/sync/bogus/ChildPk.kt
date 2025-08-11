@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.entities.sync.bogus
+package io.realm.kotlin.entities.sync.bogus
 
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.annotations.PrimaryKey
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.annotations.PrimaryKey
 
 /**
- * Represents the same entity as [io.github.xilinjia.krdb.entities.sync.ChildPk] but with a different `name` in
+ * Represents the same entity as [io.realm.kotlin.entities.sync.ChildPk] but with a different `name` in
  * order to trigger an invalid schema error in Sync.
  */
 class ChildPk : RealmObject {

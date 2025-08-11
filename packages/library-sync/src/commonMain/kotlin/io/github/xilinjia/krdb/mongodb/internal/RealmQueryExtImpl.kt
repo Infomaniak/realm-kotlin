@@ -14,22 +14,22 @@
  * limitations under the License.
  */
 @file:Suppress("invisible_reference", "invisible_member")
-package io.github.xilinjia.krdb.mongodb.internal
+package io.realm.kotlin.mongodb.internal
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.internal.RealmImpl
-import io.github.xilinjia.krdb.internal.getRealm
-import io.github.xilinjia.krdb.internal.query.ObjectQuery
-import io.github.xilinjia.krdb.mongodb.exceptions.BadFlexibleSyncQueryException
-import io.github.xilinjia.krdb.mongodb.subscriptions
-import io.github.xilinjia.krdb.mongodb.sync.Subscription
-import io.github.xilinjia.krdb.mongodb.sync.SubscriptionSet
-import io.github.xilinjia.krdb.mongodb.sync.SyncConfiguration
-import io.github.xilinjia.krdb.mongodb.sync.WaitForSync
-import io.github.xilinjia.krdb.mongodb.syncSession
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.query.RealmResults
-import io.github.xilinjia.krdb.types.RealmObject
+import io.realm.kotlin.Realm
+import io.realm.kotlin.internal.RealmImpl
+import io.realm.kotlin.internal.getRealm
+import io.realm.kotlin.internal.query.ObjectQuery
+import io.realm.kotlin.mongodb.exceptions.BadFlexibleSyncQueryException
+import io.realm.kotlin.mongodb.subscriptions
+import io.realm.kotlin.mongodb.sync.Subscription
+import io.realm.kotlin.mongodb.sync.SubscriptionSet
+import io.realm.kotlin.mongodb.sync.SyncConfiguration
+import io.realm.kotlin.mongodb.sync.WaitForSync
+import io.realm.kotlin.mongodb.syncSession
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.query.RealmResults
+import io.realm.kotlin.types.RealmObject
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeout
@@ -86,7 +86,7 @@ private fun <T : RealmObject> findExistingQueryInSubscriptions(
 ): Subscription? {
     return if (name != null) {
         val sub: Subscription? = subscriptions.findByName(name)
-        val companion = io.github.xilinjia.krdb.internal.platform.realmObjectCompanionOrThrow(query.clazz)
+        val companion = io.realm.kotlin.internal.platform.realmObjectCompanionOrThrow(query.clazz)
         val userTypeName = companion.io_realm_kotlin_className
         if (sub?.queryDescription == query.description() && sub.objectType == userTypeName) {
             sub

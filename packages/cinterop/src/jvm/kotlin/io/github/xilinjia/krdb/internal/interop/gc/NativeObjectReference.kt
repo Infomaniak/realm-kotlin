@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop.gc
+package io.realm.kotlin.internal.interop.gc
 
-import io.github.xilinjia.krdb.internal.interop.LongPointerWrapper
-import io.github.xilinjia.krdb.internal.interop.realmc
+import io.realm.kotlin.internal.interop.LongPointerWrapper
+import io.realm.kotlin.internal.interop.realmc
 import java.lang.ref.PhantomReference
 import java.lang.ref.ReferenceQueue
 

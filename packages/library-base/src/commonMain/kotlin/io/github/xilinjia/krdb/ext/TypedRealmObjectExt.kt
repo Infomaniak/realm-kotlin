@@ -13,17 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.ext
+package io.realm.kotlin.ext
 
-import io.github.xilinjia.krdb.TypedRealm
-import io.github.xilinjia.krdb.internal.getRealm
-import io.github.xilinjia.krdb.types.RealmDictionary
-import io.github.xilinjia.krdb.types.RealmList
-import io.github.xilinjia.krdb.types.RealmSet
-import io.github.xilinjia.krdb.types.TypedRealmObject
+import io.realm.kotlin.TypedRealm
+import io.realm.kotlin.internal.getRealm
+import io.realm.kotlin.types.RealmDictionary
+import io.realm.kotlin.types.RealmList
+import io.realm.kotlin.types.RealmSet
+import io.realm.kotlin.types.TypedRealmObject
 
 /**
- * Makes an unmanaged in-memory copy of an already persisted [io.github.xilinjia.krdb.types.RealmObject].
+ * Makes an unmanaged in-memory copy of an already persisted [io.realm.kotlin.types.RealmObject].
  * This is a deep copy that will copy all referenced objects.
  *
  * @param depth limit of the deep copy. All object references after this depth will be `null`.

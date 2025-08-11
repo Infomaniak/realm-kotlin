@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.test.common.utils
+package io.realm.kotlin.test.common.utils
 
-import io.github.xilinjia.krdb.internal.platform.directoryExists
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
+import io.realm.kotlin.internal.platform.directoryExists
+import io.realm.kotlin.test.platform.PlatformUtils
 import kotlin.test.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertNotEquals

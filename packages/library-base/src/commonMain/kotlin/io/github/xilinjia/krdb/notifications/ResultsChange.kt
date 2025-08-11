@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.notifications
+package io.realm.kotlin.notifications
 
-import io.github.xilinjia.krdb.query.RealmResults
-import io.github.xilinjia.krdb.types.BaseRealmObject
+import io.realm.kotlin.query.RealmResults
+import io.realm.kotlin.types.BaseRealmObject
 
 /**
  * This sealed interface describe the possible changes that can happen to a query results collection.

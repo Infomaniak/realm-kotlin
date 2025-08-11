@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop.sync
+package io.realm.kotlin.internal.interop.sync
 
-import io.github.xilinjia.krdb.internal.interop.NativeEnum
+import io.realm.kotlin.internal.interop.NativeEnum
 import realm_wrapper.realm_user_state_e
 
 actual enum class CoreUserState(

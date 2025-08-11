@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 // FIXME Don't know how to call Sample::class.realmObjectCompanion() with
-//  import io.github.xilinjia.krdb.internal.platform.realmObjectCompanion
+//  import io.realm.kotlin.internal.platform.realmObjectCompanion
 // And cannot only supresss that single import
 @file:Suppress("invisible_member", "invisible_reference")
 
-package io.github.xilinjia.krdb.test.common
+package io.realm.kotlin.test.common
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.entities.Sample
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.ext.realmListOf
-import io.github.xilinjia.krdb.ext.toRealmList
-import io.github.xilinjia.krdb.internal.RealmObjectCompanion
-import io.github.xilinjia.krdb.internal.realmObjectCompanionOrThrow
-import io.github.xilinjia.krdb.query.find
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.types.RealmInstant
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.entities.Sample
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.ext.realmListOf
+import io.realm.kotlin.ext.toRealmList
+import io.realm.kotlin.internal.RealmObjectCompanion
+import io.realm.kotlin.internal.realmObjectCompanionOrThrow
+import io.realm.kotlin.query.find
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.types.RealmInstant
 import org.mongodb.kbson.Decimal128
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
@@ -71,10 +71,10 @@ class SampleTests {
         // Needs fully qualified reference otherwise it will somehow overlap with the above and
         // generated the following compilation error:
         //   Caused by: java.lang.AssertionError: Unexpected IR element found during code generation. Either code generation for it is not implemented, or it should have been lowered:
-        //   ERROR_CALL 'Cannot bind 1 arguments to 'FUN IR_EXTERNAL_DECLARATION_STUB name:realmObjectCompanionOrThrow visibility:internal modality:FINAL <T> ($receiver:kotlin.reflect.KClass<T of io.github.xilinjia.krdb.internal.realmObjectCompanionOrThrow>) returnType:io.github.xilinjia.krdb.internal.RealmObjectCompanion [inline]' call with 0 parameters' type=io.github.xilinjia.krdb.internal.RealmObjectCompanion
+        //   ERROR_CALL 'Cannot bind 1 arguments to 'FUN IR_EXTERNAL_DECLARATION_STUB name:realmObjectCompanionOrThrow visibility:internal modality:FINAL <T> ($receiver:kotlin.reflect.KClass<T of io.realm.kotlin.internal.realmObjectCompanionOrThrow>) returnType:io.realm.kotlin.internal.RealmObjectCompanion [inline]' call with 0 parameters' type=io.realm.kotlin.internal.RealmObjectCompanion
         // The issue goes away if the symbols are publicly available from the library, so related
         // to accessing invisible members/references, thus didn't investigate further
-        assertIs<RealmObjectCompanion>(io.github.xilinjia.krdb.internal.platform.realmObjectCompanionOrThrow(Sample::class))
+        assertIs<RealmObjectCompanion>(io.realm.kotlin.internal.platform.realmObjectCompanionOrThrow(Sample::class))
     }
 
     @Test

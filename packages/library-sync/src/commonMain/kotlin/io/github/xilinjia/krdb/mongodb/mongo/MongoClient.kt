@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.mongo
+package io.realm.kotlin.mongodb.mongo
 
-import io.github.xilinjia.krdb.internal.RealmObjectCompanion
-import io.github.xilinjia.krdb.mongodb.internal.MongoDBSerializer
-import io.github.xilinjia.krdb.types.BaseRealmObject
-import io.github.xilinjia.krdb.types.RealmObject
+import io.realm.kotlin.internal.RealmObjectCompanion
+import io.realm.kotlin.mongodb.internal.MongoDBSerializer
+import io.realm.kotlin.types.BaseRealmObject
+import io.realm.kotlin.types.RealmObject
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.modules.SerializersModule
 import org.mongodb.kbson.ExperimentalKBsonSerializerApi
@@ -101,7 +101,7 @@ public fun realmSerializerModule(schema: Set<KClass<out BaseRealmObject>>): Seri
     val companions: Map<String, RealmObjectCompanion> =
         schema.associate { kClass ->
             @Suppress("invisible_reference", "invisible_member")
-            io.github.xilinjia.krdb.internal.platform.realmObjectCompanionOrThrow(kClass).let {
+            io.realm.kotlin.internal.platform.realmObjectCompanionOrThrow(kClass).let {
                 it.io_realm_kotlin_className to it
             }
         }

@@ -14,28 +14,28 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.internal
+package io.realm.kotlin.mongodb.internal
 
-import io.github.xilinjia.krdb.ext.toRealmDictionary
-import io.github.xilinjia.krdb.ext.toRealmList
-import io.github.xilinjia.krdb.ext.toRealmSet
-import io.github.xilinjia.krdb.internal.RealmObjectCompanion
-import io.github.xilinjia.krdb.internal.asBsonBinary
-import io.github.xilinjia.krdb.internal.asBsonDateTime
-import io.github.xilinjia.krdb.internal.asRealmInstant
-import io.github.xilinjia.krdb.internal.asRealmUUID
-import io.github.xilinjia.krdb.internal.interop.CollectionType
-import io.github.xilinjia.krdb.internal.schema.collectionType
-import io.github.xilinjia.krdb.internal.util.Validation.sdkError
-import io.github.xilinjia.krdb.schema.RealmProperty
-import io.github.xilinjia.krdb.schema.RealmPropertyType
-import io.github.xilinjia.krdb.schema.RealmStorageType
-import io.github.xilinjia.krdb.types.BaseRealmObject
-import io.github.xilinjia.krdb.types.MutableRealmInt
-import io.github.xilinjia.krdb.types.RealmAny
-import io.github.xilinjia.krdb.types.RealmInstant
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.RealmUUID
+import io.realm.kotlin.ext.toRealmDictionary
+import io.realm.kotlin.ext.toRealmList
+import io.realm.kotlin.ext.toRealmSet
+import io.realm.kotlin.internal.RealmObjectCompanion
+import io.realm.kotlin.internal.asBsonBinary
+import io.realm.kotlin.internal.asBsonDateTime
+import io.realm.kotlin.internal.asRealmInstant
+import io.realm.kotlin.internal.asRealmUUID
+import io.realm.kotlin.internal.interop.CollectionType
+import io.realm.kotlin.internal.schema.collectionType
+import io.realm.kotlin.internal.util.Validation.sdkError
+import io.realm.kotlin.schema.RealmProperty
+import io.realm.kotlin.schema.RealmPropertyType
+import io.realm.kotlin.schema.RealmStorageType
+import io.realm.kotlin.types.BaseRealmObject
+import io.realm.kotlin.types.MutableRealmInt
+import io.realm.kotlin.types.RealmAny
+import io.realm.kotlin.types.RealmInstant
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.RealmUUID
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.descriptors.SerialDescriptor
@@ -76,7 +76,7 @@ public class MongoDBSerializer internal constructor(
 ) : KSerializer<BaseRealmObject> {
     override val descriptor: SerialDescriptor = BsonDocument.serializer().descriptor
     @Suppress("invisible_reference", "invisible_member")
-    private val companion = io.github.xilinjia.krdb.internal.platform.realmObjectCompanionOrThrow(clazz)
+    private val companion = io.realm.kotlin.internal.platform.realmObjectCompanionOrThrow(clazz)
 
     override fun deserialize(decoder: Decoder): BaseRealmObject {
         return bsonToObject(companion, decoder.decodeSerializableValue(BsonDocument.serializer()))
@@ -147,7 +147,7 @@ public class MongoDBSerializer internal constructor(
                         @Suppress("UNCHECKED_CAST")
                         val targetCompanion =
                             @Suppress("invisible_reference", "invisible_member")
-                            io.github.xilinjia.krdb.internal.platform.realmObjectCompanionOrThrow(value::class as KClass<BaseRealmObject>)
+                            io.realm.kotlin.internal.platform.realmObjectCompanionOrThrow(value::class as KClass<BaseRealmObject>)
                         @Suppress("UNCHECKED_CAST")
                         val primaryKeyProperty: KMutableProperty1<BaseRealmObject, Any>? =
                             targetCompanion.io_realm_kotlin_primaryKey as KMutableProperty1<BaseRealmObject, Any>?
@@ -228,7 +228,7 @@ public class MongoDBSerializer internal constructor(
             // Objects in RealmAny cannot be EmbeddedObjects
             val target = realmAny.asRealmObject(BaseRealmObject::class)
             @Suppress("invisible_reference", "invisible_member")
-            val targetCompanion = io.github.xilinjia.krdb.internal.platform.realmObjectCompanionOrThrow(target::class)
+            val targetCompanion = io.realm.kotlin.internal.platform.realmObjectCompanionOrThrow(target::class)
             val primaryKeySchemaProperty: RealmProperty = targetCompanion.io_realm_kotlin_schema().primaryKey ?: throw SerializationException(
                 "Cannot serialize class without primary key: '${targetCompanion.io_realm_kotlin_className}'"
             )
@@ -280,7 +280,7 @@ public class MongoDBSerializer internal constructor(
                 RealmStorageType.OBJECT -> {
                     @Suppress("invisible_reference", "invisible_member")
                     val targetCompanion =
-                        io.github.xilinjia.krdb.internal.platform.realmObjectCompanionOrNull(kClass)
+                        io.realm.kotlin.internal.platform.realmObjectCompanionOrNull(kClass)
                             ?: sdkError("Unexpected kClass ('${kClass::simpleName}') without realm companion")
                     when (val primaryKeySchemaProperty = targetCompanion.io_realm_kotlin_schema().primaryKey) {
                         // Embedded objects does not have primary keys

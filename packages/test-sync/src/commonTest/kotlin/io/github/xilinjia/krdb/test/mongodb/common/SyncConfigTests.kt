@@ -15,46 +15,46 @@
  */
 @file:Suppress("invisible_member", "invisible_reference") // Needed to call session.simulateError()
 
-package io.github.xilinjia.krdb.test.mongodb.common
+package io.realm.kotlin.test.mongodb.common
 
-import io.github.xilinjia.krdb.CompactOnLaunchCallback
-import io.github.xilinjia.krdb.InitialDataCallback
-import io.github.xilinjia.krdb.MutableRealm
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.TypedRealm
-import io.github.xilinjia.krdb.dynamic.DynamicRealmObject
-import io.github.xilinjia.krdb.entities.sync.ChildPk
-import io.github.xilinjia.krdb.entities.sync.ParentPk
-import io.github.xilinjia.krdb.entities.sync.flx.FlexChildObject
-import io.github.xilinjia.krdb.entities.sync.flx.FlexEmbeddedObject
-import io.github.xilinjia.krdb.entities.sync.flx.FlexParentObject
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.internal.platform.pathOf
-import io.github.xilinjia.krdb.internal.platform.runBlocking
-import io.github.xilinjia.krdb.internal.platform.singleThreadDispatcher
-import io.github.xilinjia.krdb.log.RealmLog
-import io.github.xilinjia.krdb.mongodb.App
-import io.github.xilinjia.krdb.mongodb.User
-import io.github.xilinjia.krdb.mongodb.exceptions.ClientResetRequiredException
-import io.github.xilinjia.krdb.mongodb.exceptions.SyncException
-import io.github.xilinjia.krdb.mongodb.sync.DiscardUnsyncedChangesStrategy
-import io.github.xilinjia.krdb.mongodb.sync.ManuallyRecoverUnsyncedChangesStrategy
-import io.github.xilinjia.krdb.mongodb.sync.RecoverOrDiscardUnsyncedChangesStrategy
-import io.github.xilinjia.krdb.mongodb.sync.RecoverUnsyncedChangesStrategy
-import io.github.xilinjia.krdb.mongodb.sync.SyncConfiguration
-import io.github.xilinjia.krdb.mongodb.sync.SyncMode
-import io.github.xilinjia.krdb.mongodb.sync.SyncSession
-import io.github.xilinjia.krdb.test.mongodb.TestApp
-import io.github.xilinjia.krdb.test.mongodb.asTestApp
-import io.github.xilinjia.krdb.test.mongodb.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.mongodb.createUserAndLogIn
-import io.github.xilinjia.krdb.test.mongodb.util.DefaultPartitionBasedAppInitializer
-import io.github.xilinjia.krdb.test.util.TestHelper
-import io.github.xilinjia.krdb.test.util.TestHelper.getRandomKey
-import io.github.xilinjia.krdb.test.util.TestHelper.randomEmail
-import io.github.xilinjia.krdb.test.util.use
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.RealmUUID
+import io.realm.kotlin.CompactOnLaunchCallback
+import io.realm.kotlin.InitialDataCallback
+import io.realm.kotlin.MutableRealm
+import io.realm.kotlin.Realm
+import io.realm.kotlin.TypedRealm
+import io.realm.kotlin.dynamic.DynamicRealmObject
+import io.realm.kotlin.entities.sync.ChildPk
+import io.realm.kotlin.entities.sync.ParentPk
+import io.realm.kotlin.entities.sync.flx.FlexChildObject
+import io.realm.kotlin.entities.sync.flx.FlexEmbeddedObject
+import io.realm.kotlin.entities.sync.flx.FlexParentObject
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.internal.platform.pathOf
+import io.realm.kotlin.internal.platform.runBlocking
+import io.realm.kotlin.internal.platform.singleThreadDispatcher
+import io.realm.kotlin.log.RealmLog
+import io.realm.kotlin.mongodb.App
+import io.realm.kotlin.mongodb.User
+import io.realm.kotlin.mongodb.exceptions.ClientResetRequiredException
+import io.realm.kotlin.mongodb.exceptions.SyncException
+import io.realm.kotlin.mongodb.sync.DiscardUnsyncedChangesStrategy
+import io.realm.kotlin.mongodb.sync.ManuallyRecoverUnsyncedChangesStrategy
+import io.realm.kotlin.mongodb.sync.RecoverOrDiscardUnsyncedChangesStrategy
+import io.realm.kotlin.mongodb.sync.RecoverUnsyncedChangesStrategy
+import io.realm.kotlin.mongodb.sync.SyncConfiguration
+import io.realm.kotlin.mongodb.sync.SyncMode
+import io.realm.kotlin.mongodb.sync.SyncSession
+import io.realm.kotlin.test.mongodb.TestApp
+import io.realm.kotlin.test.mongodb.asTestApp
+import io.realm.kotlin.test.mongodb.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.mongodb.createUserAndLogIn
+import io.realm.kotlin.test.mongodb.util.DefaultPartitionBasedAppInitializer
+import io.realm.kotlin.test.util.TestHelper
+import io.realm.kotlin.test.util.TestHelper.getRandomKey
+import io.realm.kotlin.test.util.TestHelper.randomEmail
+import io.realm.kotlin.test.util.use
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.RealmUUID
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import org.mongodb.kbson.BsonObjectId
@@ -647,7 +647,7 @@ class SyncConfigTests {
             FlexEmbeddedObject::class,
         )
 
-        val validateConfig = { config: io.github.xilinjia.krdb.Configuration ->
+        val validateConfig = { config: io.realm.kotlin.Configuration ->
             assertEquals(3, config.schema.size)
         }
 
@@ -693,7 +693,7 @@ class SyncConfigTests {
             FlexEmbeddedObject::class,
         )
 
-        val validateConfig = { config: io.github.xilinjia.krdb.Configuration ->
+        val validateConfig = { config: io.realm.kotlin.Configuration ->
             assertEquals(3, config.schema.size)
         }
 
@@ -706,10 +706,10 @@ class SyncConfigTests {
     fun unsupportedSchemaTypesThrowException_partitionBasedSync() {
         val user = createTestUser()
         val unsupportedSchemaType = setOf(DynamicRealmObject::class)
-        assertFailsWithMessage(IllegalArgumentException::class, "Only subclasses of RealmObject and EmbeddedRealmObject are allowed in the schema. Found: io.github.xilinjia.krdb.dynamic.DynamicRealmObject. If io.github.xilinjia.krdb.dynamic.DynamicRealmObject is a valid subclass: This class has not been modified by the Realm Compiler Plugin. Has the Realm Gradle Plugin been applied to the project with this model class?") {
+        assertFailsWithMessage(IllegalArgumentException::class, "Only subclasses of RealmObject and EmbeddedRealmObject are allowed in the schema. Found: io.realm.kotlin.dynamic.DynamicRealmObject. If io.realm.kotlin.dynamic.DynamicRealmObject is a valid subclass: This class has not been modified by the Realm Compiler Plugin. Has the Realm Gradle Plugin been applied to the project with this model class?") {
             SyncConfiguration.create(user, "", unsupportedSchemaType)
         }
-        assertFailsWithMessage(IllegalArgumentException::class, "Only subclasses of RealmObject and EmbeddedRealmObject are allowed in the schema. Found: io.github.xilinjia.krdb.dynamic.DynamicRealmObject. If io.github.xilinjia.krdb.dynamic.DynamicRealmObject is a valid subclass: This class has not been modified by the Realm Compiler Plugin. Has the Realm Gradle Plugin been applied to the project with this model class?") {
+        assertFailsWithMessage(IllegalArgumentException::class, "Only subclasses of RealmObject and EmbeddedRealmObject are allowed in the schema. Found: io.realm.kotlin.dynamic.DynamicRealmObject. If io.realm.kotlin.dynamic.DynamicRealmObject is a valid subclass: This class has not been modified by the Realm Compiler Plugin. Has the Realm Gradle Plugin been applied to the project with this model class?") {
             SyncConfiguration.Builder(user, "", unsupportedSchemaType)
         }
     }
@@ -718,10 +718,10 @@ class SyncConfigTests {
     fun unsupportedSchemaTypesThrowException_flexibleSync() {
         val user = createTestUser()
         val unsupportedSchemaType = setOf(DynamicRealmObject::class)
-        assertFailsWithMessage(IllegalArgumentException::class, "Only subclasses of RealmObject and EmbeddedRealmObject are allowed in the schema. Found: io.github.xilinjia.krdb.dynamic.DynamicRealmObject. If io.github.xilinjia.krdb.dynamic.DynamicRealmObject is a valid subclass: This class has not been modified by the Realm Compiler Plugin. Has the Realm Gradle Plugin been applied to the project with this model class?") {
+        assertFailsWithMessage(IllegalArgumentException::class, "Only subclasses of RealmObject and EmbeddedRealmObject are allowed in the schema. Found: io.realm.kotlin.dynamic.DynamicRealmObject. If io.realm.kotlin.dynamic.DynamicRealmObject is a valid subclass: This class has not been modified by the Realm Compiler Plugin. Has the Realm Gradle Plugin been applied to the project with this model class?") {
             SyncConfiguration.create(user, unsupportedSchemaType)
         }
-        assertFailsWithMessage(IllegalArgumentException::class, "Only subclasses of RealmObject and EmbeddedRealmObject are allowed in the schema. Found: io.github.xilinjia.krdb.dynamic.DynamicRealmObject. If io.github.xilinjia.krdb.dynamic.DynamicRealmObject is a valid subclass: This class has not been modified by the Realm Compiler Plugin. Has the Realm Gradle Plugin been applied to the project with this model class?") {
+        assertFailsWithMessage(IllegalArgumentException::class, "Only subclasses of RealmObject and EmbeddedRealmObject are allowed in the schema. Found: io.realm.kotlin.dynamic.DynamicRealmObject. If io.realm.kotlin.dynamic.DynamicRealmObject is a valid subclass: This class has not been modified by the Realm Compiler Plugin. Has the Realm Gradle Plugin been applied to the project with this model class?") {
             SyncConfiguration.Builder(user, unsupportedSchemaType)
         }
     }

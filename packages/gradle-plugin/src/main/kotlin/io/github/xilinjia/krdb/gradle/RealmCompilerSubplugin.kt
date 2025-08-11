@@ -14,21 +14,21 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.gradle
+package io.realm.kotlin.gradle
 
 import com.android.build.gradle.BaseExtension
-import io.github.xilinjia.krdb.gradle.analytics.AnalyticsErrorCatcher
-import io.github.xilinjia.krdb.gradle.analytics.AnalyticsService
-import io.github.xilinjia.krdb.gradle.analytics.AnalyticsService.Companion.UNKNOWN
-import io.github.xilinjia.krdb.gradle.analytics.AnalyticsService.Companion.unknown
-import io.github.xilinjia.krdb.gradle.analytics.BuilderId
-import io.github.xilinjia.krdb.gradle.analytics.ComputerId
-import io.github.xilinjia.krdb.gradle.analytics.HOST_ARCH_NAME
-import io.github.xilinjia.krdb.gradle.analytics.HOST_OS_NAME
-import io.github.xilinjia.krdb.gradle.analytics.ProjectConfiguration
-import io.github.xilinjia.krdb.gradle.analytics.TargetInfo
-import io.github.xilinjia.krdb.gradle.analytics.hexStringify
-import io.github.xilinjia.krdb.gradle.analytics.sha256Hash
+import io.realm.kotlin.gradle.analytics.AnalyticsErrorCatcher
+import io.realm.kotlin.gradle.analytics.AnalyticsService
+import io.realm.kotlin.gradle.analytics.AnalyticsService.Companion.UNKNOWN
+import io.realm.kotlin.gradle.analytics.AnalyticsService.Companion.unknown
+import io.realm.kotlin.gradle.analytics.BuilderId
+import io.realm.kotlin.gradle.analytics.ComputerId
+import io.realm.kotlin.gradle.analytics.HOST_ARCH_NAME
+import io.realm.kotlin.gradle.analytics.HOST_OS_NAME
+import io.realm.kotlin.gradle.analytics.ProjectConfiguration
+import io.realm.kotlin.gradle.analytics.TargetInfo
+import io.realm.kotlin.gradle.analytics.hexStringify
+import io.realm.kotlin.gradle.analytics.sha256Hash
 import java.io.File
 import org.gradle.api.Project
 import org.gradle.api.plugins.ExtensionAware
@@ -83,18 +83,18 @@ class RealmCompilerSubplugin : KotlinCompilerPluginSupportPlugin, AnalyticsError
         // TODO LATER Consider embedding these from the build.gradle's versionConstants task just
         //  as with the version. But leave it for now as they should be quite stable.
         // Modules has to match ${project.group}:${project.name} to make composite build work
-        const val groupId = "io.github.xilinjia.krdb"
+        const val groupId = "io.realm.kotlin"
         const val artifactId = "plugin-compiler"
         const val version = PLUGIN_VERSION
         const val coreVersion = CORE_VERSION
 
         // The id used for passing compiler options from command line
-        const val compilerPluginId = "io.github.xilinjia.krdb"
+        const val compilerPluginId = "io.realm.kotlin"
 
-        // Must match io.github.xilinjia.krdb.compiler.bundleIdKey
+        // Must match io.realm.kotlin.compiler.bundleIdKey
         const val bundleIdKey = "bundleId"
 
-        // Must match io.github.xilinjia.krdb.compiler.
+        // Must match io.realm.kotlin.compiler.
         const val featureListPathKey = "featureListPath"
     }
 
@@ -137,7 +137,7 @@ class RealmCompilerSubplugin : KotlinCompilerPluginSupportPlugin, AnalyticsError
                 outer@
                 for (conf in target.configurations) {
                     for (dependency in conf.dependencies) {
-                        if (dependency.group == "io.github.xilinjia.krdb" && dependency.name == "library-sync") {
+                        if (dependency.group == "io.realm.kotlin" && dependency.name == "library-sync") {
                             // In Java we can detect Sync through a Gradle configuration closure.
                             // In Kotlin, this choice is currently determined by which dependency
                             // people include
@@ -360,10 +360,10 @@ fun nativeTarget(target: KonanTarget) = when (target.family) {
 // Helper method to ensure that we align architecture strings for Kotlin native builds
 fun nativeArch(target: KonanTarget): String = try {
     when (target.architecture) {
-        Architecture.X64 -> io.github.xilinjia.krdb.gradle.analytics.Architecture.X64.serializedName
-        Architecture.X86 -> io.github.xilinjia.krdb.gradle.analytics.Architecture.X86.serializedName
-        Architecture.ARM64 -> io.github.xilinjia.krdb.gradle.analytics.Architecture.ARM64.serializedName
-        Architecture.ARM32 -> io.github.xilinjia.krdb.gradle.analytics.Architecture.ARM.serializedName
+        Architecture.X64 -> io.realm.kotlin.gradle.analytics.Architecture.X64.serializedName
+        Architecture.X86 -> io.realm.kotlin.gradle.analytics.Architecture.X86.serializedName
+        Architecture.ARM64 -> io.realm.kotlin.gradle.analytics.Architecture.ARM64.serializedName
+        Architecture.ARM32 -> io.realm.kotlin.gradle.analytics.Architecture.ARM.serializedName
         else -> unknown(target.architecture.name)
     }
 } catch (e: Throwable) {
@@ -372,10 +372,10 @@ fun nativeArch(target: KonanTarget): String = try {
 
 // Helper method to ensure that we align architecture strings for Android platforms
 fun androidArch(target: String): String = when (target) {
-    "armeabi-v7a" -> io.github.xilinjia.krdb.gradle.analytics.Architecture.ARM.serializedName
-    "arm64-v8a" -> io.github.xilinjia.krdb.gradle.analytics.Architecture.ARM64.serializedName
-    "x86" -> io.github.xilinjia.krdb.gradle.analytics.Architecture.X86.serializedName
-    "x86_64" -> io.github.xilinjia.krdb.gradle.analytics.Architecture.X64.serializedName
+    "armeabi-v7a" -> io.realm.kotlin.gradle.analytics.Architecture.ARM.serializedName
+    "arm64-v8a" -> io.realm.kotlin.gradle.analytics.Architecture.ARM64.serializedName
+    "x86" -> io.realm.kotlin.gradle.analytics.Architecture.X86.serializedName
+    "x86_64" -> io.realm.kotlin.gradle.analytics.Architecture.X64.serializedName
     else -> unknown(target)
 }
 

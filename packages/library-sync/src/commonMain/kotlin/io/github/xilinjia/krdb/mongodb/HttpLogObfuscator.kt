@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb
+package io.realm.kotlin.mongodb
 
 /**
  * The `HttpLogObfuscator` keeps sensitive information from being displayed in output traces.

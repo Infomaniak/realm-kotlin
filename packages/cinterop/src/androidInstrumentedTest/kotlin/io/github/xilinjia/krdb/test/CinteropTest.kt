@@ -14,21 +14,21 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test
+package io.realm.kotlin.test
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import io.github.xilinjia.krdb.internal.interop.realm_class_flags_e
-import io.github.xilinjia.krdb.internal.interop.realm_class_info_t
-import io.github.xilinjia.krdb.internal.interop.realm_collection_type_e
-import io.github.xilinjia.krdb.internal.interop.realm_property_flags_e
-import io.github.xilinjia.krdb.internal.interop.realm_property_info_t
-import io.github.xilinjia.krdb.internal.interop.realm_property_type_e
-import io.github.xilinjia.krdb.internal.interop.realm_query_arg_t
-import io.github.xilinjia.krdb.internal.interop.realm_schema_mode_e
-import io.github.xilinjia.krdb.internal.interop.realm_schema_validation_mode_e
-import io.github.xilinjia.krdb.internal.interop.realm_value_t
-import io.github.xilinjia.krdb.internal.interop.realm_value_type_e
-import io.github.xilinjia.krdb.internal.interop.realmc
+import io.realm.kotlin.internal.interop.realm_class_flags_e
+import io.realm.kotlin.internal.interop.realm_class_info_t
+import io.realm.kotlin.internal.interop.realm_collection_type_e
+import io.realm.kotlin.internal.interop.realm_property_flags_e
+import io.realm.kotlin.internal.interop.realm_property_info_t
+import io.realm.kotlin.internal.interop.realm_property_type_e
+import io.realm.kotlin.internal.interop.realm_query_arg_t
+import io.realm.kotlin.internal.interop.realm_schema_mode_e
+import io.realm.kotlin.internal.interop.realm_schema_validation_mode_e
+import io.realm.kotlin.internal.interop.realm_value_t
+import io.realm.kotlin.internal.interop.realm_value_type_e
+import io.realm.kotlin.internal.interop.realmc
 import org.junit.Test
 import org.junit.runner.RunWith
 import java.nio.file.Files

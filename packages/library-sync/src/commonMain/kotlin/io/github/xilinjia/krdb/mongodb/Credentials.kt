@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb
+package io.realm.kotlin.mongodb
 
-import io.github.xilinjia.krdb.annotations.ExperimentalRealmSerializerApi
-import io.github.xilinjia.krdb.mongodb.internal.AppImpl
-import io.github.xilinjia.krdb.mongodb.internal.BsonEncoder
-import io.github.xilinjia.krdb.mongodb.internal.CredentialsImpl
-import io.github.xilinjia.krdb.mongodb.internal.CustomEJsonCredentialsImpl
-import io.github.xilinjia.krdb.mongodb.internal.serializerOrRealmBuiltInSerializer
+import io.realm.kotlin.annotations.ExperimentalRealmSerializerApi
+import io.realm.kotlin.mongodb.internal.AppImpl
+import io.realm.kotlin.mongodb.internal.BsonEncoder
+import io.realm.kotlin.mongodb.internal.CredentialsImpl
+import io.realm.kotlin.mongodb.internal.CustomEJsonCredentialsImpl
+import io.realm.kotlin.mongodb.internal.serializerOrRealmBuiltInSerializer
 import kotlinx.serialization.KSerializer
 import org.mongodb.kbson.BsonDocument
 import org.mongodb.kbson.BsonType

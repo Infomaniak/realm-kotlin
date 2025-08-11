@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.types
+package io.realm.kotlin.types
 
-import io.github.xilinjia.krdb.Deleteable
+import io.realm.kotlin.Deleteable
 
 /**
  * Base interface for all realm classes.

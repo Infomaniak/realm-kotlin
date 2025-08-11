@@ -1,13 +1,13 @@
-package io.github.xilinjia.krdb.mongodb.ext
+package io.realm.kotlin.mongodb.ext
 
-import io.github.xilinjia.krdb.UpdatePolicy
-import io.github.xilinjia.krdb.dynamic.DynamicMutableRealm
-import io.github.xilinjia.krdb.dynamic.DynamicMutableRealmObject
-import io.github.xilinjia.krdb.dynamic.DynamicRealmObject
-import io.github.xilinjia.krdb.internal.dynamic.DynamicMutableRealmImpl
-import io.github.xilinjia.krdb.mongodb.annotations.ExperimentalAsymmetricSyncApi
-import io.github.xilinjia.krdb.schema.RealmClassKind
-import io.github.xilinjia.krdb.types.AsymmetricRealmObject
+import io.realm.kotlin.UpdatePolicy
+import io.realm.kotlin.dynamic.DynamicMutableRealm
+import io.realm.kotlin.dynamic.DynamicMutableRealmObject
+import io.realm.kotlin.dynamic.DynamicRealmObject
+import io.realm.kotlin.internal.dynamic.DynamicMutableRealmImpl
+import io.realm.kotlin.mongodb.annotations.ExperimentalAsymmetricSyncApi
+import io.realm.kotlin.schema.RealmClassKind
+import io.realm.kotlin.types.AsymmetricRealmObject
 
 /**
  * Insert a dynamic version of a [AsymmetricRealmObject] into a realm. Since asymmetric objects are
@@ -25,7 +25,7 @@ public fun DynamicMutableRealm.insert(obj: DynamicRealmObject) {
         throw IllegalArgumentException("Only asymmetric objects are supported, ${obj.type} is a $kind")
     }
     @Suppress("invisible_member", "invisible_reference")
-    val obj = io.github.xilinjia.krdb.internal.copyToRealm(configuration.mediator, realmReference, obj, UpdatePolicy.ERROR, mutableMapOf()) as DynamicMutableRealmObject
+    val obj = io.realm.kotlin.internal.copyToRealm(configuration.mediator, realmReference, obj, UpdatePolicy.ERROR, mutableMapOf()) as DynamicMutableRealmObject
     @Suppress("invisible_member", "invisible_reference")
-    ((obj as io.github.xilinjia.krdb.internal.dynamic.DynamicMutableRealmObjectImpl).io_realm_kotlin_objectReference!!.objectPointer).release()
+    ((obj as io.realm.kotlin.internal.dynamic.DynamicMutableRealmObjectImpl).io_realm_kotlin_objectReference!!.objectPointer).release()
 }

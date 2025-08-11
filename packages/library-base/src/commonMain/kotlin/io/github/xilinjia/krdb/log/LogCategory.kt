@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.log
+package io.realm.kotlin.log
 
-import io.github.xilinjia.krdb.internal.categoriesByPath
-import io.github.xilinjia.krdb.internal.newCategory
+import io.realm.kotlin.internal.categoriesByPath
+import io.realm.kotlin.internal.newCategory
 
 /**
  * Defines a log category for the Realm logger.

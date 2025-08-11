@@ -16,12 +16,12 @@
 
 @file:OptIn(ExperimentalCoroutinesApi::class)
 
-package io.github.xilinjia.krdb.test.darwin
+package io.realm.kotlin.test.darwin
 
-import io.github.xilinjia.krdb.internal.platform.singleThreadDispatcher
-import io.github.xilinjia.krdb.test.platform.NsQueueDispatcher
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.util.Utils.printlntid
+import io.realm.kotlin.internal.platform.singleThreadDispatcher
+import io.realm.kotlin.test.platform.NsQueueDispatcher
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.util.Utils.printlntid
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope

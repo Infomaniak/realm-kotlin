@@ -13,36 +13,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.test.mongodb.common
+package io.realm.kotlin.test.mongodb.common
 
 import io.ktor.client.plugins.ClientRequestException
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.entities.sync.BinaryObject
-import io.github.xilinjia.krdb.entities.sync.ChildPk
-import io.github.xilinjia.krdb.entities.sync.ObjectIdPk
-import io.github.xilinjia.krdb.entities.sync.ParentPk
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.platform.runBlocking
-import io.github.xilinjia.krdb.mongodb.User
-import io.github.xilinjia.krdb.mongodb.exceptions.SyncException
-import io.github.xilinjia.krdb.mongodb.sync.ConnectionState
-import io.github.xilinjia.krdb.mongodb.sync.SyncConfiguration
-import io.github.xilinjia.krdb.mongodb.sync.SyncSession
-import io.github.xilinjia.krdb.mongodb.syncSession
-import io.github.xilinjia.krdb.test.mongodb.TestApp
-import io.github.xilinjia.krdb.test.mongodb.asTestApp
-import io.github.xilinjia.krdb.test.mongodb.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.mongodb.common.utils.uploadAllLocalChangesOrFail
-import io.github.xilinjia.krdb.test.mongodb.createUserAndLogIn
-import io.github.xilinjia.krdb.test.mongodb.util.DefaultPartitionBasedAppInitializer
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.util.TestChannel
-import io.github.xilinjia.krdb.test.util.TestHelper
-import io.github.xilinjia.krdb.test.util.receiveOrFail
-import io.github.xilinjia.krdb.test.util.trySendOrFail
-import io.github.xilinjia.krdb.test.util.use
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.entities.sync.BinaryObject
+import io.realm.kotlin.entities.sync.ChildPk
+import io.realm.kotlin.entities.sync.ObjectIdPk
+import io.realm.kotlin.entities.sync.ParentPk
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.platform.runBlocking
+import io.realm.kotlin.mongodb.User
+import io.realm.kotlin.mongodb.exceptions.SyncException
+import io.realm.kotlin.mongodb.sync.ConnectionState
+import io.realm.kotlin.mongodb.sync.SyncConfiguration
+import io.realm.kotlin.mongodb.sync.SyncSession
+import io.realm.kotlin.mongodb.syncSession
+import io.realm.kotlin.test.mongodb.TestApp
+import io.realm.kotlin.test.mongodb.asTestApp
+import io.realm.kotlin.test.mongodb.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.mongodb.common.utils.uploadAllLocalChangesOrFail
+import io.realm.kotlin.test.mongodb.createUserAndLogIn
+import io.realm.kotlin.test.mongodb.util.DefaultPartitionBasedAppInitializer
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.util.TestChannel
+import io.realm.kotlin.test.util.TestHelper
+import io.realm.kotlin.test.util.receiveOrFail
+import io.realm.kotlin.test.util.trySendOrFail
+import io.realm.kotlin.test.util.use
 import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.async
 import kotlinx.coroutines.channels.BufferOverflow
@@ -182,8 +182,8 @@ class SyncSessionTests {
                 assertNotEquals(realm1.configuration.path, realm2.configuration.path)
                 assertNotSame(realm1.syncSession, realm2.syncSession)
                 RealmInterop.realm_equals(
-                    (realm1.syncSession as io.github.xilinjia.krdb.mongodb.internal.SyncSessionImpl).nativePointer,
-                    (realm2.syncSession as io.github.xilinjia.krdb.mongodb.internal.SyncSessionImpl).nativePointer
+                    (realm1.syncSession as io.realm.kotlin.mongodb.internal.SyncSessionImpl).nativePointer,
+                    (realm2.syncSession as io.realm.kotlin.mongodb.internal.SyncSessionImpl).nativePointer
                 )
             }
         }
@@ -498,7 +498,7 @@ class SyncSessionTests {
         // Open another realm with the same entity but change the type of a field
         // in the schema to trigger a sync error to be caught by the error handler.
         val config2 = SyncConfiguration.Builder(
-            schema = setOf(io.github.xilinjia.krdb.entities.sync.bogus.ChildPk::class),
+            schema = setOf(io.realm.kotlin.entities.sync.bogus.ChildPk::class),
             user = user,
             partitionValue = partitionValue
         )

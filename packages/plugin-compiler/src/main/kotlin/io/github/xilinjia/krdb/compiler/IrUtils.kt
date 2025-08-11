@@ -16,18 +16,18 @@
 
 @file:OptIn(UnsafeDuringIrConstructionAPI::class, UnsafeDuringIrConstructionAPI::class)
 
-package io.github.xilinjia.krdb.compiler
+package io.realm.kotlin.compiler
 
-import io.github.xilinjia.krdb.compiler.ClassIds.ASYMMETRIC_OBJECT_INTERFACE
-import io.github.xilinjia.krdb.compiler.ClassIds.BASE_REALM_OBJECT_INTERFACE
-import io.github.xilinjia.krdb.compiler.ClassIds.EMBEDDED_OBJECT_INTERFACE
-import io.github.xilinjia.krdb.compiler.ClassIds.KOTLIN_COLLECTIONS_LISTOF
-import io.github.xilinjia.krdb.compiler.ClassIds.PERSISTED_NAME_ANNOTATION
-import io.github.xilinjia.krdb.compiler.ClassIds.REALM_OBJECT_INTERFACE
-import io.github.xilinjia.krdb.compiler.FqNames.PACKAGE_TYPES
-import io.github.xilinjia.krdb.compiler.Names.ASYMMETRIC_REALM_OBJECT
-import io.github.xilinjia.krdb.compiler.Names.EMBEDDED_REALM_OBJECT
-import io.github.xilinjia.krdb.compiler.Names.REALM_OBJECT
+import io.realm.kotlin.compiler.ClassIds.ASYMMETRIC_OBJECT_INTERFACE
+import io.realm.kotlin.compiler.ClassIds.BASE_REALM_OBJECT_INTERFACE
+import io.realm.kotlin.compiler.ClassIds.EMBEDDED_OBJECT_INTERFACE
+import io.realm.kotlin.compiler.ClassIds.KOTLIN_COLLECTIONS_LISTOF
+import io.realm.kotlin.compiler.ClassIds.PERSISTED_NAME_ANNOTATION
+import io.realm.kotlin.compiler.ClassIds.REALM_OBJECT_INTERFACE
+import io.realm.kotlin.compiler.FqNames.PACKAGE_TYPES
+import io.realm.kotlin.compiler.Names.ASYMMETRIC_REALM_OBJECT
+import io.realm.kotlin.compiler.Names.EMBEDDED_REALM_OBJECT
+import io.realm.kotlin.compiler.Names.REALM_OBJECT
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
 import org.jetbrains.kotlin.backend.common.lower.DeclarationIrBuilder
 import org.jetbrains.kotlin.cli.common.messages.CompilerMessageLocationWithRange
@@ -169,9 +169,9 @@ inline fun PsiElement.hasInterface(interfaces: Set<String>): Boolean {
                     .filter {
                         !(
                             it.contains("<RealmObject>") ||
-                                it.contains("<io.github.xilinjia.krdb.types.RealmObject>") ||
+                                it.contains("<io.realm.kotlin.types.RealmObject>") ||
                                 it.contains("<EmbeddedRealmObject>") ||
-                                it.contains("<io.github.xilinjia.krdb.types.EmbeddedRealmObject>")
+                                it.contains("<io.realm.kotlin.types.EmbeddedRealmObject>")
                             )
                     }.joinToString(",") // Re-sanitize again
                 hasRealmObjectAsSuperType = elementNodeText.findAnyOf(interfaces) != null
@@ -193,9 +193,9 @@ inline fun ClassDescriptor.hasInterfacePsi(interfaces: Set<String>): Boolean {
 // We also need to ensure we didn't accidentally matched on the Realm Java RealmObject abstract
 // type. Fortunately that is visible in the PSI as `RealmObject()` (Java, abstract class) vs.
 // `RealmObject` (Kotlin, interface).
-val realmObjectPsiNames = setOf("RealmObject", "io.github.xilinjia.krdb.types.RealmObject")
-val embeddedRealmObjectPsiNames = setOf("EmbeddedRealmObject", "io.github.xilinjia.krdb.types.EmbeddedRealmObject")
-val asymmetricRealmObjectPsiNames = setOf("AsymmetricRealmObject", "io.github.xilinjia.krdb.types.AsymmetricRealmObject")
+val realmObjectPsiNames = setOf("RealmObject", "io.realm.kotlin.types.RealmObject")
+val embeddedRealmObjectPsiNames = setOf("EmbeddedRealmObject", "io.realm.kotlin.types.EmbeddedRealmObject")
+val asymmetricRealmObjectPsiNames = setOf("AsymmetricRealmObject", "io.realm.kotlin.types.AsymmetricRealmObject")
 val realmJavaObjectPsiNames = setOf("io.realm.RealmObject()", "RealmObject()")
 val ClassDescriptor.isRealmObject: Boolean
     get() = this.hasInterfacePsi(realmObjectPsiNames) && !this.hasInterfacePsi(realmJavaObjectPsiNames)

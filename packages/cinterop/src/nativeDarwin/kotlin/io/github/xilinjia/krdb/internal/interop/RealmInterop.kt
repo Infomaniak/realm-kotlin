@@ -16,30 +16,30 @@
 // TODO https://github.com/realm/realm-kotlin/issues/889
 @file:Suppress("TooGenericExceptionThrown", "TooGenericExceptionCaught")
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
-import io.github.xilinjia.krdb.internal.interop.Constants.ENCRYPTION_KEY_LENGTH
-import io.github.xilinjia.krdb.internal.interop.sync.ApiKeyWrapper
-import io.github.xilinjia.krdb.internal.interop.sync.AppError
-import io.github.xilinjia.krdb.internal.interop.sync.AuthProvider
-import io.github.xilinjia.krdb.internal.interop.sync.CancellableTimer
-import io.github.xilinjia.krdb.internal.interop.sync.CoreCompensatingWriteInfo
-import io.github.xilinjia.krdb.internal.interop.sync.CoreConnectionState
-import io.github.xilinjia.krdb.internal.interop.sync.CoreSubscriptionSetState
-import io.github.xilinjia.krdb.internal.interop.sync.CoreSyncSessionState
-import io.github.xilinjia.krdb.internal.interop.sync.CoreUserState
-import io.github.xilinjia.krdb.internal.interop.sync.MetadataMode
-import io.github.xilinjia.krdb.internal.interop.sync.NetworkTransport
-import io.github.xilinjia.krdb.internal.interop.sync.ProgressDirection
-import io.github.xilinjia.krdb.internal.interop.sync.Response
-import io.github.xilinjia.krdb.internal.interop.sync.SyncError
-import io.github.xilinjia.krdb.internal.interop.sync.SyncSessionResyncMode
-import io.github.xilinjia.krdb.internal.interop.sync.SyncUserIdentity
-import io.github.xilinjia.krdb.internal.interop.sync.WebSocketClient
-import io.github.xilinjia.krdb.internal.interop.sync.WebSocketObserver
-import io.github.xilinjia.krdb.internal.interop.sync.WebSocketTransport
-import io.github.xilinjia.krdb.internal.interop.sync.WebsocketCallbackResult
-import io.github.xilinjia.krdb.internal.interop.sync.WebsocketErrorCode
+import io.realm.kotlin.internal.interop.Constants.ENCRYPTION_KEY_LENGTH
+import io.realm.kotlin.internal.interop.sync.ApiKeyWrapper
+import io.realm.kotlin.internal.interop.sync.AppError
+import io.realm.kotlin.internal.interop.sync.AuthProvider
+import io.realm.kotlin.internal.interop.sync.CancellableTimer
+import io.realm.kotlin.internal.interop.sync.CoreCompensatingWriteInfo
+import io.realm.kotlin.internal.interop.sync.CoreConnectionState
+import io.realm.kotlin.internal.interop.sync.CoreSubscriptionSetState
+import io.realm.kotlin.internal.interop.sync.CoreSyncSessionState
+import io.realm.kotlin.internal.interop.sync.CoreUserState
+import io.realm.kotlin.internal.interop.sync.MetadataMode
+import io.realm.kotlin.internal.interop.sync.NetworkTransport
+import io.realm.kotlin.internal.interop.sync.ProgressDirection
+import io.realm.kotlin.internal.interop.sync.Response
+import io.realm.kotlin.internal.interop.sync.SyncError
+import io.realm.kotlin.internal.interop.sync.SyncSessionResyncMode
+import io.realm.kotlin.internal.interop.sync.SyncUserIdentity
+import io.realm.kotlin.internal.interop.sync.WebSocketClient
+import io.realm.kotlin.internal.interop.sync.WebSocketObserver
+import io.realm.kotlin.internal.interop.sync.WebSocketTransport
+import io.realm.kotlin.internal.interop.sync.WebsocketCallbackResult
+import io.realm.kotlin.internal.interop.sync.WebsocketErrorCode
 import kotlinx.atomicfu.AtomicBoolean
 import kotlinx.atomicfu.atomic
 import kotlinx.cinterop.AutofreeScope
@@ -3734,7 +3734,7 @@ actual object RealmInterop {
             //
             // Ass a work-around we use the `canceled` flag that is being set when the Scheduler
             // is being released. This should be safe as we are only closing the dispatcher when
-            // releasing the scheduler. See [io.github.xilinjia.krdb.internal.util.LiveRealmContext] for
+            // releasing the scheduler. See [io.realm.kotlin.internal.util.LiveRealmContext] for
             // the logic around this.
             //
             // Note, JVM and Native behave differently on this. See this issue for more

@@ -1,4 +1,4 @@
-package io.github.xilinjia.krdb.internal.platform
+package io.realm.kotlin.internal.platform
 
 /**
  * Platform agnostic _WeakReference_ wrapper.

@@ -15,17 +15,17 @@
  */
 @file:Suppress("invisible_reference", "invisible_member")
 
-package io.github.xilinjia.krdb.test.mongodb.common.serializer
+package io.realm.kotlin.test.mongodb.common.serializer
 
-import io.github.xilinjia.krdb.internal.toDuration
-import io.github.xilinjia.krdb.mongodb.internal.BsonEncoder
-import io.github.xilinjia.krdb.test.mongodb.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.util.TypeDescriptor
-import io.github.xilinjia.krdb.types.MutableRealmInt
-import io.github.xilinjia.krdb.types.RealmAny
-import io.github.xilinjia.krdb.types.RealmInstant
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.RealmUUID
+import io.realm.kotlin.internal.toDuration
+import io.realm.kotlin.mongodb.internal.BsonEncoder
+import io.realm.kotlin.test.mongodb.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.util.TypeDescriptor
+import io.realm.kotlin.types.MutableRealmInt
+import io.realm.kotlin.types.RealmAny
+import io.realm.kotlin.types.RealmInstant
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.RealmUUID
 import org.mongodb.kbson.BsonArray
 import org.mongodb.kbson.BsonBinary
 import org.mongodb.kbson.BsonBinarySubType

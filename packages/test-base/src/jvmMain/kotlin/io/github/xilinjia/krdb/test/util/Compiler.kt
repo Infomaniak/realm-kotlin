@@ -15,12 +15,12 @@
  */
 @file:OptIn(ExperimentalCompilerApi::class)
 
-package io.github.xilinjia.krdb.test.util
+package io.realm.kotlin.test.util
 
 import com.tschuchort.compiletesting.JvmCompilationResult
 import com.tschuchort.compiletesting.KotlinCompilation
 import com.tschuchort.compiletesting.SourceFile
-import io.github.xilinjia.krdb.compiler.Registrar
+import io.realm.kotlin.compiler.Registrar
 import org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi
 
 object Compiler {

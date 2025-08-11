@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.mongodb.util
+package io.realm.kotlin.test.mongodb.util
 
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -35,14 +35,14 @@ import io.ktor.http.HttpMethod.Companion.Post
 import io.ktor.http.contentType
 import io.ktor.http.isSuccess
 import io.ktor.serialization.kotlinx.json.json
-import io.github.xilinjia.krdb.internal.interop.PropertyType
-import io.github.xilinjia.krdb.internal.platform.runBlocking
-import io.github.xilinjia.krdb.internal.schema.RealmClassImpl
-import io.github.xilinjia.krdb.mongodb.sync.SyncMode
-import io.github.xilinjia.krdb.schema.RealmClassKind
-import io.github.xilinjia.krdb.test.mongodb.SyncServerConfig
-import io.github.xilinjia.krdb.test.mongodb.TEST_APP_CLUSTER_NAME
-import io.github.xilinjia.krdb.types.BaseRealmObject
+import io.realm.kotlin.internal.interop.PropertyType
+import io.realm.kotlin.internal.platform.runBlocking
+import io.realm.kotlin.internal.schema.RealmClassImpl
+import io.realm.kotlin.mongodb.sync.SyncMode
+import io.realm.kotlin.schema.RealmClassKind
+import io.realm.kotlin.test.mongodb.SyncServerConfig
+import io.realm.kotlin.test.mongodb.TEST_APP_CLUSTER_NAME
+import io.realm.kotlin.types.BaseRealmObject
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext

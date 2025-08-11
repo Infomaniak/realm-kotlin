@@ -15,9 +15,9 @@
  */
 @file:Suppress("NOTHING_TO_INLINE")
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
-import io.github.xilinjia.krdb.internal.interop.RealmInterop.cptr
+import io.realm.kotlin.internal.interop.RealmInterop.cptr
 import org.mongodb.kbson.Decimal128
 
 /**

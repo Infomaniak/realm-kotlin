@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.internal.interop.CoreLogLevel
-import io.github.xilinjia.krdb.log.LogCategory
-import io.github.xilinjia.krdb.log.LogCategoryImpl
-import io.github.xilinjia.krdb.log.LogLevel
+import io.realm.kotlin.internal.interop.CoreLogLevel
+import io.realm.kotlin.log.LogCategory
+import io.realm.kotlin.log.LogCategoryImpl
+import io.realm.kotlin.log.LogLevel
 
 internal fun LogLevel.toCoreLogLevel(): CoreLogLevel {
     return when (this) {

@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop.sync
+package io.realm.kotlin.internal.interop.sync
 
-import io.github.xilinjia.krdb.internal.interop.CoreError
-import io.github.xilinjia.krdb.internal.interop.SyncSessionTransferCompletionCallback
+import io.realm.kotlin.internal.interop.CoreError
+import io.realm.kotlin.internal.interop.SyncSessionTransferCompletionCallback
 
 // Interface used internally as a bridge between Kotlin (JVM) and JNI.
 // We pass all required primitive parameters to JVM and construct the objects there, rather than

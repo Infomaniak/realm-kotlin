@@ -1,4 +1,4 @@
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
 /**
  * Wrapper for C-API `realm_error_t`.

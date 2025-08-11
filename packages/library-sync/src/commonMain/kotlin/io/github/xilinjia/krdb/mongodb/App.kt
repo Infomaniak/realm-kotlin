@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb
+package io.realm.kotlin.mongodb
 
-import io.github.xilinjia.krdb.internal.util.Validation
-import io.github.xilinjia.krdb.mongodb.annotations.ExperimentalEdgeServerApi
-import io.github.xilinjia.krdb.mongodb.auth.EmailPasswordAuth
-import io.github.xilinjia.krdb.mongodb.exceptions.AppException
-import io.github.xilinjia.krdb.mongodb.exceptions.AuthException
-import io.github.xilinjia.krdb.mongodb.internal.AppConfigurationImpl
-import io.github.xilinjia.krdb.mongodb.internal.AppImpl
-import io.github.xilinjia.krdb.mongodb.sync.Sync
+import io.realm.kotlin.internal.util.Validation
+import io.realm.kotlin.mongodb.annotations.ExperimentalEdgeServerApi
+import io.realm.kotlin.mongodb.auth.EmailPasswordAuth
+import io.realm.kotlin.mongodb.exceptions.AppException
+import io.realm.kotlin.mongodb.exceptions.AuthException
+import io.realm.kotlin.mongodb.internal.AppConfigurationImpl
+import io.realm.kotlin.mongodb.internal.AppImpl
+import io.realm.kotlin.mongodb.sync.Sync
 import kotlinx.coroutines.flow.Flow
 
 /**
@@ -116,7 +116,7 @@ public interface App {
      * @return the logged in [User].
      * @throws AuthException if a problem occurred when logging in. See the exception message for
      * further details.
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.ServiceException for other failures that can happen when
+     * @throws io.realm.kotlin.mongodb.exceptions.ServiceException for other failures that can happen when
      * communicating with App Services. See [AppException] for details.
      */
     public suspend fun login(credentials: Credentials): User

@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.notifications.internal
+package io.realm.kotlin.notifications.internal
 
-import io.github.xilinjia.krdb.notifications.DeletedList
-import io.github.xilinjia.krdb.notifications.InitialList
-import io.github.xilinjia.krdb.notifications.ListChangeSet
-import io.github.xilinjia.krdb.notifications.UpdatedList
-import io.github.xilinjia.krdb.types.RealmList
+import io.realm.kotlin.notifications.DeletedList
+import io.realm.kotlin.notifications.InitialList
+import io.realm.kotlin.notifications.ListChangeSet
+import io.realm.kotlin.notifications.UpdatedList
+import io.realm.kotlin.types.RealmList
 
 internal class InitialListImpl<T>(override val list: RealmList<T>) : InitialList<T>
 

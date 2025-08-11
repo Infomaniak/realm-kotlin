@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
-import io.github.xilinjia.krdb.internal.interop.sync.AppError
-import io.github.xilinjia.krdb.internal.interop.sync.CoreConnectionState
-import io.github.xilinjia.krdb.internal.interop.sync.CoreSubscriptionSetState
-import io.github.xilinjia.krdb.internal.interop.sync.SyncError
+import io.realm.kotlin.internal.interop.sync.AppError
+import io.realm.kotlin.internal.interop.sync.CoreConnectionState
+import io.realm.kotlin.internal.interop.sync.CoreSubscriptionSetState
+import io.realm.kotlin.internal.interop.sync.SyncError
 
 // TODO Could be replace by lambda. See realm_app_config_new networkTransportFactory for example.
 interface Callback<T : RealmNativePointer> {

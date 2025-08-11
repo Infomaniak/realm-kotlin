@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.compiler
+package io.realm.kotlin.compiler
 
 import com.google.auto.service.AutoService
 import org.jetbrains.kotlin.compiler.plugin.AbstractCliOption
@@ -24,16 +24,16 @@ import org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi
 import org.jetbrains.kotlin.config.CompilerConfiguration
 import org.jetbrains.kotlin.config.CompilerConfigurationKey
 
-// Must match io.github.xilinjia.krdb.gradle.RealmCompilerSubplugin.bundleId
+// Must match io.realm.kotlin.gradle.RealmCompilerSubplugin.bundleId
 const val BUNDLE_ID_KEY = "bundleId"
 const val FEATURE_LIST_PATH_KEY = "featureListPath"
-val bundleIdConfigurationKey: CompilerConfigurationKey<String> = CompilerConfigurationKey<String>("io.github.xilinjia.krdb.bundleId")
-val featureListPathConfigurationKey: CompilerConfigurationKey<String> = CompilerConfigurationKey<String>("io.github.xilinjia.krdb.featureListPath")
+val bundleIdConfigurationKey: CompilerConfigurationKey<String> = CompilerConfigurationKey<String>("io.realm.kotlin.bundleId")
+val featureListPathConfigurationKey: CompilerConfigurationKey<String> = CompilerConfigurationKey<String>("io.realm.kotlin.featureListPath")
 
 @OptIn(ExperimentalCompilerApi::class)
 @AutoService(CommandLineProcessor::class)
 class RealmCommandLineProcessor : CommandLineProcessor {
-    override val pluginId: String = "io.github.xilinjia.krdb"
+    override val pluginId: String = "io.realm.kotlin"
     override val pluginOptions: Collection<CliOption> = listOf(
         CliOption(
             optionName = "bundleId",

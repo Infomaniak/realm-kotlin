@@ -28,7 +28,7 @@
  * See: https://github.com/korlibs/korge/tree/main/krypto
 */
 
-package io.github.xilinjia.krdb.internal.platform
+package io.realm.kotlin.internal.platform
 
 import java.security.SecureRandom
 

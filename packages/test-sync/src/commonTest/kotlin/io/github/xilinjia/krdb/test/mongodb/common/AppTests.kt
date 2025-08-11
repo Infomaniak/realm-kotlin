@@ -14,40 +14,40 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.mongodb.common
+package io.realm.kotlin.test.mongodb.common
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.internal.platform.fileExists
-import io.github.xilinjia.krdb.internal.platform.runBlocking
-import io.github.xilinjia.krdb.log.LogLevel
-import io.github.xilinjia.krdb.log.RealmLog
-import io.github.xilinjia.krdb.mongodb.App
-import io.github.xilinjia.krdb.mongodb.AppConfiguration
-import io.github.xilinjia.krdb.mongodb.AuthenticationChange
-import io.github.xilinjia.krdb.mongodb.AuthenticationProvider
-import io.github.xilinjia.krdb.mongodb.Credentials
-import io.github.xilinjia.krdb.mongodb.LoggedIn
-import io.github.xilinjia.krdb.mongodb.LoggedOut
-import io.github.xilinjia.krdb.mongodb.Removed
-import io.github.xilinjia.krdb.mongodb.User
-import io.github.xilinjia.krdb.mongodb.annotations.ExperimentalEdgeServerApi
-import io.github.xilinjia.krdb.mongodb.exceptions.AuthException
-import io.github.xilinjia.krdb.mongodb.exceptions.ServiceException
-import io.github.xilinjia.krdb.mongodb.sync.SyncConfiguration
-import io.github.xilinjia.krdb.test.mongodb.SyncServerConfig
-import io.github.xilinjia.krdb.test.mongodb.TestApp
-import io.github.xilinjia.krdb.test.mongodb.asTestApp
-import io.github.xilinjia.krdb.test.mongodb.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.mongodb.createUserAndLogIn
-import io.github.xilinjia.krdb.test.mongodb.use
-import io.github.xilinjia.krdb.test.mongodb.util.DefaultFlexibleSyncAppInitializer
-import io.github.xilinjia.krdb.test.mongodb.util.DefaultPartitionBasedAppInitializer
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.util.TestChannel
-import io.github.xilinjia.krdb.test.util.TestHelper
-import io.github.xilinjia.krdb.test.util.TestHelper.randomEmail
-import io.github.xilinjia.krdb.test.util.receiveOrFail
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.internal.platform.fileExists
+import io.realm.kotlin.internal.platform.runBlocking
+import io.realm.kotlin.log.LogLevel
+import io.realm.kotlin.log.RealmLog
+import io.realm.kotlin.mongodb.App
+import io.realm.kotlin.mongodb.AppConfiguration
+import io.realm.kotlin.mongodb.AuthenticationChange
+import io.realm.kotlin.mongodb.AuthenticationProvider
+import io.realm.kotlin.mongodb.Credentials
+import io.realm.kotlin.mongodb.LoggedIn
+import io.realm.kotlin.mongodb.LoggedOut
+import io.realm.kotlin.mongodb.Removed
+import io.realm.kotlin.mongodb.User
+import io.realm.kotlin.mongodb.annotations.ExperimentalEdgeServerApi
+import io.realm.kotlin.mongodb.exceptions.AuthException
+import io.realm.kotlin.mongodb.exceptions.ServiceException
+import io.realm.kotlin.mongodb.sync.SyncConfiguration
+import io.realm.kotlin.test.mongodb.SyncServerConfig
+import io.realm.kotlin.test.mongodb.TestApp
+import io.realm.kotlin.test.mongodb.asTestApp
+import io.realm.kotlin.test.mongodb.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.mongodb.createUserAndLogIn
+import io.realm.kotlin.test.mongodb.use
+import io.realm.kotlin.test.mongodb.util.DefaultFlexibleSyncAppInitializer
+import io.realm.kotlin.test.mongodb.util.DefaultPartitionBasedAppInitializer
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.util.TestChannel
+import io.realm.kotlin.test.util.TestHelper
+import io.realm.kotlin.test.util.TestHelper.randomEmail
+import io.realm.kotlin.test.util.receiveOrFail
 import kotlinx.coroutines.async
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
@@ -97,7 +97,7 @@ class AppTests {
 
     // TODO Minimal subset of login tests. Migrate AppTest from realm-java, when full API is in
     //  place
-    // TODO Exhaustive test on io.github.xilinjia.krdb.mongodb.internal.Provider
+    // TODO Exhaustive test on io.realm.kotlin.mongodb.internal.Provider
     @Test
     fun login_Anonymous() {
         runBlocking {

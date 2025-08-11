@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.demo.javacompatibility.data
+package io.realm.kotlin.demo.javacompatibility.data
 
 interface Repository {
     val count: Int

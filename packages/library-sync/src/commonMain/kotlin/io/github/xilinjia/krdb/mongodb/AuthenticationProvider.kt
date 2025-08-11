@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb
+package io.realm.kotlin.mongodb
 
-import io.github.xilinjia.krdb.internal.interop.sync.AuthProvider
+import io.realm.kotlin.internal.interop.sync.AuthProvider
 
 /**
  * This enum contains the list of authentication providers supported by App Services.

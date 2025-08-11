@@ -14,21 +14,21 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.common.notifications
+package io.realm.kotlin.test.common.notifications
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.entities.Sample
-import io.github.xilinjia.krdb.ext.asFlow
-import io.github.xilinjia.krdb.notifications.DeletedObject
-import io.github.xilinjia.krdb.notifications.InitialObject
-import io.github.xilinjia.krdb.notifications.ObjectChange
-import io.github.xilinjia.krdb.notifications.UpdatedObject
-import io.github.xilinjia.krdb.test.common.utils.RealmEntityNotificationTests
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.util.TestChannel
-import io.github.xilinjia.krdb.test.util.receiveOrFail
-import io.github.xilinjia.krdb.test.util.update
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.entities.Sample
+import io.realm.kotlin.ext.asFlow
+import io.realm.kotlin.notifications.DeletedObject
+import io.realm.kotlin.notifications.InitialObject
+import io.realm.kotlin.notifications.ObjectChange
+import io.realm.kotlin.notifications.UpdatedObject
+import io.realm.kotlin.test.common.utils.RealmEntityNotificationTests
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.util.TestChannel
+import io.realm.kotlin.test.util.receiveOrFail
+import io.realm.kotlin.test.util.update
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.async
 import kotlinx.coroutines.channels.Channel

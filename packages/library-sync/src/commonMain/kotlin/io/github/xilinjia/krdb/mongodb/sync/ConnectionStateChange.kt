@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.sync
+package io.realm.kotlin.mongodb.sync
 
 /**
  * A **connection state change** indicates a change in the [SyncSession]'s underlying connection

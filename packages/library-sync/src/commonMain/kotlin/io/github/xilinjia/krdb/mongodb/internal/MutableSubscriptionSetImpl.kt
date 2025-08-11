@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.internal
+package io.realm.kotlin.mongodb.internal
 
-import io.github.xilinjia.krdb.BaseRealm
-import io.github.xilinjia.krdb.internal.interop.RealmBaseSubscriptionSetPointer
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmMutableSubscriptionSetPointer
-import io.github.xilinjia.krdb.mongodb.sync.MutableSubscriptionSet
-import io.github.xilinjia.krdb.mongodb.sync.Subscription
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.types.RealmObject
+import io.realm.kotlin.BaseRealm
+import io.realm.kotlin.internal.interop.RealmBaseSubscriptionSetPointer
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmMutableSubscriptionSetPointer
+import io.realm.kotlin.mongodb.sync.MutableSubscriptionSet
+import io.realm.kotlin.mongodb.sync.Subscription
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.types.RealmObject
 import kotlin.reflect.KClass
 
 internal class MutableSubscriptionSetImpl<T : BaseRealm>(
@@ -51,7 +51,7 @@ internal class MutableSubscriptionSetImpl<T : BaseRealm>(
         }
         val (ptr, inserted) = RealmInterop.realm_sync_subscriptionset_insert_or_assign(
             nativePointer,
-            (query as io.github.xilinjia.krdb.internal.query.ObjectQuery).queryPointer,
+            (query as io.realm.kotlin.internal.query.ObjectQuery).queryPointer,
             name
         )
         if (!updateExisting && !inserted) {
@@ -90,7 +90,7 @@ internal class MutableSubscriptionSetImpl<T : BaseRealm>(
     @Suppress("invisible_member", "invisible_reference")
     override fun <T : RealmObject> removeAll(type: KClass<T>): Boolean {
         var result = false
-        val objectType = io.github.xilinjia.krdb.internal.platform.realmObjectCompanionOrThrow(type).`io_realm_kotlin_className`
+        val objectType = io.realm.kotlin.internal.platform.realmObjectCompanionOrThrow(type).`io_realm_kotlin_className`
         if (realm.schema().get(objectType) == null) {
             throw IllegalArgumentException("'$type' is not part of the schema for this Realm: ${realm.configuration.path}")
         }

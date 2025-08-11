@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.util
+package io.realm.kotlin.internal.util
 
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmSchedulerPointer
-import io.github.xilinjia.krdb.internal.platform.multiThreadDispatcher
-import io.github.xilinjia.krdb.internal.platform.runBlocking
-import io.github.xilinjia.krdb.internal.platform.singleThreadDispatcher
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmSchedulerPointer
+import io.realm.kotlin.internal.platform.multiThreadDispatcher
+import io.realm.kotlin.internal.platform.runBlocking
+import io.realm.kotlin.internal.platform.singleThreadDispatcher
 import kotlinx.coroutines.CloseableCoroutineDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.ExperimentalCoroutinesApi

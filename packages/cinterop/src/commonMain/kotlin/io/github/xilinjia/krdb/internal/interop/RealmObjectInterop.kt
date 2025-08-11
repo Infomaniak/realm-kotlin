@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
 /**
  * This interface is added by the compiler plugin to all [RealmObject] classes, it contains

@@ -16,11 +16,11 @@
 
 @file:OptIn(ExperimentalCompilerApi::class)
 
-package io.github.xilinjia.krdb.test.compiler
+package io.realm.kotlin.test.compiler
 
 import com.tschuchort.compiletesting.KotlinCompilation
 import com.tschuchort.compiletesting.SourceFile
-import io.github.xilinjia.krdb.test.util.Compiler
+import io.realm.kotlin.test.util.Compiler
 import org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi
 import org.junit.Test
 import kotlin.test.assertEquals
@@ -34,8 +34,8 @@ class EmbeddedTests {
             source = SourceFile.kotlin(
                 "embeddedRealmObjectWithPrimaryKey.kt",
                 """
-                    import io.github.xilinjia.krdb.types.EmbeddedRealmObject
-                    import io.github.xilinjia.krdb.types.annotations.PrimaryKey
+                    import io.realm.kotlin.types.EmbeddedRealmObject
+                    import io.realm.kotlin.types.annotations.PrimaryKey
 
                     class A : EmbeddedRealmObject {
                         @PrimaryKey

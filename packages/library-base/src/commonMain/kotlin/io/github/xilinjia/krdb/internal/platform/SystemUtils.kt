@@ -1,9 +1,9 @@
 @file:JvmName("SystemUtilsJvm")
-package io.github.xilinjia.krdb.internal.platform
+package io.realm.kotlin.internal.platform
 
-import io.github.xilinjia.krdb.internal.interop.SyncConnectionParams
-import io.github.xilinjia.krdb.log.RealmLogger
-import io.github.xilinjia.krdb.types.RealmInstant
+import io.realm.kotlin.internal.interop.SyncConnectionParams
+import io.realm.kotlin.log.RealmLogger
+import io.realm.kotlin.types.RealmInstant
 import kotlin.jvm.JvmName
 import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KType

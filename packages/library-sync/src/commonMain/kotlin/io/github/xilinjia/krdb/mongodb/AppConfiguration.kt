@@ -13,32 +13,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.mongodb
+package io.realm.kotlin.mongodb
 
 import io.ktor.client.plugins.logging.Logger
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.annotations.ExperimentalRealmSerializerApi
-import io.github.xilinjia.krdb.internal.ContextLogger
-import io.github.xilinjia.krdb.internal.interop.sync.MetadataMode
-import io.github.xilinjia.krdb.internal.interop.sync.NetworkTransport
-import io.github.xilinjia.krdb.internal.interop.sync.WebSocketTransport
-import io.github.xilinjia.krdb.internal.platform.appFilesDirectory
-import io.github.xilinjia.krdb.internal.platform.canWrite
-import io.github.xilinjia.krdb.internal.platform.directoryExists
-import io.github.xilinjia.krdb.internal.platform.fileExists
-import io.github.xilinjia.krdb.internal.platform.prepareRealmDirectoryPath
-import io.github.xilinjia.krdb.internal.util.CoroutineDispatcherFactory
-import io.github.xilinjia.krdb.internal.util.DispatcherHolder
-import io.github.xilinjia.krdb.internal.util.Validation
-import io.github.xilinjia.krdb.mongodb.ext.customData
-import io.github.xilinjia.krdb.mongodb.ext.profile
-import io.github.xilinjia.krdb.mongodb.internal.AppConfigurationImpl
-import io.github.xilinjia.krdb.mongodb.internal.KtorNetworkTransport
-import io.github.xilinjia.krdb.mongodb.internal.LogObfuscatorImpl
-import io.github.xilinjia.krdb.mongodb.internal.RealmWebSocketTransport
-import io.github.xilinjia.krdb.mongodb.sync.SyncConfiguration
-import io.github.xilinjia.krdb.mongodb.sync.SyncTimeoutOptions
-import io.github.xilinjia.krdb.mongodb.sync.SyncTimeoutOptionsBuilder
+import io.realm.kotlin.Realm
+import io.realm.kotlin.annotations.ExperimentalRealmSerializerApi
+import io.realm.kotlin.internal.ContextLogger
+import io.realm.kotlin.internal.interop.sync.MetadataMode
+import io.realm.kotlin.internal.interop.sync.NetworkTransport
+import io.realm.kotlin.internal.interop.sync.WebSocketTransport
+import io.realm.kotlin.internal.platform.appFilesDirectory
+import io.realm.kotlin.internal.platform.canWrite
+import io.realm.kotlin.internal.platform.directoryExists
+import io.realm.kotlin.internal.platform.fileExists
+import io.realm.kotlin.internal.platform.prepareRealmDirectoryPath
+import io.realm.kotlin.internal.util.CoroutineDispatcherFactory
+import io.realm.kotlin.internal.util.DispatcherHolder
+import io.realm.kotlin.internal.util.Validation
+import io.realm.kotlin.mongodb.ext.customData
+import io.realm.kotlin.mongodb.ext.profile
+import io.realm.kotlin.mongodb.internal.AppConfigurationImpl
+import io.realm.kotlin.mongodb.internal.KtorNetworkTransport
+import io.realm.kotlin.mongodb.internal.LogObfuscatorImpl
+import io.realm.kotlin.mongodb.internal.RealmWebSocketTransport
+import io.realm.kotlin.mongodb.sync.SyncConfiguration
+import io.realm.kotlin.mongodb.sync.SyncTimeoutOptions
+import io.realm.kotlin.mongodb.sync.SyncTimeoutOptionsBuilder
 import kotlinx.coroutines.CoroutineDispatcher
 import org.mongodb.kbson.ExperimentalKBsonSerializerApi
 import org.mongodb.kbson.serialization.EJson

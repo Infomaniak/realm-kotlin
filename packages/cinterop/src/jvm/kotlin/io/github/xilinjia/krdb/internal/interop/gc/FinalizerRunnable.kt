@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop.gc
+package io.realm.kotlin.internal.interop.gc
 
-import io.github.xilinjia.krdb.internal.interop.LongPointerWrapper
+import io.realm.kotlin.internal.interop.LongPointerWrapper
 import java.lang.ref.ReferenceQueue
 
 // Running in the FinalizingDaemon thread to free native objects.

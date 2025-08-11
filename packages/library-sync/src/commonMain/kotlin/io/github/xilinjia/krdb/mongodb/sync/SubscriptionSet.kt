@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.sync
+package io.realm.kotlin.mongodb.sync
 
-import io.github.xilinjia.krdb.BaseRealm
-import io.github.xilinjia.krdb.mongodb.exceptions.BadFlexibleSyncQueryException
-import io.github.xilinjia.krdb.query.RealmQuery
+import io.realm.kotlin.BaseRealm
+import io.realm.kotlin.mongodb.exceptions.BadFlexibleSyncQueryException
+import io.realm.kotlin.query.RealmQuery
 import kotlin.time.Duration
 
 /**

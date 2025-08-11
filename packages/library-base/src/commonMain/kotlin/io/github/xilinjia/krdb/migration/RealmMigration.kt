@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.migration
+package io.realm.kotlin.migration
 
-import io.github.xilinjia.krdb.RealmConfiguration
+import io.realm.kotlin.RealmConfiguration
 
 /**
  * A base class for the various **realm migration** schemes.

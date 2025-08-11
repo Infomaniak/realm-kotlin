@@ -1,8 +1,8 @@
-package io.github.xilinjia.krdb.mongodb.internal
+package io.realm.kotlin.mongodb.internal
 
-import io.github.xilinjia.krdb.internal.interop.sync.WebSocketClient
-import io.github.xilinjia.krdb.internal.interop.sync.WebSocketObserver
-import io.github.xilinjia.krdb.internal.interop.sync.WebsocketEngine
+import io.realm.kotlin.internal.interop.sync.WebSocketClient
+import io.realm.kotlin.internal.interop.sync.WebSocketObserver
+import io.realm.kotlin.internal.interop.sync.WebsocketEngine
 
 internal actual fun registerSystemNetworkObserver() {
     // This is handled automatically by Realm Core which will also call `Sync.reconnect()`

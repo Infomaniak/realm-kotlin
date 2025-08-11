@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.internal.geo
+package io.realm.kotlin.internal.geo
 
-import io.github.xilinjia.krdb.annotations.ExperimentalGeoSpatialApi
-import io.github.xilinjia.krdb.types.geo.GeoPoint
+import io.realm.kotlin.annotations.ExperimentalGeoSpatialApi
+import io.realm.kotlin.types.geo.GeoPoint
 
 @OptIn(ExperimentalGeoSpatialApi::class)
 internal data class UnmanagedGeoPoint(

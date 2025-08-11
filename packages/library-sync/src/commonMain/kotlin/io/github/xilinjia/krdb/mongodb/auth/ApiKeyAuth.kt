@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.mongodb.auth
+package io.realm.kotlin.mongodb.auth
 
-import io.github.xilinjia.krdb.mongodb.App
-import io.github.xilinjia.krdb.mongodb.User
-import io.github.xilinjia.krdb.mongodb.exceptions.AppException
+import io.realm.kotlin.mongodb.App
+import io.realm.kotlin.mongodb.User
+import io.realm.kotlin.mongodb.exceptions.AppException
 import org.mongodb.kbson.BsonObjectId
 
 /**
@@ -44,7 +44,7 @@ public interface ApiKeyAuth {
      * @return the new API key for the user.
      *
      * @throws IllegalArgumentException if an invalid name for the key is sent to the server.
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.ServiceException for other failures that can happen when
+     * @throws io.realm.kotlin.mongodb.exceptions.ServiceException for other failures that can happen when
      * communicating with App Services. See [AppException] for details.
      */
     public suspend fun create(name: String): ApiKey
@@ -55,7 +55,7 @@ public interface ApiKeyAuth {
      *
      * @param id the id of the key to delete.
      *
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.ServiceException for failures that can happen when
+     * @throws io.realm.kotlin.mongodb.exceptions.ServiceException for failures that can happen when
      * communicating with App Services. See [AppException] for details.
      */
     public suspend fun delete(id: BsonObjectId)
@@ -66,7 +66,7 @@ public interface ApiKeyAuth {
      * @param id the id of the key to disable.
      *
      * @throws IllegalArgumentException if a non existing API key is disabled.
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.ServiceException for other failures that can happen when
+     * @throws io.realm.kotlin.mongodb.exceptions.ServiceException for other failures that can happen when
      * communicating with App Services. See [AppException] for details.
      */
     public suspend fun disable(id: BsonObjectId)
@@ -77,7 +77,7 @@ public interface ApiKeyAuth {
      * @param id the id of the key to disable.
      *
      * @throws IllegalArgumentException if a non existing API key is enabled.
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.ServiceException for other failures that can happen when
+     * @throws io.realm.kotlin.mongodb.exceptions.ServiceException for other failures that can happen when
      * communicating with App Services. See [AppException] for details.
      */
     public suspend fun enable(id: BsonObjectId)
@@ -88,7 +88,7 @@ public interface ApiKeyAuth {
      * @param id the id of the key to fetch.
      *
      * @throws IllegalArgumentException if a non existing API key is fetched.
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.ServiceException for other failures that can happen when
+     * @throws io.realm.kotlin.mongodb.exceptions.ServiceException for other failures that can happen when
      * communicating with App Services. See [AppException] for details.
      */
     public suspend fun fetch(id: BsonObjectId): ApiKey?
@@ -97,7 +97,7 @@ public interface ApiKeyAuth {
      * Fetches all API keys associated with the user.
      * Returns an empty list if no key is found.
      *
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.ServiceException for failures that can happen when
+     * @throws io.realm.kotlin.mongodb.exceptions.ServiceException for failures that can happen when
      * communicating with App Services. See [AppException] for details.
      */
     public suspend fun fetchAll(): List<ApiKey>

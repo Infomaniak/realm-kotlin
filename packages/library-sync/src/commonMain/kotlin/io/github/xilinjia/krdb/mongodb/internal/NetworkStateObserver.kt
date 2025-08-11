@@ -1,6 +1,6 @@
-package io.github.xilinjia.krdb.mongodb.internal
+package io.realm.kotlin.mongodb.internal
 
-import io.github.xilinjia.krdb.internal.interop.SynchronizableObject
+import io.realm.kotlin.internal.interop.SynchronizableObject
 
 // Register a system specific network listener (if supported)
 internal expect fun registerSystemNetworkObserver()

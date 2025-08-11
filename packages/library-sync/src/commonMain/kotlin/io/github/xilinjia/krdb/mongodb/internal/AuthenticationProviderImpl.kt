@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.internal
+package io.realm.kotlin.mongodb.internal
 
-import io.github.xilinjia.krdb.internal.interop.sync.AuthProvider
-import io.github.xilinjia.krdb.mongodb.AuthenticationProvider
+import io.realm.kotlin.internal.interop.sync.AuthProvider
+import io.realm.kotlin.mongodb.AuthenticationProvider
 
 internal class AuthenticationProviderImpl private constructor() {
     internal companion object {

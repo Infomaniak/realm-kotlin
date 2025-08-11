@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 @file:Suppress("invisible_reference", "invisible_member")
-package io.github.xilinjia.krdb.test.mongodb.util
+package io.realm.kotlin.test.mongodb.util
 
 import io.ktor.client.HttpClient
 import io.ktor.client.HttpClientConfig
@@ -24,9 +24,9 @@ import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
 import io.ktor.serialization.kotlinx.json.json
-import io.github.xilinjia.krdb.internal.ContextLogger
-import io.github.xilinjia.krdb.mongodb.internal.LogObfuscatorImpl
-import io.github.xilinjia.krdb.mongodb.internal.createPlatformClient
+import io.realm.kotlin.internal.ContextLogger
+import io.realm.kotlin.mongodb.internal.LogObfuscatorImpl
+import io.realm.kotlin.mongodb.internal.createPlatformClient
 import kotlinx.serialization.json.Json
 import kotlin.time.Duration.Companion.seconds
 

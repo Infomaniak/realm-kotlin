@@ -15,15 +15,15 @@
  */
 @file:Suppress("invisible_member", "invisible_reference")
 
-package io.github.xilinjia.krdb.test.mongodb.util
+package io.realm.kotlin.test.mongodb.util
 
-import io.github.xilinjia.krdb.internal.interop.CollectionType
-import io.github.xilinjia.krdb.internal.interop.PropertyInfo
-import io.github.xilinjia.krdb.internal.interop.PropertyType
-import io.github.xilinjia.krdb.internal.realmObjectCompanionOrNull
-import io.github.xilinjia.krdb.internal.schema.RealmClassImpl
-import io.github.xilinjia.krdb.schema.RealmClassKind
-import io.github.xilinjia.krdb.types.BaseRealmObject
+import io.realm.kotlin.internal.interop.CollectionType
+import io.realm.kotlin.internal.interop.PropertyInfo
+import io.realm.kotlin.internal.interop.PropertyType
+import io.realm.kotlin.internal.realmObjectCompanionOrNull
+import io.realm.kotlin.internal.schema.RealmClassImpl
+import io.realm.kotlin.schema.RealmClassKind
+import io.realm.kotlin.types.BaseRealmObject
 import kotlin.reflect.KClass
 
 class SchemaProcessor private constructor(

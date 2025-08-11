@@ -15,31 +15,31 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.mongodb.common
+package io.realm.kotlin.test.mongodb.common
 
-import io.github.xilinjia.krdb.internal.platform.appFilesDirectory
-import io.github.xilinjia.krdb.internal.platform.isWindows
-import io.github.xilinjia.krdb.internal.platform.pathOf
-import io.github.xilinjia.krdb.internal.platform.runBlocking
-import io.github.xilinjia.krdb.log.LogCategory
-import io.github.xilinjia.krdb.log.LogLevel
-import io.github.xilinjia.krdb.log.RealmLog
-import io.github.xilinjia.krdb.log.RealmLogger
-import io.github.xilinjia.krdb.mongodb.App
-import io.github.xilinjia.krdb.mongodb.AppConfiguration
-import io.github.xilinjia.krdb.mongodb.exceptions.ServiceException
-import io.github.xilinjia.krdb.mongodb.internal.AppConfigurationImpl
-import io.github.xilinjia.krdb.mongodb.sync.SyncConfiguration
-import io.github.xilinjia.krdb.test.mongodb.TestApp
-import io.github.xilinjia.krdb.test.mongodb.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.mongodb.createUserAndLogIn
-import io.github.xilinjia.krdb.test.mongodb.use
-import io.github.xilinjia.krdb.test.mongodb.util.DefaultPartitionBasedAppInitializer
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.util.TestChannel
-import io.github.xilinjia.krdb.test.util.TestHelper
-import io.github.xilinjia.krdb.test.util.receiveOrFail
-import io.github.xilinjia.krdb.test.util.trySendOrFail
+import io.realm.kotlin.internal.platform.appFilesDirectory
+import io.realm.kotlin.internal.platform.isWindows
+import io.realm.kotlin.internal.platform.pathOf
+import io.realm.kotlin.internal.platform.runBlocking
+import io.realm.kotlin.log.LogCategory
+import io.realm.kotlin.log.LogLevel
+import io.realm.kotlin.log.RealmLog
+import io.realm.kotlin.log.RealmLogger
+import io.realm.kotlin.mongodb.App
+import io.realm.kotlin.mongodb.AppConfiguration
+import io.realm.kotlin.mongodb.exceptions.ServiceException
+import io.realm.kotlin.mongodb.internal.AppConfigurationImpl
+import io.realm.kotlin.mongodb.sync.SyncConfiguration
+import io.realm.kotlin.test.mongodb.TestApp
+import io.realm.kotlin.test.mongodb.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.mongodb.createUserAndLogIn
+import io.realm.kotlin.test.mongodb.use
+import io.realm.kotlin.test.mongodb.util.DefaultPartitionBasedAppInitializer
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.util.TestChannel
+import io.realm.kotlin.test.util.TestHelper
+import io.realm.kotlin.test.util.receiveOrFail
+import io.realm.kotlin.test.util.trySendOrFail
 import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertContentEquals
@@ -342,7 +342,7 @@ class AppConfigurationTests {
     fun defaultLoginInfoObfuscator() {
         val config = AppConfiguration.Builder(APP_ID).build()
         assertNotNull(config.httpLogObfuscator)
-        assertTrue(config.httpLogObfuscator is io.github.xilinjia.krdb.mongodb.internal.LogObfuscatorImpl)
+        assertTrue(config.httpLogObfuscator is io.realm.kotlin.mongodb.internal.LogObfuscatorImpl)
     }
 
     //

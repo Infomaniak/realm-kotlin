@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.ext
+package io.realm.kotlin.ext
 
-import io.github.xilinjia.krdb.TypedRealm
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.query.TRUE_PREDICATE
-import io.github.xilinjia.krdb.types.TypedRealmObject
+import io.realm.kotlin.TypedRealm
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.query.TRUE_PREDICATE
+import io.realm.kotlin.types.TypedRealmObject
 
 /**
  * Returns a [RealmQuery] matching the predicate represented by [query].

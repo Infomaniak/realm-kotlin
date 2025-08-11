@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.mongodb.compiler
+package io.realm.kotlin.test.mongodb.compiler
 
 import com.tschuchort.compiletesting.KotlinCompilation
 import com.tschuchort.compiletesting.SourceFile
-import io.github.xilinjia.krdb.test.util.Compiler
+import io.realm.kotlin.test.util.Compiler
 import org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi
 import org.junit.Test
 import kotlin.test.assertEquals
@@ -33,10 +33,10 @@ class AsymmetricObjectTests {
             source = SourceFile.kotlin(
                 "referenceAsymmetricObjects.kt",
                 """
-                    import io.github.xilinjia.krdb.types.AsymmetricRealmObject
-                    import io.github.xilinjia.krdb.types.EmbeddedRealmObject
-                    import io.github.xilinjia.krdb.types.RealmObject
-                    import io.github.xilinjia.krdb.types.annotations.PrimaryKey
+                    import io.realm.kotlin.types.AsymmetricRealmObject
+                    import io.realm.kotlin.types.EmbeddedRealmObject
+                    import io.realm.kotlin.types.RealmObject
+                    import io.realm.kotlin.types.annotations.PrimaryKey
 
                     class A : AsymmetricRealmObject {
                         @PrimaryKey
@@ -56,16 +56,16 @@ class AsymmetricObjectTests {
             source = SourceFile.kotlin(
                 "referenceAsymmetricObjects.kt",
                 """
-                    import io.github.xilinjia.krdb.ext.realmDictionaryOf
-                    import io.github.xilinjia.krdb.ext.realmListOf
-                    import io.github.xilinjia.krdb.ext.realmSetOf
-                    import io.github.xilinjia.krdb.types.AsymmetricRealmObject
-                    import io.github.xilinjia.krdb.types.EmbeddedRealmObject
-                    import io.github.xilinjia.krdb.types.RealmDictionary
-                    import io.github.xilinjia.krdb.types.RealmList
-                    import io.github.xilinjia.krdb.types.RealmObject
-                    import io.github.xilinjia.krdb.types.RealmSet
-                    import io.github.xilinjia.krdb.types.annotations.PrimaryKey
+                    import io.realm.kotlin.ext.realmDictionaryOf
+                    import io.realm.kotlin.ext.realmListOf
+                    import io.realm.kotlin.ext.realmSetOf
+                    import io.realm.kotlin.types.AsymmetricRealmObject
+                    import io.realm.kotlin.types.EmbeddedRealmObject
+                    import io.realm.kotlin.types.RealmDictionary
+                    import io.realm.kotlin.types.RealmList
+                    import io.realm.kotlin.types.RealmObject
+                    import io.realm.kotlin.types.RealmSet
+                    import io.realm.kotlin.types.annotations.PrimaryKey
 
                     class A : AsymmetricRealmObject {
                         @PrimaryKey
@@ -89,12 +89,12 @@ class AsymmetricObjectTests {
             source = SourceFile.kotlin(
                 "referenceRealmObjects.kt",
                 """
-                    import io.github.xilinjia.krdb.ext.realmListOf
-                    import io.github.xilinjia.krdb.types.AsymmetricRealmObject
-                    import io.github.xilinjia.krdb.types.EmbeddedRealmObject
-                    import io.github.xilinjia.krdb.types.RealmList
-                    import io.github.xilinjia.krdb.types.RealmObject
-                    import io.github.xilinjia.krdb.types.annotations.PrimaryKey
+                    import io.realm.kotlin.ext.realmListOf
+                    import io.realm.kotlin.types.AsymmetricRealmObject
+                    import io.realm.kotlin.types.EmbeddedRealmObject
+                    import io.realm.kotlin.types.RealmList
+                    import io.realm.kotlin.types.RealmObject
+                    import io.realm.kotlin.types.annotations.PrimaryKey
 
                     class B : RealmObject {
                         var _id: String = ""
@@ -119,12 +119,12 @@ class AsymmetricObjectTests {
             source = SourceFile.kotlin(
                 "embeddedCannotReferenceAsymmetric.kt",
                 """
-                    import io.github.xilinjia.krdb.ext.realmListOf
-                    import io.github.xilinjia.krdb.types.AsymmetricRealmObject
-                    import io.github.xilinjia.krdb.types.EmbeddedRealmObject
-                    import io.github.xilinjia.krdb.types.RealmList
-                    import io.github.xilinjia.krdb.types.RealmObject
-                    import io.github.xilinjia.krdb.types.annotations.PrimaryKey
+                    import io.realm.kotlin.ext.realmListOf
+                    import io.realm.kotlin.types.AsymmetricRealmObject
+                    import io.realm.kotlin.types.EmbeddedRealmObject
+                    import io.realm.kotlin.types.RealmList
+                    import io.realm.kotlin.types.RealmObject
+                    import io.realm.kotlin.types.annotations.PrimaryKey
 
                     class B : AsymmetricRealmObject {
                         @PrimaryKey
@@ -149,11 +149,11 @@ class AsymmetricObjectTests {
             source = SourceFile.kotlin(
                 "embeddedCannotReferenceAsymmetric.kt",
                 """
-                    import io.github.xilinjia.krdb.ext.realmListOf
-                    import io.github.xilinjia.krdb.types.AsymmetricRealmObject
-                    import io.github.xilinjia.krdb.types.RealmList
-                    import io.github.xilinjia.krdb.types.RealmObject
-                    import io.github.xilinjia.krdb.types.annotations.PrimaryKey
+                    import io.realm.kotlin.ext.realmListOf
+                    import io.realm.kotlin.types.AsymmetricRealmObject
+                    import io.realm.kotlin.types.RealmList
+                    import io.realm.kotlin.types.RealmObject
+                    import io.realm.kotlin.types.annotations.PrimaryKey
 
                     class B : AsymmetricRealmObject {
                         @PrimaryKey

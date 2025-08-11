@@ -1,7 +1,7 @@
-package io.github.xilinjia.krdb.internal.platform
+package io.realm.kotlin.internal.platform
 
-import io.github.xilinjia.krdb.internal.Constants.FILE_COPY_BUFFER_SIZE
-import io.github.xilinjia.krdb.internal.util.Exceptions
+import io.realm.kotlin.internal.Constants.FILE_COPY_BUFFER_SIZE
+import io.realm.kotlin.internal.util.Exceptions
 import java.io.File
 import java.io.InputStream
 import java.io.OutputStream

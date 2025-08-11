@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.internal.interop.sync
+package io.realm.kotlin.internal.interop.sync
 
-import io.github.xilinjia.krdb.internal.interop.RealmValue
+import io.realm.kotlin.internal.interop.RealmValue
 
 expect class CoreCompensatingWriteInfo {
     val reason: String

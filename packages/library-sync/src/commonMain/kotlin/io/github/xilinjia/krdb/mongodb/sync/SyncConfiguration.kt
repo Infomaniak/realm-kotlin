@@ -13,28 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.mongodb.sync
+package io.realm.kotlin.mongodb.sync
 
-import io.github.xilinjia.krdb.Configuration
-import io.github.xilinjia.krdb.MutableRealm
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.TypedRealm
-import io.github.xilinjia.krdb.internal.ConfigurationImpl
-import io.github.xilinjia.krdb.internal.ContextLogger
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.SchemaMode
-import io.github.xilinjia.krdb.internal.platform.PATH_SEPARATOR
-import io.github.xilinjia.krdb.internal.util.CoroutineDispatcherFactory
-import io.github.xilinjia.krdb.mongodb.App
-import io.github.xilinjia.krdb.mongodb.AppConfiguration
-import io.github.xilinjia.krdb.mongodb.Credentials
-import io.github.xilinjia.krdb.mongodb.User
-import io.github.xilinjia.krdb.mongodb.exceptions.ClientResetRequiredException
-import io.github.xilinjia.krdb.mongodb.exceptions.SyncException
-import io.github.xilinjia.krdb.mongodb.internal.SyncConfigurationImpl
-import io.github.xilinjia.krdb.mongodb.internal.UserImpl
-import io.github.xilinjia.krdb.types.BaseRealmObject
-import io.github.xilinjia.krdb.types.RealmUUID
+import io.realm.kotlin.Configuration
+import io.realm.kotlin.MutableRealm
+import io.realm.kotlin.Realm
+import io.realm.kotlin.TypedRealm
+import io.realm.kotlin.internal.ConfigurationImpl
+import io.realm.kotlin.internal.ContextLogger
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.SchemaMode
+import io.realm.kotlin.internal.platform.PATH_SEPARATOR
+import io.realm.kotlin.internal.util.CoroutineDispatcherFactory
+import io.realm.kotlin.mongodb.App
+import io.realm.kotlin.mongodb.AppConfiguration
+import io.realm.kotlin.mongodb.Credentials
+import io.realm.kotlin.mongodb.User
+import io.realm.kotlin.mongodb.exceptions.ClientResetRequiredException
+import io.realm.kotlin.mongodb.exceptions.SyncException
+import io.realm.kotlin.mongodb.internal.SyncConfigurationImpl
+import io.realm.kotlin.mongodb.internal.UserImpl
+import io.realm.kotlin.types.BaseRealmObject
+import io.realm.kotlin.types.RealmUUID
 import org.mongodb.kbson.BsonBinary
 import org.mongodb.kbson.BsonBinarySubType
 import org.mongodb.kbson.BsonInt32
@@ -414,7 +414,7 @@ public interface SyncConfiguration : Configuration {
          * ```
          *
          * @param timeout how long to wait for the download to complete before an
-         * [io.github.xilinjia.krdb.mongodb.exceptions.DownloadingRealmTimeOutException] is thrown when opening
+         * [io.realm.kotlin.mongodb.exceptions.DownloadingRealmTimeOutException] is thrown when opening
          * the Realm.
          */
         public fun waitForInitialRemoteData(timeout: Duration = Duration.INFINITE): Builder =

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
 // FIXME API-SCHEMA Should probably be somewhere else...maybe in runtime-api?
 expect enum class SchemaMode {

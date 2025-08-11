@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.log
+package io.realm.kotlin.log
 
 /**
  * Interface describing a logger implementation.

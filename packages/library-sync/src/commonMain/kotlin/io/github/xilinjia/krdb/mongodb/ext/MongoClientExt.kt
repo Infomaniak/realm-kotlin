@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.ext
+package io.realm.kotlin.mongodb.ext
 
-import io.github.xilinjia.krdb.mongodb.internal.MongoClientCollection
-import io.github.xilinjia.krdb.mongodb.internal.MongoClientImpl
-import io.github.xilinjia.krdb.mongodb.mongo.MongoClient
-import io.github.xilinjia.krdb.mongodb.mongo.MongoCollection
-import io.github.xilinjia.krdb.types.BaseRealmObject
+import io.realm.kotlin.mongodb.internal.MongoClientCollection
+import io.realm.kotlin.mongodb.internal.MongoClientImpl
+import io.realm.kotlin.mongodb.mongo.MongoClient
+import io.realm.kotlin.mongodb.mongo.MongoCollection
+import io.realm.kotlin.types.BaseRealmObject
 import org.mongodb.kbson.ExperimentalKBsonSerializerApi
 import org.mongodb.kbson.serialization.EJson
 
@@ -41,5 +41,5 @@ import org.mongodb.kbson.serialization.EJson
 @ExperimentalKBsonSerializerApi
 public inline fun <reified T : BaseRealmObject> MongoClient.collection(eJson: EJson? = null): MongoCollection<T> {
     @Suppress("invisible_reference", "invisible_member")
-    return MongoClientCollection(this as MongoClientImpl, io.github.xilinjia.krdb.internal.platform.realmObjectCompanionOrThrow(T::class).io_realm_kotlin_className, eJson ?: this.eJson)
+    return MongoClientCollection(this as MongoClientImpl, io.realm.kotlin.internal.platform.realmObjectCompanionOrThrow(T::class).io_realm_kotlin_className, eJson ?: this.eJson)
 }

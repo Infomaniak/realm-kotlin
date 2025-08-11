@@ -13,7 +13,7 @@
  *
  */
 
-package io.github.xilinjia.krdb
+package io.realm.kotlin
 
 public interface Versioned {
     /**

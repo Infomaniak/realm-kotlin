@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.mongodb.sync
+package io.realm.kotlin.test.mongodb.sync
 
 import kotlinx.coroutines.CoroutineDispatcher
 

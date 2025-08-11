@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 @file:Suppress("invisible_member", "invisible_reference")
-package io.github.xilinjia.krdb.test.mongodb.common.internal
+package io.realm.kotlin.test.mongodb.common.internal
 
-import io.github.xilinjia.krdb.internal.interop.SyncConnectionParams
+import io.realm.kotlin.internal.interop.SyncConnectionParams
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 /**
- * Verify that input to io.github.xilinjia.krdb.internal.interop.SyncConnectionParams is accessible.
+ * Verify that input to io.realm.kotlin.internal.interop.SyncConnectionParams is accessible.
  */
 internal class SyncConnectionParamsTests {
 

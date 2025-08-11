@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.notifications
+package io.realm.kotlin.notifications
 
-import io.github.xilinjia.krdb.types.RealmList
+import io.realm.kotlin.types.RealmList
 
 /**
  * This sealed interface describes the possible changes that can happen to a [RealmList] collection.

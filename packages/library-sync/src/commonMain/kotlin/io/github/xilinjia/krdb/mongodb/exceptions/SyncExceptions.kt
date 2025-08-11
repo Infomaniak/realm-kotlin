@@ -15,22 +15,22 @@
  */
 @file:Suppress("invisible_member", "invisible_reference")
 
-package io.github.xilinjia.krdb.mongodb.exceptions
+package io.realm.kotlin.mongodb.exceptions
 
-import io.github.xilinjia.krdb.internal.asPrimitiveRealmAnyOrElse
-import io.github.xilinjia.krdb.internal.interop.sync.CoreCompensatingWriteInfo
-import io.github.xilinjia.krdb.mongodb.sync.SyncSession
-import io.github.xilinjia.krdb.types.RealmAny
+import io.realm.kotlin.internal.asPrimitiveRealmAnyOrElse
+import io.realm.kotlin.internal.interop.sync.CoreCompensatingWriteInfo
+import io.realm.kotlin.mongodb.sync.SyncSession
+import io.realm.kotlin.types.RealmAny
 
 /**
  * This exception is considered the top-level exception or general "catch-all" for problems related
  * to using Device Sync.
  *
  * This exception and subclasses of it will be passed to users through
- * [io.github.xilinjia.krdb.mongodb.sync.SyncConfiguration.Builder.errorHandler] and the the exact reason
+ * [io.realm.kotlin.mongodb.sync.SyncConfiguration.Builder.errorHandler] and the the exact reason
  * must be found in [Throwable.message].
  *
- * @see io.github.xilinjia.krdb.mongodb.sync.SyncConfiguration.Builder.errorHandler
+ * @see io.realm.kotlin.mongodb.sync.SyncConfiguration.Builder.errorHandler
  */
 public open class SyncException internal constructor(message: String?, isFatal: Boolean) : AppException(message) {
     /**
@@ -58,7 +58,7 @@ public open class SyncException internal constructor(message: String?, isFatal: 
  * many errors of this category will result in a Client Reset once the client
  * re-connects to the server.
  *
- * @see io.github.xilinjia.krdb.mongodb.sync.SyncConfiguration.Builder.errorHandler
+ * @see io.realm.kotlin.mongodb.sync.SyncConfiguration.Builder.errorHandler
  */
 @Deprecated("This will be removed in the future. Test for SyncException.isFatal instead.")
 public open class UnrecoverableSyncException internal constructor(message: String) :
@@ -74,7 +74,7 @@ public class WrongSyncTypeException internal constructor(message: String) :
 
 /**
  * Thrown when the server does not support one or more of the queries defined in the
- * [io.github.xilinjia.krdb.mongodb.sync.SubscriptionSet].
+ * [io.realm.kotlin.mongodb.sync.SubscriptionSet].
  */
 public class BadFlexibleSyncQueryException internal constructor(message: String?, isFatal: Boolean) :
     SyncException(message, isFatal)

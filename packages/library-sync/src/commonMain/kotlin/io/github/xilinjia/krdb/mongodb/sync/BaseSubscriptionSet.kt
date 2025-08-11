@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.sync
+package io.realm.kotlin.mongodb.sync
 
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.types.RealmObject
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.types.RealmObject
 
 /**
  * Base interface for shared functionality between [SubscriptionSet] and [MutableSubscriptionSet].

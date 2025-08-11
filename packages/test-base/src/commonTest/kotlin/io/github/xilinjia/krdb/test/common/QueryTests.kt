@@ -16,48 +16,48 @@
 @file:Suppress("unchecked_cast")
 @file:OptIn(ExperimentalCoroutinesApi::class)
 
-package io.github.xilinjia.krdb.test.common
+package io.realm.kotlin.test.common
 
-import io.github.xilinjia.krdb.MutableRealm
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.ext.asRealmObject
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.ext.realmDictionaryOf
-import io.github.xilinjia.krdb.ext.realmListOf
-import io.github.xilinjia.krdb.ext.realmSetOf
-import io.github.xilinjia.krdb.internal.platform.singleThreadDispatcher
-import io.github.xilinjia.krdb.internal.query.AggregatorQueryType
-import io.github.xilinjia.krdb.notifications.DeletedObject
-import io.github.xilinjia.krdb.notifications.InitialObject
-import io.github.xilinjia.krdb.notifications.InitialResults
-import io.github.xilinjia.krdb.notifications.PendingObject
-import io.github.xilinjia.krdb.notifications.ResultsChange
-import io.github.xilinjia.krdb.notifications.SingleQueryChange
-import io.github.xilinjia.krdb.notifications.UpdatedObject
-import io.github.xilinjia.krdb.notifications.UpdatedResults
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.query.RealmResults
-import io.github.xilinjia.krdb.query.Sort
-import io.github.xilinjia.krdb.query.find
-import io.github.xilinjia.krdb.query.max
-import io.github.xilinjia.krdb.query.min
-import io.github.xilinjia.krdb.query.sum
-import io.github.xilinjia.krdb.schema.RealmStorageType
-import io.github.xilinjia.krdb.test.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.util.TestChannel
-import io.github.xilinjia.krdb.test.util.TypeDescriptor
-import io.github.xilinjia.krdb.test.util.receiveOrFail
-import io.github.xilinjia.krdb.types.RealmAny
-import io.github.xilinjia.krdb.types.RealmDictionary
-import io.github.xilinjia.krdb.types.RealmInstant
-import io.github.xilinjia.krdb.types.RealmList
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.RealmSet
-import io.github.xilinjia.krdb.types.RealmUUID
-import io.github.xilinjia.krdb.types.annotations.FullText
-import io.github.xilinjia.krdb.types.annotations.PersistedName
+import io.realm.kotlin.MutableRealm
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.ext.asRealmObject
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.ext.realmDictionaryOf
+import io.realm.kotlin.ext.realmListOf
+import io.realm.kotlin.ext.realmSetOf
+import io.realm.kotlin.internal.platform.singleThreadDispatcher
+import io.realm.kotlin.internal.query.AggregatorQueryType
+import io.realm.kotlin.notifications.DeletedObject
+import io.realm.kotlin.notifications.InitialObject
+import io.realm.kotlin.notifications.InitialResults
+import io.realm.kotlin.notifications.PendingObject
+import io.realm.kotlin.notifications.ResultsChange
+import io.realm.kotlin.notifications.SingleQueryChange
+import io.realm.kotlin.notifications.UpdatedObject
+import io.realm.kotlin.notifications.UpdatedResults
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.query.RealmResults
+import io.realm.kotlin.query.Sort
+import io.realm.kotlin.query.find
+import io.realm.kotlin.query.max
+import io.realm.kotlin.query.min
+import io.realm.kotlin.query.sum
+import io.realm.kotlin.schema.RealmStorageType
+import io.realm.kotlin.test.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.util.TestChannel
+import io.realm.kotlin.test.util.TypeDescriptor
+import io.realm.kotlin.test.util.receiveOrFail
+import io.realm.kotlin.types.RealmAny
+import io.realm.kotlin.types.RealmDictionary
+import io.realm.kotlin.types.RealmInstant
+import io.realm.kotlin.types.RealmList
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.RealmSet
+import io.realm.kotlin.types.RealmUUID
+import io.realm.kotlin.types.annotations.FullText
+import io.realm.kotlin.types.annotations.PersistedName
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.async
@@ -3268,7 +3268,7 @@ private data class PropertyDescriptor constructor(
 )
 
 /**
- * Use this and not [io.github.xilinjia.krdb.entities.Sample] as that class has default initializers that make
+ * Use this and not [io.realm.kotlin.entities.Sample] as that class has default initializers that make
  * aggregating operations harder to assert.
  */
 class QuerySample() : RealmObject {

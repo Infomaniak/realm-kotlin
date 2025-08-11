@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.entities
+package io.realm.kotlin.entities
 
-class FqNameImportParent : io.github.xilinjia.krdb.types.RealmObject {
+class FqNameImportParent : io.realm.kotlin.types.RealmObject {
     var name: String? = null
     var child: FqNameImportEmbeddedChild? = null
 }
 
-class FqNameImportEmbeddedChild : io.github.xilinjia.krdb.types.EmbeddedRealmObject {
+class FqNameImportEmbeddedChild : io.realm.kotlin.types.EmbeddedRealmObject {
     var name: String? = null
 }

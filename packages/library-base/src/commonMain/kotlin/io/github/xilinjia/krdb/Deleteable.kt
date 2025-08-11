@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb
+package io.realm.kotlin
 
-import io.github.xilinjia.krdb.dynamic.DynamicMutableRealm
+import io.realm.kotlin.dynamic.DynamicMutableRealm
 
 /**
  * A **deleteable** is an entity that can be deleted in a write transaction or as part of a

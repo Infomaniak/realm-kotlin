@@ -1,4 +1,4 @@
-package io.github.xilinjia.krdb.test.mongodb
+package io.realm.kotlin.test.mongodb
 
 import android.os.Bundle
 import androidx.test.platform.app.InstrumentationRegistry

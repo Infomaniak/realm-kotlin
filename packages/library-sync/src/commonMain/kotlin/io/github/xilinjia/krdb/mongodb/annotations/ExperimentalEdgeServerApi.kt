@@ -12,7 +12,7 @@
  * limitations under the License.
  *
  */
-package io.github.xilinjia.krdb.mongodb.annotations
+package io.realm.kotlin.mongodb.annotations
 
 /**
  * This annotation mark Realm APIs specific to the Atlas Edge server and are considered

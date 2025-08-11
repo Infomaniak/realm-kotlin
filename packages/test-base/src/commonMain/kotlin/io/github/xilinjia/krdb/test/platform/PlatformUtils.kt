@@ -1,6 +1,6 @@
-package io.github.xilinjia.krdb.test.platform
+package io.realm.kotlin.test.platform
 
-import io.github.xilinjia.krdb.test.util.Utils
+import io.realm.kotlin.test.util.Utils
 import kotlin.time.Duration
 
 // Platform dependant helper methods

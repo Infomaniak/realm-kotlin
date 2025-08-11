@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.internal
+package io.realm.kotlin.mongodb.internal
 
 import io.ktor.client.call.body
 import io.ktor.client.plugins.ClientRequestException
@@ -33,11 +33,11 @@ import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
 import io.ktor.util.InternalAPI
 import io.ktor.utils.io.errors.IOException
-import io.github.xilinjia.krdb.internal.interop.sync.NetworkTransport
-import io.github.xilinjia.krdb.internal.interop.sync.Response
-import io.github.xilinjia.krdb.internal.interop.sync.ResponseCallback
-import io.github.xilinjia.krdb.internal.util.DispatcherHolder
-import io.github.xilinjia.krdb.mongodb.AppConfiguration.Companion.DEFAULT_AUTHORIZATION_HEADER_NAME
+import io.realm.kotlin.internal.interop.sync.NetworkTransport
+import io.realm.kotlin.internal.interop.sync.Response
+import io.realm.kotlin.internal.interop.sync.ResponseCallback
+import io.realm.kotlin.internal.util.DispatcherHolder
+import io.realm.kotlin.mongodb.AppConfiguration.Companion.DEFAULT_AUTHORIZATION_HEADER_NAME
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.async

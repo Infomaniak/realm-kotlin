@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.notifications.internal
+package io.realm.kotlin.notifications.internal
 
-import io.github.xilinjia.krdb.BaseRealm
-import io.github.xilinjia.krdb.notifications.InitialRealm
-import io.github.xilinjia.krdb.notifications.UpdatedRealm
+import io.realm.kotlin.BaseRealm
+import io.realm.kotlin.notifications.InitialRealm
+import io.realm.kotlin.notifications.UpdatedRealm
 
 internal class InitialRealmImpl<R : BaseRealm>(override val realm: R) : InitialRealm<R>
 

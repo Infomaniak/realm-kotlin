@@ -15,56 +15,56 @@
  */
 @file:Suppress("NOTHING_TO_INLINE")
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.UpdatePolicy
-import io.github.xilinjia.krdb.VersionId
-import io.github.xilinjia.krdb.dynamic.DynamicMutableRealmObject
-import io.github.xilinjia.krdb.dynamic.DynamicRealmObject
-import io.github.xilinjia.krdb.ext.asRealmObject
-import io.github.xilinjia.krdb.ext.isManaged
-import io.github.xilinjia.krdb.ext.isValid
-import io.github.xilinjia.krdb.ext.toRealmDictionary
-import io.github.xilinjia.krdb.ext.toRealmList
-import io.github.xilinjia.krdb.ext.toRealmSet
-import io.github.xilinjia.krdb.internal.dynamic.DynamicUnmanagedRealmObject
-import io.github.xilinjia.krdb.internal.interop.ClassKey
-import io.github.xilinjia.krdb.internal.interop.CollectionType
-import io.github.xilinjia.krdb.internal.interop.MemAllocator
-import io.github.xilinjia.krdb.internal.interop.ObjectKey
-import io.github.xilinjia.krdb.internal.interop.PropertyKey
-import io.github.xilinjia.krdb.internal.interop.PropertyType
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmInterop.realm_get_value
-import io.github.xilinjia.krdb.internal.interop.RealmListPointer
-import io.github.xilinjia.krdb.internal.interop.RealmMapPointer
-import io.github.xilinjia.krdb.internal.interop.RealmObjectInterop
-import io.github.xilinjia.krdb.internal.interop.RealmSetPointer
-import io.github.xilinjia.krdb.internal.interop.RealmValue
-import io.github.xilinjia.krdb.internal.interop.Timestamp
-import io.github.xilinjia.krdb.internal.interop.getterScope
-import io.github.xilinjia.krdb.internal.interop.inputScope
-import io.github.xilinjia.krdb.internal.platform.identityHashCode
-import io.github.xilinjia.krdb.internal.platform.realmObjectCompanionOrThrow
-import io.github.xilinjia.krdb.internal.schema.ClassMetadata
-import io.github.xilinjia.krdb.internal.schema.PropertyMetadata
-import io.github.xilinjia.krdb.internal.schema.RealmStorageTypeImpl
-import io.github.xilinjia.krdb.internal.schema.realmStorageType
-import io.github.xilinjia.krdb.internal.util.Validation.sdkError
-import io.github.xilinjia.krdb.query.RealmResults
-import io.github.xilinjia.krdb.schema.RealmClassKind
-import io.github.xilinjia.krdb.schema.RealmStorageType
-import io.github.xilinjia.krdb.types.BaseRealmObject
-import io.github.xilinjia.krdb.types.EmbeddedRealmObject
-import io.github.xilinjia.krdb.types.MutableRealmInt
-import io.github.xilinjia.krdb.types.RealmAny
-import io.github.xilinjia.krdb.types.RealmDictionary
-import io.github.xilinjia.krdb.types.RealmInstant
-import io.github.xilinjia.krdb.types.RealmList
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.RealmSet
-import io.github.xilinjia.krdb.types.RealmUUID
-import io.github.xilinjia.krdb.types.TypedRealmObject
+import io.realm.kotlin.UpdatePolicy
+import io.realm.kotlin.VersionId
+import io.realm.kotlin.dynamic.DynamicMutableRealmObject
+import io.realm.kotlin.dynamic.DynamicRealmObject
+import io.realm.kotlin.ext.asRealmObject
+import io.realm.kotlin.ext.isManaged
+import io.realm.kotlin.ext.isValid
+import io.realm.kotlin.ext.toRealmDictionary
+import io.realm.kotlin.ext.toRealmList
+import io.realm.kotlin.ext.toRealmSet
+import io.realm.kotlin.internal.dynamic.DynamicUnmanagedRealmObject
+import io.realm.kotlin.internal.interop.ClassKey
+import io.realm.kotlin.internal.interop.CollectionType
+import io.realm.kotlin.internal.interop.MemAllocator
+import io.realm.kotlin.internal.interop.ObjectKey
+import io.realm.kotlin.internal.interop.PropertyKey
+import io.realm.kotlin.internal.interop.PropertyType
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmInterop.realm_get_value
+import io.realm.kotlin.internal.interop.RealmListPointer
+import io.realm.kotlin.internal.interop.RealmMapPointer
+import io.realm.kotlin.internal.interop.RealmObjectInterop
+import io.realm.kotlin.internal.interop.RealmSetPointer
+import io.realm.kotlin.internal.interop.RealmValue
+import io.realm.kotlin.internal.interop.Timestamp
+import io.realm.kotlin.internal.interop.getterScope
+import io.realm.kotlin.internal.interop.inputScope
+import io.realm.kotlin.internal.platform.identityHashCode
+import io.realm.kotlin.internal.platform.realmObjectCompanionOrThrow
+import io.realm.kotlin.internal.schema.ClassMetadata
+import io.realm.kotlin.internal.schema.PropertyMetadata
+import io.realm.kotlin.internal.schema.RealmStorageTypeImpl
+import io.realm.kotlin.internal.schema.realmStorageType
+import io.realm.kotlin.internal.util.Validation.sdkError
+import io.realm.kotlin.query.RealmResults
+import io.realm.kotlin.schema.RealmClassKind
+import io.realm.kotlin.schema.RealmStorageType
+import io.realm.kotlin.types.BaseRealmObject
+import io.realm.kotlin.types.EmbeddedRealmObject
+import io.realm.kotlin.types.MutableRealmInt
+import io.realm.kotlin.types.RealmAny
+import io.realm.kotlin.types.RealmDictionary
+import io.realm.kotlin.types.RealmInstant
+import io.realm.kotlin.types.RealmList
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.RealmSet
+import io.realm.kotlin.types.RealmUUID
+import io.realm.kotlin.types.TypedRealmObject
 import org.mongodb.kbson.BsonObjectId
 import org.mongodb.kbson.Decimal128
 import kotlin.reflect.KClass
@@ -352,7 +352,7 @@ internal object RealmObjectHelper {
 // Issues (not yet fully uncovered/filed) met when calling these or similar methods from
 // generated code
 // - Generic return type should be R but causes compilation errors for native
-//  e: java.lang.IllegalStateException: Not found Idx for public io.github.xilinjia.krdb.internal/RealmObjectHelper|null[0]/
+//  e: java.lang.IllegalStateException: Not found Idx for public io.realm.kotlin.internal/RealmObjectHelper|null[0]/
 // - Passing KProperty1<T,R> with inlined reified type parameters to enable fetching type and
 //   property names directly from T/property triggers runtime crash for primitive properties on
 //   Kotlin native. Seems to be an issue with boxing/unboxing

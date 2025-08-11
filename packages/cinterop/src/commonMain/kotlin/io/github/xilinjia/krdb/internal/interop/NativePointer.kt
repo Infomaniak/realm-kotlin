@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
 internal val POINTER_DELETED_ERROR = IllegalStateException("Cannot perform this operation on an invalid/deleted reference.")
 

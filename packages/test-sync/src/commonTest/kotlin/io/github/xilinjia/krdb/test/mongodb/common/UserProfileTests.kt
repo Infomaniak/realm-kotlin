@@ -16,18 +16,18 @@
 
 @file:OptIn(ExperimentalKBsonSerializerApi::class, ExperimentalRealmSerializerApi::class)
 
-package io.github.xilinjia.krdb.test.mongodb.common
+package io.realm.kotlin.test.mongodb.common
 
-import io.github.xilinjia.krdb.annotations.ExperimentalRealmSerializerApi
-import io.github.xilinjia.krdb.internal.interop.sync.NetworkTransport
-import io.github.xilinjia.krdb.internal.interop.sync.Response
-import io.github.xilinjia.krdb.internal.interop.sync.ResponseCallback
-import io.github.xilinjia.krdb.mongodb.ext.profile
-import io.github.xilinjia.krdb.mongodb.ext.profileAsBsonDocument
-import io.github.xilinjia.krdb.test.mongodb.TestApp
-import io.github.xilinjia.krdb.test.mongodb.asTestApp
-import io.github.xilinjia.krdb.test.mongodb.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.mongodb.util.DefaultPartitionBasedAppInitializer
+import io.realm.kotlin.annotations.ExperimentalRealmSerializerApi
+import io.realm.kotlin.internal.interop.sync.NetworkTransport
+import io.realm.kotlin.internal.interop.sync.Response
+import io.realm.kotlin.internal.interop.sync.ResponseCallback
+import io.realm.kotlin.mongodb.ext.profile
+import io.realm.kotlin.mongodb.ext.profileAsBsonDocument
+import io.realm.kotlin.test.mongodb.TestApp
+import io.realm.kotlin.test.mongodb.asTestApp
+import io.realm.kotlin.test.mongodb.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.mongodb.util.DefaultPartitionBasedAppInitializer
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.SerializationException

@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.entities
+package io.realm.kotlin.entities
 
-import io.github.xilinjia.krdb.types.RealmObject
+import io.realm.kotlin.types.RealmObject
 
 class MultipleConstructors(var firstName: String, var lastName: String, var age: Int) : RealmObject {
     @Suppress("MagicNumber")

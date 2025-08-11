@@ -13,19 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.test.common
+package io.realm.kotlin.test.common
 
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.entities.CyclicReference
-import io.github.xilinjia.krdb.entities.FqNameImportEmbeddedChild
-import io.github.xilinjia.krdb.entities.FqNameImportParent
-import io.github.xilinjia.krdb.entities.Sample
-import io.github.xilinjia.krdb.entities.embedded.CyclicReferenceEmbedded
-import io.github.xilinjia.krdb.entities.link.Child
-import io.github.xilinjia.krdb.entities.link.Parent
-import io.github.xilinjia.krdb.internal.InternalConfiguration
-import io.github.xilinjia.krdb.schema.RealmClass
-import io.github.xilinjia.krdb.types.BaseRealmObject
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.entities.CyclicReference
+import io.realm.kotlin.entities.FqNameImportEmbeddedChild
+import io.realm.kotlin.entities.FqNameImportParent
+import io.realm.kotlin.entities.Sample
+import io.realm.kotlin.entities.embedded.CyclicReferenceEmbedded
+import io.realm.kotlin.entities.link.Child
+import io.realm.kotlin.entities.link.Parent
+import io.realm.kotlin.internal.InternalConfiguration
+import io.realm.kotlin.schema.RealmClass
+import io.realm.kotlin.types.BaseRealmObject
 import kotlin.reflect.KClass
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -37,9 +37,9 @@ class SchemaTests {
     fun with() {
         val config = RealmConfiguration.create(schema = setOf(Sample::class))
         assertEquals(setOf(Sample::class), config.schema)
-        assertEquals<Map<KClass<out BaseRealmObject>, io.github.xilinjia.krdb.internal.RealmObjectCompanion>>(
+        assertEquals<Map<KClass<out BaseRealmObject>, io.realm.kotlin.internal.RealmObjectCompanion>>(
             mapOf(
-                Sample::class to (Sample as io.github.xilinjia.krdb.internal.RealmObjectCompanion)
+                Sample::class to (Sample as io.realm.kotlin.internal.RealmObjectCompanion)
             ),
             config.companionMap
         )
@@ -108,7 +108,7 @@ class SchemaTests {
         }
     }
 
-    private val RealmConfiguration.companionMap: Map<KClass<out BaseRealmObject>, io.github.xilinjia.krdb.internal.RealmObjectCompanion>
+    private val RealmConfiguration.companionMap: Map<KClass<out BaseRealmObject>, io.realm.kotlin.internal.RealmObjectCompanion>
         get() {
             return (this as InternalConfiguration).mapOfKClassWithCompanion
         }

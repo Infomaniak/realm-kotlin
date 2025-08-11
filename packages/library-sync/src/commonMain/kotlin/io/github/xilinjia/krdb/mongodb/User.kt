@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb
+package io.realm.kotlin.mongodb
 
-import io.github.xilinjia.krdb.mongodb.auth.ApiKeyAuth
-import io.github.xilinjia.krdb.mongodb.exceptions.AppException
-import io.github.xilinjia.krdb.mongodb.ext.customDataAsBsonDocument
-import io.github.xilinjia.krdb.mongodb.ext.profileAsBsonDocument
-import io.github.xilinjia.krdb.mongodb.mongo.MongoClient
-import io.github.xilinjia.krdb.mongodb.sync.SyncConfiguration
+import io.realm.kotlin.mongodb.auth.ApiKeyAuth
+import io.realm.kotlin.mongodb.exceptions.AppException
+import io.realm.kotlin.mongodb.ext.customDataAsBsonDocument
+import io.realm.kotlin.mongodb.ext.profileAsBsonDocument
+import io.realm.kotlin.mongodb.mongo.MongoClient
+import io.realm.kotlin.mongodb.sync.SyncConfiguration
 import org.mongodb.kbson.ExperimentalKBsonSerializerApi
 import org.mongodb.kbson.serialization.EJson
 
@@ -115,7 +115,7 @@ public interface User {
      * Logging out anonymous users will remove them immediately instead of marking them as
      * [User.State.LOGGED_OUT].
      *
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.ServiceException if a failure occurred when
+     * @throws io.realm.kotlin.mongodb.exceptions.ServiceException if a failure occurred when
      * communicating with App Services. See [AppException] for details.
      * @throws IllegalStateException if a consumer listening to [App.authenticationChangeAsFlow]
      * is too slow consuming events.
@@ -136,7 +136,7 @@ public interface User {
      *
      * @return the user that was removed.
      * @throws IllegalStateException if the user was already removed.
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.ServiceException if a failure occurred when
+     * @throws io.realm.kotlin.mongodb.exceptions.ServiceException if a failure occurred when
      * communicating with App Services. See [AppException] for details.
      * @throws IllegalStateException if a consumer listening to [App.authenticationChangeAsFlow]
      * is too slow consuming events.
@@ -154,7 +154,7 @@ public interface User {
      * All user realms should be closed before calling this method.
      *
      * @throws IllegalStateException if the user was already removed or not logged in.
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.ServiceException if a failure occurred when
+     * @throws io.realm.kotlin.mongodb.exceptions.ServiceException if a failure occurred when
      * communicating with App Services. See [AppException] for details.
      * @throws IllegalStateException if a consumer listening to [App.authenticationChangeAsFlow]
      * is too slow consuming events.
@@ -182,9 +182,9 @@ public interface User {
      * @return the [User] the credentials were linked to.
      *
      * @throws IllegalStateException if no user is currently logged in.
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.CredentialsCannotBeLinkedException if linking the
+     * @throws io.realm.kotlin.mongodb.exceptions.CredentialsCannotBeLinkedException if linking the
      * two credentials are not supported.
-     * @throws io.github.xilinjia.krdb.mongodb.exceptions.ServiceException if a failure occurred when
+     * @throws io.realm.kotlin.mongodb.exceptions.ServiceException if a failure occurred when
      * communicating with App Services. See [AppException] for details.
      */
     public suspend fun linkCredentials(credentials: Credentials): User

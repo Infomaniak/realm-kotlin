@@ -15,25 +15,25 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.common
+package io.realm.kotlin.test.common
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.annotations.ExperimentalGeoSpatialApi
-import io.github.xilinjia.krdb.entities.Location
-import io.github.xilinjia.krdb.entities.Restaurant
-import io.github.xilinjia.krdb.ext.degrees
-import io.github.xilinjia.krdb.ext.km
-import io.github.xilinjia.krdb.ext.miles
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.ext.radians
-import io.github.xilinjia.krdb.test.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.types.geo.Distance
-import io.github.xilinjia.krdb.types.geo.GeoBox
-import io.github.xilinjia.krdb.types.geo.GeoCircle
-import io.github.xilinjia.krdb.types.geo.GeoPoint
-import io.github.xilinjia.krdb.types.geo.GeoPolygon
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.annotations.ExperimentalGeoSpatialApi
+import io.realm.kotlin.entities.Location
+import io.realm.kotlin.entities.Restaurant
+import io.realm.kotlin.ext.degrees
+import io.realm.kotlin.ext.km
+import io.realm.kotlin.ext.miles
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.ext.radians
+import io.realm.kotlin.test.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.types.geo.Distance
+import io.realm.kotlin.types.geo.GeoBox
+import io.realm.kotlin.types.geo.GeoCircle
+import io.realm.kotlin.types.geo.GeoPoint
+import io.realm.kotlin.types.geo.GeoPolygon
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test

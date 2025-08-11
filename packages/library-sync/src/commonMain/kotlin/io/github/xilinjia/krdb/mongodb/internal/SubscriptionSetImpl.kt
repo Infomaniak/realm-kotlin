@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.internal
+package io.realm.kotlin.mongodb.internal
 
-import io.github.xilinjia.krdb.BaseRealm
-import io.github.xilinjia.krdb.internal.BaseRealmImpl
-import io.github.xilinjia.krdb.internal.RealmImpl
-import io.github.xilinjia.krdb.internal.interop.RealmBaseSubscriptionSetPointer
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmSubscriptionSetPointer
-import io.github.xilinjia.krdb.internal.interop.SubscriptionSetCallback
-import io.github.xilinjia.krdb.internal.interop.sync.CoreSubscriptionSetState
-import io.github.xilinjia.krdb.internal.util.Validation
-import io.github.xilinjia.krdb.mongodb.exceptions.BadFlexibleSyncQueryException
-import io.github.xilinjia.krdb.mongodb.sync.MutableSubscriptionSet
-import io.github.xilinjia.krdb.mongodb.sync.SubscriptionSet
+import io.realm.kotlin.BaseRealm
+import io.realm.kotlin.internal.BaseRealmImpl
+import io.realm.kotlin.internal.RealmImpl
+import io.realm.kotlin.internal.interop.RealmBaseSubscriptionSetPointer
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmSubscriptionSetPointer
+import io.realm.kotlin.internal.interop.SubscriptionSetCallback
+import io.realm.kotlin.internal.interop.sync.CoreSubscriptionSetState
+import io.realm.kotlin.internal.util.Validation
+import io.realm.kotlin.mongodb.exceptions.BadFlexibleSyncQueryException
+import io.realm.kotlin.mongodb.sync.MutableSubscriptionSet
+import io.realm.kotlin.mongodb.sync.SubscriptionSet
 import kotlinx.atomicfu.AtomicRef
 import kotlinx.atomicfu.atomic
 import kotlinx.coroutines.TimeoutCancellationException

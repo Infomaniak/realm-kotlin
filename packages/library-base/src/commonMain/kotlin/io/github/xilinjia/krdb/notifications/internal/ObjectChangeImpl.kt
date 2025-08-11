@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.notifications.internal
+package io.realm.kotlin.notifications.internal
 
-import io.github.xilinjia.krdb.notifications.DeletedObject
-import io.github.xilinjia.krdb.notifications.InitialObject
-import io.github.xilinjia.krdb.notifications.PendingObject
-import io.github.xilinjia.krdb.notifications.UpdatedObject
-import io.github.xilinjia.krdb.types.BaseRealmObject
+import io.realm.kotlin.notifications.DeletedObject
+import io.realm.kotlin.notifications.InitialObject
+import io.realm.kotlin.notifications.PendingObject
+import io.realm.kotlin.notifications.UpdatedObject
+import io.realm.kotlin.types.BaseRealmObject
 
 internal class InitialObjectImpl<O : BaseRealmObject>(override val obj: O) : InitialObject<O>
 

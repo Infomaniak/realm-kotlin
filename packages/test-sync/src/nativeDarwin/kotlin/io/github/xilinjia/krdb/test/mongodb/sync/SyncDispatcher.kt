@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.mongodb.sync
+package io.realm.kotlin.test.mongodb.sync
 
-import io.github.xilinjia.krdb.internal.platform.singleThreadDispatcher
+import io.realm.kotlin.internal.platform.singleThreadDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
 
 actual fun getDispatcher(): CoroutineDispatcher = singleThreadDispatcher("Sync Dispatcher")

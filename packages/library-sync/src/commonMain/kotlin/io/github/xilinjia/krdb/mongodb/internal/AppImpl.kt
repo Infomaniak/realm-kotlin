@@ -14,26 +14,26 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.internal
+package io.realm.kotlin.mongodb.internal
 
-import io.github.xilinjia.krdb.internal.interop.RealmAppPointer
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmUserPointer
-import io.github.xilinjia.krdb.internal.interop.sync.NetworkTransport
-import io.github.xilinjia.krdb.internal.interop.sync.WebSocketTransport
-import io.github.xilinjia.krdb.internal.toDuration
-import io.github.xilinjia.krdb.internal.util.DispatcherHolder
-import io.github.xilinjia.krdb.internal.util.Validation
-import io.github.xilinjia.krdb.internal.util.use
-import io.github.xilinjia.krdb.mongodb.App
-import io.github.xilinjia.krdb.mongodb.AppConfiguration
-import io.github.xilinjia.krdb.mongodb.AuthenticationChange
-import io.github.xilinjia.krdb.mongodb.Credentials
-import io.github.xilinjia.krdb.mongodb.User
-import io.github.xilinjia.krdb.mongodb.annotations.ExperimentalEdgeServerApi
-import io.github.xilinjia.krdb.mongodb.auth.EmailPasswordAuth
-import io.github.xilinjia.krdb.mongodb.sync.Sync
-import io.github.xilinjia.krdb.types.RealmInstant
+import io.realm.kotlin.internal.interop.RealmAppPointer
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmUserPointer
+import io.realm.kotlin.internal.interop.sync.NetworkTransport
+import io.realm.kotlin.internal.interop.sync.WebSocketTransport
+import io.realm.kotlin.internal.toDuration
+import io.realm.kotlin.internal.util.DispatcherHolder
+import io.realm.kotlin.internal.util.Validation
+import io.realm.kotlin.internal.util.use
+import io.realm.kotlin.mongodb.App
+import io.realm.kotlin.mongodb.AppConfiguration
+import io.realm.kotlin.mongodb.AuthenticationChange
+import io.realm.kotlin.mongodb.Credentials
+import io.realm.kotlin.mongodb.User
+import io.realm.kotlin.mongodb.annotations.ExperimentalEdgeServerApi
+import io.realm.kotlin.mongodb.auth.EmailPasswordAuth
+import io.realm.kotlin.mongodb.sync.Sync
+import io.realm.kotlin.types.RealmInstant
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow

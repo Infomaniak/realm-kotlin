@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test
+package io.realm.kotlin.test
 
-import io.github.xilinjia.krdb.internal.interop.CPointerWrapper
-import io.github.xilinjia.krdb.internal.interop.ClassFlags
-import io.github.xilinjia.krdb.internal.interop.ClassInfo
-import io.github.xilinjia.krdb.internal.interop.CollectionType
-import io.github.xilinjia.krdb.internal.interop.ErrorCode
-import io.github.xilinjia.krdb.internal.interop.PropertyFlags
-import io.github.xilinjia.krdb.internal.interop.PropertyInfo
-import io.github.xilinjia.krdb.internal.interop.PropertyType
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmSchemaT
-import io.github.xilinjia.krdb.internal.interop.SchemaMode
-import io.github.xilinjia.krdb.internal.interop.SchemaValidationMode
-import io.github.xilinjia.krdb.internal.interop.set
-import io.github.xilinjia.krdb.internal.interop.toKotlinString
-import io.github.xilinjia.krdb.internal.interop.use
+import io.realm.kotlin.internal.interop.CPointerWrapper
+import io.realm.kotlin.internal.interop.ClassFlags
+import io.realm.kotlin.internal.interop.ClassInfo
+import io.realm.kotlin.internal.interop.CollectionType
+import io.realm.kotlin.internal.interop.ErrorCode
+import io.realm.kotlin.internal.interop.PropertyFlags
+import io.realm.kotlin.internal.interop.PropertyInfo
+import io.realm.kotlin.internal.interop.PropertyType
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmSchemaT
+import io.realm.kotlin.internal.interop.SchemaMode
+import io.realm.kotlin.internal.interop.SchemaValidationMode
+import io.realm.kotlin.internal.interop.set
+import io.realm.kotlin.internal.interop.toKotlinString
+import io.realm.kotlin.internal.interop.use
 import kotlinx.cinterop.BooleanVar
 import kotlinx.cinterop.CPointer
 import kotlinx.cinterop.CPointerVarOf

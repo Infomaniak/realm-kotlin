@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.entities.link
+package io.realm.kotlin.entities.link
 
-import io.github.xilinjia.krdb.types.RealmObject
+import io.realm.kotlin.types.RealmObject
 
 class Child : RealmObject {
     var name: String = "DEFAULT"

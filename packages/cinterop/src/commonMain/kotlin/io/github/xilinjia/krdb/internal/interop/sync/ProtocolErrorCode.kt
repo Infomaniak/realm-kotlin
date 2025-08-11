@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop.sync
+package io.realm.kotlin.internal.interop.sync
 
-import io.github.xilinjia.krdb.internal.interop.CodeDescription
+import io.realm.kotlin.internal.interop.CodeDescription
 
 /**
  * Wrapper for C-API `realm_sync_errno_connection`.

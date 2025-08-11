@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.internal
+package io.realm.kotlin.mongodb.internal
 
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmUserPointer
-import io.github.xilinjia.krdb.internal.interop.sync.CoreUserState
-import io.github.xilinjia.krdb.internal.util.use
-import io.github.xilinjia.krdb.mongodb.Credentials
-import io.github.xilinjia.krdb.mongodb.Functions
-import io.github.xilinjia.krdb.mongodb.User
-import io.github.xilinjia.krdb.mongodb.UserIdentity
-import io.github.xilinjia.krdb.mongodb.auth.ApiKeyAuth
-import io.github.xilinjia.krdb.mongodb.mongo.MongoClient
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmUserPointer
+import io.realm.kotlin.internal.interop.sync.CoreUserState
+import io.realm.kotlin.internal.util.use
+import io.realm.kotlin.mongodb.Credentials
+import io.realm.kotlin.mongodb.Functions
+import io.realm.kotlin.mongodb.User
+import io.realm.kotlin.mongodb.UserIdentity
+import io.realm.kotlin.mongodb.auth.ApiKeyAuth
+import io.realm.kotlin.mongodb.mongo.MongoClient
 import kotlinx.coroutines.channels.Channel
 import org.mongodb.kbson.ExperimentalKBsonSerializerApi
 import org.mongodb.kbson.serialization.EJson

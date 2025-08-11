@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.query
+package io.realm.kotlin.query
 
 /**
  * This enum describes the sorting order used in Realm queries.

@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.internal.interop.sync
+package io.realm.kotlin.internal.interop.sync
 
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmWebsocketHandlerCallbackPointer
-import io.github.xilinjia.krdb.internal.interop.RealmWebsocketProviderPointer
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmWebsocketHandlerCallbackPointer
+import io.realm.kotlin.internal.interop.RealmWebsocketProviderPointer
 import kotlinx.coroutines.Job
 
 /**

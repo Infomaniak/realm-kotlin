@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.types
+package io.realm.kotlin.types
 
-import io.github.xilinjia.krdb.internal.UnmanagedMutableRealmInt
+import io.realm.kotlin.internal.UnmanagedMutableRealmInt
 
 /**
  * A `MutableRealmInt` is a mutable, [Long]-like, numeric quantity.

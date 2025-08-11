@@ -14,24 +14,24 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.common.migration
+package io.realm.kotlin.test.common.migration
 
-import io.github.xilinjia.krdb.MutableRealm
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.dynamic.DynamicMutableRealm
-import io.github.xilinjia.krdb.dynamic.DynamicMutableRealmObject
-import io.github.xilinjia.krdb.dynamic.DynamicRealm
-import io.github.xilinjia.krdb.dynamic.DynamicRealmObject
-import io.github.xilinjia.krdb.dynamic.getValue
-import io.github.xilinjia.krdb.entities.Sample
-import io.github.xilinjia.krdb.entities.primarykey.PrimaryKeyString
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.migration.AutomaticSchemaMigration
-import io.github.xilinjia.krdb.test.common.utils.assertFailsWithMessage
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.util.use
-import io.github.xilinjia.krdb.types.RealmObject
+import io.realm.kotlin.MutableRealm
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.dynamic.DynamicMutableRealm
+import io.realm.kotlin.dynamic.DynamicMutableRealmObject
+import io.realm.kotlin.dynamic.DynamicRealm
+import io.realm.kotlin.dynamic.DynamicRealmObject
+import io.realm.kotlin.dynamic.getValue
+import io.realm.kotlin.entities.Sample
+import io.realm.kotlin.entities.primarykey.PrimaryKeyString
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.migration.AutomaticSchemaMigration
+import io.realm.kotlin.test.common.utils.assertFailsWithMessage
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.util.use
+import io.realm.kotlin.types.RealmObject
 import kotlinx.atomicfu.atomic
 import kotlin.reflect.KClass
 import kotlin.test.AfterTest
@@ -63,10 +63,10 @@ class RealmMigrationTests {
     fun migrationContext_publicNamesNotAvailable() {
         migration(
             initialSchema = setOf(
-                io.github.xilinjia.krdb.entities.schema.SchemaVariations::class,
-                io.github.xilinjia.krdb.entities.Sample::class
+                io.realm.kotlin.entities.schema.SchemaVariations::class,
+                io.realm.kotlin.entities.Sample::class
             ),
-            migratedSchema = setOf(io.github.xilinjia.krdb.entities.migration.Sample::class),
+            migratedSchema = setOf(io.realm.kotlin.entities.migration.Sample::class),
             migration = { context ->
                 val oldRealm = context.oldRealm
                 val newRealm = context.newRealm
@@ -84,10 +84,10 @@ class RealmMigrationTests {
     fun migrationContext_schemaVerification() {
         migration(
             initialSchema = setOf(
-                io.github.xilinjia.krdb.entities.schema.SchemaVariations::class,
-                io.github.xilinjia.krdb.entities.Sample::class
+                io.realm.kotlin.entities.schema.SchemaVariations::class,
+                io.realm.kotlin.entities.Sample::class
             ),
-            migratedSchema = setOf(io.github.xilinjia.krdb.entities.migration.Sample::class),
+            migratedSchema = setOf(io.realm.kotlin.entities.migration.Sample::class),
             migration = { context ->
                 val oldRealm = context.oldRealm
                 val newRealm = context.newRealm
@@ -129,9 +129,9 @@ class RealmMigrationTests {
     @Test
     fun migration_smokeTest() {
         migration(
-            initialSchema = setOf(io.github.xilinjia.krdb.entities.migration.before.MigrationSample::class),
-            initialData = { copyToRealm(io.github.xilinjia.krdb.entities.migration.before.MigrationSample()) },
-            migratedSchema = setOf(io.github.xilinjia.krdb.entities.migration.after.MigrationSample::class),
+            initialSchema = setOf(io.realm.kotlin.entities.migration.before.MigrationSample::class),
+            initialData = { copyToRealm(io.realm.kotlin.entities.migration.before.MigrationSample()) },
+            migratedSchema = setOf(io.realm.kotlin.entities.migration.after.MigrationSample::class),
             migration = { migrationContext ->
                 migrationContext.enumerate("MigrationSample") { oldObject: DynamicRealmObject, newObject: DynamicMutableRealmObject? ->
                     newObject?.run {
@@ -149,7 +149,7 @@ class RealmMigrationTests {
                 }
             }
         ).use {
-            it.query<io.github.xilinjia.krdb.entities.migration.after.MigrationSample>().find().first().run {
+            it.query<io.realm.kotlin.entities.migration.after.MigrationSample>().find().first().run {
                 assertEquals("First Last", fullName)
                 assertEquals("Realm", renamedProperty)
                 assertEquals("42", type)
@@ -162,9 +162,9 @@ class RealmMigrationTests {
         val initialValue = "INITIAL_VALUE"
         val migratedValue = "MIGRATED_VALUE"
         migration(
-            initialSchema = setOf(io.github.xilinjia.krdb.entities.Sample::class),
+            initialSchema = setOf(io.realm.kotlin.entities.Sample::class),
             initialData = { copyToRealm(Sample().apply { stringField = initialValue }) },
-            migratedSchema = setOf(io.github.xilinjia.krdb.entities.migration.Sample::class),
+            migratedSchema = setOf(io.realm.kotlin.entities.migration.Sample::class),
             // FIXME Can we get this to have the DataMigrationContext as receiver
             migration = {
                 it.enumerate("Sample") { oldObject: DynamicRealmObject, newObject: DynamicMutableRealmObject? ->
@@ -176,7 +176,7 @@ class RealmMigrationTests {
         ).use {
             assertEquals(
                 migratedValue,
-                it.query<io.github.xilinjia.krdb.entities.migration.Sample>().find().first().stringField
+                it.query<io.realm.kotlin.entities.migration.Sample>().find().first().stringField
             )
         }
     }
@@ -184,12 +184,12 @@ class RealmMigrationTests {
     @Test
     fun enumerate_deleteNewObject() {
         migration(
-            initialSchema = setOf(io.github.xilinjia.krdb.entities.Sample::class),
+            initialSchema = setOf(io.realm.kotlin.entities.Sample::class),
             initialData = {
                 copyToRealm(Sample().apply { intField = 1 })
                 copyToRealm(Sample().apply { intField = 2 })
             },
-            migratedSchema = setOf(io.github.xilinjia.krdb.entities.migration.Sample::class),
+            migratedSchema = setOf(io.realm.kotlin.entities.migration.Sample::class),
             // FIXME Can we get this to have the DataMigrationContext as receiver
             migration = { migrationContext ->
                 migrationContext.enumerate("Sample") { oldObject: DynamicRealmObject, newObject: DynamicMutableRealmObject? ->
@@ -210,9 +210,9 @@ class RealmMigrationTests {
     fun enumerate_throwsOnInvalidName() {
         val initialValue = "INITIAL_VALUE"
         migration(
-            initialSchema = setOf(io.github.xilinjia.krdb.entities.Sample::class),
+            initialSchema = setOf(io.realm.kotlin.entities.Sample::class),
             initialData = { copyToRealm(Sample().apply { stringField = initialValue }) },
-            migratedSchema = setOf(io.github.xilinjia.krdb.entities.migration.Sample::class),
+            migratedSchema = setOf(io.realm.kotlin.entities.migration.Sample::class),
             // FIXME Can we get this to have the DataMigrationContext as receiver
             migration = {
                 assertFailsWith<IllegalArgumentException> {
@@ -225,13 +225,13 @@ class RealmMigrationTests {
 
     @Test
     fun migrationError_throwingCausesMigrationToFail() {
-        val configuration = RealmConfiguration.Builder(schema = setOf(io.github.xilinjia.krdb.entities.Sample::class))
+        val configuration = RealmConfiguration.Builder(schema = setOf(io.realm.kotlin.entities.Sample::class))
             .directory(tmpDir)
             .build()
         Realm.open(configuration).close()
 
         val newConfiguration =
-            RealmConfiguration.Builder(schema = setOf(io.github.xilinjia.krdb.entities.migration.Sample::class))
+            RealmConfiguration.Builder(schema = setOf(io.realm.kotlin.entities.migration.Sample::class))
                 .directory(tmpDir)
                 .schemaVersion(1)
                 .migration(
@@ -251,13 +251,13 @@ class RealmMigrationTests {
 
     @Test
     fun migrationError_throwsIfVersionIsNotUpdated() {
-        val configuration = RealmConfiguration.Builder(schema = setOf(io.github.xilinjia.krdb.entities.Sample::class))
+        val configuration = RealmConfiguration.Builder(schema = setOf(io.realm.kotlin.entities.Sample::class))
             .directory(tmpDir)
             .build()
         Realm.open(configuration).close()
 
         val newConfiguration =
-            RealmConfiguration.Builder(schema = setOf(io.github.xilinjia.krdb.entities.migration.Sample::class))
+            RealmConfiguration.Builder(schema = setOf(io.realm.kotlin.entities.migration.Sample::class))
                 .directory(tmpDir)
                 .migration(AutomaticSchemaMigration { })
                 .build()
@@ -280,7 +280,7 @@ class RealmMigrationTests {
         }
 
         val newConfiguration =
-            RealmConfiguration.Builder(schema = setOf(io.github.xilinjia.krdb.entities.Sample::class, PrimaryKeyString::class))
+            RealmConfiguration.Builder(schema = setOf(io.realm.kotlin.entities.Sample::class, PrimaryKeyString::class))
                 .directory(tmpDir)
                 .schemaVersion(1)
                 .migration(

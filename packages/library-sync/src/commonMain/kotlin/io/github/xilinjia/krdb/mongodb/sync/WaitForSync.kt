@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.sync
+package io.realm.kotlin.mongodb.sync
 
-import io.github.xilinjia.krdb.mongodb.ext.subscribe
-import io.github.xilinjia.krdb.query.RealmQuery
-import io.github.xilinjia.krdb.query.RealmResults
+import io.realm.kotlin.mongodb.ext.subscribe
+import io.realm.kotlin.query.RealmQuery
+import io.realm.kotlin.query.RealmResults
 
 /**
  * Enum defining the behaviour of when [RealmQuery.subscribe] and [RealmResults.subscribe] will
@@ -31,12 +31,12 @@ import io.github.xilinjia.krdb.query.RealmResults
  * This enum thus defines the behaviour of when the query is run, so it possible to make the
  * appropriate tradeoff between correctness and availability.
  *
- * @see io.github.xilinjia.krdb.mongodb.ext.subscribe
+ * @see io.realm.kotlin.mongodb.ext.subscribe
  */
 public enum class WaitForSync {
     /**
      * This mode will wait for the server data the first time a subscription is created before
-     * running the local query. Later calls to [io.github.xilinjia.krdb.mongodb.ext.subscribe] will detect
+     * running the local query. Later calls to [io.realm.kotlin.mongodb.ext.subscribe] will detect
      * that the subscription already exist and run the query immediately.
      *
      * This is the default mode.

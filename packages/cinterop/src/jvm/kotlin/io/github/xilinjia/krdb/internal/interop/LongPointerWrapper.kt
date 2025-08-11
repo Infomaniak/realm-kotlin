@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
-import io.github.xilinjia.krdb.internal.interop.gc.NativeContext
+import io.realm.kotlin.internal.interop.gc.NativeContext
 import java.lang.Long.toHexString
 import java.util.concurrent.atomic.AtomicBoolean
 

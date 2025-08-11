@@ -14,27 +14,27 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.mongodb.common
+package io.realm.kotlin.test.mongodb.common
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.annotations.ExperimentalGeoSpatialApi
-import io.github.xilinjia.krdb.entities.Location
-import io.github.xilinjia.krdb.entities.sync.SyncRestaurant
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.internal.platform.runBlocking
-import io.github.xilinjia.krdb.mongodb.User
-import io.github.xilinjia.krdb.mongodb.sync.SyncConfiguration
-import io.github.xilinjia.krdb.mongodb.syncSession
-import io.github.xilinjia.krdb.test.mongodb.TestApp
-import io.github.xilinjia.krdb.test.mongodb.createUserAndLogIn
-import io.github.xilinjia.krdb.test.mongodb.util.DefaultFlexibleSyncAppInitializer
-import io.github.xilinjia.krdb.test.util.TestHelper
-import io.github.xilinjia.krdb.test.util.use
-import io.github.xilinjia.krdb.types.geo.Distance
-import io.github.xilinjia.krdb.types.geo.GeoBox
-import io.github.xilinjia.krdb.types.geo.GeoCircle
-import io.github.xilinjia.krdb.types.geo.GeoPoint
-import io.github.xilinjia.krdb.types.geo.GeoPolygon
+import io.realm.kotlin.Realm
+import io.realm.kotlin.annotations.ExperimentalGeoSpatialApi
+import io.realm.kotlin.entities.Location
+import io.realm.kotlin.entities.sync.SyncRestaurant
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.internal.platform.runBlocking
+import io.realm.kotlin.mongodb.User
+import io.realm.kotlin.mongodb.sync.SyncConfiguration
+import io.realm.kotlin.mongodb.syncSession
+import io.realm.kotlin.test.mongodb.TestApp
+import io.realm.kotlin.test.mongodb.createUserAndLogIn
+import io.realm.kotlin.test.mongodb.util.DefaultFlexibleSyncAppInitializer
+import io.realm.kotlin.test.util.TestHelper
+import io.realm.kotlin.test.util.use
+import io.realm.kotlin.types.geo.Distance
+import io.realm.kotlin.types.geo.GeoBox
+import io.realm.kotlin.types.geo.GeoCircle
+import io.realm.kotlin.types.geo.GeoPoint
+import io.realm.kotlin.types.geo.GeoPolygon
 import org.mongodb.kbson.ObjectId
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest

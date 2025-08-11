@@ -1,34 +1,34 @@
-package io.github.xilinjia.krdb.mongodb.internal
+package io.realm.kotlin.mongodb.internal
 
-import io.github.xilinjia.krdb.internal.interop.AppCallback
-import io.github.xilinjia.krdb.internal.interop.CoreError
-import io.github.xilinjia.krdb.internal.interop.ErrorCategory
-import io.github.xilinjia.krdb.internal.interop.ErrorCode
-import io.github.xilinjia.krdb.internal.interop.sync.AppError
-import io.github.xilinjia.krdb.internal.interop.sync.SyncError
-import io.github.xilinjia.krdb.mongodb.exceptions.AppException
-import io.github.xilinjia.krdb.mongodb.exceptions.AuthException
-import io.github.xilinjia.krdb.mongodb.exceptions.BadFlexibleSyncQueryException
-import io.github.xilinjia.krdb.mongodb.exceptions.BadRequestException
-import io.github.xilinjia.krdb.mongodb.exceptions.CompensatingWriteException
-import io.github.xilinjia.krdb.mongodb.exceptions.ConnectionException
-import io.github.xilinjia.krdb.mongodb.exceptions.CredentialsCannotBeLinkedException
-import io.github.xilinjia.krdb.mongodb.exceptions.FunctionExecutionException
-import io.github.xilinjia.krdb.mongodb.exceptions.InvalidCredentialsException
-import io.github.xilinjia.krdb.mongodb.exceptions.ServiceException
-import io.github.xilinjia.krdb.mongodb.exceptions.SyncException
-import io.github.xilinjia.krdb.mongodb.exceptions.UserAlreadyConfirmedException
-import io.github.xilinjia.krdb.mongodb.exceptions.UserAlreadyExistsException
-import io.github.xilinjia.krdb.mongodb.exceptions.UserNotFoundException
-import io.github.xilinjia.krdb.mongodb.exceptions.WrongSyncTypeException
-import io.github.xilinjia.krdb.serializers.MutableRealmIntKSerializer
-import io.github.xilinjia.krdb.serializers.RealmAnyKSerializer
-import io.github.xilinjia.krdb.serializers.RealmInstantKSerializer
-import io.github.xilinjia.krdb.serializers.RealmUUIDKSerializer
-import io.github.xilinjia.krdb.types.MutableRealmInt
-import io.github.xilinjia.krdb.types.RealmAny
-import io.github.xilinjia.krdb.types.RealmInstant
-import io.github.xilinjia.krdb.types.RealmUUID
+import io.realm.kotlin.internal.interop.AppCallback
+import io.realm.kotlin.internal.interop.CoreError
+import io.realm.kotlin.internal.interop.ErrorCategory
+import io.realm.kotlin.internal.interop.ErrorCode
+import io.realm.kotlin.internal.interop.sync.AppError
+import io.realm.kotlin.internal.interop.sync.SyncError
+import io.realm.kotlin.mongodb.exceptions.AppException
+import io.realm.kotlin.mongodb.exceptions.AuthException
+import io.realm.kotlin.mongodb.exceptions.BadFlexibleSyncQueryException
+import io.realm.kotlin.mongodb.exceptions.BadRequestException
+import io.realm.kotlin.mongodb.exceptions.CompensatingWriteException
+import io.realm.kotlin.mongodb.exceptions.ConnectionException
+import io.realm.kotlin.mongodb.exceptions.CredentialsCannotBeLinkedException
+import io.realm.kotlin.mongodb.exceptions.FunctionExecutionException
+import io.realm.kotlin.mongodb.exceptions.InvalidCredentialsException
+import io.realm.kotlin.mongodb.exceptions.ServiceException
+import io.realm.kotlin.mongodb.exceptions.SyncException
+import io.realm.kotlin.mongodb.exceptions.UserAlreadyConfirmedException
+import io.realm.kotlin.mongodb.exceptions.UserAlreadyExistsException
+import io.realm.kotlin.mongodb.exceptions.UserNotFoundException
+import io.realm.kotlin.mongodb.exceptions.WrongSyncTypeException
+import io.realm.kotlin.serializers.MutableRealmIntKSerializer
+import io.realm.kotlin.serializers.RealmAnyKSerializer
+import io.realm.kotlin.serializers.RealmInstantKSerializer
+import io.realm.kotlin.serializers.RealmUUIDKSerializer
+import io.realm.kotlin.types.MutableRealmInt
+import io.realm.kotlin.types.RealmAny
+import io.realm.kotlin.types.RealmInstant
+import io.realm.kotlin.types.RealmUUID
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ChannelResult
 import kotlinx.serialization.KSerializer
@@ -97,7 +97,7 @@ internal fun convertSyncError(syncError: SyncError): SyncException {
         -> {
             // Permission denied errors should be unrecoverable according to Core, i.e. the
             // client will disconnect sync and transition to the "inactive" state
-            @Suppress("DEPRECATION") io.github.xilinjia.krdb.mongodb.exceptions.UnrecoverableSyncException(
+            @Suppress("DEPRECATION") io.realm.kotlin.mongodb.exceptions.UnrecoverableSyncException(
                 message
             )
         }
@@ -107,7 +107,7 @@ internal fun convertSyncError(syncError: SyncError): SyncException {
             // SyncException.
             when (syncError.isFatal) {
                 false -> SyncException(message, syncError.isFatal)
-                true -> @Suppress("DEPRECATION") io.github.xilinjia.krdb.mongodb.exceptions.UnrecoverableSyncException(
+                true -> @Suppress("DEPRECATION") io.realm.kotlin.mongodb.exceptions.UnrecoverableSyncException(
                     message
                 )
             }

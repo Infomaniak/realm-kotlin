@@ -13,20 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.test.common
+package io.realm.kotlin.test.common
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.VersionId
-import io.github.xilinjia.krdb.entities.SampleWithPrimaryKey
-import io.github.xilinjia.krdb.entities.link.Child
-import io.github.xilinjia.krdb.entities.link.Parent
-import io.github.xilinjia.krdb.ext.isFrozen
-import io.github.xilinjia.krdb.ext.isValid
-import io.github.xilinjia.krdb.ext.version
-import io.github.xilinjia.krdb.test.common.utils.RealmStateTest
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.types.RealmObject
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.VersionId
+import io.realm.kotlin.entities.SampleWithPrimaryKey
+import io.realm.kotlin.entities.link.Child
+import io.realm.kotlin.entities.link.Parent
+import io.realm.kotlin.ext.isFrozen
+import io.realm.kotlin.ext.isValid
+import io.realm.kotlin.ext.version
+import io.realm.kotlin.test.common.utils.RealmStateTest
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.types.RealmObject
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Ignore
@@ -146,7 +146,7 @@ class RealmObjectTests : RealmStateTest {
         val managedObj = realm.writeBlocking {
             copyToRealm(Parent())
         }
-        val regex = Regex("io.github.xilinjia.krdb.entities.link.Parent\\{state=VALID, schemaName=Parent, objKey=[0-9]*, version=[0-9]*, realm=${realm.configuration.name}\\}")
+        val regex = Regex("io.realm.kotlin.entities.link.Parent\\{state=VALID, schemaName=Parent, objKey=[0-9]*, version=[0-9]*, realm=${realm.configuration.name}\\}")
         assertTrue(regex.matches(managedObj.toString()), managedObj.toString())
     }
 
@@ -156,7 +156,7 @@ class RealmObjectTests : RealmStateTest {
         p1.stringField = "Parent"
         p1.nullableObject = p1
         val managedObj = realm.writeBlocking { copyToRealm(p1) }
-        val regex = Regex("io.github.xilinjia.krdb.entities.SampleWithPrimaryKey\\{state=VALID, schemaName=SampleWithPrimaryKey, objKey=[0-9]*, version=[0-9]*, realm=${realm.configuration.name}\\}")
+        val regex = Regex("io.realm.kotlin.entities.SampleWithPrimaryKey\\{state=VALID, schemaName=SampleWithPrimaryKey, objKey=[0-9]*, version=[0-9]*, realm=${realm.configuration.name}\\}")
         assertTrue(regex.matches(managedObj.toString()), managedObj.toString())
     }
 
@@ -165,7 +165,7 @@ class RealmObjectTests : RealmStateTest {
         realm.writeBlocking {
             val managedObject = copyToRealm(Parent())
             delete(managedObject)
-            val regex = Regex("io.github.xilinjia.krdb.entities.link.Parent\\{state=INVALID, schemaName=Parent, realm=${realm.configuration.name}, hashCode=[-0-9]*\\}")
+            val regex = Regex("io.realm.kotlin.entities.link.Parent\\{state=INVALID, schemaName=Parent, realm=${realm.configuration.name}, hashCode=[-0-9]*\\}")
             assertTrue(regex.matches(managedObject.toString()), managedObject.toString())
             cancelWrite()
         }
@@ -177,7 +177,7 @@ class RealmObjectTests : RealmStateTest {
             copyToRealm(Parent())
         }
         realm.close()
-        val regex = Regex("io.github.xilinjia.krdb.entities.link.Parent\\{state=CLOSED, schemaName=Parent, realm=${realm.configuration.name}, hashCode=[-0-9]*\\}")
+        val regex = Regex("io.realm.kotlin.entities.link.Parent\\{state=CLOSED, schemaName=Parent, realm=${realm.configuration.name}, hashCode=[-0-9]*\\}")
         assertTrue(regex.matches(managedObject.toString()), managedObject.toString())
     }
 
@@ -191,7 +191,7 @@ class RealmObjectTests : RealmStateTest {
     @Test
     fun toString_unmanaged() {
         val unmanagedObject = Parent()
-        val regex = Regex("io.github.xilinjia.krdb.entities.link.Parent\\{state=UNMANAGED, schemaName=Parent, hashCode=[-0-9]*\\}")
+        val regex = Regex("io.realm.kotlin.entities.link.Parent\\{state=UNMANAGED, schemaName=Parent, hashCode=[-0-9]*\\}")
         assertTrue(regex.matches(unmanagedObject.toString()), unmanagedObject.toString())
     }
 

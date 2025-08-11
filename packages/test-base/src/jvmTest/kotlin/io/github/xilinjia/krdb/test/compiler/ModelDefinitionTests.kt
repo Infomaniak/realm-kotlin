@@ -16,12 +16,12 @@
 
 @file:OptIn(ExperimentalCompilerApi::class)
 
-package io.github.xilinjia.krdb.test.compiler
+package io.realm.kotlin.test.compiler
 
 import com.tschuchort.compiletesting.KotlinCompilation
 import com.tschuchort.compiletesting.SourceFile
-import io.github.xilinjia.krdb.compiler.Registrar
-import io.github.xilinjia.krdb.test.util.Compiler
+import io.realm.kotlin.compiler.Registrar
+import io.realm.kotlin.test.util.Compiler
 import org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi
 import org.junit.Test
 import kotlin.test.assertEquals
@@ -35,8 +35,8 @@ class ModelDefinitionTests {
             source = SourceFile.kotlin(
                 "no_zero_arg_ctor.kt",
                 """
-                        import io.github.xilinjia.krdb.types.RealmObject
-                        import io.github.xilinjia.krdb.RealmConfiguration
+                        import io.realm.kotlin.types.RealmObject
+                        import io.realm.kotlin.RealmConfiguration
 
                         class NoZeroArgCtor(var name: String) : RealmObject
 
@@ -56,7 +56,7 @@ class ModelDefinitionTests {
             source = SourceFile.kotlin(
                 "multiple_ctor.kt",
                 """
-                        import io.github.xilinjia.krdb.types.RealmObject
+                        import io.realm.kotlin.types.RealmObject
 
                         class MultipleConstructors(var firstName: String, var lastName: String, var age: Int) : RealmObject {
                             constructor(firstName: String, lastName: String) : this (firstName, lastName, 42)
@@ -76,7 +76,7 @@ class ModelDefinitionTests {
             source = SourceFile.kotlin(
                 "data_class.kt",
                 """
-                        import io.github.xilinjia.krdb.types.RealmObject
+                        import io.realm.kotlin.types.RealmObject
                         data class Foo(val name: String) : RealmObject
                 """.trimIndent()
             )
@@ -92,7 +92,7 @@ class ModelDefinitionTests {
             source = SourceFile.kotlin(
                 "enum_class.kt",
                 """
-                        import io.github.xilinjia.krdb.types.RealmObject
+                        import io.realm.kotlin.types.RealmObject
                         enum class Foo : RealmObject { NORTH, SOUTH }
                 """.trimIndent()
             )
@@ -108,7 +108,7 @@ class ModelDefinitionTests {
             source = SourceFile.kotlin(
                 "object_declaration.kt",
                 """
-                        import io.github.xilinjia.krdb.types.RealmObject
+                        import io.realm.kotlin.types.RealmObject
                         object Foo : RealmObject
                 """.trimIndent()
             )
@@ -124,7 +124,7 @@ class ModelDefinitionTests {
             source = SourceFile.kotlin(
                 "anonymous_object.kt",
                 """
-                        import io.github.xilinjia.krdb.types.RealmObject
+                        import io.realm.kotlin.types.RealmObject
                         val Foo = object: RealmObject {}
                 """.trimIndent()
             )
@@ -140,7 +140,7 @@ class ModelDefinitionTests {
             source = SourceFile.kotlin(
                 "object_declaration.kt",
                 """
-                        import io.github.xilinjia.krdb.types.RealmObject
+                        import io.realm.kotlin.types.RealmObject
                         class Foo : RealmObject {
                             var unknownType = mutableListOf<String>()
                         }
@@ -158,8 +158,8 @@ class ModelDefinitionTests {
             source = SourceFile.kotlin(
                 "object_declaration.kt",
                 """
-                        import io.github.xilinjia.krdb.types.RealmObject
-                        import io.github.xilinjia.krdb.types.annotations.Ignore
+                        import io.realm.kotlin.types.RealmObject
+                        import io.realm.kotlin.types.annotations.Ignore
                         
                         class Foo : RealmObject {
                             var name: String = "HelloWorld"
@@ -179,7 +179,7 @@ class ModelDefinitionTests {
             source = SourceFile.kotlin(
                 "persisted_properties_val.kt",
                 """
-                        import io.github.xilinjia.krdb.types.RealmObject
+                        import io.realm.kotlin.types.RealmObject
                         class Person(val name: String) : RealmObject
                 """.trimIndent()
             )
@@ -195,7 +195,7 @@ class ModelDefinitionTests {
             source = SourceFile.kotlin(
                 "persisted_properties_lateinit.kt",
                 """
-                        import io.github.xilinjia.krdb.types.RealmObject
+                        import io.realm.kotlin.types.RealmObject
                         class Person : RealmObject {
                             lateinit var name: String
                         }

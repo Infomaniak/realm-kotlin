@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.mongodb.internal
+package io.realm.kotlin.mongodb.internal
 
-import io.github.xilinjia.krdb.mongodb.exceptions.ServiceException
-import io.github.xilinjia.krdb.mongodb.mongo.MongoCollection
+import io.realm.kotlin.mongodb.exceptions.ServiceException
+import io.realm.kotlin.mongodb.mongo.MongoCollection
 import org.mongodb.kbson.BsonArray
 import org.mongodb.kbson.BsonBoolean
 import org.mongodb.kbson.BsonDocument

@@ -15,32 +15,32 @@
  */
 @file:Suppress("NOTHING_TO_INLINE", "OVERRIDE_BY_INLINE")
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.UpdatePolicy
-import io.github.xilinjia.krdb.annotations.ExperimentalGeoSpatialApi
-import io.github.xilinjia.krdb.dynamic.DynamicMutableRealmObject
-import io.github.xilinjia.krdb.dynamic.DynamicRealmObject
-import io.github.xilinjia.krdb.ext.asRealmObject
-import io.github.xilinjia.krdb.internal.interop.MemTrackingAllocator
-import io.github.xilinjia.krdb.internal.interop.RealmListPointer
-import io.github.xilinjia.krdb.internal.interop.RealmMapPointer
-import io.github.xilinjia.krdb.internal.interop.RealmObjectInterop
-import io.github.xilinjia.krdb.internal.interop.RealmQueryArgument
-import io.github.xilinjia.krdb.internal.interop.RealmQueryArgumentList
-import io.github.xilinjia.krdb.internal.interop.RealmQueryListArgument
-import io.github.xilinjia.krdb.internal.interop.RealmQuerySingleArgument
-import io.github.xilinjia.krdb.internal.interop.RealmValue
-import io.github.xilinjia.krdb.internal.interop.Timestamp
-import io.github.xilinjia.krdb.internal.interop.ValueType
-import io.github.xilinjia.krdb.types.BaseRealmObject
-import io.github.xilinjia.krdb.types.RealmAny
-import io.github.xilinjia.krdb.types.RealmInstant
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.RealmUUID
-import io.github.xilinjia.krdb.types.geo.GeoBox
-import io.github.xilinjia.krdb.types.geo.GeoCircle
-import io.github.xilinjia.krdb.types.geo.GeoPolygon
+import io.realm.kotlin.UpdatePolicy
+import io.realm.kotlin.annotations.ExperimentalGeoSpatialApi
+import io.realm.kotlin.dynamic.DynamicMutableRealmObject
+import io.realm.kotlin.dynamic.DynamicRealmObject
+import io.realm.kotlin.ext.asRealmObject
+import io.realm.kotlin.internal.interop.MemTrackingAllocator
+import io.realm.kotlin.internal.interop.RealmListPointer
+import io.realm.kotlin.internal.interop.RealmMapPointer
+import io.realm.kotlin.internal.interop.RealmObjectInterop
+import io.realm.kotlin.internal.interop.RealmQueryArgument
+import io.realm.kotlin.internal.interop.RealmQueryArgumentList
+import io.realm.kotlin.internal.interop.RealmQueryListArgument
+import io.realm.kotlin.internal.interop.RealmQuerySingleArgument
+import io.realm.kotlin.internal.interop.RealmValue
+import io.realm.kotlin.internal.interop.Timestamp
+import io.realm.kotlin.internal.interop.ValueType
+import io.realm.kotlin.types.BaseRealmObject
+import io.realm.kotlin.types.RealmAny
+import io.realm.kotlin.types.RealmInstant
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.RealmUUID
+import io.realm.kotlin.types.geo.GeoBox
+import io.realm.kotlin.types.geo.GeoCircle
+import io.realm.kotlin.types.geo.GeoPolygon
 import org.mongodb.kbson.BsonObjectId
 import org.mongodb.kbson.Decimal128
 import kotlin.reflect.KClass
@@ -175,27 +175,27 @@ internal fun <T> MemTrackingAllocator.realmAnyHandler(
         null ->
             primitiveValueAsRealmValueHandler(nullTransport())
 
-        io.github.xilinjia.krdb.types.RealmAny.Type.INT,
-        io.github.xilinjia.krdb.types.RealmAny.Type.BOOL,
-        io.github.xilinjia.krdb.types.RealmAny.Type.STRING,
-        io.github.xilinjia.krdb.types.RealmAny.Type.BINARY,
-        io.github.xilinjia.krdb.types.RealmAny.Type.TIMESTAMP,
-        io.github.xilinjia.krdb.types.RealmAny.Type.FLOAT,
-        io.github.xilinjia.krdb.types.RealmAny.Type.DOUBLE,
-        io.github.xilinjia.krdb.types.RealmAny.Type.DECIMAL128,
-        io.github.xilinjia.krdb.types.RealmAny.Type.OBJECT_ID,
-        io.github.xilinjia.krdb.types.RealmAny.Type.UUID ->
+        io.realm.kotlin.types.RealmAny.Type.INT,
+        io.realm.kotlin.types.RealmAny.Type.BOOL,
+        io.realm.kotlin.types.RealmAny.Type.STRING,
+        io.realm.kotlin.types.RealmAny.Type.BINARY,
+        io.realm.kotlin.types.RealmAny.Type.TIMESTAMP,
+        io.realm.kotlin.types.RealmAny.Type.FLOAT,
+        io.realm.kotlin.types.RealmAny.Type.DOUBLE,
+        io.realm.kotlin.types.RealmAny.Type.DECIMAL128,
+        io.realm.kotlin.types.RealmAny.Type.OBJECT_ID,
+        io.realm.kotlin.types.RealmAny.Type.UUID ->
             primitiveValueAsRealmValueHandler(realmAnyPrimitiveToRealmValue(value))
 
-        io.github.xilinjia.krdb.types.RealmAny.Type.OBJECT -> {
+        io.realm.kotlin.types.RealmAny.Type.OBJECT -> {
             referenceAsRealmAnyHandler(value)
         }
 
-        io.github.xilinjia.krdb.types.RealmAny.Type.LIST -> {
+        io.realm.kotlin.types.RealmAny.Type.LIST -> {
             listAsRealmAnyHandler(value)
         }
 
-        io.github.xilinjia.krdb.types.RealmAny.Type.DICTIONARY -> {
+        io.realm.kotlin.types.RealmAny.Type.DICTIONARY -> {
             dictionaryAsRealmAnyHandler(value)
         }
     }

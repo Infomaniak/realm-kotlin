@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
 internal object Constants {
     internal const val FILE_COPY_BUFFER_SIZE = 4096

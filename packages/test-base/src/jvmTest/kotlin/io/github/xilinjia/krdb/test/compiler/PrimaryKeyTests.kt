@@ -16,16 +16,16 @@
 
 @file:OptIn(ExperimentalCompilerApi::class)
 
-package io.github.xilinjia.krdb.test.compiler
+package io.realm.kotlin.test.compiler
 
 import com.tschuchort.compiletesting.KotlinCompilation
 import com.tschuchort.compiletesting.SourceFile
-import io.github.xilinjia.krdb.internal.interop.CollectionType
-import io.github.xilinjia.krdb.test.util.Compiler.compileFromSource
-import io.github.xilinjia.krdb.test.util.TypeDescriptor.allFieldTypes
-import io.github.xilinjia.krdb.types.MutableRealmInt
-import io.github.xilinjia.krdb.types.RealmInstant
-import io.github.xilinjia.krdb.types.RealmUUID
+import io.realm.kotlin.internal.interop.CollectionType
+import io.realm.kotlin.test.util.Compiler.compileFromSource
+import io.realm.kotlin.test.util.TypeDescriptor.allFieldTypes
+import io.realm.kotlin.types.MutableRealmInt
+import io.realm.kotlin.types.RealmInstant
+import io.realm.kotlin.types.RealmUUID
 import org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi
 import org.junit.Test
 import org.mongodb.kbson.BsonObjectId
@@ -69,17 +69,17 @@ class PrimaryKeyTests {
 
             val kotlinLiteral = type.toKotlinLiteral()
             val result = compileFromSource(
-                plugins = listOf(io.github.xilinjia.krdb.compiler.Registrar()),
+                plugins = listOf(io.realm.kotlin.compiler.Registrar()),
                 source = SourceFile.kotlin(
                     "primaryKey.kt",
                     """
-                        import io.github.xilinjia.krdb.types.MutableRealmInt
-                        import io.github.xilinjia.krdb.types.RealmAny
-                        import io.github.xilinjia.krdb.types.RealmInstant
-                        import io.github.xilinjia.krdb.types.RealmObject
-                        import io.github.xilinjia.krdb.types.RealmUUID
-                        import io.github.xilinjia.krdb.RealmConfiguration
-                        import io.github.xilinjia.krdb.types.annotations.PrimaryKey
+                        import io.realm.kotlin.types.MutableRealmInt
+                        import io.realm.kotlin.types.RealmAny
+                        import io.realm.kotlin.types.RealmInstant
+                        import io.realm.kotlin.types.RealmObject
+                        import io.realm.kotlin.types.RealmUUID
+                        import io.realm.kotlin.RealmConfiguration
+                        import io.realm.kotlin.types.annotations.PrimaryKey
                         import org.mongodb.kbson.BsonObjectId
                         import org.mongodb.kbson.BsonDecimal128
 
@@ -108,9 +108,9 @@ class PrimaryKeyTests {
             source = SourceFile.kotlin(
                 "duplicatePrimaryKey.kt",
                 """
-                    import io.github.xilinjia.krdb.types.RealmObject
-                    import io.github.xilinjia.krdb.RealmConfiguration
-                    import io.github.xilinjia.krdb.types.annotations.PrimaryKey
+                    import io.realm.kotlin.types.RealmObject
+                    import io.realm.kotlin.RealmConfiguration
+                    import io.realm.kotlin.types.annotations.PrimaryKey
 
                     class A : RealmObject {
                         @PrimaryKey

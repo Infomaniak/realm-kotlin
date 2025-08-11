@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.types
+package io.realm.kotlin.types
 
-import io.github.xilinjia.krdb.internal.RealmInstantImpl
-import io.github.xilinjia.krdb.internal.platform.currentTime
+import io.realm.kotlin.internal.RealmInstantImpl
+import io.realm.kotlin.internal.platform.currentTime
 
 /**
  * A representation of a Realm timestamp. A timestamp represent a single point in time defined as

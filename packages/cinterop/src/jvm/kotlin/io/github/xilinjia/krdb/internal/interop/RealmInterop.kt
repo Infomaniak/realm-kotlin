@@ -14,24 +14,24 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop
+package io.realm.kotlin.internal.interop
 
-import io.github.xilinjia.krdb.internal.interop.Constants.ENCRYPTION_KEY_LENGTH
-import io.github.xilinjia.krdb.internal.interop.sync.ApiKeyWrapper
-import io.github.xilinjia.krdb.internal.interop.sync.AuthProvider
-import io.github.xilinjia.krdb.internal.interop.sync.CoreConnectionState
-import io.github.xilinjia.krdb.internal.interop.sync.CoreSubscriptionSetState
-import io.github.xilinjia.krdb.internal.interop.sync.CoreSyncSessionState
-import io.github.xilinjia.krdb.internal.interop.sync.CoreUserState
-import io.github.xilinjia.krdb.internal.interop.sync.JVMSyncSessionTransferCompletionCallback
-import io.github.xilinjia.krdb.internal.interop.sync.MetadataMode
-import io.github.xilinjia.krdb.internal.interop.sync.NetworkTransport
-import io.github.xilinjia.krdb.internal.interop.sync.ProgressDirection
-import io.github.xilinjia.krdb.internal.interop.sync.SyncSessionResyncMode
-import io.github.xilinjia.krdb.internal.interop.sync.SyncUserIdentity
-import io.github.xilinjia.krdb.internal.interop.sync.WebSocketTransport
-import io.github.xilinjia.krdb.internal.interop.sync.WebsocketCallbackResult
-import io.github.xilinjia.krdb.internal.interop.sync.WebsocketErrorCode
+import io.realm.kotlin.internal.interop.Constants.ENCRYPTION_KEY_LENGTH
+import io.realm.kotlin.internal.interop.sync.ApiKeyWrapper
+import io.realm.kotlin.internal.interop.sync.AuthProvider
+import io.realm.kotlin.internal.interop.sync.CoreConnectionState
+import io.realm.kotlin.internal.interop.sync.CoreSubscriptionSetState
+import io.realm.kotlin.internal.interop.sync.CoreSyncSessionState
+import io.realm.kotlin.internal.interop.sync.CoreUserState
+import io.realm.kotlin.internal.interop.sync.JVMSyncSessionTransferCompletionCallback
+import io.realm.kotlin.internal.interop.sync.MetadataMode
+import io.realm.kotlin.internal.interop.sync.NetworkTransport
+import io.realm.kotlin.internal.interop.sync.ProgressDirection
+import io.realm.kotlin.internal.interop.sync.SyncSessionResyncMode
+import io.realm.kotlin.internal.interop.sync.SyncUserIdentity
+import io.realm.kotlin.internal.interop.sync.WebSocketTransport
+import io.realm.kotlin.internal.interop.sync.WebsocketCallbackResult
+import io.realm.kotlin.internal.interop.sync.WebsocketErrorCode
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch

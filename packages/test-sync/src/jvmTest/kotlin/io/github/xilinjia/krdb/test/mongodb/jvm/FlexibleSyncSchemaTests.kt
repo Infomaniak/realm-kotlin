@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.mongodb.jvm
+package io.realm.kotlin.test.mongodb.jvm
 
-import io.github.xilinjia.krdb.test.mongodb.common.FLEXIBLE_SYNC_SCHEMA
-import io.github.xilinjia.krdb.test.mongodb.common.FLEXIBLE_SYNC_SCHEMA_COUNT
-import io.github.xilinjia.krdb.types.RealmObject
+import io.realm.kotlin.test.mongodb.common.FLEXIBLE_SYNC_SCHEMA
+import io.realm.kotlin.test.mongodb.common.FLEXIBLE_SYNC_SCHEMA_COUNT
+import io.realm.kotlin.types.RealmObject
 import kotlin.reflect.full.isSubclassOf
 import kotlin.test.Test
 import kotlin.test.assertEquals

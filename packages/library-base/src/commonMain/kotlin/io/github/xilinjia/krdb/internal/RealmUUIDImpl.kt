@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.internal.platform.SecureRandom
-import io.github.xilinjia.krdb.internal.util.HEX_PATTERN
-import io.github.xilinjia.krdb.internal.util.parseHex
-import io.github.xilinjia.krdb.internal.util.toHexString
-import io.github.xilinjia.krdb.types.RealmUUID
+import io.realm.kotlin.internal.platform.SecureRandom
+import io.realm.kotlin.internal.util.HEX_PATTERN
+import io.realm.kotlin.internal.util.parseHex
+import io.realm.kotlin.internal.util.toHexString
+import io.realm.kotlin.types.RealmUUID
 import org.mongodb.kbson.BsonBinary
 import org.mongodb.kbson.BsonBinarySubType
 import kotlin.experimental.and

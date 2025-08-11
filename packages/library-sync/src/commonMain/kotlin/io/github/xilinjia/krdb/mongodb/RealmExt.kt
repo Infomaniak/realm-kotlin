@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.mongodb
+package io.realm.kotlin.mongodb
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.mongodb.internal.SyncedRealmContext
-import io.github.xilinjia.krdb.mongodb.internal.executeInSyncContext
-import io.github.xilinjia.krdb.mongodb.sync.SubscriptionSet
-import io.github.xilinjia.krdb.mongodb.sync.SyncMode
-import io.github.xilinjia.krdb.mongodb.sync.SyncSession
+import io.realm.kotlin.Realm
+import io.realm.kotlin.mongodb.internal.SyncedRealmContext
+import io.realm.kotlin.mongodb.internal.executeInSyncContext
+import io.realm.kotlin.mongodb.sync.SubscriptionSet
+import io.realm.kotlin.mongodb.sync.SyncMode
+import io.realm.kotlin.mongodb.sync.SyncSession
 
 /**
  * This class contains extension methods that are available when using synced realms.

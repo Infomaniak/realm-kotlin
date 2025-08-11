@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal
+package io.realm.kotlin.internal
 
-import io.github.xilinjia.krdb.internal.interop.Callback
-import io.github.xilinjia.krdb.internal.interop.PropertyKey
-import io.github.xilinjia.krdb.internal.interop.RealmChangesPointer
-import io.github.xilinjia.krdb.internal.interop.RealmInterop
-import io.github.xilinjia.krdb.internal.interop.RealmKeyPathArrayPointer
-import io.github.xilinjia.krdb.internal.interop.RealmNotificationTokenPointer
-import io.github.xilinjia.krdb.internal.interop.RealmObjectInterop
-import io.github.xilinjia.krdb.internal.interop.RealmObjectPointer
-import io.github.xilinjia.krdb.internal.schema.ClassMetadata
-import io.github.xilinjia.krdb.internal.schema.PropertyMetadata
-import io.github.xilinjia.krdb.notifications.ObjectChange
-import io.github.xilinjia.krdb.notifications.internal.DeletedObjectImpl
-import io.github.xilinjia.krdb.notifications.internal.InitialObjectImpl
-import io.github.xilinjia.krdb.notifications.internal.UpdatedObjectImpl
-import io.github.xilinjia.krdb.types.BaseRealmObject
+import io.realm.kotlin.internal.interop.Callback
+import io.realm.kotlin.internal.interop.PropertyKey
+import io.realm.kotlin.internal.interop.RealmChangesPointer
+import io.realm.kotlin.internal.interop.RealmInterop
+import io.realm.kotlin.internal.interop.RealmKeyPathArrayPointer
+import io.realm.kotlin.internal.interop.RealmNotificationTokenPointer
+import io.realm.kotlin.internal.interop.RealmObjectInterop
+import io.realm.kotlin.internal.interop.RealmObjectPointer
+import io.realm.kotlin.internal.schema.ClassMetadata
+import io.realm.kotlin.internal.schema.PropertyMetadata
+import io.realm.kotlin.notifications.ObjectChange
+import io.realm.kotlin.notifications.internal.DeletedObjectImpl
+import io.realm.kotlin.notifications.internal.InitialObjectImpl
+import io.realm.kotlin.notifications.internal.UpdatedObjectImpl
+import io.realm.kotlin.types.BaseRealmObject
 import kotlinx.coroutines.channels.ProducerScope
 import kotlinx.coroutines.flow.Flow
 import kotlin.reflect.KClass

@@ -13,18 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.test.common
+package io.realm.kotlin.test.common
 
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.RealmConfiguration
-import io.github.xilinjia.krdb.entities.Nullability
-import io.github.xilinjia.krdb.ext.query
-import io.github.xilinjia.krdb.test.platform.PlatformUtils
-import io.github.xilinjia.krdb.test.util.TypeDescriptor
-import io.github.xilinjia.krdb.types.MutableRealmInt
-import io.github.xilinjia.krdb.types.RealmAny
-import io.github.xilinjia.krdb.types.RealmInstant
-import io.github.xilinjia.krdb.types.RealmUUID
+import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.entities.Nullability
+import io.realm.kotlin.ext.query
+import io.realm.kotlin.test.platform.PlatformUtils
+import io.realm.kotlin.test.util.TypeDescriptor
+import io.realm.kotlin.types.MutableRealmInt
+import io.realm.kotlin.types.RealmAny
+import io.realm.kotlin.types.RealmInstant
+import io.realm.kotlin.types.RealmUUID
 import org.mongodb.kbson.BsonObjectId
 import org.mongodb.kbson.Decimal128
 import kotlin.reflect.KMutableProperty1
@@ -74,9 +74,9 @@ class NullabilityTests {
             // Should we try to verify that compiler will break on this
             // nullability.stringNonNullable = null
             // We could assert that the C-API fails by internals API with
-            // io.github.xilinjia.krdb.internal.RealmObjectHelper.realm_set_value(nullability as RealmObjectInternal, Nullability::stringNonNullable, null)
+            // io.realm.kotlin.internal.RealmObjectHelper.realm_set_value(nullability as RealmObjectInternal, Nullability::stringNonNullable, null)
             // but that would require
-            // implementation("io.github.xilinjia.krdb:cinterop:${Realm.version}")
+            // implementation("io.realm.kotlin:cinterop:${Realm.version}")
             //  https://github.com/realm/realm-kotlin/issues/134
 
             nullability.stringNonNullable = "Realm"
@@ -129,7 +129,7 @@ class NullabilityTests {
                 // Manually removing RealmObject as nullableFieldTypes is not referencing the
                 // explicit subtype (Nullability). Don't know how to make the linkage without
                 // so it also works on Native.
-                nullableFieldTypes.remove(io.github.xilinjia.krdb.types.RealmObject::class)
+                nullableFieldTypes.remove(io.realm.kotlin.types.RealmObject::class)
             }
             assertTrue(nullableFieldTypes.isEmpty(), "Untested fields: $nullableFieldTypes")
         }

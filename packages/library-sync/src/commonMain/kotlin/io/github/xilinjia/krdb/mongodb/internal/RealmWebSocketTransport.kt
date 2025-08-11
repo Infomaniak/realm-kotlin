@@ -1,13 +1,13 @@
-package io.github.xilinjia.krdb.mongodb.internal
+package io.realm.kotlin.mongodb.internal
 
-import io.github.xilinjia.krdb.internal.interop.RealmWebsocketHandlerCallbackPointer
-import io.github.xilinjia.krdb.internal.interop.sync.CancellableTimer
-import io.github.xilinjia.krdb.internal.interop.sync.WebSocketClient
-import io.github.xilinjia.krdb.internal.interop.sync.WebSocketObserver
-import io.github.xilinjia.krdb.internal.interop.sync.WebSocketTransport
-import io.github.xilinjia.krdb.internal.interop.sync.WebsocketEngine
-import io.github.xilinjia.krdb.internal.util.CoroutineDispatcherFactory
-import io.github.xilinjia.krdb.internal.util.DispatcherHolder
+import io.realm.kotlin.internal.interop.RealmWebsocketHandlerCallbackPointer
+import io.realm.kotlin.internal.interop.sync.CancellableTimer
+import io.realm.kotlin.internal.interop.sync.WebSocketClient
+import io.realm.kotlin.internal.interop.sync.WebSocketObserver
+import io.realm.kotlin.internal.interop.sync.WebSocketTransport
+import io.realm.kotlin.internal.interop.sync.WebsocketEngine
+import io.realm.kotlin.internal.util.CoroutineDispatcherFactory
+import io.realm.kotlin.internal.util.DispatcherHolder
 import kotlinx.atomicfu.AtomicRef
 import kotlinx.atomicfu.atomic
 import kotlinx.coroutines.CoroutineScope

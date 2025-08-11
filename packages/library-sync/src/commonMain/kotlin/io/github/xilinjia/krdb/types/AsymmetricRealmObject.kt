@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.types
+package io.realm.kotlin.types
 
 /**
  * Asymmetric Realm objects are "write-only" objects that are only supported in synchronized realms
@@ -32,6 +32,6 @@ package io.github.xilinjia.krdb.types
  * [RealmObject]s nor [EmbeddedRealmObject]s can link to [AsymmetricRealmObject]s.
  *
  * It IS possible to combine asymmetric, embedded and standard realm objects in a single
- * [io.github.xilinjia.krdb.mongodb.sync.SyncConfiguration] schema.
+ * [io.realm.kotlin.mongodb.sync.SyncConfiguration] schema.
  */
 public interface AsymmetricRealmObject : BaseRealmObject

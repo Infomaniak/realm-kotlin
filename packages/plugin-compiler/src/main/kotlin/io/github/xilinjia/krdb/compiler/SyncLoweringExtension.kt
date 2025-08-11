@@ -16,9 +16,9 @@
 
 @file:OptIn(UnsafeDuringIrConstructionAPI::class)
 
-package io.github.xilinjia.krdb.compiler
+package io.realm.kotlin.compiler
 
-import io.github.xilinjia.krdb.compiler.ClassIds.APP_CONFIGURATION_BUILDER
+import io.realm.kotlin.compiler.ClassIds.APP_CONFIGURATION_BUILDER
 import org.jetbrains.kotlin.backend.common.ClassLoweringPass
 import org.jetbrains.kotlin.backend.common.CompilationException
 import org.jetbrains.kotlin.backend.common.DeclarationContainerLoweringPass
@@ -45,7 +45,7 @@ import org.jetbrains.kotlin.ir.visitors.transformChildrenVoid
 import org.jetbrains.kotlin.utils.KotlinExceptionWithAttachments
 
 /**
- * Lowering extension that injects the 'io.github.xilinjia.krdb.bundleId' compiler plugin option into
+ * Lowering extension that injects the 'io.realm.kotlin.bundleId' compiler plugin option into
  * 'AppConfiguration's by rewiring:
  * - App.create(appId) -> AppImpl.create(appId, bundleId)
  * - AppConfiguration.create(appId) -> AppConfigurationImpl.create(appID, bundleId)

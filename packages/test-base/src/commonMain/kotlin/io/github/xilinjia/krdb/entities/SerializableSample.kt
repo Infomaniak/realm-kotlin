@@ -24,28 +24,28 @@
     RealmUUIDKSerializer::class
 )
 
-package io.github.xilinjia.krdb.entities
+package io.realm.kotlin.entities
 
-import io.github.xilinjia.krdb.ext.backlinks
-import io.github.xilinjia.krdb.ext.realmDictionaryOf
-import io.github.xilinjia.krdb.ext.realmListOf
-import io.github.xilinjia.krdb.ext.realmSetOf
-import io.github.xilinjia.krdb.serializers.MutableRealmIntKSerializer
-import io.github.xilinjia.krdb.serializers.RealmAnyKSerializer
-import io.github.xilinjia.krdb.serializers.RealmDictionaryKSerializer
-import io.github.xilinjia.krdb.serializers.RealmInstantKSerializer
-import io.github.xilinjia.krdb.serializers.RealmListKSerializer
-import io.github.xilinjia.krdb.serializers.RealmSetKSerializer
-import io.github.xilinjia.krdb.serializers.RealmUUIDKSerializer
-import io.github.xilinjia.krdb.types.EmbeddedRealmObject
-import io.github.xilinjia.krdb.types.MutableRealmInt
-import io.github.xilinjia.krdb.types.RealmAny
-import io.github.xilinjia.krdb.types.RealmDictionary
-import io.github.xilinjia.krdb.types.RealmInstant
-import io.github.xilinjia.krdb.types.RealmList
-import io.github.xilinjia.krdb.types.RealmObject
-import io.github.xilinjia.krdb.types.RealmSet
-import io.github.xilinjia.krdb.types.RealmUUID
+import io.realm.kotlin.ext.backlinks
+import io.realm.kotlin.ext.realmDictionaryOf
+import io.realm.kotlin.ext.realmListOf
+import io.realm.kotlin.ext.realmSetOf
+import io.realm.kotlin.serializers.MutableRealmIntKSerializer
+import io.realm.kotlin.serializers.RealmAnyKSerializer
+import io.realm.kotlin.serializers.RealmDictionaryKSerializer
+import io.realm.kotlin.serializers.RealmInstantKSerializer
+import io.realm.kotlin.serializers.RealmListKSerializer
+import io.realm.kotlin.serializers.RealmSetKSerializer
+import io.realm.kotlin.serializers.RealmUUIDKSerializer
+import io.realm.kotlin.types.EmbeddedRealmObject
+import io.realm.kotlin.types.MutableRealmInt
+import io.realm.kotlin.types.RealmAny
+import io.realm.kotlin.types.RealmDictionary
+import io.realm.kotlin.types.RealmInstant
+import io.realm.kotlin.types.RealmList
+import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.RealmSet
+import io.realm.kotlin.types.RealmUUID
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.UseSerializers
 import org.mongodb.kbson.BsonObjectId

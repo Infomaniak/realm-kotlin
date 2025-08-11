@@ -12,7 +12,7 @@
  * limitations under the License.
  *
  */
-package io.github.xilinjia.krdb.annotations
+package io.realm.kotlin.annotations
 
 /**
  * This annotation mark Realm APIs for geo spatial queries that are considered **experimental**, i.e.

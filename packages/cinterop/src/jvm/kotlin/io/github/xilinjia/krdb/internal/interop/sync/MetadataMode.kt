@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.interop.sync
+package io.realm.kotlin.internal.interop.sync
 
-import io.github.xilinjia.krdb.internal.interop.NativeEnumerated
-import io.github.xilinjia.krdb.internal.interop.realm_sync_client_metadata_mode_e
+import io.realm.kotlin.internal.interop.NativeEnumerated
+import io.realm.kotlin.internal.interop.realm_sync_client_metadata_mode_e
 
 actual enum class MetadataMode(override val nativeValue: Int) : NativeEnumerated {
     RLM_SYNC_CLIENT_METADATA_MODE_DISABLED(realm_sync_client_metadata_mode_e.RLM_SYNC_CLIENT_METADATA_MODE_DISABLED),

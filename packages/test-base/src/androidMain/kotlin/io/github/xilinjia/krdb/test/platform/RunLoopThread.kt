@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.test.platform
+package io.realm.kotlin.test.platform
 
 import android.os.Handler
 import android.os.HandlerThread

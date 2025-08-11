@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.compiler
+package io.realm.kotlin.compiler
 
-import io.github.xilinjia.krdb.compiler.FqNames.PACKAGE_MONGODB
-import io.github.xilinjia.krdb.compiler.FqNames.PACKAGE_MONGODB_INTERNAL
+import io.realm.kotlin.compiler.FqNames.PACKAGE_MONGODB
+import io.realm.kotlin.compiler.FqNames.PACKAGE_MONGODB_INTERNAL
 import org.jetbrains.kotlin.name.CallableId
 import org.jetbrains.kotlin.name.ClassId
 import org.jetbrains.kotlin.name.FqName
@@ -93,27 +93,27 @@ internal object Names {
 }
 
 internal object FqNames {
-    val PACKAGE_ANNOTATIONS = FqName("io.github.xilinjia.krdb.types.annotations")
+    val PACKAGE_ANNOTATIONS = FqName("io.realm.kotlin.types.annotations")
     val PACKAGE_KBSON = FqName("org.mongodb.kbson")
     val PACKAGE_KOTLIN_COLLECTIONS = FqName("kotlin.collections")
     val PACKAGE_KOTLIN_REFLECT = FqName("kotlin.reflect")
-    val PACKAGE_TYPES: FqName = FqName("io.github.xilinjia.krdb.types")
-    val PACKAGE_REALM_INTEROP = FqName("io.github.xilinjia.krdb.internal.interop")
-    val PACKAGE_REALM_INTERNAL = FqName("io.github.xilinjia.krdb.internal")
-    val PACKAGE_MONGODB = FqName("io.github.xilinjia.krdb.mongodb")
-    val PACKAGE_MONGODB_INTERNAL = FqName("io.github.xilinjia.krdb.mongodb.internal")
+    val PACKAGE_TYPES: FqName = FqName("io.realm.kotlin.types")
+    val PACKAGE_REALM_INTEROP = FqName("io.realm.kotlin.internal.interop")
+    val PACKAGE_REALM_INTERNAL = FqName("io.realm.kotlin.internal")
+    val PACKAGE_MONGODB = FqName("io.realm.kotlin.mongodb")
+    val PACKAGE_MONGODB_INTERNAL = FqName("io.realm.kotlin.mongodb.internal")
     val APP_CONFIGURATION_BUILDER = FqName("AppConfiguration.Builder")
 }
 
 object ClassIds {
 
     // TODO we can replace with RealmObject::class.java.canonicalName if we make the runtime_api available as a compile time only dependency for the compiler-plugin
-    val REALM_NATIVE_POINTER = FqName("io.github.xilinjia.krdb.internal.interop.NativePointer")
+    val REALM_NATIVE_POINTER = FqName("io.realm.kotlin.internal.interop.NativePointer")
     val REALM_OBJECT_INTERNAL_INTERFACE = ClassId(FqNames.PACKAGE_REALM_INTERNAL, Name.identifier("RealmObjectInternal"))
 
     val REALM_MODEL_COMPANION = ClassId(FqNames.PACKAGE_REALM_INTERNAL, Name.identifier("RealmObjectCompanion"))
     val REALM_OBJECT_HELPER = ClassId(FqNames.PACKAGE_REALM_INTERNAL, Name.identifier("RealmObjectHelper"))
-    val REALM_CLASS_IMPL = ClassId(FqName("io.github.xilinjia.krdb.internal.schema"), Name.identifier("RealmClassImpl"))
+    val REALM_CLASS_IMPL = ClassId(FqName("io.realm.kotlin.internal.schema"), Name.identifier("RealmClassImpl"))
     val OBJECT_REFERENCE_CLASS = ClassId(FqNames.PACKAGE_REALM_INTERNAL, Name.identifier("RealmObjectReference"))
 
     val BASE_REALM_OBJECT_INTERFACE = ClassId(FqNames.PACKAGE_TYPES, Name.identifier("BaseRealmObject"))
@@ -145,9 +145,9 @@ object ClassIds {
     val IGNORE_ANNOTATION = ClassId(FqNames.PACKAGE_ANNOTATIONS, Name.identifier("Ignore"))
     val PERSISTED_NAME_ANNOTATION = ClassId(FqNames.PACKAGE_ANNOTATIONS, Name.identifier("PersistedName"))
     val TRANSIENT_ANNOTATION = ClassId(FqName("kotlin.jvm"), Name.identifier("Transient"))
-    val MODEL_OBJECT_ANNOTATION = ClassId(FqName("io.github.xilinjia.krdb.internal.platform"), Name.identifier("ModelObject"))
-    val PROPERTY_INFO_CREATE = CallableId(FqName("io.github.xilinjia.krdb.internal.schema"), Name.identifier("createPropertyInfo"))
-    val CLASS_KIND_TYPE = ClassId(FqName("io.github.xilinjia.krdb.schema"), Name.identifier("RealmClassKind"))
+    val MODEL_OBJECT_ANNOTATION = ClassId(FqName("io.realm.kotlin.internal.platform"), Name.identifier("ModelObject"))
+    val PROPERTY_INFO_CREATE = CallableId(FqName("io.realm.kotlin.internal.schema"), Name.identifier("createPropertyInfo"))
+    val CLASS_KIND_TYPE = ClassId(FqName("io.realm.kotlin.schema"), Name.identifier("RealmClassKind"))
 
     // Realm data types
     val REALM_LIST = ClassId(FqNames.PACKAGE_TYPES, Name.identifier("RealmList"))

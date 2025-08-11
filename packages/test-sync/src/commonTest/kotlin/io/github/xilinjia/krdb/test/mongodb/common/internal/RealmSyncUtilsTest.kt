@@ -16,16 +16,16 @@
 
 @file:Suppress("invisible_member", "invisible_reference")
 
-package io.github.xilinjia.krdb.test.mongodb.common.internal
+package io.realm.kotlin.test.mongodb.common.internal
 
-import io.github.xilinjia.krdb.internal.interop.CoreError
-import io.github.xilinjia.krdb.internal.interop.ErrorCategory
-import io.github.xilinjia.krdb.internal.interop.ErrorCode
-import io.github.xilinjia.krdb.internal.interop.UnknownCodeDescription
-import io.github.xilinjia.krdb.internal.interop.sync.AppError
-import io.github.xilinjia.krdb.internal.interop.sync.SyncError
-import io.github.xilinjia.krdb.mongodb.internal.convertAppError
-import io.github.xilinjia.krdb.mongodb.internal.convertSyncError
+import io.realm.kotlin.internal.interop.CoreError
+import io.realm.kotlin.internal.interop.ErrorCategory
+import io.realm.kotlin.internal.interop.ErrorCode
+import io.realm.kotlin.internal.interop.UnknownCodeDescription
+import io.realm.kotlin.internal.interop.sync.AppError
+import io.realm.kotlin.internal.interop.sync.SyncError
+import io.realm.kotlin.mongodb.internal.convertAppError
+import io.realm.kotlin.mongodb.internal.convertSyncError
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

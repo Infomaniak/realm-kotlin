@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.mongodb
+package io.realm.kotlin.mongodb
 
 /**
  * Each [User] on Atlas App Services is uniquely identified by their [User.id], but this id cannot

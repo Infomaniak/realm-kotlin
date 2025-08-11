@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.schema
+package io.realm.kotlin.schema
 
 /**
  * Enum describing what kind of Realm object it is.
@@ -22,26 +22,26 @@ package io.github.xilinjia.krdb.schema
 public enum class RealmClassKind {
     /**
      * Standard Realm objects are the default kind of object in Realm, and they extend the
-     * [io.github.xilinjia.krdb.types.RealmObject] interface.
+     * [io.realm.kotlin.types.RealmObject] interface.
      */
     STANDARD,
     /**
-     * Embedded Realm objects extend the [io.github.xilinjia.krdb.types.EmbeddedRealmObject] interface.
+     * Embedded Realm objects extend the [io.realm.kotlin.types.EmbeddedRealmObject] interface.
      *
      * These kinds of classes must always have exactly one parent object when added to a realm. This
      * means they are deleted when the parent object is delete or the embedded object property is
      * overwritten.
      *
-     * See [io.github.xilinjia.krdb.types.EmbeddedRealmObject] for more details.
+     * See [io.realm.kotlin.types.EmbeddedRealmObject] for more details.
      */
     EMBEDDED,
     /**
-     * Asymmetric Realm objects extend the [io.github.xilinjia.krdb.types.mongodb.AsymmetricRealmObject] interface.
+     * Asymmetric Realm objects extend the [io.realm.kotlin.types.mongodb.AsymmetricRealmObject] interface.
      *
      * These kind of classes can only be used in a synced realm and are "write-only", i.e. once
      * you written an asymmetric object to a Realm, it is no longer possible access or query them.
      *
-     * See [io.github.xilinjia.krdb.types.mongodb.AsymmetricRealmObject] for more details.
+     * See [io.realm.kotlin.types.mongodb.AsymmetricRealmObject] for more details.
      */
     ASYMMETRIC
 }

@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.query
+package io.realm.kotlin.query
 
-import io.github.xilinjia.krdb.Deleteable
-import io.github.xilinjia.krdb.MutableRealm
-import io.github.xilinjia.krdb.Realm
-import io.github.xilinjia.krdb.Versioned
-import io.github.xilinjia.krdb.notifications.InitialResults
-import io.github.xilinjia.krdb.notifications.ResultsChange
-import io.github.xilinjia.krdb.notifications.UpdatedResults
-import io.github.xilinjia.krdb.types.BaseRealmObject
+import io.realm.kotlin.Deleteable
+import io.realm.kotlin.MutableRealm
+import io.realm.kotlin.Realm
+import io.realm.kotlin.Versioned
+import io.realm.kotlin.notifications.InitialResults
+import io.realm.kotlin.notifications.ResultsChange
+import io.realm.kotlin.notifications.UpdatedResults
+import io.realm.kotlin.types.BaseRealmObject
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 

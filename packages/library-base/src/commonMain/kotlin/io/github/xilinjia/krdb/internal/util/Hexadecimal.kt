@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.xilinjia.krdb.internal.util
+package io.realm.kotlin.internal.util
 
 private val HEX_CHARS = ('0'..'9') + ('a'..'f')
 

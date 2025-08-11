@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.xilinjia.krdb.types.geo
+package io.realm.kotlin.types.geo
 
-import io.github.xilinjia.krdb.annotations.ExperimentalGeoSpatialApi
-import io.github.xilinjia.krdb.internal.geo.UnmanagedGeoPoint
+import io.realm.kotlin.annotations.ExperimentalGeoSpatialApi
+import io.realm.kotlin.internal.geo.UnmanagedGeoPoint
 
 /**
  * This class represent a point on earth in geographical coordinates: latitude and longitude.
