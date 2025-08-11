@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-rootProject.name = "krdb"
+rootProject.name = "realm-kotlin"
 
 dependencyResolutionManagement {
     repositories {
