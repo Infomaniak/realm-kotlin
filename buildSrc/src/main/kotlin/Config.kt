@@ -83,15 +83,15 @@ object Realm {
         const val url = "https://github.com/realm/realm-kotlin/issues"
     }
     object SCM {
-        const val connection = "scm:git:git://github.com/xilinjia/krdb.git"
-        const val developerConnection = "scm:git:ssh://github.com/xilinjia/krdb.git"
-        const val url = "https://github.com/xilinjia/krdb"
+        const val connection = "scm:git:git://github.com/Infomaniak/realm-kotlin.git"
+        const val developerConnection = "scm:git:ssh://github.com/Infomaniak/realm-kotlin.git"
+        const val url = "https://github.com/Infomaniak/realm-kotlin"
     }
     object Developer {
-        const val name = "Xilin Jia"
-        const val email = "xilin.vw@gmail.com"
-        const val organization = ""
-        const val organizationUrl = "https://github.com/XilinJia/krdb"
+        const val name = "Infomaniak"
+        const val email = "louis.cognault@infomaniak.com"
+        const val organization = "Infomaniak"
+        const val organizationUrl = "https://github.com/Infomaniak/realm-kotlin"
     }
 }
 
