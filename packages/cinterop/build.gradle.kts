@@ -20,8 +20,8 @@ import java.io.ByteArrayOutputStream
 import java.nio.charset.Charset
 
 plugins {
-    id("org.jetbrains.kotlin.multiplatform")
     id("com.android.library")
+    kotlin("multiplatform")
     id("realm-publisher")
     id("org.jetbrains.kotlinx.atomicfu") version Versions.atomicfuPlugin
 }
