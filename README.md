@@ -1,100 +1,87 @@
-### This is a fork and rebranding of [Realm Kotlin](https://github.com/XilinJia/realm-kotlin) which is a fork of the deprecated [Realm Kotlin](https://github.com/realm/realm-kotlin).  This has been made compatible with Kotlin 2.1+ while updating various dependencies
+# Infomaniak's fork of [Realm Kotlin](https://github.com/realm/realm-kotlin)
 
-JVM has been tested to work the same as with builds with Kotlin 2.0.x.  Android, iOS and MacOS has been tested to work.
+This is a fork of the deprecated [Realm Kotlin](https://github.com/realm/realm-kotlin).
+It has been made compatible with Kotlin 2.2.0 thanks to the work of @XilinJia
+on their [krdb](https://github.com/XilinJia/krdb) fork (we cherry-picked some of their commits).
+
+We have reversed the rebranding so it can be used as a drop-in replacement with builds published
+to a local or private maven repository.
+
+We have checked the diff between our revision and Realm's original project to be exempt from any
+suspicious code or reference to unchecked binaries.
 
 Unlike the forked repo, this one can be built from source on Linux.
 
-Project structure is changed to make Intellij IDE work.  gradlew needs to be run from the root directory rather than packages.
+Project structure is changed to make Intellij IDE work.
+gradlew needs to be run from the root directory rather than packages.
 
-Testing are performed on the dev versions. Maven artifacts can be published (tested locally), but can not be tested upon yet.
+## Version compatibility
 
-### Version compatibility
+Version 3.2.8 <==> Kotlin 2.2.0
 
-krdb 3.2.8 <==> Kotlin 2.2.0
+## How to use:
 
-krdb 3.2.6/7 <==> Kotlin 2.1.20
+This project is NOT YET published to a maven repo.
 
-krdb 3.2.5 <==> Kotlin 2.1.10
+### Build the project
 
-### Published to Maven Central, how to use:
+#### Prerequisites
 
-#### Note, the maven artifacts are built on Linux and lack support for iOS and MacOS, hopefully a github actions can resolve this later
+- Swig 4.2.0 or above. On Mac this can be installed using Homebrew: `brew install swig`.
+- Ccache. On Mac this can be installed using Homebrew: `brew install ccache`.
+- CMake 3.18.1 or above. Can be installed through the Android SDK Manager, or homebrew.
+- Java 17 or above.
+- Define environment variables:
+    - `ANDROID_HOME`
+    - `JAVA_HOME`
+    - `NDK_HOME`
+- clone this project **with submodules** (don't skip the `--recursive` option for that):
+  ```git clone --recursive https://github.com/Infomaniak/realm-kotlin.git ```
 
-* in project build.gradle, add:
-```
-buildscript {
-    dependencies {
-        classpath "io.github.xilinjia.krdb:gradle-plugin:y.y.y"
-    }
-}
-```
-and remove:
-```
-id 'io.realm.kotlin' version 'x.x.x' apply false
-```
+#### Gradle commands
 
-* in the app build.gradle
-
-in the plugins block, replace:
-```id 'io.realm.kotlin' ```
-with
-```    id 'io.github.xilinjia.krdb' ```
-
-replace:
-```implementation "io.realm.kotlin:library-base:x.x.x" ```
-with:
-```implementation "io.github.xilinjia.krdb:library-base:y.y.y" ```
-
-and replace:
-```apply plugin: "io.realm.kotlin" ```
-with
-```apply plugin: "io.github.xilinjia.krdb" ```
-
-* in all kotlin files, replace "io.realm.kotlin" with "io.github.xilinjia.krdb"
-* and of course, change your Kotlin to 2.x.y (refer to Version compatibility)
-
-### To use this with a local build
-
-In addition to the above,
-
-* clone this project with: 
-```git clone --recursive https://github.com/XilinJia/krdb.git ```
-* build in the project root directory with: 
 ```
 ./gradlew clean
 ./gradlew jvmTest
 ./gradlew publishToMavenLocal 
 ```
-* in Android project, in settings.gradle at the project level, add in the beginning:
+
+### Setup the repository
+
+* in project's `settings.gradle[.kts]`, add:
 ```
 pluginManagement {
     repositories {
-        mavenLocal() // 👈 Add this line
-        google()
+        gradlePluginPortal()
         mavenCentral()
+        // Other repos...
+        mavenLocal() // <--- 👈 Add this.
+    }
+}
+
+dependencyResolutionManagement {
+    // repositoriesMode...
+    repositories {
+        // Other repos...
+        mavenLocal() // <--- 👈 Add this.
     }
 }
 ```
-* in project build.gradle, add:
+
+* in project's `build.gradle[.kts]`, add:
 ```
 buildscript {
-    repositories {
-        mavenLocal()
-    }
     dependencies {
-        classpath "io.github.xilinjia.krdb:gradle-plugin:y.y.y"
-    }
-}
-allprojects {
-    repositories {
-        mavenLocal()
+        classpath("io.realm.kotlin:gradle-plugin:y.y.y")
     }
 }
 ```
+* remove the version in the declarations in the `plugins` blocks
+* and of course, change your Kotlin to 2.x.y (refer to Version compatibility)
 
 ------------------------------------
 
-Original Readme of Realm-Kotlin can be referenced [here](https://github.com/realm/realm-kotlin)
+Original Readme of Realm-Kotlin can be found [here](https://github.com/realm/realm-kotlin)
 
 # Contributing
 
@@ -104,7 +91,3 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for more details!
 # License
 
 Realm Kotlin is published under the [Apache 2.0 license](LICENSE).
-
-This product is not being made available to any person located in Cuba, Iran, North Korea, Sudan, Syria or the Crimea region, or to any other person that is not eligible to receive the product under U.S. law.
-
-<img style="width: 0px; height: 0px;" src="https://3eaz4mshcd.execute-api.us-east-1.amazonaws.com/prod?s=https://github.com/realm/realm-kotlin#README.md">

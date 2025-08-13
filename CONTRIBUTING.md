@@ -1,6 +1,9 @@
-# Contributing to KRDB, Kotlin SDK for Realm DB
+# Contributing to Infomaniak's fork of Kotlin SDK for Realm DB
 
-We welcomes all contributions! 
+Contributions are welcome!
+
+Please make sure we agreed about what is to be done in an issue,
+or that it's a trivial improvement with little to review.
 
 ## How to build locally
 
@@ -9,7 +12,7 @@ We welcomes all contributions!
 - Swig 4.2.0 or above. On Mac this can be installed using Homebrew: `brew install swig`.
 - Ccache. On Mac this can be installed using Homebrew: `brew install ccache`.
 - CMake 3.18.1 or above. Can be installed through the Android SDK Manager.
-- Java 17.
+- Java 17 or above.
 - Define environment variables:
   - `ANDROID_HOME`
   - `JAVA_HOME`
@@ -19,8 +22,12 @@ We welcomes all contributions!
 
 Checkout repo:
 ```sh
-git clone --recursive  https://github.com/XilinJia/krdb.git 
+git clone --recursive  https://github.com/Infomaniak/realm-kotlin.git
 ```
+
+**WARNING:** Make sure the git modules are pointing to the correct revision.
+Otherwise, you might encounter puzzling CMake compilation or runtime errors,
+even if the prerequisites specified above are fulfilled.
 
 ### Windows support
 
