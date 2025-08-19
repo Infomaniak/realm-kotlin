@@ -29,6 +29,15 @@ git clone --recursive  https://github.com/Infomaniak/realm-kotlin.git
 Otherwise, you might encounter puzzling CMake compilation or runtime errors,
 even if the prerequisites specified above are fulfilled.
 
+#### Troubleshooting Gradle sync issues
+
+If you get weird errors about no cmake found when trying to perform Gradle try these steps:
+
+1. Ensure the `cmake` command is recognized in the terminal (if not add your local cmake to the PATH)
+2. Kill all `java` processes on your machine, to have no remaining stale Gradle daemon
+3. Run `./gradlew pTML` (will run `publishToMavenLocal`), this will use the local `cmake`
+4. Try to perform Gradle sync, this should reuse whatever was done through CLI.
+
 ### Windows support
 
 The repository can be built on Windows, although only for the JVM and Android targets. Beware of the following requirements:
