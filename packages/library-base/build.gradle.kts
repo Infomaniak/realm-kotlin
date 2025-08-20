@@ -186,7 +186,7 @@ realmPublish {
         name = "Library"
         description = "Library code for Realm Kotlin. This artifact is not " +
             "supposed to be consumed directly, but through " +
-            "'io.realm.kotlin:gradle-plugin:${Realm.version}' instead."
+            "'com.infomaniak.realm.kotlin:gradle-plugin:${Realm.version}' instead."
     }
 }
 

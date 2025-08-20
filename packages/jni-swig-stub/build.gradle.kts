@@ -69,7 +69,7 @@ realmPublish {
         name = "JNI Swig Stubs"
         description = "Wrapper for interacting with Realm Kotlin native code from the JVM. This artifact is not " +
             "supposed to be consumed directly, but through " +
-            "'io.realm.kotlin:gradle-plugin:${Realm.version}' instead."
+            "'com.infomaniak.realm.kotlin:gradle-plugin:${Realm.version}' instead."
     }
 }
 
