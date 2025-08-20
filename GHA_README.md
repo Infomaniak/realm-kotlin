@@ -53,4 +53,4 @@ Finding the unit tests results for failed builds can be a bit tricky. There are 
 
 1. Goto Github.com > Actions > Press the PR build > Press Summary > Press the faild job > Unfold "Publish Unit Test Results" > Unfold "Creating test report Unit Test Results - <target>" > Press the URL to the HTML page. This will bring you to the same link as in step 2.
 
-2. Goto Github.com > Actions > Press the PR build > Read the action ID from the URL > Manually enter the following URL: https://github.com/realm/realm-kotlin/runs/<id>
+2. Goto Github.com > Actions > Press the PR build > Read the action ID from the URL > Manually enter the following URL: https://github.com/Infomaniak/realm-kotlin/runs/<id>

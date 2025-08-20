@@ -80,7 +80,7 @@ object Realm {
     }
     object IssueManagement {
         const val system = "Github"
-        const val url = "https://github.com/realm/realm-kotlin/issues"
+        const val url = "https://github.com/Infomaniak/realm-kotlin/issues"
     }
     object SCM {
         const val connection = "scm:git:git://github.com/Infomaniak/realm-kotlin.git"

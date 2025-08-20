@@ -45,8 +45,8 @@ fun createMarkerArtifact(): Boolean {
 }
 
 pluginBundle {
-    website = "https://github.com/realm/realm-kotlin"
-    vcsUrl = "https://github.com/realm/realm-kotlin"
+    website = "https://github.com/Infomaniak/realm-kotlin"
+    vcsUrl = "git@github.com:Infomaniak/realm-kotlin.git"
     tags = listOf("MongoDB", "Realm", "Database", "Kotlin", "Mobile", "Multiplatform", "Android", "KMM")
 
     mavenCoordinates {
