@@ -40,7 +40,7 @@ dependencies {
 val mavenPublicationName = "gradlePlugin"
 
 fun createMarkerArtifact(): Boolean {
-    val value = properties.getOrDefault("generatePluginArtifactMarker", "false") as String
+    val value = properties.getOrDefault("generatePluginArtifactMarker", "true") as String
     return value.toBoolean()
 }
 
