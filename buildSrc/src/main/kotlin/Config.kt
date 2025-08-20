@@ -115,7 +115,7 @@ object Versions {
     const val atomicfuPlugin = "0.29.0" // https://github.com/Kotlin/kotlinx.atomicfu
     const val autoService = "1.0" // https://mvnrepository.com/artifact/com.google.auto.service/auto-service
     const val buildkonfig = "0.13.3" // https://github.com/yshrsmz/BuildKonfig
-    const val coroutines = "1.10.1" // https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-core
+    const val coroutines = "1.10.2" // https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-core
     const val datetime = "0.6.1" // https://github.com/Kotlin/kotlinx-datetime
     const val detektPlugin = "1.23.6" // https://github.com/detekt/detekt
     const val dokka = "2.0.0" // https://github.com/Kotlin/dokka
