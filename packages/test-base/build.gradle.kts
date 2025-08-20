@@ -25,28 +25,28 @@ plugins {
     kotlin("plugin.serialization") version Versions.kotlin
     // Test relies on the compiler plugin, but we cannot apply our full plugin from within the same
     // gradle run, so we just apply the compiler plugin directly as a dependency below instead
-    // id("io.realm.kotlin")
+    // id("com.infomaniak.realm.kotlin")
 }
 
 // Test relies on the compiler plugin, but we cannot apply our full plugin from within the same
 // gradle run, so we just apply the compiler plugin directly
 dependencies {
     implementation(project(":packages:library-base"))
-//        kotlinCompilerPluginClasspath("io.realm.kotlin:plugin-compiler:${Realm.version}")
+//        kotlinCompilerPluginClasspath("com.infomaniak.realm.kotlin:plugin-compiler:${Realm.version}")
     kotlinCompilerPluginClasspath(project(":packages:plugin-compiler"))
-    kotlinNativeCompilerPluginClasspath("io.realm.kotlin:plugin-compiler-shaded:${Realm.version}")
+    kotlinNativeCompilerPluginClasspath("com.infomaniak.realm.kotlin:plugin-compiler-shaded:${Realm.version}")
     kotlinCompilerClasspath("org.jetbrains.kotlin:kotlin-compiler-embeddable:${Versions.kotlin}")
     kotlinCompilerClasspath("org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:${Versions.kotlin}")
 }
 
-// Substitute maven coordinate dependencies of pattern 'io.realm.kotlin:<name>:${Realm.version}'
+// Substitute maven coordinate dependencies of pattern 'com.infomaniak.realm.kotlin:<name>:${Realm.version}'
 // with project dependency ':<name>' if '<name>' is configured as a subproject of the root project
 configurations.all {
     resolutionStrategy.dependencySubstitution {
         rootProject.allprojects
             .filter { it != project && it != rootProject && it.name != "packages"}
             .forEach { subproject: Project ->
-                substitute(module("io.realm.kotlin:${subproject.name}:${Realm.version}")).using(
+                substitute(module("com.infomaniak.realm.kotlin:${subproject.name}:${Realm.version}")).using(
                     if (subproject.name != "packages") project(":packages:${subproject.name}") else project(":${subproject.name}")
                 )
             }
@@ -62,11 +62,11 @@ configurations.all {
     // See https://github.com/realm/realm-kotlin/issues/1404 for more details.
     if (name.endsWith("UnitTestRuntimeClasspath")) {
         resolutionStrategy.dependencySubstitution {
-            substitute(module("io.realm.kotlin:library-base:${Realm.version}")).using(
-                module("io.realm.kotlin:library-base-jvm:${Realm.version}")
+            substitute(module("com.infomaniak.realm.kotlin:library-base:${Realm.version}")).using(
+                module("com.infomaniak.realm.kotlin:library-base-jvm:${Realm.version}")
             )
-            substitute(module("io.realm.kotlin:cinterop:${Realm.version}")).using(
-                module("io.realm.kotlin:cinterop-jvm:${Realm.version}")
+            substitute(module("com.infomaniak.realm.kotlin:cinterop:${Realm.version}")).using(
+                module("com.infomaniak.realm.kotlin:cinterop-jvm:${Realm.version}")
             )
         }
     }

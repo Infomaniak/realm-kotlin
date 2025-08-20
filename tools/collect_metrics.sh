@@ -41,7 +41,7 @@ fi
 STARTING_DIR=`pwd`
 HERE=$(dirname `realpath "$0"`)
 REALM_KOTLIN_PATH="$HERE/.."
-PACKAGE_DIR="$REALM_KOTLIN_PATH/packages/build/m2-buildrepo/io/realm/kotlin"
+PACKAGE_DIR="$REALM_KOTLIN_PATH/packages/build/m2-buildrepo/com/infomaniak/realm/kotlin"
 VERSION="$1"
 OUTPUT_FILE="$2"
 
