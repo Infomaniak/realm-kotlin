@@ -18,8 +18,8 @@
 package org.realm.kotlin
 
 import Realm
-import io.github.gradlenexus.publishplugin.NexusPublishExtension
-import io.github.gradlenexus.publishplugin.NexusPublishPlugin
+import nmcp.NmcpAggregationExtension
+import nmcp.NmcpAggregationPlugin
 import java.io.File
 import java.time.Duration
 import org.gradle.api.Action
@@ -104,7 +104,7 @@ class RealmPublishPlugin : Plugin<Project> {
 
         with(project) {
             plugins.apply(SigningPlugin::class.java)
-            plugins.apply(MavenPublishPlugin::class.java)
+            plugins.apply("maven-publish") // nmcp checks plugins by name to enable publication.
 
             // Create extension
             val realmPublishExt = extensions.create<RealmPublishExtensions>("realmPublish")
@@ -161,27 +161,20 @@ class RealmPublishPlugin : Plugin<Project> {
     }
 
     private fun configureRootProject(project: Project) {
-        val sonatypeStagingProfileId = "78c19333e4450f"
 
         with(project) {
-            project.plugins.apply(NexusPublishPlugin::class.java)
+            project.plugins.apply(NmcpAggregationPlugin::class.java)
 
             // Configure upload to Maven Central.
             // The nexus publisher plugin can only be applied to top-level projects.
             // See https://github.com/gradle-nexus/publish-plugin/issues/81
-            extensions.getByType<NexusPublishExtension>().apply {
-                this.packageGroup.set("io.realm.kotlin")
-                this.repositories {
-                    sonatype {
-                        this.stagingProfileId.set(sonatypeStagingProfileId)
-                        this.username.set(getPropertyValue(project,"ossrhUsername"))
-                        this.password.set(getPropertyValue(project,"ossrhPassword"))
-                    }
+            extensions.getByType<NmcpAggregationExtension>().apply {
+                centralPortal {
+                    username.set(getPropertyValue(project,"ossrhUsername"))
+                    password.set(getPropertyValue(project,"ossrhPassword"))
+                    publishingType.set("USER_MANAGED") //TODO: Replace with AUTOMATIC once tested.
                 }
-                this.transitionCheckOptions {
-                    maxRetries.set(720) // Retry for 2 hours. Sometimes Maven Central is really slow!
-                    delayBetween.set(Duration.ofSeconds(10))
-                }
+                publishAllProjectsProbablyBreakingProjectIsolation()
             }
         }
     }

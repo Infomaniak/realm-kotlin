@@ -133,7 +133,6 @@ object Versions {
     const val ktlint = "1.7.0" // https://github.com/pinterest/ktlint
     const val ktor = "2.3.12" // https://github.com/ktorio/ktor
     const val multidex = "2.0.1" // https://developer.android.com/jetpack/androidx/releases/multidex
-    const val nexusPublishPlugin = "1.3.0" // https://github.com/gradle-nexus/publish-plugin
     const val okio = "3.10.2" // https://square.github.io/okio/#releases
     const val relinker = "1.4.5" // https://github.com/KeepSafe/ReLinker
     const val serialization = "1.9.0" // https://kotlinlang.org/docs/releases.html#release-details

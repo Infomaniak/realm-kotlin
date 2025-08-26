@@ -26,6 +26,10 @@ buildscript {
     }
 }
 
+plugins {
+    id("realm-publisher")
+}
+
 // Find property in either System environment or Gradle properties.
 // If set in both places, Gradle properties win.
 fun getPropertyValue(propertyName: String, throwIfNotFound: Boolean = false): String {
