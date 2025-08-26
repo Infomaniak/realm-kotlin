@@ -29,7 +29,7 @@ git clone --recursive  https://github.com/Infomaniak/realm-kotlin.git
 Otherwise, you might encounter puzzling CMake compilation or runtime errors,
 even if the prerequisites specified above are fulfilled.
 
-#### Troubleshooting Gradle sync issues
+#### Troubleshooting Gradle sync or runtime issues
 
 If you get weird errors about no cmake found when trying to perform Gradle try these steps:
 
