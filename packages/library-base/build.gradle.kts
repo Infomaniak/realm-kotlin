@@ -266,5 +266,8 @@ publishing {
     val common = publications.getByName("kotlinMultiplatform") as MavenPublication
     // Configuration through examples/kmm-sample does not work if we do not resolve the tasks
     // completely, hence the .get() below.
-    common.artifact(tasks.named("dokkaJar").get())
+
+    // We don't really need to publish dokkaJar, but if we wanted to bring it back, we can just
+    // uncomment the line below and have it published with the artifacts.
+//    common.artifact(tasks.named("dokkaJar").get())
 }
