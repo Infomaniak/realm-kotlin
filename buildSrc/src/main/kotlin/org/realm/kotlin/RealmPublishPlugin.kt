@@ -99,9 +99,9 @@ class RealmPublishPlugin : Plugin<Project> {
     }
 
     private fun configureSubProject(project: Project, signBuild: Boolean) {
-        val keyId: String = getPropertyValue(project, "signingKeyIdKotlin")
-        val ringFile: String = getPropertyValue(project, "signSecretRingFileKotlin").replace('#', '\n')
-        val password: String = getPropertyValue(project, "signPasswordKotlin")
+        val keyId: String = getPropertyValue(project, "GPG_key_id")
+        val ringFile: String = getPropertyValue(project, "GPG_private_key").replace('#', '\n')
+        val password: String = getPropertyValue(project, "GPG_private_password")
 
         with(project) {
             plugins.apply(SigningPlugin::class.java)
