@@ -38,6 +38,22 @@ If you get weird errors about no cmake found when trying to perform Gradle try t
 3. Run `./gradlew pTML` (will run `publishToMavenLocal`), this will use the local `cmake`
 4. Try to perform Gradle sync, this should reuse whatever was done through CLI.
 
+You can also try the above if you get this kind of crash in the host app:
+```stacktrace
+java.lang.UnsatisfiedLinkError: No implementation found for long io.realm.kotlin.internal.interop.realmcJNI.RLM_INVALID_CLASS_KEY_get() (tried Java_io_realm_kotlin_internal_interop_realmcJNI_RLM_1INVALID_1CLASS_1KEY_1get and Java_io_realm_kotlin_internal_interop_realmcJNI_RLM_1INVALID_1CLASS_1KEY_1get__) - is the library loaded, e.g. System.loadLibrary?
+	at io.realm.kotlin.internal.interop.realmcJNI.RLM_INVALID_CLASS_KEY_get(Native Method)
+	at io.realm.kotlin.internal.interop.realmc.getRLM_INVALID_CLASS_KEY(realmc.java:193)
+	at io.realm.kotlin.internal.interop.RealmInteropKt.INVALID_CLASS_KEY_delegate$lambda$0(RealmInterop.kt:43)
+	at io.realm.kotlin.internal.interop.RealmInteropKt.$r8$lambda$LJwi4SNclSxwkee1Ov--MrCpyik(Unknown Source:0)
+	at io.realm.kotlin.internal.interop.RealmInteropKt$$ExternalSyntheticLambda0.invoke(D8$$SyntheticClass:0)
+	at kotlin.SynchronizedLazyImpl.getValue(LazyJVM.kt:86)
+	at io.realm.kotlin.internal.interop.RealmInteropKt.getINVALID_CLASS_KEY(RealmInterop.kt:43)
+	at io.realm.kotlin.internal.interop.ClassInfo.<init>(ClassInfo.kt:27)
+	at io.realm.kotlin.internal.interop.ClassInfo$Companion.create(ClassInfo.kt:48)
+```
+
+and if it still fails, you can try again after having removed the `packages/cinterop/.cxx` dir.
+
 ### Windows support
 
 The repository can be built on Windows, although only for the JVM and Android targets. Beware of the following requirements:
