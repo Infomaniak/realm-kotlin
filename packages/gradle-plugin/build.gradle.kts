@@ -76,15 +76,6 @@ realmPublish {
     }
 }
 
-publishing {
-    publications {
-        register<MavenPublication>(mavenPublicationName) {
-            artifactId = Realm.gradlePluginId
-            from(components["java"])
-        }
-    }
-}
-
 java {
     withSourcesJar()
     withJavadocJar()
