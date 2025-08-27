@@ -180,7 +180,8 @@ class RealmPublishPlugin : Plugin<Project> {
                 centralPortal {
                     username.set(getPropertyValue(project,"ossrhUsername"))
                     password.set(getPropertyValue(project,"ossrhPassword"))
-                    publishingType.set("USER_MANAGED") //TODO: Replace with AUTOMATIC once tested.
+                    // `publishingType` can be replaced w/ USER_MANAGED to validate on the web.
+                    publishingType.set("AUTOMATIC") // This is the default, but we surface it.
                 }
                 publishAllProjectsProbablyBreakingProjectIsolation()
             }
