@@ -83,18 +83,18 @@ class RealmCompilerSubplugin : KotlinCompilerPluginSupportPlugin, AnalyticsError
         // TODO LATER Consider embedding these from the build.gradle's versionConstants task just
         //  as with the version. But leave it for now as they should be quite stable.
         // Modules has to match ${project.group}:${project.name} to make composite build work
-        const val groupId = "io.realm.kotlin"
+        const val groupId = "com.infomaniak.realm.kotlin"
         const val artifactId = "plugin-compiler"
         const val version = PLUGIN_VERSION
         const val coreVersion = CORE_VERSION
 
         // The id used for passing compiler options from command line
-        const val compilerPluginId = "io.realm.kotlin"
+        const val compilerPluginId = "com.infomaniak.realm.kotlin"
 
-        // Must match io.realm.kotlin.compiler.bundleIdKey
+        // Must match com.infomaniak.realm.kotlin.compiler.bundleIdKey
         const val bundleIdKey = "bundleId"
 
-        // Must match io.realm.kotlin.compiler.
+        // Must match com.infomaniak.realm.kotlin.compiler.
         const val featureListPathKey = "featureListPath"
     }
 
@@ -137,7 +137,7 @@ class RealmCompilerSubplugin : KotlinCompilerPluginSupportPlugin, AnalyticsError
                 outer@
                 for (conf in target.configurations) {
                     for (dependency in conf.dependencies) {
-                        if (dependency.group == "io.realm.kotlin" && dependency.name == "library-sync") {
+                        if (dependency.group == "com.infomaniak.realm.kotlin" && dependency.name == "library-sync") {
                             // In Java we can detect Sync through a Gradle configuration closure.
                             // In Kotlin, this choice is currently determined by which dependency
                             // people include
