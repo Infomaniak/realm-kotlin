@@ -89,7 +89,7 @@ object Realm {
     }
     object Developer {
         const val name = "Infomaniak"
-        const val email = "louis.cognault@infomaniak.com"
+        const val email = "mobile+libraries@infomaniak-dev.ch"
         const val organization = "Infomaniak"
         const val organizationUrl = "https://github.com/Infomaniak/realm-kotlin"
     }
