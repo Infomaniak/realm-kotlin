@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import io.realm.kotlin.getPropertyValue
+import org.realm.kotlin.getPropertyValue
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -21,7 +21,7 @@ plugins {
     id("realm-lint")
     `java-gradle-plugin`
     id("realm-publisher")
-    id("org.jetbrains.dokka") version Versions.dokka
+    id("org.jetbrains.dokka")
 }
 
 allprojects {
