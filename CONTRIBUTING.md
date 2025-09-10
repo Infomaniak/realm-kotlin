@@ -76,10 +76,6 @@ platforms with (in the root directory):
 ```sh
 ./gradlew :packages:test-base:jvmTest :packages:test-base:connectedAndroidTest :packages:test-base:macosTest :packages:test-base:iosTest
 
-# Note that running the test-sync suite requires running a local server 
-# (see `tools/sync_test_server/start_local_server.sh` and `tools/sync_test_server/stop_local_server.sh`)
-
-./gradlew :packages:test-sync:jvmTest :packages:test-sync:connectedAndroidTest :packages:test-sync:macosTest :packages:test-sync:iosTest
 ```
 You can also the test across all modules on the various platforms with
 ```sh
@@ -254,9 +250,9 @@ All platform differentiated implementations are kept in `platform`-packages with
 
 Inside the various `packages/test-X/` modules there are 3 locations the files can be placed in:
 
-* `packages/test-<base/sync>/src/commonTest`
-* `package/test-<base/sync>/src/androidAndroidTest`
-* `package/test-<base/sync>/src/nativeDarwinTest` (macOS)
+* `packages/test-base/src/commonTest`
+* `package/test-base/src/androidAndroidTest`
+* `package/test-base/src/nativeDarwinTest` (macOS)
 
 Ideally all shared tests should be in `commonTest` with specific platform tests in `androidAndroidTest`/`nativeDarwinTest`. However IntelliJ does [not yet allow you to run common tests on Android from within the IDE](https://youtrack.jetbrains.com/issue/KT-46452), so we
 are using the following work-around:
