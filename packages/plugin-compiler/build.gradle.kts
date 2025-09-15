@@ -42,12 +42,10 @@ dependencies {
     // Have to be mentioned explicitly as it is not an api dependency of library
     implementation(project(":packages:cinterop"))
     testImplementation(project(":packages:library-base"))
-//    testImplementation(project(":packages:library-sync"))
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     compilerOptions.freeCompilerArgs.add("-Xjvm-default=all-compatibility")
-//    compilerOptions.freeCompilerArgs.add("-Xjvm-default=all")
 }
 
 realmPublish {
@@ -55,7 +53,7 @@ realmPublish {
         name = "Compiler Plugin"
         description = "Compiler plugin for JVM based platforms for Realm Kotlin. This artifact is not " +
             "supposed to be consumed directly, but through " +
-            "'com.infomaniak.realm.kotlin:gradle-plugin:${Realm.version}' instead."
+            "'io.realm.kotlin:gradle-plugin:${Realm.version}' instead."
     }
 }
 

@@ -422,7 +422,6 @@ class RealmModelSyntheticPropertiesGeneration(private val pluginContext: IrPlugi
             classKindType.defaultType
         ) { startOffset, endOffset ->
             val isEmbedded = clazz.isEmbeddedRealmObject
-            val isAsymmetric = clazz.isAsymmetricRealmObject
             IrGetEnumValueImpl(
                 startOffset = startOffset,
                 endOffset = endOffset,
@@ -431,7 +430,6 @@ class RealmModelSyntheticPropertiesGeneration(private val pluginContext: IrPlugi
                     // These names must match the values in io.realm.kotlin.schema.RealmClassKind
                     it.name == when {
                         isEmbedded -> Name.identifier("EMBEDDED")
-                        isAsymmetric -> Name.identifier("ASYMMETRIC")
                         else -> Name.identifier("STANDARD")
                     }
                 }.symbol
@@ -461,8 +459,6 @@ class RealmModelSyntheticPropertiesGeneration(private val pluginContext: IrPlugi
         if (embedded && primaryKeyFields.isNotEmpty()) {
             logError("Embedded object is not allowed to have a primary key", irClass.locationOf())
         }
-
-        val asymmetric = irClass.isAsymmetricRealmObject
 
         val primaryKey: String? = when (primaryKeyFields.size) {
             0 -> null
@@ -512,7 +508,6 @@ class RealmModelSyntheticPropertiesGeneration(private val pluginContext: IrPlugi
                         // num properties
                         arguments[arg++] = irLong(fields.size.toLong())
                         arguments[arg++] = irBoolean(embedded)
-                        arguments[arg++] = irBoolean(asymmetric)
                     }
                     arguments[1] =
                         buildListOf(
@@ -605,38 +600,6 @@ class RealmModelSyntheticPropertiesGeneration(private val pluginContext: IrPlugi
                                 if (publicName != "") {
                                     ensureValidName(publicName, persistedAndPublicNameToLocation, location)
                                     persistedAndPublicNameToLocation[publicName] = location
-                                }
-
-                                // Validate asymmetric object constraints:
-                                // - Asymmetric objects can only contain embedded objects.
-                                // - RealmObject and EmbeddedObject cannot contain a Asymmetric object.
-                                // I.e. Asymmetric objects are only allowed as top-level objects.
-                                when (type) {
-                                    objectType -> {
-                                        // Collections of type RealmObject require the type parameter be retrieved from the generic argument
-                                        when (value.collectionType) {
-                                            CollectionType.NONE -> {
-                                                backingField.type
-                                            }
-                                            CollectionType.LIST,
-                                            CollectionType.SET,
-                                            CollectionType.DICTIONARY -> {
-                                                getCollectionElementType(backingField.type)
-                                                    ?: error("Could not get collection type from ${backingField.type}")
-                                            }
-                                        }
-                                    }
-                                    else -> null
-                                }?.let { linkedType: IrType ->
-                                    if (asymmetric) {
-                                        if (!linkedType.isEmbeddedRealmObject) {
-                                            logError("AsymmetricObjects can only reference EmbeddedRealmObject classes.", property.locationOf())
-                                        }
-                                    } else {
-                                        if (linkedType.isAsymmetricRealmObject) {
-                                            logError("RealmObjects and EmbeddedRealmObjects cannot reference AsymmetricRealmObjects.", property.locationOf())
-                                        }
-                                    }
                                 }
 
                                 // Define the Realm `PropertyType` enum value for this kind of

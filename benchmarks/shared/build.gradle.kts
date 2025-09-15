@@ -28,7 +28,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-//                implementation("com.infomaniak.realm.kotlin:library-sync:${Realm.version}")
+                implementation("com.infomaniak.realm.kotlin:library-base:${Realm.version}")
             }
         }
         val androidMain by getting

@@ -6,7 +6,7 @@ apply(plugin = "kotlin")
 
 dependencies {
     jmh(project(":shared"))
-//    jmh("com.infomaniak.realm.kotlin:library-sync:${Realm.version}")
+    jmh("com.infomaniak.realm.kotlin:library-base:${Realm.version}")
     jmh("org.openjdk.jmh:jmh-core:${Versions.jmh}")
     jmh("org.openjdk.jmh:jmh-generator-annprocess:${Versions.jmh}")
 }
