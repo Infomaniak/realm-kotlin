@@ -62,7 +62,7 @@ val HOST_OS: OperatingSystem = findHostOs()
 
 object Realm {
     val ciBuild = (System.getenv("CI") != null)
-     const val version = "3.2.8-1"
+     const val version = "3.2.8-2"
     const val group = "com.infomaniak.realm.kotlin"
     const val projectUrl = "https://realm.io"
     const val pluginPortalId = "com.infomaniak.realm.kotlin"
