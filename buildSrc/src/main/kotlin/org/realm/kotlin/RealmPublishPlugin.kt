@@ -66,8 +66,7 @@ fun hasProperty(project: Project, propertyName: String): Boolean {
 class RealmPublishPlugin : Plugin<Project> {
     override fun apply(project: Project): Unit = project.run {
         // Configure constants required by the publishing process
-        val signBuild: Boolean = hasProperty(project,"signBuild")
-        configureSignedBuild(signBuild, this)
+        configureSignedBuild(this)
     }
 
     private fun configureTestRepository(project: Project) {
@@ -85,7 +84,7 @@ class RealmPublishPlugin : Plugin<Project> {
         }
     }
 
-    private fun configureSignedBuild(signBuild: Boolean, project: Project) {
+    private fun configureSignedBuild(project: Project) {
         // The nexus publisher plugin can only be applied to top-level projects.
         // See https://github.com/gradle-nexus/publish-plugin/issues/81
         // Also, we should not apply the MavenPublish plugin to the root project as it will result in an
@@ -93,12 +92,12 @@ class RealmPublishPlugin : Plugin<Project> {
         val isRootProject: Boolean = (project == project.rootProject)
         if (isRootProject) configureRootProject(project)
         else {
-            configureSubProject(project, signBuild)
+            configureSubProject(project)
             configureTestRepository(project)
         }
     }
 
-    private fun configureSubProject(project: Project, signBuild: Boolean) {
+    private fun configureSubProject(project: Project) {
         val keyId: String = getPropertyValue(project, "GPG_key_id")
         val ringFile: String = getPropertyValue(project, "GPG_private_key").replace('#', '\n')
         val password: String = getPropertyValue(project, "GPG_private_password")
@@ -110,12 +109,15 @@ class RealmPublishPlugin : Plugin<Project> {
             // Create extension
             val realmPublishExt = extensions.create<RealmPublishExtensions>("realmPublish")
 
-            if (!signBuild || (keyId.isEmpty() || ringFile.isEmpty() || password.isEmpty())) {
-                project.logger.warn("Signing skipped: One or more signing parameters (keyId, ringFile, password) are empty")
+            if ((keyId.isEmpty() || ringFile.isEmpty() || password.isEmpty())) {
+                project.logger.warn("Signing skipped:")
+                if (keyId.isEmpty()) project.logger.warn("keyId is empty")
+                if (ringFile.isEmpty()) project.logger.warn("ringFile is empty")
+                if (password.isEmpty()) project.logger.warn("password is empty")
             } else {
                 // Configure signing
                 extensions.getByType<SigningExtension>().apply {
-                    isRequired = signBuild
+                    isRequired = true
                     useInMemoryPgpKeys(keyId, ringFile, password)
                     sign(project.extensions.getByType<PublishingExtension>().publications)
                 }
