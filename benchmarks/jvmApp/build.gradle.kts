@@ -6,7 +6,7 @@ apply(plugin = "kotlin")
 
 dependencies {
     jmh(project(":shared"))
-    jmh("io.realm.kotlin:library-sync:${Realm.version}")
+//    jmh("com.infomaniak.realm.kotlin:library-sync:${Realm.version}")
     jmh("org.openjdk.jmh:jmh-core:${Versions.jmh}")
     jmh("org.openjdk.jmh:jmh-generator-annprocess:${Versions.jmh}")
 }
@@ -20,5 +20,5 @@ jmh {
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-    kotlinOptions.jvmTarget = "11"
+    kotlinOptions.jvmTarget = "1.8"
 }

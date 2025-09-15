@@ -18,7 +18,6 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTargetWithSimulatorTests
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinNativeCompile
-import kotlin.math.min
 
 plugins {
     id("org.jetbrains.kotlin.multiplatform")
@@ -26,27 +25,29 @@ plugins {
     kotlin("plugin.serialization") version Versions.kotlin
     // Test relies on the compiler plugin, but we cannot apply our full plugin from within the same
     // gradle run, so we just apply the compiler plugin directly as a dependency below instead
-    // id("io.realm.kotlin")
+    // id("com.infomaniak.realm.kotlin")
 }
 
 // Test relies on the compiler plugin, but we cannot apply our full plugin from within the same
 // gradle run, so we just apply the compiler plugin directly
 dependencies {
-    kotlinCompilerPluginClasspath("io.realm.kotlin:plugin-compiler:${Realm.version}")
-    kotlinNativeCompilerPluginClasspath("io.realm.kotlin:plugin-compiler-shaded:${Realm.version}")
+    implementation(project(":packages:library-base"))
+//        kotlinCompilerPluginClasspath("com.infomaniak.realm.kotlin:plugin-compiler:${Realm.version}")
+    kotlinCompilerPluginClasspath(project(":packages:plugin-compiler"))
+    kotlinNativeCompilerPluginClasspath("com.infomaniak.realm.kotlin:plugin-compiler-shaded:${Realm.version}")
     kotlinCompilerClasspath("org.jetbrains.kotlin:kotlin-compiler-embeddable:${Versions.kotlin}")
     kotlinCompilerClasspath("org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:${Versions.kotlin}")
 }
 
-// Substitute maven coordinate dependencies of pattern 'io.realm.kotlin:<name>:${Realm.version}'
+// Substitute maven coordinate dependencies of pattern 'com.infomaniak.realm.kotlin:<name>:${Realm.version}'
 // with project dependency ':<name>' if '<name>' is configured as a subproject of the root project
 configurations.all {
     resolutionStrategy.dependencySubstitution {
         rootProject.allprojects
-            .filter { it != project && it != rootProject }
+            .filter { it != project && it != rootProject && it.name != "packages"}
             .forEach { subproject: Project ->
-                substitute(module("io.realm.kotlin:${subproject.name}:${Realm.version}")).using(
-                    project(":${subproject.name}")
+                substitute(module("com.infomaniak.realm.kotlin:${subproject.name}:${Realm.version}")).using(
+                    if (subproject.name != "packages") project(":packages:${subproject.name}") else project(":${subproject.name}")
                 )
             }
     }
@@ -61,11 +62,11 @@ configurations.all {
     // See https://github.com/realm/realm-kotlin/issues/1404 for more details.
     if (name.endsWith("UnitTestRuntimeClasspath")) {
         resolutionStrategy.dependencySubstitution {
-            substitute(module("io.realm.kotlin:library-base:${Realm.version}")).using(
-                module("io.realm.kotlin:library-base-jvm:${Realm.version}")
+            substitute(module("com.infomaniak.realm.kotlin:library-base:${Realm.version}")).using(
+                module("com.infomaniak.realm.kotlin:library-base-jvm:${Realm.version}")
             )
-            substitute(module("io.realm.kotlin:cinterop:${Realm.version}")).using(
-                module("io.realm.kotlin:cinterop-jvm:${Realm.version}")
+            substitute(module("com.infomaniak.realm.kotlin:cinterop:${Realm.version}")).using(
+                module("com.infomaniak.realm.kotlin:cinterop-jvm:${Realm.version}")
             )
         }
     }
@@ -81,13 +82,13 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}")
                 // FIXME AUTO-SETUP Removed automatic dependency injection to ensure observability of
                 //  requirements for now
-                implementation("io.realm.kotlin:library-base:${Realm.version}")
+                implementation(project(":packages:library-base"))
                 // FIXME API-SCHEMA We currently have some tests that verified injection of
                 //  interfaces, uses internal representation for property meta data, etc. Can
                 //  probably be replaced when schema information is exposed in the public API
                 // Our current compiler plugin tests only runs on JVM, so makes sense to keep them
                 // for now, but ideally they should go to the compiler plugin tests.
-                implementation("io.realm.kotlin:cinterop:${Realm.version}")
+                implementation(project(":packages:cinterop"))
                 implementation("org.jetbrains.kotlinx:atomicfu:${Versions.atomicfu}")
                 implementation("com.squareup.okio:okio:${Versions.okio}")
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:${Versions.datetime}")
@@ -100,7 +101,9 @@ kotlin {
             dependencies {
                 // TODO AtomicFu doesn't work on the test project due to
                 //  https://github.com/Kotlin/kotlinx.atomicfu/issues/90#issuecomment-597872907
-                implementation("co.touchlab:stately-concurrency:1.2.0")
+
+                implementation("co.touchlab:stately-concurrency:2.1.0")
+                implementation(kotlin("test"))
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}")
@@ -188,6 +191,7 @@ kotlin {
                 // Realm dependencies must be converted to -jvm variants here.
                 // This is currently done using dependency substitution in `build.gradle`.
                 // See https://kotlinlang.slack.com/archives/C19FD9681/p1685089661499199
+                implementation(kotlin("test"))
             }
         }
         val androidInstrumentedTest by getting {
@@ -215,7 +219,8 @@ kotlin {
             dependencies {
                 // TODO AtomicFu doesn't work on the test project due to
                 //  https://github.com/Kotlin/kotlinx.atomicfu/issues/90#issuecomment-597872907
-                implementation("co.touchlab:stately-concurrency:1.2.0")
+                implementation("co.touchlab:stately-concurrency:2.1.0")
+                implementation(kotlin("test"))
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}")
@@ -229,7 +234,7 @@ kotlin {
     sourceSets {
         val jvmMain by getting {
             dependencies {
-                implementation("io.realm.kotlin:plugin-compiler:${Realm.version}")
+                implementation(project(":packages:plugin-compiler"))
                 implementation("org.jetbrains.kotlin:kotlin-compiler-embeddable:${Versions.kotlin}")
                 implementation("dev.zacsweers.kctfork:core:${Versions.kotlinCompileTesting}")
             }

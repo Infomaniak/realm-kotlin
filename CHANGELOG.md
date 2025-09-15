@@ -1,3 +1,73 @@
+## 3.2.8
+
+* updated Kotlin to 2.2.0
+* fixed build errors due to deprecations in Kotlin 2.2.0
+* gradle upped to 8.14.3
+* fixed syntax errors in build.gradle.kts in cinterop related to kotlinOptions for Mac ans iOS
+* fixed syntax errors in build.gradle.kts in cinterop related to KotlinCompile
+* fixed unknown jvmTarget issue when doing publish local
+* various other dependencies updates suitable for Kotlin 2.2.0
+
+## 3.2.7
+
+* avoided NullPointerException in SuspendableWriter
+* merged PR to fix publishToMavenLocal issue on MacOS, thanks to @tinoue
+* updated Java to 17 in Contributing.md
+* fixed missing name and description in pom in various packages
+
+## 3.2.6
+
+* built with Kotlin 2.1.20 compatible with 2.1.20
+
+## 3.2.5
+
+* various testing on Android app
+* fixed maven central package for Android
+
+## 3.2.4
+
+* preparing for publishing to maven central
+* amended routine to ensure signed packages are built
+* disabled packages of library-sync and test-sync
+* upped Kotlin to 2.1.10
+* upped gradle-kotlin-dsl-plugins to 5.2.0, atomicfu to 0.27.0
+
+## 3.2.3
+
+* fully rebranded (required) to prepare for publishing to maven
+* added useVersion("2.1.0") in root settings.gradle.kts
+* mass renamed packages containing "io.realm.kotlin" to "io.github.xilinjia.krdb" in files
+* mass renamed references containing "io/realm/kotlin" to "io/github/xilinjia/krdb" in files
+* mass restructured directories of io/realm/kotlin to io/github/xilinjia/krdb
+* the shell script rename_realm_kotlin_to_krdb.sh is used to rename packages and restructure directories
+  * it misses io.realm.kotlin in a couple files, which need to be changed manually 
+  * it misses io/realm/kotlin in a couple files, which need to be changed manually 
+
+## 3.2.2
+
+* set Android targetSDK to 35
+* included the publishing scripts from @PavelFedoseev https://github.com/realm/realm-kotlin/issues/1857#issuecomment-2621494944
+
+## 3.2.1
+
+* fixed local publishing errors (for jvm and Android)
+
+## 3.2.0
+
+* changed project structure to make Intellij IDE work, buildSrc is moved out of scope io.realm
+* gradlew should be run in the root directory rather than packages
+* testing are on dev versions, not supporting testing maven artifacts yet
+* updated a few dependencies
+
+## 3.1.0
+
+* updated to work with Kotlin 2.1.0
+* Coroutines tested with 1.10.1
+* Gradle version 8.12
+* Android Gradle Plugin version 8.7.3
+* Minimum Android SDK: 21
+* R8 version 8.7.18
+
 ## 3.0.0-SNAPSHOT (YYYY-MM-DD)
 
 ### Breaking Changes

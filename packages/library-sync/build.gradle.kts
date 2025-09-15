@@ -22,13 +22,14 @@ plugins {
     id("com.android.library")
     id("realm-publisher")
     id("org.jetbrains.dokka")
+    id("org.jetbrains.kotlinx.atomicfu") version Versions.atomicfuPlugin
 }
+
 buildscript {
     dependencies {
-        classpath("org.jetbrains.kotlinx:atomicfu-gradle-plugin:${Versions.atomicfu}")
+        classpath("org.jetbrains.dokka:dokka-gradle-plugin:${Versions.dokka}")
     }
 }
-apply(plugin = "kotlinx-atomicfu")
 // AtomicFu cannot transform JVM code. Maybe an issue with using IR backend. Throws
 // ClassCastException: org.objectweb.asm.tree.InsnList cannot be cast to java.lang.Iterable
 project.extensions.configure(kotlinx.atomicfu.plugin.gradle.AtomicFUPluginExtension::class) {
@@ -52,13 +53,13 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                api(project(":library-base"))
+                api(project(":packages:library-base"))
                 implementation(kotlin("stdlib-common"))
                 implementation(kotlin("reflect"))
                 // If runtimeapi is merged with cinterop then we will be exposing both to the users
                 // Runtime holds annotations, etc. that has to be exposed to users
                 // Cinterop does not hold anything required by users
-                implementation(project(":cinterop"))
+                implementation(project(":packages:cinterop"))
 
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}")
                 implementation("org.jetbrains.kotlinx:atomicfu:${Versions.atomicfu}")
@@ -93,7 +94,7 @@ kotlin {
         val androidMain by getting {
             dependsOn(jvm)
             dependencies {
-                api(project(":cinterop"))
+                api(project(":packages:cinterop"))
                 implementation("androidx.startup:startup-runtime:${Versions.androidxStartup}")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}")
             }
@@ -178,7 +179,7 @@ realmPublish {
         name = "Sync Library"
         description = "Sync Library code for Realm Kotlin. This artifact is not " +
             "supposed to be consumed directly, but through " +
-            "'io.realm.kotlin:gradle-plugin:${Realm.version}' instead."
+            "'com.infomaniak.realm.kotlin:gradle-plugin:${Realm.version}' instead."
     }
 }
 
@@ -213,16 +214,16 @@ val javadocJar by tasks.registering(Jar::class) {
 
 // Make sure that docs are published for the Metadata publication as well. This is required
 // by Maven Central
-publishing {
-    // See https://dev.to/kotlin/how-to-build-and-publish-a-kotlin-multiplatform-library-going-public-4a8k
-    publications.withType<MavenPublication> {
-        // Stub javadoc.jar artifact
-        artifact(javadocJar.get())
-    }
-
-    // TODO: configure DOKKA so that it's only published for sync and not base
-    val common = publications.getByName("kotlinMultiplatform") as MavenPublication
-    // Configuration through examples/kmm-sample does not work if we do not resolve the tasks
-    // completely, hence the .get() below.
-    common.artifact(tasks.named("dokkaJar").get())
-}
+// publishing {
+//     // See https://dev.to/kotlin/how-to-build-and-publish-a-kotlin-multiplatform-library-going-public-4a8k
+//     publications.withType<MavenPublication> {
+//         // Stub javadoc.jar artifact
+//         artifact(javadocJar.get())
+//     }
+//
+//     // TODO: configure DOKKA so that it's only published for sync and not base
+//     val common = publications.getByName("kotlinMultiplatform") as MavenPublication
+//     // Configuration through examples/kmm-sample does not work if we do not resolve the tasks
+//     // completely, hence the .get() below.
+//     common.artifact(tasks.named("dokkaJar").get())
+// }

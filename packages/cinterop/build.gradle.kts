@@ -20,18 +20,12 @@ import java.io.ByteArrayOutputStream
 import java.nio.charset.Charset
 
 plugins {
-    id("org.jetbrains.kotlin.multiplatform")
     id("com.android.library")
+    kotlin("multiplatform")
     id("realm-publisher")
+    id("org.jetbrains.kotlinx.atomicfu") version Versions.atomicfuPlugin
 }
 
-buildscript {
-    dependencies {
-        classpath("org.jetbrains.kotlinx:atomicfu-gradle-plugin:${Versions.atomicfu}")
-    }
-}
-
-apply(plugin = "kotlinx-atomicfu")
 // AtomicFu cannot transform JVM code. Throws
 // ClassCastException: org.objectweb.asm.tree.InsnList cannot be cast to java.lang.Iterable
 project.extensions.configure(kotlinx.atomicfu.plugin.gradle.AtomicFUPluginExtension::class) {
@@ -71,7 +65,7 @@ fun checkIfBuildingNativeLibs(task: Task, action: Task.() -> Unit) {
 }
 
 val corePath = "external/core"
-val absoluteCorePath = "$rootDir/$corePath"
+val absoluteCorePath = "$rootDir/packages/$corePath"
 val jvmJniPath = "src/jvmMain/resources/jni"
 
 fun includeBinaries(binaries: List<String>): List<String> {
@@ -150,9 +144,17 @@ kotlin {
             // ... and def file does not support using environment variables
             // https://github.com/JetBrains/kotlin-native/issues/3631
             // so resolving paths through gradle
-            kotlinOptions.freeCompilerArgs += when (buildType) {
-                BuildType.DEBUG -> nativeLibraryIncludesIosSimulatorX86Debug
-                BuildType.RELEASE -> nativeLibraryIncludesIosSimulatorX86Release
+//            kotlinOptions.freeCompilerArgs += when (buildType) {
+//                BuildType.DEBUG -> nativeLibraryIncludesIosSimulatorX86Debug
+//                BuildType.RELEASE -> nativeLibraryIncludesIosSimulatorX86Release
+//            }
+            compilerOptions.configure {
+                freeCompilerArgs.addAll(
+                    when (buildType) {
+                        BuildType.DEBUG -> nativeLibraryIncludesIosSimulatorX86Debug
+                        BuildType.RELEASE -> nativeLibraryIncludesIosSimulatorX86Release
+                    }
+                )
             }
         }
     }
@@ -163,9 +165,17 @@ kotlin {
                 packageName = "realm_wrapper"
                 includeDirs("$absoluteCorePath/src/")
             }
-            kotlinOptions.freeCompilerArgs += when (buildType) {
-                BuildType.DEBUG -> nativeLibraryIncludesIosSimulatorArm64Debug
-                BuildType.RELEASE -> nativeLibraryIncludesIosSimulatorArm64Release
+//            kotlinOptions.freeCompilerArgs += when (buildType) {
+//                BuildType.DEBUG -> nativeLibraryIncludesIosSimulatorArm64Debug
+//                BuildType.RELEASE -> nativeLibraryIncludesIosSimulatorArm64Release
+//            }
+            compilerOptions.configure {
+                freeCompilerArgs.addAll(
+                    when (buildType) {
+                        BuildType.DEBUG -> nativeLibraryIncludesIosSimulatorArm64Debug
+                        BuildType.RELEASE -> nativeLibraryIncludesIosSimulatorArm64Release
+                    }
+                )
             }
         }
     }
@@ -183,9 +193,17 @@ kotlin {
             // ... and def file does not support using environment variables
             // https://github.com/JetBrains/kotlin-native/issues/3631
             // so resolving paths through gradle
-            kotlinOptions.freeCompilerArgs += when (buildType) {
-                BuildType.DEBUG -> nativeLibraryIncludesIosArm64Debug
-                BuildType.RELEASE -> nativeLibraryIncludesIosArm64Release
+//            kotlinOptions.freeCompilerArgs += when (buildType) {
+//                BuildType.DEBUG -> nativeLibraryIncludesIosArm64Debug
+//                BuildType.RELEASE -> nativeLibraryIncludesIosArm64Release
+//            }
+            compilerOptions.configure {
+                freeCompilerArgs.addAll(
+                    when (buildType) {
+                        BuildType.DEBUG -> nativeLibraryIncludesIosArm64Debug
+                        BuildType.RELEASE -> nativeLibraryIncludesIosArm64Release
+                    }
+                )
             }
         }
     }
@@ -203,9 +221,17 @@ kotlin {
             // ... and def file does not support using environment variables
             // https://github.com/JetBrains/kotlin-native/issues/3631
             // so resolving paths through gradle
-            kotlinOptions.freeCompilerArgs += when(buildType) {
-                BuildType.DEBUG -> nativeLibraryIncludesMacosUniversalDebug
-                BuildType.RELEASE -> nativeLibraryIncludesMacosUniversalRelease
+//            kotlinOptions.freeCompilerArgs += when(buildType) {
+//                BuildType.DEBUG -> nativeLibraryIncludesMacosUniversalDebug
+//                BuildType.RELEASE -> nativeLibraryIncludesMacosUniversalRelease
+//            }
+            compilerOptions.configure {
+                freeCompilerArgs.addAll(
+                    when (buildType) {
+                        BuildType.DEBUG -> nativeLibraryIncludesMacosUniversalDebug
+                        BuildType.RELEASE -> nativeLibraryIncludesMacosUniversalRelease
+                    }
+                )
             }
         }
     }
@@ -216,9 +242,17 @@ kotlin {
                 packageName = "realm_wrapper"
                 includeDirs("$absoluteCorePath/src/")
             }
-            kotlinOptions.freeCompilerArgs += when(buildType) {
-                BuildType.DEBUG -> nativeLibraryIncludesMacosUniversalDebug
-                BuildType.RELEASE -> nativeLibraryIncludesMacosUniversalRelease
+//            kotlinOptions.freeCompilerArgs += when(buildType) {
+//                BuildType.DEBUG -> nativeLibraryIncludesMacosUniversalDebug
+//                BuildType.RELEASE -> nativeLibraryIncludesMacosUniversalRelease
+//            }
+            compilerOptions.configure {
+                freeCompilerArgs.addAll(
+                    when (buildType) {
+                        BuildType.DEBUG -> nativeLibraryIncludesMacosUniversalDebug
+                        BuildType.RELEASE -> nativeLibraryIncludesMacosUniversalRelease
+                    }
+                )
             }
         }
     }
@@ -236,7 +270,7 @@ kotlin {
         val jvm by creating {
             dependsOn(commonMain)
             dependencies {
-                api(project(":jni-swig-stub"))
+                api(project(":packages:jni-swig-stub"))
             }
         }
         val jvmMain by getting {
@@ -426,7 +460,8 @@ val buildJVMSharedLibs: TaskProvider<Task> by tasks.registering {
     } else if (HOST_OS.isWindows()) {
         buildSharedLibrariesForJVMWindows()
     } else {
-        throw IllegalStateException("Building JVM libraries on this platform is not supported: $HOST_OS")
+        buildSharedLibrariesForJVMLinux()
+//        throw IllegalStateException("Building JVM libraries on this platform is not supported: $HOST_OS")
     }
 }
 
@@ -538,6 +573,42 @@ fun Task.buildSharedLibrariesForJVMMacOs() {
     inputs.dir(project.file("src/jvm"))
     inputs.dir(project.file("$absoluteCorePath/src"))
     outputs.file(project.file("$jvmJniPath/macos/librealmc.dylib"))
+}
+
+fun Task.buildSharedLibrariesForJVMLinux() {
+    group = "Build"
+    description = "Compile dynamic libraries loaded by the JVM fat jar for supported platforms."
+    val directory = "$buildDir/realmLinuxBuild"
+
+    doLast {
+        exec {
+            commandLine("mkdir", "-p", directory)
+        }
+        exec {
+            workingDir(project.file(directory))
+            commandLine(
+                "cmake",
+                *getSharedCMakeFlags(BuildType.RELEASE),
+                "-DCPACK_PACKAGE_DIRECTORY=..",
+                project.file("src/jvm/")
+            )
+        }
+        exec {
+            workingDir(project.file(directory))
+            commandLine("cmake", "--build", ".", "-j8")
+        }
+
+        // copy files (macos)
+        exec {
+            commandLine("mkdir", "-p", project.file("$jvmJniPath/linux"))
+        }
+        File("$directory/librealmc.so")
+            .copyTo(project.file("$jvmJniPath/linux/librealmc.so"), overwrite = true)
+    }
+
+    inputs.dir(project.file("src/jvm"))
+    inputs.dir(project.file("$absoluteCorePath/src"))
+    outputs.file(project.file("$jvmJniPath/linux/librealmc.so"))
 }
 
 fun Task.buildSharedLibrariesForJVMWindows() {
@@ -709,10 +780,33 @@ afterEvaluate {
     // the cpp file as it somehow processes the CMakeList.txt-file, but haven't dug up the
     // actuals
     tasks.named("generateJsonModelDebug") {
-        inputs.files(tasks.getByPath(":jni-swig-stub:realmWrapperJvm").outputs)
+        inputs.files(tasks.getByPath(":packages:jni-swig-stub:realmWrapperJvm").outputs)
     }
     tasks.named("generateJsonModelRelease") {
-        inputs.files(tasks.getByPath(":jni-swig-stub:realmWrapperJvm").outputs)
+        inputs.files(tasks.getByPath(":packages:jni-swig-stub:realmWrapperJvm").outputs)
+    }
+}
+
+tasks.matching { it.name.endsWith("PublicationToMavenLocal") }.configureEach {
+    val signTasks = project.tasks.filter { t -> t.name.startsWith("sign") && t.name.endsWith("Publication") }
+    if (signTasks.isNotEmpty()) {
+        dependsOn(signTasks)
+        doFirst {
+            logger.info("Ensuring signing tasks (${signTasks.joinToString { it.name }}) run before $name in :cinterop")
+        }
+    } else {
+        logger.warn("No signing tasks found for $name in :cinterop")
+    }
+}
+
+// CHANGED: Removed afterEvaluate block, replaced with configureEach for specific tasks
+tasks.named("publishKotlinMultiplatformPublicationToMavenLocal") {
+    val signJvm = project.tasks.findByName("signJvmPublication")
+    if (signJvm != null) {
+        dependsOn(signJvm)
+        doFirst {
+            logger.info("Explicitly ensured :publishKotlinMultiplatformPublicationToMavenLocal depends on :signJvmPublication")
+        }
     }
 }
 
@@ -761,7 +855,7 @@ realmPublish {
         description =
             "Wrapper for interacting with Realm Kotlin native code. This artifact is not " +
             "supposed to be consumed directly, but through " +
-            "'io.realm.kotlin:gradle-plugin:${Realm.version}' instead."
+            "'com.infomaniak.realm.kotlin:gradle-plugin:${Realm.version}' instead."
     }
 }
 
@@ -784,7 +878,10 @@ val generateSdkVersionConstant: Task = tasks.create("generateSdkVersionConstant"
         )
     }
 }
-tasks.withType<org.jetbrains.kotlin.gradle.dsl.KotlinCompile<*>> {
+//tasks.withType<org.jetbrains.kotlin.gradle.dsl.KotlinCompile<*>> {
+//    dependsOn(generateSdkVersionConstant)
+//}
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask<*>>().configureEach {
     dependsOn(generateSdkVersionConstant)
 }
 
@@ -817,4 +914,25 @@ abstract class CmakeVersionProvider : ValueSource<String, ValueSourceParameters.
 // enable execution optimizations for generateSdkVersionConstant
 afterEvaluate {
     tasks.getByName("sourcesJar").dependsOn(generateSdkVersionConstant)
+    tasks.named("androidReleaseSourcesJar") {
+        dependsOn("generateSdkVersionConstant")
+    }
+    tasks.named("jvmSourcesJar") {
+        dependsOn("generateSdkVersionConstant")
+    }
+    tasks.named("iosArm64SourcesJar") {
+        dependsOn("generateSdkVersionConstant")
+    }
+    tasks.named("iosSimulatorArm64SourcesJar") {
+        dependsOn("generateSdkVersionConstant")
+    }
+    tasks.named("iosX64SourcesJar") {
+        dependsOn("generateSdkVersionConstant")
+    }
+    tasks.named("macosArm64SourcesJar") {
+        dependsOn("generateSdkVersionConstant")
+    }
+    tasks.named("macosX64SourcesJar") {
+        dependsOn("generateSdkVersionConstant")
+    }
 }

@@ -1,11 +1,9 @@
-# Contributing to Realm Kotlin
+# Contributing to Infomaniak's fork of Kotlin SDK for Realm DB
 
-## CLA
+Contributions are welcome!
 
-We welcomes all contributions! The only requirement we have is that, like many other projects, we need to have a [Contributor License Agreement](https://en.wikipedia.org/wiki/Contributor_License_Agreement) (CLA) in place before we can accept any external code. Our own CLA is a modified version of the Apache Software Foundation’s CLA.
-
-[Please submit your CLA electronically using our Google form](https://docs.google.com/forms/d/e/1FAIpQLSeQ9ROFaTu9pyrmPhXc-dEnLD84DbLuT_-tPNZDOL9J10tOKQ/viewform) so we can accept your submissions. The GitHub username you file there will need to match that of your Pull Requests. If you have any questions or cannot file the CLA electronically, you can email help@realm.io.
-
+Please make sure we agreed about what is to be done in an issue,
+or that it's a trivial improvement with little to review.
 
 ## How to build locally
 
@@ -14,7 +12,7 @@ We welcomes all contributions! The only requirement we have is that, like many o
 - Swig 4.2.0 or above. On Mac this can be installed using Homebrew: `brew install swig`.
 - Ccache. On Mac this can be installed using Homebrew: `brew install ccache`.
 - CMake 3.18.1 or above. Can be installed through the Android SDK Manager.
-- Java 11.
+- Java 17 or above.
 - Define environment variables:
   - `ANDROID_HOME`
   - `JAVA_HOME`
@@ -24,8 +22,37 @@ We welcomes all contributions! The only requirement we have is that, like many o
 
 Checkout repo:
 ```sh
-git clone --recursive  https://github.com/realm/realm-kotlin.git 
+git clone --recursive  https://github.com/Infomaniak/realm-kotlin.git
 ```
+
+**WARNING:** Make sure the git modules are pointing to the correct revision.
+Otherwise, you might encounter puzzling CMake compilation or runtime errors,
+even if the prerequisites specified above are fulfilled.
+
+#### Troubleshooting Gradle sync or runtime issues
+
+If you get weird errors about no cmake found when trying to perform Gradle try these steps:
+
+1. Ensure the `cmake` command is recognized in the terminal (if not add your local cmake to the PATH)
+2. Kill all `java` processes on your machine, to have no remaining stale Gradle daemon
+3. Run `./gradlew pTML` (will run `publishToMavenLocal`), this will use the local `cmake`
+4. Try to perform Gradle sync, this should reuse whatever was done through CLI.
+
+You can also try the above if you get this kind of crash in the host app:
+```stacktrace
+java.lang.UnsatisfiedLinkError: No implementation found for long io.realm.kotlin.internal.interop.realmcJNI.RLM_INVALID_CLASS_KEY_get() (tried Java_io_realm_kotlin_internal_interop_realmcJNI_RLM_1INVALID_1CLASS_1KEY_1get and Java_io_realm_kotlin_internal_interop_realmcJNI_RLM_1INVALID_1CLASS_1KEY_1get__) - is the library loaded, e.g. System.loadLibrary?
+	at io.realm.kotlin.internal.interop.realmcJNI.RLM_INVALID_CLASS_KEY_get(Native Method)
+	at io.realm.kotlin.internal.interop.realmc.getRLM_INVALID_CLASS_KEY(realmc.java:193)
+	at io.realm.kotlin.internal.interop.RealmInteropKt.INVALID_CLASS_KEY_delegate$lambda$0(RealmInterop.kt:43)
+	at io.realm.kotlin.internal.interop.RealmInteropKt.$r8$lambda$LJwi4SNclSxwkee1Ov--MrCpyik(Unknown Source:0)
+	at io.realm.kotlin.internal.interop.RealmInteropKt$$ExternalSyntheticLambda0.invoke(D8$$SyntheticClass:0)
+	at kotlin.SynchronizedLazyImpl.getValue(LazyJVM.kt:86)
+	at io.realm.kotlin.internal.interop.RealmInteropKt.getINVALID_CLASS_KEY(RealmInterop.kt:43)
+	at io.realm.kotlin.internal.interop.ClassInfo.<init>(ClassInfo.kt:27)
+	at io.realm.kotlin.internal.interop.ClassInfo$Companion.create(ClassInfo.kt:48)
+```
+
+and if it still fails, you can try again after having removed the `packages/cinterop/.cxx` dir.
 
 ### Windows support
 
@@ -35,7 +62,7 @@ The repository can be built on Windows, although only for the JVM and Android ta
 
 ### Linux support
 
-This repository does currently not support building on Linux from the source code. 
+This repository can now be built in the same way as on the Mac. 
 
 
 ### Building and running tests
@@ -45,19 +72,17 @@ be developed and tested as a single project. For details on publishing and runni
 Maven artifacts see the [Running tests against Maven artifacts](#running-tests-against-maven-artifacts)-section.
 
 The tests are triggered from the IDE or by triggering the specific test tasks across the various
-platforms with:
+platforms with (in the root directory):
 ```sh
-cd packages
-./gradlew :test-base:jvmTest :test-base:connectedAndroidTest :test-base:macosTest :test-base:iosTest
+./gradlew :packages:test-base:jvmTest :packages:test-base:connectedAndroidTest :packages:test-base:macosTest :packages:test-base:iosTest
 
 # Note that running the test-sync suite requires running a local server 
 # (see `tools/sync_test_server/start_local_server.sh` and `tools/sync_test_server/stop_local_server.sh`)
 
-./gradlew :test-sync:jvmTest :test-sync:connectedAndroidTest :test-sync:macosTest :test-sync:iosTest
+./gradlew :packages:test-sync:jvmTest :packages:test-sync:connectedAndroidTest :packages:test-sync:macosTest :packages:test-sync:iosTest
 ```
 You can also the test across all modules on the various platforms with
 ```sh
-cd packages
 ./gradlew jvmTest connectedAndroidTest macosTest iosTest
 ```
 But this will also trigger tests in the SDK modules.
@@ -65,7 +90,7 @@ But this will also trigger tests in the SDK modules.
 #### Triggering tests from Android Studio
 * Use Android Studio Dolphin or a later version.
 * Go to `Preferences > Build, Execution, Deployment > Build Tools > Gradle`.
-* Under `Gradle JDK`, select the JDK 11 that you installed (not the embedded version).
+* Under `Gradle JDK`, select the JDK 17 that you installed (not the embedded version).
 
 #### Emulator
 * Create a virtual device through Android Studio Device Manager.
@@ -91,7 +116,6 @@ repository in a local folder using the default local and test against these usin
 commands:
 
 ```sh
-cd packages
 ./gradlew publishAllPublicationsToTestRepository
 ./gradlew -PincludeSdkModules=false jvmTest connectedAndroidTest macosTest iosTest 
 ```

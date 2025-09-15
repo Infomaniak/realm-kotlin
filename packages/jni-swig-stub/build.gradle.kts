@@ -43,7 +43,7 @@ val realmWrapperJvm: Task = tasks.create("realmWrapperJvm") {
         delete(fileTree(generatedSourceRoot))
         exec {
             workingDir(".")
-            commandLine("swig", "-java", "-c++", "-package", "io.realm.kotlin.internal.interop", "-I$projectDir/../external/core/src", "-o", "$generatedSourceRoot/jni/realmc.cpp", "-outdir", "$generatedSourceRoot/java/io/realm/kotlin/internal/interop", "realm.i")
+            commandLine("swig", "-java", "-c++", "-package", "io.realm.kotlin.internal.interop", "-I$projectDir/../external/core/src", "-o", "$generatedSourceRoot/jni/realmc.cpp", "-outdir", "$generatedSourceRoot/java/io/realm/kotlin/internal/interop", "$projectDir/realm.i")
         }
     }
     inputs.file("$projectDir/../external/core/src/realm.h")
@@ -69,7 +69,7 @@ realmPublish {
         name = "JNI Swig Stubs"
         description = "Wrapper for interacting with Realm Kotlin native code from the JVM. This artifact is not " +
             "supposed to be consumed directly, but through " +
-            "'io.realm.kotlin:gradle-plugin:${Realm.version}' instead."
+            "'com.infomaniak.realm.kotlin:gradle-plugin:${Realm.version}' instead."
     }
 }
 

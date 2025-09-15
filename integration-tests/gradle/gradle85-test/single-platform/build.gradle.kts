@@ -18,11 +18,11 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("io.realm.kotlin")
+    id("com.infomaniak.realm.kotlin")
 }
 
 android {
-    compileSdk = 33
+    compileSdk = 35
 
     namespace = "io.realm.test.singleplatform"
 
@@ -49,7 +49,7 @@ android {
 dependencies {
     implementation("androidx.appcompat:appcompat:1.5.1")
     implementation("androidx.multidex:multidex:2.0.1")
-    implementation("io.realm.kotlin:library-base:${rootProject.extra["realmVersion"]}")
+    implementation("com.infomaniak.realm.kotlin:library-base:${rootProject.extra["realmVersion"]}")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")

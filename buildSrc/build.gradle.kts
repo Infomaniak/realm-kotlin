@@ -18,14 +18,19 @@
 plugins {
     `kotlin-dsl`
     `kotlin-dsl-precompiled-script-plugins`
+    kotlin("jvm") version Versions.kotlin
 }
 
 gradlePlugin {
     plugins {
         register("realm-publisher") {
             id = "realm-publisher"
-            implementationClass = "io.realm.kotlin.RealmPublishPlugin"
+            implementationClass = "org.realm.kotlin.RealmPublishPlugin"
         }
+//        create("realm-compiler") { // Plugin name (used internally)
+//            id = "com.infomaniak.realm.kotlin.plugin-compiler" // Plugin ID (used to apply)
+//            implementationClass = "io.realm.kotlin.compiler.Registrar"
+//        }
     }
 }
 
@@ -37,6 +42,7 @@ java {
 repositories {
     google()
     gradlePluginPortal()
+    mavenCentral()
 }
 
 
@@ -44,6 +50,7 @@ repositories {
 buildscript {
     dependencies {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}")
+        classpath("org.jetbrains.dokka:dokka-gradle-plugin:${Versions.dokka}") // Use the latest version
     }
 }
 
@@ -51,9 +58,13 @@ buildscript {
 // These seem to propagate to all projects including the buildSrc/ directory, which also means
 // they are not allowed to set the version. It can only be set from here.
 dependencies {
-    implementation("io.github.gradle-nexus:publish-plugin:${Versions.nexusPublishPlugin}")
+    implementation(kotlin("gradle-plugin", version = Versions.kotlin))
+    implementation("com.gradleup.nmcp.aggregation:com.gradleup.nmcp.aggregation.gradle.plugin:1.1.0")
     implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${Versions.detektPlugin}")
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}")
+    implementation("org.jetbrains.kotlin:kotlin-compiler-embeddable:${Versions.kotlin}")
+    implementation("org.gradle.kotlin:gradle-kotlin-dsl-plugins:5.2.0")
+    implementation("org.jetbrains.dokka:dokka-gradle-plugin:${Versions.dokka}")
     implementation("com.android.tools:r8:${Versions.Android.r8}")
     implementation("com.android.tools.build:gradle:${Versions.Android.buildTools}")
     implementation(kotlin("script-runtime"))

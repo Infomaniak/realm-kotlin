@@ -17,13 +17,14 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
 plugins {
+    kotlin("jvm")
     `java`
     id("com.github.johnrengelman.shadow") version Versions.shadowJar
     id("realm-publisher")
 }
 
 dependencies {
-    implementation(project(":plugin-compiler"))
+    implementation(project(":packages:plugin-compiler"))
 }
 
 val mavenPublicationName = "compilerPluginShaded"
@@ -48,7 +49,7 @@ realmPublish {
         name = "Shaded Compiler Plugin"
         description = "Shaded compiler plugin for native platforms for Realm Kotlin. This artifact is not " +
                 "supposed to be consumed directly, but through " +
-                "'io.realm.kotlin:gradle-plugin:${Realm.version}' instead."
+                "'com.infomaniak.realm.kotlin:gradle-plugin:${Realm.version}' instead."
     }
 }
 

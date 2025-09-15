@@ -164,7 +164,7 @@ internal class SuspendableWriter(
                     // are doing and will either throw the result away or treat it accordingly.
                     // See https://github.com/realm/realm-kotlin/issues/1300 for context.
                     when (result.isValid()) {
-                        true -> freeze(reference)!!.toRealmObject()
+                        true -> freeze(reference)?.toRealmObject()
                         false -> result
                     }
                 }

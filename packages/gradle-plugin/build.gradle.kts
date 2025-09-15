@@ -40,13 +40,13 @@ dependencies {
 val mavenPublicationName = "gradlePlugin"
 
 fun createMarkerArtifact(): Boolean {
-    val value = properties.getOrDefault("generatePluginArtifactMarker", "false") as String
+    val value = properties.getOrDefault("generatePluginArtifactMarker", "true") as String
     return value.toBoolean()
 }
 
 pluginBundle {
-    website = "https://github.com/realm/realm-kotlin"
-    vcsUrl = "https://github.com/realm/realm-kotlin"
+    website = "https://github.com/Infomaniak/realm-kotlin"
+    vcsUrl = "git@github.com:Infomaniak/realm-kotlin.git"
     tags = listOf("MongoDB", "Realm", "Database", "Kotlin", "Mobile", "Multiplatform", "Android", "KMM")
 
     mavenCoordinates {
@@ -73,15 +73,6 @@ realmPublish {
     pom {
         name = "Gradle Plugin"
         description = "Gradle plugin for Realm Kotlin. Realm is a mobile database: Build better apps faster."
-    }
-}
-
-publishing {
-    publications {
-        register<MavenPublication>(mavenPublicationName) {
-            artifactId = Realm.gradlePluginId
-            from(components["java"])
-        }
     }
 }
 
