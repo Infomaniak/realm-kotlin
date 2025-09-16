@@ -21,22 +21,23 @@ Version 3.2.8 <==> Kotlin 2.2.0
 
 ## How to use:
 
-This project is NOT YET published to a maven repo.
+Replace the `io.realm.kotlin` maven group with `com.infomaniak.realm.kotlin`, and use the `3.2.8-2` version.
+
+It's all published on Maven Central.
+You might need to add this at the top of your `settings.gradle[.kts]`:
+
+```.gradle.kts
+pluginManagement {
+    repositories {
+        mavenCentral() // Our Realm fork is published here
+        gradlePluginPortal() // To keep access to other plugins
+    }
+}
+```
 
 ### Build the project
 
-#### Prerequisites
-
-- Swig 4.2.0 or above. On Mac this can be installed using Homebrew: `brew install swig`.
-- Ccache. On Mac this can be installed using Homebrew: `brew install ccache`.
-- CMake 3.18.1 or above. Can be installed through the Android SDK Manager, or homebrew.
-- Java 17 or above.
-- Define environment variables:
-    - `ANDROID_HOME`
-    - `JAVA_HOME`
-    - `NDK_HOME`
-- clone this project **with submodules** (don't skip the `--recursive` option for that):
-  ```git clone --recursive https://github.com/Infomaniak/realm-kotlin.git ```
+See the [Releasing guide](RELEASING.md), or the [contributing guide](CONTRIBUTING.md).
 
 #### Gradle commands
 
@@ -72,7 +73,7 @@ dependencyResolutionManagement {
 ```
 buildscript {
     dependencies {
-        classpath("io.realm.kotlin:gradle-plugin:y.y.y")
+        classpath("com.infomaniak.realm.kotlin:gradle-plugin:y.y.y")
     }
 }
 ```
