@@ -1,7 +1,7 @@
 # Infomaniak's fork of [Realm Kotlin](https://github.com/realm/realm-kotlin)
 
 This is a fork of the deprecated [Realm Kotlin](https://github.com/realm/realm-kotlin).
-It has been made compatible with Kotlin 2.2.0 thanks to the work of @XilinJia
+It has been made compatible with Kotlin 2.2.10 thanks to the work of @XilinJia
 on their [krdb](https://github.com/XilinJia/krdb) fork (we cherry-picked some of their commits).
 
 We have reversed the rebranding so it can be used as a drop-in replacement with builds published
@@ -17,11 +17,12 @@ gradlew needs to be run from the root directory rather than packages.
 
 ## Version compatibility
 
-Version 3.2.8 <==> Kotlin 2.2.0
+Version 3.2.9 <==> Kotlin 2.2.10
+Version 3.2.8-2 <==> Kotlin 2.2.0
 
 ## How to use:
 
-Replace the `io.realm.kotlin` maven group with `com.infomaniak.realm.kotlin`, and use the `3.2.8-2` version.
+Replace the `io.realm.kotlin` maven group with `com.infomaniak.realm.kotlin`, and use the `3.2.9` version.
 
 It's all published on Maven Central.
 You might need to add this at the top of your `settings.gradle[.kts]`:
