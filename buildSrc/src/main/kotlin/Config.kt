@@ -126,8 +126,8 @@ object Versions {
     const val kbson = "0.4.0" // https://github.com/mongodb/kbson
     // When updating the Kotlin version, also remember to update /examples/min-android-sample/build.gradle.kts
     // these need to be compatible with Kotlin version: atomicfu, atomicfuPlugin, serialization, kotlinCompileTesting, ktlint
-    const val kotlin = "2.2.0" // https://github.com/JetBrains/kotlin and https://kotlinlang.org/docs/releases.html#release-details
-    const val latestKotlin = "2.2.0" // https://kotlinlang.org/docs/eap.html#build-details
+    const val kotlin = "2.2.10" // https://github.com/JetBrains/kotlin and https://kotlinlang.org/docs/releases.html#release-details
+    const val latestKotlin = "2.2.10" // https://kotlinlang.org/docs/eap.html#build-details
     const val kotlinJvmTarget = "17" // Which JVM bytecode version is kotlin compiled to.
     const val kotlinCompileTesting = "0.8.0" // https://github.com/zacsweers/kotlin-compile-testing
     const val ktlint = "1.7.0" // https://github.com/pinterest/ktlint
