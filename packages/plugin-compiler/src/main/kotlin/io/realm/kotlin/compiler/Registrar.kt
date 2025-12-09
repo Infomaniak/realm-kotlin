@@ -23,7 +23,9 @@ import org.jetbrains.kotlin.cli.common.CLIConfigurationKeys
 import org.jetbrains.kotlin.cli.common.messages.MessageCollector
 import org.jetbrains.kotlin.com.intellij.mock.MockProject
 import org.jetbrains.kotlin.com.intellij.openapi.extensions.LoadingOrder
+import org.jetbrains.kotlin.compiler.plugin.CompilerPluginRegistrar
 import org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi
+import org.jetbrains.kotlin.config.CommonConfigurationKeys
 import org.jetbrains.kotlin.config.CompilerConfiguration
 import org.jetbrains.kotlin.fir.extensions.FirExtensionRegistrarAdapter
 import org.jetbrains.kotlin.resolve.extensions.SyntheticResolveExtension
@@ -46,11 +48,11 @@ import org.jetbrains.kotlin.resolve.extensions.SyntheticResolveExtension
  * The [RealmObjectCompanion] holds static information about the schema (members, primary key, etc.)
  * and utility methods for constructing objects, etc.
  */
-@Suppress("deprecation")
+//@Suppress("deprecation")
 @AutoService(org.jetbrains.kotlin.compiler.plugin.ComponentRegistrar::class)
 @OptIn(ExperimentalCompilerApi::class)
 // TODO ComponentRegistrar is deprecated. Should be migrated to CompilerPluginRegistrar to support
-//  indicating whether plugin is k2-compatible, etc. See these issues for more context:
+//  indicating whether plugin is k2-compatible, etc. See below, and see these issues for more context:
 //  - https://youtrack.jetbrains.com/issue/KT-52665/Deprecate-ComponentRegistrar
 //  - https://youtrack.jetbrains.com/issue/KT-55300
 class Registrar : org.jetbrains.kotlin.compiler.plugin.ComponentRegistrar {
@@ -94,4 +96,36 @@ class Registrar : org.jetbrains.kotlin.compiler.plugin.ComponentRegistrar {
     }
 
     override val supportsK2: Boolean = true
+}
+
+//TODO[for Kotlin 2.3.0]: Replace the Registrar class from above with the one below,
+// and set it up to run after kotlinx.serialization:
+// (see https://youtrack.jetbrains.com/issue/KT-55300/Provide-a-mechanism-to-describe-ordering-and-dependencies-for-compiler-plugins#focus=Comments-27-12539038.0-0)
+/*
+kotlinCompilation.compileTaskProvider.configure {
+    it.compilerOptions.freeCompilerArgs.add("-Xcompiler-plugin-order=org.jetbrains.kotlinx.serialization>com.infomaniak.realm.kotlin")
+}
+ */
+
+@AutoService(CompilerPluginRegistrar::class)
+@OptIn(ExperimentalCompilerApi::class)
+class Registrar2 : CompilerPluginRegistrar() {
+
+    override val supportsK2: Boolean = true
+
+    @OptIn(ExperimentalCompilerApi::class)
+    override fun ExtensionStorage.registerExtensions(configuration: CompilerConfiguration) {
+        messageCollector = configuration.get(CommonConfigurationKeys.MESSAGE_COLLECTOR_KEY, MessageCollector.NONE)
+        SchemaCollector.properties.clear()
+
+        // SyntheticResolve extensions
+        SyntheticResolveExtension.registerExtension(RealmModelSyntheticCompanionExtension())
+        SyntheticResolveExtension.registerExtension(RealmModelSyntheticMethodsExtension())
+
+        // IR extensions
+        IrGenerationExtension.registerExtension(RealmModelLoweringExtension())
+
+        // FIR K2 extensions
+        FirExtensionRegistrarAdapter.registerExtension(RealmModelRegistrar())
+    }
 }
