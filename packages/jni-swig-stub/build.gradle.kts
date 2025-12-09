@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import org.gradle.api.tasks.compile.JavaCompile
+import org.gradle.kotlin.dsl.newInstance
 
 plugins {
     id("java-library")
@@ -22,7 +23,7 @@ plugins {
 
 val mavenPublicationName = "jniSwigStubs"
 
-val generatedSourceRoot = "$buildDir/generated/sources"
+val generatedSourceRoot = layout.buildDirectory.dir("generated/sources")
 
 java {
     withSourcesJar()
@@ -37,21 +38,31 @@ java {
     targetCompatibility = Versions.targetCompatibilityVersion
 }
 
-val realmWrapperJvm: Task = tasks.create("realmWrapperJvm") {
+// Define an interface to allow Gradle to inject the ExecOperations service.
+// This is the required mechanism for running external processes inside non-Exec tasks.
+// See Gradle doc: https://docs.gradle.org/current/userguide/service_injection.html#execoperations
+interface ExecOpsProvider {
+    @get:Inject
+    val execOps: ExecOperations
+}
+
+val realmWrapperJvm = tasks.register("realmWrapperJvm") {
+    val injectedExecOps = project.objects.newInstance<ExecOpsProvider>()
     doLast {
         // If task is actually triggered (not up to date) then we should clean up the old stuff
         delete(fileTree(generatedSourceRoot))
-        exec {
+        injectedExecOps.execOps.exec {
             workingDir(".")
-            commandLine("swig", "-java", "-c++", "-package", "io.realm.kotlin.internal.interop", "-I$projectDir/../external/core/src", "-o", "$generatedSourceRoot/jni/realmc.cpp", "-outdir", "$generatedSourceRoot/java/io/realm/kotlin/internal/interop", "$projectDir/realm.i")
+            val generatedSourceRootPath = generatedSourceRoot.get().asFile.path
+            commandLine("swig", "-java", "-c++", "-package", "io.realm.kotlin.internal.interop", "-I$projectDir/../external/core/src", "-o", "$generatedSourceRootPath/jni/realmc.cpp", "-outdir", "$generatedSourceRootPath/java/io/realm/kotlin/internal/interop", "$projectDir/realm.i")
         }
     }
     inputs.file("$projectDir/../external/core/src/realm.h")
     inputs.file("realm.i")
     inputs.dir("$projectDir/src/main/jni")
     // Specifying full paths triggers creation of dirs, which would otherwise cause swig to fail
-    outputs.dir("$generatedSourceRoot/java/io/realm/kotlin/internal/interop")
-    outputs.dir("$generatedSourceRoot/jni")
+    outputs.dir(generatedSourceRoot.map { it.dir("java/io/realm/kotlin/internal/interop") })
+    outputs.dir(generatedSourceRoot.map { it.dir("jni") })
 }
 
 tasks.named("javadoc") {

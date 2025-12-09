@@ -48,6 +48,7 @@ kotlin {
     macosX64()
     macosArm64()
 
+    @Suppress("unused")
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -143,7 +144,7 @@ android {
 
     defaultConfig {
         minSdk = Versions.Android.minSdk
-        targetSdk = Versions.Android.targetSdk
+        lint.targetSdk = Versions.Android.targetSdk
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         sourceSets {
@@ -174,7 +175,7 @@ android {
         buildConfig = false
     }
 
-    packagingOptions {
+    packaging {
         jniLibs {
             useLegacyPackaging = true
         }
@@ -190,7 +191,7 @@ realmPublish {
     }
 }
 
-tasks.withType<org.jetbrains.dokka.gradle.DokkaTaskPartial>().configureEach {
+dokka {
     moduleName.set("Realm Kotlin SDK")
     moduleVersion.set(Realm.version)
     dokkaSourceSets {
@@ -215,7 +216,7 @@ tasks.withType<org.jetbrains.dokka.gradle.DokkaTaskPartial>().configureEach {
                 "src/commonMain/kotlin/io/realm/kotlin/info.md",
                 "src/commonMain/kotlin/io/realm/kotlin/log/info.md"
             )
-            sourceRoot("../runtime-api/src/commonMain/kotlin")
+            sourceRoots.from("../runtime-api/src/commonMain/kotlin")
         }
     }
 }

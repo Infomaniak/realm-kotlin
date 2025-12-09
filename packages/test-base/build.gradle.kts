@@ -121,7 +121,7 @@ android {
 
     defaultConfig {
         minSdk = Versions.Android.minSdk
-        targetSdk = Versions.Android.targetSdk
+        lint.targetSdk = Versions.Android.targetSdk
         multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -161,7 +161,7 @@ android {
 
     // Remove overlapping resources after adding "org.jetbrains.kotlinx:kotlinx-coroutines-test" to
     // avoid errors like "More than one file was found with OS independent path 'META-INF/AL2.0'."
-    packagingOptions {
+    packaging {
         resources.excludes.add("META-INF/AL2.0")
         resources.excludes.add("META-INF/LGPL2.1")
     }
@@ -308,9 +308,7 @@ if (HOST_OS.isMacOs()) {
                 val parent = testTask.inputs.files.first().parent
                 into(parent)
             }
-            testTask.let {
-                it.dependsOn(copyTask)
-            }
+            testTask.dependsOn(copyTask)
         }
     }
 }

@@ -33,7 +33,7 @@ project.extensions.configure(kotlinx.atomicfu.plugin.gradle.AtomicFUPluginExtens
 }
 
 // Directory for generated Version.kt holding VERSION constant
-val versionDirectory = "$buildDir/generated/source/version/"
+val versionDirectory = layout.buildDirectory.dir("generated/source/version/")
 
 // Types of builds supported
 enum class BuildType(val type: String, val buildDirSuffix: String) {
@@ -144,8 +144,8 @@ kotlin {
 //                BuildType.DEBUG -> nativeLibraryIncludesIosSimulatorX86Debug
 //                BuildType.RELEASE -> nativeLibraryIncludesIosSimulatorX86Release
 //            }
-            compilerOptions.configure {
-                freeCompilerArgs.addAll(
+            compileTaskProvider.configure {
+                compilerOptions.freeCompilerArgs.addAll(
                     when (buildType) {
                         BuildType.DEBUG -> nativeLibraryIncludesIosSimulatorX86Debug
                         BuildType.RELEASE -> nativeLibraryIncludesIosSimulatorX86Release
@@ -165,8 +165,8 @@ kotlin {
 //                BuildType.DEBUG -> nativeLibraryIncludesIosSimulatorArm64Debug
 //                BuildType.RELEASE -> nativeLibraryIncludesIosSimulatorArm64Release
 //            }
-            compilerOptions.configure {
-                freeCompilerArgs.addAll(
+            compileTaskProvider.configure {
+                compilerOptions.freeCompilerArgs.addAll(
                     when (buildType) {
                         BuildType.DEBUG -> nativeLibraryIncludesIosSimulatorArm64Debug
                         BuildType.RELEASE -> nativeLibraryIncludesIosSimulatorArm64Release
@@ -193,8 +193,8 @@ kotlin {
 //                BuildType.DEBUG -> nativeLibraryIncludesIosArm64Debug
 //                BuildType.RELEASE -> nativeLibraryIncludesIosArm64Release
 //            }
-            compilerOptions.configure {
-                freeCompilerArgs.addAll(
+            compileTaskProvider.configure {
+                compilerOptions.freeCompilerArgs.addAll(
                     when (buildType) {
                         BuildType.DEBUG -> nativeLibraryIncludesIosArm64Debug
                         BuildType.RELEASE -> nativeLibraryIncludesIosArm64Release
@@ -221,8 +221,8 @@ kotlin {
 //                BuildType.DEBUG -> nativeLibraryIncludesMacosUniversalDebug
 //                BuildType.RELEASE -> nativeLibraryIncludesMacosUniversalRelease
 //            }
-            compilerOptions.configure {
-                freeCompilerArgs.addAll(
+            compileTaskProvider.configure {
+                compilerOptions.freeCompilerArgs.addAll(
                     when (buildType) {
                         BuildType.DEBUG -> nativeLibraryIncludesMacosUniversalDebug
                         BuildType.RELEASE -> nativeLibraryIncludesMacosUniversalRelease
@@ -242,8 +242,8 @@ kotlin {
 //                BuildType.DEBUG -> nativeLibraryIncludesMacosUniversalDebug
 //                BuildType.RELEASE -> nativeLibraryIncludesMacosUniversalRelease
 //            }
-            compilerOptions.configure {
-                freeCompilerArgs.addAll(
+            compileTaskProvider.configure {
+                compilerOptions.freeCompilerArgs.addAll(
                     when (buildType) {
                         BuildType.DEBUG -> nativeLibraryIncludesMacosUniversalDebug
                         BuildType.RELEASE -> nativeLibraryIncludesMacosUniversalRelease
@@ -253,6 +253,7 @@ kotlin {
         }
     }
 
+    @Suppress("unused")
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -350,7 +351,7 @@ android {
 
     defaultConfig {
         minSdk = Versions.Android.minSdk
-        targetSdk = Versions.Android.targetSdk
+        lint.targetSdk = Versions.Android.targetSdk
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         sourceSets {
@@ -367,6 +368,7 @@ android {
         }
 
         // Out externalNativeBuild (outside defaultConfig) does not seem to have correct type for setting cmake arguments
+        @Suppress("UnstableApiUsage")
         externalNativeBuild {
             cmake {
                 if (!HOST_OS.isWindows()) {
@@ -386,7 +388,6 @@ android {
         cmake {
             // We need to grab cmake version from `cmake --version` on the path and set it here
             // otherwise the build system will use the one from the NDK
-            @Suppress("UnstableApiUsage")
             version = project.providers.of(CmakeVersionProvider::class) {}.get()
             path = project.file("src/jvm/CMakeLists.txt")
         }
@@ -476,8 +477,9 @@ val copyJVMSharedLibs: TaskProvider<Task> by tasks.registering {
         val archs = (project.property("realm.kotlin.copyNativeJvmLibs") as String)
             .split(",")
             .map { it.trim() }
-            .map { it.toLowerCase() }
+            .map { it.lowercase() }
 
+        val buildDir = layout.buildDirectory
         archs.forEach { arch ->
             when(arch) {
                 "linux" -> {
@@ -532,17 +534,27 @@ fun getSharedCMakeFlags(buildType: BuildType, ccache: Boolean = true): Array<Str
     return args.toTypedArray()
 }
 
+// Define an interface to allow Gradle to inject the ExecOperations service.
+// This is the required mechanism for running external processes inside non-Exec tasks.
+// See Gradle doc: https://docs.gradle.org/current/userguide/service_injection.html#execoperations
+interface ExecOpsProvider {
+    @get:Inject
+    val execOps: ExecOperations
+}
+
 // JVM native libs are currently always built in Release mode.
 fun Task.buildSharedLibrariesForJVMMacOs() {
     group = "Build"
     description = "Compile dynamic libraries loaded by the JVM fat jar for supported platforms."
+    val buildDir = layout.buildDirectory
     val directory = "$buildDir/realmMacOsBuild"
 
+    val injectedExecOps = project.objects.newInstance<ExecOpsProvider>()
+
     doLast {
-        exec {
-            commandLine("mkdir", "-p", directory)
-        }
-        exec {
+        File(directory).mkdirs()
+        injectedExecOps.execOps.exec {
+
             workingDir(project.file(directory))
             commandLine(
                 "cmake",
@@ -552,15 +564,13 @@ fun Task.buildSharedLibrariesForJVMMacOs() {
                 project.file("src/jvm/")
             )
         }
-        exec {
+        injectedExecOps.execOps.exec {
             workingDir(project.file(directory))
             commandLine("cmake", "--build", ".", "-j8")
         }
 
         // copy files (macos)
-        exec {
-            commandLine("mkdir", "-p", project.file("$jvmJniPath/macos"))
-        }
+        project.file("$jvmJniPath/macos").mkdirs()
         File("$directory/librealmc.dylib")
             .copyTo(project.file("$jvmJniPath/macos/librealmc.dylib"), overwrite = true)
     }
@@ -573,13 +583,14 @@ fun Task.buildSharedLibrariesForJVMMacOs() {
 fun Task.buildSharedLibrariesForJVMLinux() {
     group = "Build"
     description = "Compile dynamic libraries loaded by the JVM fat jar for supported platforms."
+    val buildDir = layout.buildDirectory
     val directory = "$buildDir/realmLinuxBuild"
 
+    val injectedExecOps = project.objects.newInstance<ExecOpsProvider>()
+
     doLast {
-        exec {
-            commandLine("mkdir", "-p", directory)
-        }
-        exec {
+        File(directory).mkdirs()
+        injectedExecOps.execOps.exec {
             workingDir(project.file(directory))
             commandLine(
                 "cmake",
@@ -588,15 +599,13 @@ fun Task.buildSharedLibrariesForJVMLinux() {
                 project.file("src/jvm/")
             )
         }
-        exec {
+        injectedExecOps.execOps.exec {
             workingDir(project.file(directory))
             commandLine("cmake", "--build", ".", "-j8")
         }
 
-        // copy files (macos)
-        exec {
-            commandLine("mkdir", "-p", project.file("$jvmJniPath/linux"))
-        }
+        // copy files (linux)
+        project.file("$jvmJniPath/linux").mkdirs()
         File("$directory/librealmc.so")
             .copyTo(project.file("$jvmJniPath/linux/librealmc.so"), overwrite = true)
     }
@@ -609,11 +618,14 @@ fun Task.buildSharedLibrariesForJVMLinux() {
 fun Task.buildSharedLibrariesForJVMWindows() {
     group = "Build"
     description = "Compile dynamic libraries loaded by the JVM fat jar for supported platforms."
+    val buildDir = layout.buildDirectory
     val directory = "$buildDir/realmWindowsBuild"
+
+    val injectedExecOps = project.objects.newInstance<ExecOpsProvider>()
 
     doLast {
         file(directory).mkdirs()
-        exec {
+        injectedExecOps.execOps.exec {
             workingDir(project.file(directory))
             commandLine(
                 "cmake",
@@ -624,7 +636,7 @@ fun Task.buildSharedLibrariesForJVMWindows() {
                 project.file("src/jvm/")
             )
         }
-        exec {
+        injectedExecOps.execOps.exec {
             workingDir(project.file(directory))
             commandLine("cmake", "--build", ".", "--config", "Release")
         }
@@ -641,11 +653,12 @@ fun Task.buildSharedLibrariesForJVMWindows() {
 
 fun Task.build_C_API_Macos_Universal(buildVariant: BuildType) {
     val directory = "$absoluteCorePath/build-macos_universal${buildVariant.buildDirSuffix}"
+
+    val injectedExecOps = project.objects.newInstance<ExecOpsProvider>()
+
     doLast {
-        exec {
-            commandLine("mkdir", "-p", directory)
-        }
-        exec {
+        File(directory).mkdirs()
+        injectedExecOps.execOps.exec {
             // See https://github.com/realm/realm-core/blob/master/tools/build-cocoa.sh#L47
             // for source of these arguments.
             workingDir(project.file(directory))
@@ -662,7 +675,7 @@ fun Task.build_C_API_Macos_Universal(buildVariant: BuildType) {
                 ".."
             )
         }
-        exec {
+        injectedExecOps.execOps.exec {
             workingDir(project.file(directory))
             commandLine(
                 "xcodebuild",
@@ -671,7 +684,7 @@ fun Task.build_C_API_Macos_Universal(buildVariant: BuildType) {
                 "-sdk",
                 "macosx",
                 "-configuration",
-                "${buildVariant.type}",
+                buildVariant.type,
                 "-UseModernBuildSystem=NO", // TODO remove flag when https://github.com/realm/realm-kotlin/issues/141 is fixed
                 "DISABLE_MANUAL_TARGET_ORDER_BUILD_WARNING=YES",
             )
@@ -686,12 +699,12 @@ fun Task.build_C_API_Macos_Universal(buildVariant: BuildType) {
 
 fun Task.build_C_API_Simulator(arch: String, buildType: BuildType) {
     val directory = "$absoluteCorePath/build-simulator-$arch${buildType.buildDirSuffix}"
+
+    val injectedExecOps = project.objects.newInstance<ExecOpsProvider>()
+
     doLast {
-        exec {
-            workingDir(project.file(absoluteCorePath))
-            commandLine("mkdir", "-p", directory)
-        }
-        exec {
+        File(directory).mkdirs()
+        injectedExecOps.execOps.exec {
             workingDir(project.file(directory))
             commandLine(
                 "cmake", "-DCMAKE_TOOLCHAIN_FILE=$absoluteCorePath/tools/cmake/xcode.toolchain.cmake",
@@ -702,7 +715,7 @@ fun Task.build_C_API_Simulator(arch: String, buildType: BuildType) {
                 ".."
             )
         }
-        exec {
+        injectedExecOps.execOps.exec {
             workingDir(project.file(directory))
             commandLine(
                 "xcodebuild",
@@ -727,11 +740,12 @@ fun Task.build_C_API_Simulator(arch: String, buildType: BuildType) {
 
 fun Task.build_C_API_iOS_Arm64(buildType: BuildType) {
     val directory = "$absoluteCorePath/build-capi_ios_Arm64${buildType.buildDirSuffix}"
+
+    val injectedExecOps = project.objects.newInstance<ExecOpsProvider>()
+
     doLast {
-        exec {
-            commandLine("mkdir", "-p", directory)
-        }
-        exec {
+        File(directory).mkdirs()
+        injectedExecOps.execOps.exec {
             workingDir(project.file(directory))
             commandLine(
                 "cmake", "-DCMAKE_TOOLCHAIN_FILE=$absoluteCorePath/tools/cmake/xcode.toolchain.cmake",
@@ -742,7 +756,7 @@ fun Task.build_C_API_iOS_Arm64(buildType: BuildType) {
                 ".."
             )
         }
-        exec {
+        injectedExecOps.execOps.exec {
             workingDir(project.file(directory))
             commandLine(
                 "xcodebuild",
@@ -852,14 +866,13 @@ realmPublish {
 }
 
 // Generate code with version constant
-val generateSdkVersionConstant: Task = tasks.create("generateSdkVersionConstant") {
-    val outputDir = file(versionDirectory)
+val generateSdkVersionConstant = tasks.register("generateSdkVersionConstant") {
 
     inputs.property("version", project.version)
-    outputs.dir(outputDir)
+    outputs.dir(versionDirectory)
 
     doLast {
-        val versionFile = file("$outputDir/io/realm/kotlin/internal/Version.kt")
+        val versionFile = versionDirectory.get().file("io/realm/kotlin/internal/Version.kt").asFile
         versionFile.parentFile.mkdirs()
         versionFile.writeText(
             """
@@ -870,10 +883,8 @@ val generateSdkVersionConstant: Task = tasks.create("generateSdkVersionConstant"
         )
     }
 }
-//tasks.withType<org.jetbrains.kotlin.gradle.dsl.KotlinCompile<*>> {
-//    dependsOn(generateSdkVersionConstant)
-//}
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask<*>>().configureEach {
+
+tasks.withType<KotlinCompilationTask<*>>().configureEach {
     dependsOn(generateSdkVersionConstant)
 }
 
@@ -885,7 +896,6 @@ tasks.named("clean") {
 }
 
 // Provider that reads the version of cmake that is on the PATH
-@Suppress("UnstableApiUsage")
 abstract class CmakeVersionProvider : ValueSource<String, ValueSourceParameters.None> {
     @get:Inject
     abstract val execOperations: ExecOperations

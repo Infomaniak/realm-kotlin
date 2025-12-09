@@ -78,7 +78,7 @@ java {
 }
 
 // Make version information available at runtime
-val versionDirectory = "$buildDir/generated/source/version/"
+val versionDirectory = layout.buildDirectory.dir("generated/source/version/")
 sourceSets {
     main {
         java.srcDir(versionDirectory)
@@ -86,28 +86,27 @@ sourceSets {
 }
 
 // Task to generate gradle plugin runtime constants for SDK and core versions
-val versionConstants: Task = tasks.create("versionConstants") {
+val versionConstants = tasks.register("versionConstants") {
     val coreDependenciesFile = layout.projectDirectory.file(
         listOf("..", "external", "core", "dependencies.yml").joinToString(File.separator)
     )
     inputs.file(coreDependenciesFile)
     inputs.property("version", project.version)
-    val outputDir = file(versionDirectory)
-    outputs.dir(outputDir)
+    outputs.dir(versionDirectory)
 
     val yaml = Yaml()
     val coreDependencies: Map<String, String> = yaml.load(FileInputStream(coreDependenciesFile.asFile))
     val coreVersion = coreDependencies["VERSION"]
 
     doLast {
-        val versionFile = file("$outputDir/io/realm/kotlin/gradle/version.kt")
+        val versionFile = versionDirectory.get().file("io/realm/kotlin/gradle/version.kt").asFile
         versionFile.parentFile.mkdirs()
         versionFile.writeText(
             """
             // Generated file. Do not edit!
             package io.realm.kotlin.gradle
             internal const val PLUGIN_VERSION = "${project.version}"
-            internal const val CORE_VERSION = "${coreVersion}"
+            internal const val CORE_VERSION = "$coreVersion"
             """.trimIndent()
         )
     }

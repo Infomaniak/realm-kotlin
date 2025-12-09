@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget.Companion.fromTarget
+import java.util.Locale
 
 /*
  * Copyright 2020 Realm Inc.
@@ -43,23 +44,26 @@ fun getPropertyValue(propertyName: String, throwIfNotFound: Boolean = false): St
 }
 
 // Cache dir for build artifacts that should be stored on S3
-val releaseMetaDataDir = File("${buildDir}/outputs/s3")
-releaseMetaDataDir.mkdirs()
+val releaseMetaDataDir = layout.buildDirectory.dir("outputs/s3").map {
+    it.apply { asFile.mkdirs() }
+}
 
-fun readAndCacheVersion(): String {
+fun readAndCacheVersion(releaseMetaDataDir: File): String {
     val constants: String = File("${projectDir.absolutePath}/buildSrc/src/main/kotlin/Config.kt").readText()
     val regex = "const val version = \"(.*?)\"".toRegex()
     val match: MatchResult = regex.find(constants) ?: throw GradleException("Could not find current Realm version")
     val version: String = match.groups[1]!!.value
-    val versionFile = File(releaseMetaDataDir, "version.txt")
+    val versionFile = releaseMetaDataDir.resolve("version.txt")
     versionFile.createNewFile()
     versionFile.writeText(version)
     return version
 }
-val currentVersion = readAndCacheVersion()
+val currentVersion = releaseMetaDataDir.map { readAndCacheVersion(it.asFile) }
 val subprojects = listOf("packages", "examples/kmm-sample", "benchmarks")
 fun taskName(subdir: String): String {
-    return subdir.split("/", "-").map { it.capitalize() }.joinToString(separator = "")
+    return subdir.split("/", "-").joinToString(separator = "") {
+        it.replaceFirstChar { c -> if (c.isLowerCase()) c.titlecase(Locale.ROOT) else c.toString() }
+    }
 }
 
 fun copyProperties(action: GradleBuild) {
@@ -83,6 +87,14 @@ allprojects {
            jvmTarget.set(fromTarget(Versions.kotlinJvmTarget))
        }
    }
+}
+
+// Define an interface to allow Gradle to inject the ExecOperations service.
+// This is the required mechanism for running external processes inside non-Exec tasks.
+// See Gradle doc: https://docs.gradle.org/current/userguide/service_injection.html#execoperations
+interface ExecOpsProvider {
+    @get:Inject
+    val execOps: ExecOperations
 }
 
 tasks {
@@ -125,7 +137,7 @@ tasks {
     register<GradleBuild>("mavenCentralUpload") {
         description = "Push all Realm artifacts to Maven Central"
         group = "Publishing"
-        buildFile = file("${rootDir}/packages/build.gradle.kts")
+        dir = file("${rootDir}/packages")
         tasks = listOf("publishToSonatype")
         copyProperties(this)
     }
@@ -159,17 +171,20 @@ tasks {
 
     val uploadDebugSymbols by register("uploadDebugSymbols", Task::class) {
         dependsOn.addAll(listOf(archiveDebugSymbols, verifyS3Access))
+
+        val injectedExecOps = project.objects.newInstance<ExecOpsProvider>()
+
         doLast {
-            exec {
+            injectedExecOps.execOps.exec {
                 val s3AccessKey = getPropertyValue("REALM_S3_ACCESS_KEY")
                 val s3SecretKey = getPropertyValue("REALM_S3_SECRET_KEY")
-                workingDir = File("${buildDir}/outputs/s3/")
+                workingDir = releaseMetaDataDir.get().asFile
                 commandLine = listOf(
                         "s3cmd",
                         "--access_key=${s3AccessKey}",
                         "--secret_key=${s3SecretKey}",
                         "put",
-                        "realm-kotlin-jni-libs-unstripped-${currentVersion}.zip",
+                        "realm-kotlin-jni-libs-unstripped-${currentVersion.get()}.zip",
                         "s3://static.realm.io/downloads/kotlin/"
                 )
             }
@@ -180,13 +195,14 @@ tasks {
         dependsOn.add(verifyS3Access)
         val s3AccessKey = getPropertyValue("REALM_S3_ACCESS_KEY")
         val s3SecretKey = getPropertyValue("REALM_S3_SECRET_KEY")
-        File("$buildDir/outputs/s3", "version.txt").writeText(currentVersion)
+        val versionFile = releaseMetaDataDir.map { it.file("version.txt") }.get().asFile
+        versionFile.writeText(currentVersion.get())
         commandLine = listOf(
                 "s3cmd",
                 "--access_key=${s3AccessKey}",
                 "--secret_key=${s3SecretKey}",
                 "put",
-                "${buildDir}/outputs/s3/version.txt",
+                "$versionFile",
                 "s3://static.realm.io/update/kotlin")
     }
 
