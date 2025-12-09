@@ -59,7 +59,7 @@ buildscript {
 // they are not allowed to set the version. It can only be set from here.
 dependencies {
     implementation(kotlin("gradle-plugin", version = Versions.kotlin))
-    implementation("com.gradleup.nmcp.aggregation:com.gradleup.nmcp.aggregation.gradle.plugin:1.1.0")
+    implementation("com.gradleup.nmcp.aggregation:com.gradleup.nmcp.aggregation.gradle.plugin:1.3.0")
     implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${Versions.detektPlugin}")
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}")
     implementation("org.jetbrains.kotlin:kotlin-compiler-embeddable:${Versions.kotlin}")

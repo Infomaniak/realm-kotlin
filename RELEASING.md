@@ -117,6 +117,12 @@ would be sent to Maven Central._
 unzip build/nmcp/zip/aggregation.zip -d ~/.m2/repository/
 ```
 
+Note: You can also run this command that combines the 2 from above:
+
+```shell
+./gradlew nmcpPublishAggregationToMavenLocal
+```
+
 ### 7. Test the test consumer project
 
 Now, Gradle sync, building, running the app, and its tests, should work fine.

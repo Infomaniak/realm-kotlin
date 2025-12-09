@@ -26,13 +26,14 @@ import io.realm.kotlin.query.find
 import io.realm.kotlin.test.platform.PlatformUtils
 import io.realm.kotlin.test.util.use
 import io.realm.kotlin.types.RealmInstant
-import kotlinx.datetime.Clock
 import org.mongodb.kbson.ObjectId
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
+import kotlin.time.Clock
+import kotlin.time.ExperimentalTime
 
 class BsonObjectIdTests {
 
@@ -126,6 +127,7 @@ class BsonObjectIdTests {
         }
     }
 
+    @OptIn(ExperimentalTime::class)
     @Test
     fun queries() = runBlocking {
         val timestamp = Clock.System.now().toEpochMilliseconds()
