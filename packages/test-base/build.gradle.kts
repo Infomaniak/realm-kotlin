@@ -169,6 +169,7 @@ android {
 @Suppress("UNUSED_VARIABLE")
 kotlin {
     androidTarget()
+    @Suppress("unused") // The names of properties are used through delegation (`by`).
     sourceSets {
         val commonTest by getting
         val androidMain by getting {
@@ -231,6 +232,7 @@ kotlin {
 @Suppress("UNUSED_VARIABLE")
 kotlin {
     jvm()
+    @Suppress("unused") // The names of properties are used through delegation (`by`).
     sourceSets {
         val jvmMain by getting {
             dependencies {
@@ -261,6 +263,7 @@ kotlin {
             testRun.deviceId = project.findProperty("iosDevice")?.toString() ?: "iPhone 14"
         }
     }
+    @Suppress("unused") // The names of properties are used through delegation (`by`).
     sourceSets {
         val commonMain by getting
         val commonTest by getting
