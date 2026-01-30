@@ -34,6 +34,9 @@ object Compiler {
             messageOutputStream = System.out
             compilerPluginRegistrars = plugins
             inheritClassPath = true
-            kotlincArguments = listOf("-Xjvm-default=all-compatibility")
+            kotlincArguments = listOf(
+                "-Xjvm-default=all-compatibility",
+                "-jvm-target=17"
+            )
         }.compile()
 }
