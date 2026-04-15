@@ -139,6 +139,7 @@ object ClassIds {
     val IGNORE_ANNOTATION = ClassId(FqNames.PACKAGE_ANNOTATIONS, Name.identifier("Ignore"))
     val PERSISTED_NAME_ANNOTATION = ClassId(FqNames.PACKAGE_ANNOTATIONS, Name.identifier("PersistedName"))
     val TRANSIENT_ANNOTATION = ClassId(FqName("kotlin.jvm"), Name.identifier("Transient"))
+    val KOTLINX_SERIALIZATION_TRANSIENT_ANNOTATION = ClassId(FqName("kotlinx.serialization"), Name.identifier("Transient"))
     val MODEL_OBJECT_ANNOTATION = ClassId(FqName("io.realm.kotlin.internal.platform"), Name.identifier("ModelObject"))
     val PROPERTY_INFO_CREATE = CallableId(FqName("io.realm.kotlin.internal.schema"), Name.identifier("createPropertyInfo"))
     val CLASS_KIND_TYPE = ClassId(FqName("io.realm.kotlin.schema"), Name.identifier("RealmClassKind"))

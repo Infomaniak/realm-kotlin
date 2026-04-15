@@ -22,17 +22,17 @@ import com.tschuchort.compiletesting.KotlinCompilation
 import com.tschuchort.compiletesting.SourceFile
 import io.realm.kotlin.compiler.Registrar
 import org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi
+import org.jetbrains.kotlin.compiler.plugin.CompilerPluginRegistrar
 
 object Compiler {
     fun compileFromSource(
         source: SourceFile,
-        plugins: List<Registrar> = listOf(Registrar())
+        plugins: List<CompilerPluginRegistrar> = listOf(Registrar())
     ): JvmCompilationResult =
         KotlinCompilation().apply {
             sources = listOf(source)
             messageOutputStream = System.out
-            @Suppress("deprecation")
-            componentRegistrars = plugins
+            compilerPluginRegistrars = plugins
             inheritClassPath = true
             kotlincArguments = listOf("-Xjvm-default=all-compatibility")
         }.compile()
