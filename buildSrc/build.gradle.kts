@@ -25,6 +25,10 @@ plugins {
 
 gradlePlugin {
     plugins {
+        register("realm-lint") {
+            id = "realm-lint"
+            implementationClass = "RealmLintPlugin"
+        }
         register("realm-publisher") {
             id = "realm-publisher"
             implementationClass = "org.realm.kotlin.RealmPublishPlugin"
