@@ -38,6 +38,7 @@ import io.realm.kotlin.internal.schema.SchemaMetadata
 import io.realm.kotlin.types.BaseRealmObject
 import io.realm.kotlin.types.RealmObject
 import io.realm.kotlin.types.TypedRealmObject
+import org.jetbrains.kotlin.compiler.plugin.CompilerPluginRegistrar
 import org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi
 import org.junit.Test
 import java.io.File
@@ -92,7 +93,7 @@ class GenerationExtensionTest {
         ).joinToString(separator = File.separator)
 
         fun assertGeneratedIR() {
-            val outputFile = File("${outputDir()}/main/02_AFTER.JvmValidateIrBeforeLowering.ir")
+            val outputFile = File("${outputDir()}/main/02_AFTER.JvmK1IrValidationBeforeLoweringPhase.ir")
             stripInputPath(outputFile, fileMap)
             val expected = File("${expectedDir()}/02_AFTER.ValidateIrBeforeLowering.ir").readText()
             val actual = outputFile.readText()
@@ -366,21 +367,21 @@ class GenerationExtensionTest {
         // assertEquals("Hello Zepp", nameProperty.call(sampleModel))
     }
 
-    @Suppress("deprecation")
     private fun compile(
         inputs: Files,
-        plugins: List<org.jetbrains.kotlin.compiler.plugin.ComponentRegistrar> = listOf(Registrar()),
+        plugins: List<CompilerPluginRegistrar> = listOf(Registrar()),
         options: List<PluginOption> = emptyList(),
     ): JvmCompilationResult {
         return KotlinCompilation().apply {
             sources = inputs.fileMap.values.map { SourceFile.fromPath(it) }
             messageOutputStream = System.out
-            componentRegistrars = plugins
+            compilerPluginRegistrars = plugins
             inheritClassPath = true
+            jvmTarget = "17"
             kotlincArguments = listOf(
                 "-Xjvm-default=all-compatibility",
                 "-Xdump-directory=${inputs.outputDir()}",
-                "-Xphases-to-dump-after=JvmValidateIrBeforeLowering"
+                "-Xphases-to-dump-after=JvmK1IrValidationBeforeLoweringPhase"
             )
             commandLineProcessors = listOf(RealmCommandLineProcessor())
             pluginOptions = options
