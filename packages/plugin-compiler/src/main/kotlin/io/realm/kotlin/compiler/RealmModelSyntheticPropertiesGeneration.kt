@@ -38,6 +38,7 @@ import io.realm.kotlin.compiler.ClassIds.REALM_MODEL_COMPANION
 import io.realm.kotlin.compiler.ClassIds.REALM_OBJECT_INTERFACE
 import io.realm.kotlin.compiler.ClassIds.REALM_OBJECT_INTERNAL_INTERFACE
 import io.realm.kotlin.compiler.ClassIds.REALM_UUID
+import io.realm.kotlin.compiler.ClassIds.KOTLINX_SERIALIZATION_TRANSIENT_ANNOTATION
 import io.realm.kotlin.compiler.ClassIds.TYPED_REALM_OBJECT_INTERFACE
 import io.realm.kotlin.compiler.Names.CLASS_INFO_CREATE
 import io.realm.kotlin.compiler.Names.OBJECT_REFERENCE
@@ -118,6 +119,7 @@ import org.jetbrains.kotlin.ir.util.parentAsClass
 import org.jetbrains.kotlin.name.Name
 import org.jetbrains.kotlin.util.capitalizeDecapitalize.toLowerCaseAsciiOnly
 import org.jetbrains.kotlin.ir.util.isNullable
+import org.jetbrains.kotlin.ir.util.primaryConstructor
 
 
 /**
@@ -761,6 +763,17 @@ class RealmModelSyntheticPropertiesGeneration(private val pluginContext: IrPlugi
             visibility = DescriptorVisibilities.PUBLIC
             modality = Modality.OPEN
             isVar = true
+        }
+        // Skip kotlinx.serialization for this internal property if the annotation is available.
+        pluginContext.referenceClass(KOTLINX_SERIALIZATION_TRANSIENT_ANNOTATION)?.owner?.let { transientClass ->
+            transientClass.primaryConstructor?.let { ctor ->
+                property.annotations += IrConstructorCallImpl.fromSymbolOwner(
+                    startOffset = startOffset,
+                    endOffset = endOffset,
+                    type = transientClass.defaultType,
+                    constructorSymbol = ctor.symbol
+                )
+            }
         }
         // FIELD PROPERTY_BACKING_FIELD name:objectPointer type:kotlin.Long? visibility:private
         property.backingField = pluginContext.irFactory.buildField {

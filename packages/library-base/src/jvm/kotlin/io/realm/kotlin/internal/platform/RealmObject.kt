@@ -44,12 +44,13 @@ internal actual fun <T : Any> realmObjectCompanionOrNull(clazz: KClass<T>): Real
     val cachedClass = reflectionCache[clazz]
     if (cachedClass != null) return cachedClass as? RealmObjectCompanion
 
+    val classLoader = clazz.java.classLoader
     val newValue: Any = clazz.javaPrimitiveType ?: (try {
-        Class.forName("${clazz.java.name}\$Companion").kotlin
+        Class.forName("${clazz.java.name}\$Companion", true, classLoader).kotlin
     } catch (_: ClassNotFoundException) {
         try {
             // For Parcelable classes
-            Class.forName("${clazz.java.name}\$CREATOR").kotlin
+            Class.forName("${clazz.java.name}\$CREATOR", true, classLoader).kotlin
         } catch (_: ClassNotFoundException) {
             null
         }

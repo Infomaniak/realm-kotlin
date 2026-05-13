@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 /*
  * Copyright 2020 Realm Inc.
  *
@@ -18,11 +21,14 @@
 plugins {
     `kotlin-dsl`
     `kotlin-dsl-precompiled-script-plugins`
-    kotlin("jvm") version Versions.kotlin
 }
 
 gradlePlugin {
     plugins {
+        register("realm-lint") {
+            id = "realm-lint"
+            implementationClass = "RealmLintPlugin"
+        }
         register("realm-publisher") {
             id = "realm-publisher"
             implementationClass = "org.realm.kotlin.RealmPublishPlugin"
@@ -68,4 +74,11 @@ dependencies {
     implementation("com.android.tools:r8:${Versions.Android.r8}")
     implementation("com.android.tools.build:gradle:${Versions.Android.buildTools}")
     implementation(kotlin("script-runtime"))
+}
+
+tasks.withType<KotlinCompile>().configureEach {
+    compilerOptions {
+        apiVersion.set(KotlinVersion.KOTLIN_2_3)
+        languageVersion.set(KotlinVersion.KOTLIN_2_3)
+    }
 }

@@ -114,6 +114,9 @@ class RealmPublishPlugin : Plugin<Project> {
                 if (keyId.isEmpty()) project.logger.warn("keyId is empty")
                 if (ringFile.isEmpty()) project.logger.warn("ringFile is empty")
                 if (password.isEmpty()) project.logger.warn("password is empty")
+                tasks.withType(Sign::class.java).configureEach {
+                    enabled = false
+                }
             } else {
                 // Configure signing
                 extensions.getByType<SigningExtension>().apply {
