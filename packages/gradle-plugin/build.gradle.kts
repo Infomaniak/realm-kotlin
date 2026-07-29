@@ -44,25 +44,19 @@ fun createMarkerArtifact(): Boolean {
     return value.toBoolean()
 }
 
-pluginBundle {
-    website = "https://github.com/Infomaniak/realm-kotlin"
-    vcsUrl = "git@github.com:Infomaniak/realm-kotlin.git"
-    tags = listOf("MongoDB", "Realm", "Database", "Kotlin", "Mobile", "Multiplatform", "Android", "KMM")
-
-    mavenCoordinates {
-        groupId = Realm.group
-        artifactId = Realm.gradlePluginId
-        version = Realm.version
-    }
-}
+group = Realm.group
+version = Realm.version
 
 gradlePlugin {
+    website = "https://github.com/Infomaniak/realm-kotlin"
+    vcsUrl = "git@github.com:Infomaniak/realm-kotlin.git"
     plugins {
         create("RealmPlugin") {
             id = Realm.pluginPortalId
             displayName = "Realm Kotlin Plugin"
             description = "Gradle plugin for the Realm Kotlin SDK, supporting Android and Multiplatform. " +
                 "Realm is a mobile database: Build better apps faster."
+            tags = listOf("MongoDB", "Realm", "Database", "Kotlin", "Mobile", "Multiplatform", "Android", "KMM")
             implementationClass = "io.realm.kotlin.gradle.RealmPlugin"
         }
         isAutomatedPublishing = createMarkerArtifact()
@@ -121,6 +115,3 @@ val versionConstants: Task = tasks.create("versionConstants") {
 
 tasks.getByName("compileKotlin").dependsOn(versionConstants)
 tasks.getByName("sourcesJar").dependsOn(versionConstants)
-afterEvaluate {
-    tasks.getByName("publishPluginJar").dependsOn(versionConstants)
-}

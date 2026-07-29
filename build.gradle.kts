@@ -1,4 +1,7 @@
+import org.gradle.api.attributes.Bundling
+import org.gradle.api.attributes.java.TargetJvmVersion
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget.Companion.fromTarget
+import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 /*
  * Copyright 2020 Realm Inc.
@@ -83,6 +86,25 @@ allprojects {
            jvmTarget.set(fromTarget(Versions.kotlinJvmTarget))
        }
    }
+
+    // Ensure JVM variants publish the attributes required by newer Gradle variant matching.
+    pluginManager.withPlugin("org.jetbrains.kotlin.multiplatform") {
+        extensions.configure<KotlinMultiplatformExtension> {
+            jvmToolchain(Versions.kotlinJvmTarget.toInt())
+        }
+        configurations.matching {
+            it.name == "jvmRuntimeElements" || it.name == "jvmApiElements"
+        }.configureEach {
+            attributes.attribute(
+                Bundling.BUNDLING_ATTRIBUTE,
+                objects.named(Bundling::class.java, Bundling.EXTERNAL)
+            )
+            attributes.attribute(
+                TargetJvmVersion.TARGET_JVM_VERSION_ATTRIBUTE,
+                Versions.kotlinJvmTarget.toInt()
+            )
+        }
+    }
 }
 
 tasks {
